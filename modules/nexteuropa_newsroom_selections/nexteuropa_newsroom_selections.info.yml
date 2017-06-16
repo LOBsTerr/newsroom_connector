@@ -1,0 +1,13 @@
+name: Nexteuropa Newsroom Selections
+description: Newsroom selections
+package: Nexteuropa
+
+type: module
+core: 8.x
+
+dependencies:
+  - datetime:datetime
+  - link:link
+  - drupal:views
+
+configure: admin/newsroom
