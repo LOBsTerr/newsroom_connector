@@ -1,0 +1,19 @@
+uuid: 1d4b5cdd-7807-4a8d-9f39-abed5dba2348
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_service_sample
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_service_sample
+field_name: field_newsroom_service_sample
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: Sample
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

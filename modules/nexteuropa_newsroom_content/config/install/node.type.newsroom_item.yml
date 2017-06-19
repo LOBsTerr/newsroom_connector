@@ -1,0 +1,17 @@
+uuid: 71a367a6-c2d1-43ee-8d09-d937e1590894
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Newsroom item'
+type: newsroom_item
+description: 'Main newsroom content item'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

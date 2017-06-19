@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  - modules
+    nexteuropa_newsroom_selections
+name: 'Newsroom Selection'
+type: newsroom_selection
+description: 'Newsroom selection allows you to make a complicated search cases.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

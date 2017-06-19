@@ -1,0 +1,9 @@
+uuid: 3d0feb59-f559-471e-ae48-052ccff3f89e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Newsroom Item Type'
+vid: newsroom_item_type
+description: 'Newsroom item types'
+hierarchy: 0
+weight: 0

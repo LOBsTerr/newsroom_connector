@@ -1,0 +1,19 @@
+uuid: d73901d5-285b-4040-97f9-f411671204a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_service_active
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_service_active
+field_name: field_newsroom_service_active
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Service active'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 23e56a88-2901-4975-bbd3-3d67add07cab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_display_date
+    - taxonomy.vocabulary.newsroom_item_type
+id: taxonomy_term.newsroom_item_type.field_newsroom_display_date
+field_name: field_newsroom_display_date
+entity_type: taxonomy_term
+bundle: newsroom_item_type
+label: 'Display date'
+description: 'Display or not the date for newsroom type'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Display date'
+  off_label: 'Do not display date'
+field_type: boolean

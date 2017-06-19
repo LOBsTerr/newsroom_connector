@@ -1,0 +1,19 @@
+uuid: f755359f-dd61-4907-80fb-1393c8356ea8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_date_label
+    - taxonomy.vocabulary.newsroom_item_type
+id: taxonomy_term.newsroom_item_type.field_newsroom_date_label
+field_name: field_newsroom_date_label
+entity_type: taxonomy_term
+bundle: newsroom_item_type
+label: 'Date label'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

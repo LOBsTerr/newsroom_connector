@@ -1,0 +1,18 @@
+uuid: 2cd9fe27-91ce-47c9-bb9c-fd43ef4a0a1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_newsroom_basic_mailing
+field_name: field_newsroom_basic_mailing
+entity_type: taxonomy_term
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

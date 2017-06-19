@@ -1,0 +1,21 @@
+uuid: 41587eb2-bd15-493e-b12f-7bedf79d0255
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_type
+    - taxonomy.vocabulary.newsroom_item_type
+  module:
+    - options
+id: taxonomy_term.newsroom_item_type.field_newsroom_type
+field_name: field_newsroom_type
+entity_type: taxonomy_term
+bundle: newsroom_item_type
+label: 'Listing behavior'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

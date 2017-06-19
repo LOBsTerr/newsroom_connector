@@ -1,0 +1,28 @@
+uuid: f987b5fd-b20f-4fd4-9933-c460c84d4e6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_featured_item
+    - node.type.newsroom_item
+    - taxonomy.vocabulary.newsroom_item_type
+id: taxonomy_term.newsroom_item_type.field_newsroom_featured_item
+field_name: field_newsroom_featured_item
+entity_type: taxonomy_term
+bundle: newsroom_item_type
+label: 'Featured item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      newsroom_item: newsroom_item
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

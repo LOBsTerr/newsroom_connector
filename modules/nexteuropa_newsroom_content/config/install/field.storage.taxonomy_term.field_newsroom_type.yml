@@ -1,0 +1,33 @@
+uuid: 6f3f8edf-b118-4de8-8e95-996f46dba1b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_newsroom_type
+field_name: field_newsroom_type
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: Default
+    -
+      value: events
+      label: Event
+    -
+      value: consultation_funding
+      label: 'Consultation and Opportunity'
+    -
+      value: call
+      label: Calls
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

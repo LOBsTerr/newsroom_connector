@@ -1,0 +1,23 @@
+uuid: 2fdd89a8-9be6-49c0-a41d-66866c737176
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_basic_mailing
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_basic_mailing
+field_name: field_newsroom_basic_mailing
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Basic mailing'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Basic mailing'
+  off_label: 'Is not basic mailing'
+field_type: boolean

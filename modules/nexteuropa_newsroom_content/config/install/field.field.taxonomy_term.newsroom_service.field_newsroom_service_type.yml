@@ -1,0 +1,19 @@
+uuid: b9521a2c-ba29-44f6-b4a9-363833035013
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_service_type
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_service_type
+field_name: field_newsroom_service_type
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Service type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 7c1fdac5-9570-433c-a418-50c4f8b6b91c
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_newsroom_topic
+field_name: field_newsroom_topic
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

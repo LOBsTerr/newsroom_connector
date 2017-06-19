@@ -1,0 +1,9 @@
+uuid: d2c9f855-ba6e-410b-98f0-6fe6cd64eadb
+langcode: en
+status: true
+dependencies: {  }
+name: 'Newsroom topic'
+vid: newsroom_topic
+description: 'Newsroom topics'
+hierarchy: 0
+weight: 0

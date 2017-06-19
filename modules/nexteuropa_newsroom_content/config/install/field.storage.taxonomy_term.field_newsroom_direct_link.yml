@@ -1,0 +1,33 @@
+uuid: 82c81293-284c-4fec-9bd4-6dc86a26fdff
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_newsroom_direct_link
+field_name: field_newsroom_direct_link
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: never
+      label: 'Not allowed'
+    -
+      value: from_teaser
+      label: 'Allowed from title and teaser displays (for "teaser only" items)'
+    -
+      value: always
+      label: 'Allowed from title only displays (for "teaser only" items)'
+    -
+      value: force
+      label: 'Forced even when content available and not "teaser only" (except for newsroom editors)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

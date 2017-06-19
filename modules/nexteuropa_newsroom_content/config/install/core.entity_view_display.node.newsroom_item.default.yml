@@ -1,0 +1,36 @@
+uuid: 08c5c752-bc21-43a8-8555-0ac868adfcec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.newsroom_item.body
+    - field.field.node.newsroom_item.field_newsroom_id
+    - node.type.newsroom_item
+  module:
+    - text
+    - user
+id: node.newsroom_item.default
+targetEntityType: node
+bundle: newsroom_item
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_newsroom_id:
+    weight: 102
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

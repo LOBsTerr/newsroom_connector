@@ -1,0 +1,23 @@
+uuid: ee5f322a-7722-4692-826e-cdf20d7fea9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_mailing_exists
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_mailing_exists
+field_name: field_newsroom_mailing_exists
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Mailing exists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Mailing exists'
+  off_label: 'Mailing does not exist'
+field_type: boolean
