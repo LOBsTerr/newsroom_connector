@@ -1,11 +1,10 @@
-uuid: c37dd9dc-a8f4-48eb-a9f9-5a91d69bd15c
 langcode: en
 status: true
 dependencies:
   module:
     - taxonomy
-id: taxonomy_term.field_newsroom_service_type
-field_name: field_newsroom_service_type
+id: taxonomy_term.field_newsroom_service_active
+field_name: field_newsroom_service_active
 entity_type: taxonomy_term
 type: string
 settings:
