@@ -10,4 +10,4 @@ dependencies:
   - link:link
   - drupal:views
 
-configure: admin/newsroom
+configure: admin/nexteuropa_newsroom

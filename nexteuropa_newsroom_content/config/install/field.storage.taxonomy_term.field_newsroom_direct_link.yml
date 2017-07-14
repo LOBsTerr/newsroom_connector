@@ -22,7 +22,7 @@ settings:
       label: 'Allowed from title only displays (for "teaser only" items)'
     -
       value: force
-      label: 'Forced even when content available and not "teaser only" (except for newsroom editors)'
+      label: 'Forced even when content available and not "teaser only" (except for nexteuropa_newsroom editors)'
   allowed_values_function: ''
 module: options
 locked: false

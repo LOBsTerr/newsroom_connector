@@ -9,5 +9,3 @@ dependencies:
   - datetime:datetime
   - link:link
   - drupal:views
-
-configure: admin/newsroom

@@ -10,7 +10,7 @@ field_name: field_newsroom_id
 entity_type: taxonomy_term
 bundle: newsroom_item_type
 label: 'Newsroom ID'
-description: 'Original newsroom id. Used to keep connection between newsroom application and Drupal side.'
+description: 'Original nexteuropa_newsroom id. Used to keep connection between nexteuropa_newsroom application and Drupal side.'
 required: false
 translatable: false
 default_value: {  }

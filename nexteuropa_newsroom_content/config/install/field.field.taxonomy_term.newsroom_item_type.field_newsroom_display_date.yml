@@ -10,7 +10,7 @@ field_name: field_newsroom_display_date
 entity_type: taxonomy_term
 bundle: newsroom_item_type
 label: 'Display date'
-description: 'Display or not the date for newsroom type'
+description: 'Display or not the date for nexteuropa_newsroom type'
 required: false
 translatable: false
 default_value:

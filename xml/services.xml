@@ -1,557 +1,1097 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-			<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:infsonewsroom="http://urltodetermine">
-			  <channel>
-			    <title>Interpretation - Services</title>
-			    <link>http://ec.europa.eu/newsroom/scic/cf/scic/rss-service.cfm</link>
-			    <description>Services list</description>
-			    <language>en-gb</language>
-			    <copyright>European Commission</copyright>
-			    <managingEditor>cnect-editor@ec.europa.eu</managingEditor>
-			    <webMaster>cnect-editor@ec.europa.eu</webMaster>
-			    <ttl>30</ttl>
-			    
-					<item nrid="service-141">
-						
-								<title lang="EN">SCIC Newsroom</title>
-								<link lang="EN">http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=141&amp;lang=EN</link>
-								<description lang="EN"></description>
-								<infsonewsroom:archivesLink lang="EN">http://ec.europa.eu/newsroom/scic/newsletter-central-archive.cfm</infsonewsroom:archivesLink>
-							
-								<title lang="FR">SCIC Newsroom</title>
-								<link lang="FR">http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=141&amp;lang=FR</link>
-								<description lang="FR"></description>
-								<infsonewsroom:archivesLink lang="FR">http://ec.europa.eu/newsroom/scic/newsletter-central-archive.cfm</infsonewsroom:archivesLink>
-							 
-						<pubDate>Tue, 24 Jun 2014 11:10:52 GMT</pubDate>
-						<guid>http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=141</guid>
-						<infsonewsroom:BasicSvId>141</infsonewsroom:BasicSvId>
-						<infsonewsroom:BasicSvStatus>Active</infsonewsroom:BasicSvStatus>
-						<infsonewsroom:BasicSvType>Newsroom service</infsonewsroom:BasicSvType>
-						<infsonewsroom:BasicSvTypeId>1040</infsonewsroom:BasicSvTypeId>
-						<infsonewsroom:BasicSvMailing>1</infsonewsroom:BasicSvMailing>
-						
-						<infsonewsroom:mailingExists>0</infsonewsroom:mailingExists> <infsonewsroom:BasicSvVisuUrl></infsonewsroom:BasicSvVisuUrl> 
-									<category nrid="topic-6961"  lang="EN" domain="Theme" infsonewsroom:TopicId="6961" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Logistics &amp; Mail</category>
-									
-									<category nrid="topic-6961"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6961" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Logistiques et Courrier</category>
-									
-									<category nrid="topic-6511"  lang="EN" domain="Theme" infsonewsroom:TopicId="6511" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Guidelines and Procedures</category>
-									
-									<category nrid="topic-6511"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6511" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Guidelines and Procedures</category>
-									
-									<category nrid="topic-6507"  lang="EN" domain="Theme" infsonewsroom:TopicId="6507" infsonewsroom:parentTopicId="6479" infsonewsroom:TopicHighlight="0">Functional Mailboxes AMC</category>
-									
-									<category nrid="topic-6507"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6507" infsonewsroom:parentTopicId="6479" infsonewsroom:TopicHighlight="0">Boites fonctionnelles AMC</category>
-									
-									<category nrid="topic-6479"  lang="EN" domain="Theme" infsonewsroom:TopicId="6479" infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">HR Business Correspondent</category>
-									
-									<category nrid="topic-6479"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6479" infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">HR Business Correspondent</category>
-									
-									<category nrid="topic-6478"  lang="EN" domain="Theme" infsonewsroom:TopicId="6478" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Human Resources</category>
-									
-									<category nrid="topic-6478"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6478" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Human Resources</category>
-									
-									<category nrid="topic-6435"  lang="EN" domain="Theme" infsonewsroom:TopicId="6435" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Contacting Planning</category>
-									
-									<category nrid="topic-6435"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6435" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Contacter la programmation</category>
-									
-									<category nrid="topic-2943"  lang="EN" domain="Theme" infsonewsroom:TopicId="2943" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Blog</category>
-									
-									<category nrid="topic-2943"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2943" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Blog</category>
-									
-									<category nrid="topic-2286"  lang="EN" domain="Theme" infsonewsroom:TopicId="2286" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">Information for Web Publishers</category>
-									
-									<category nrid="topic-2286"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2286" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">Information for Web Publishers</category>
-									
-									<category nrid="topic-2227"  lang="EN" domain="Theme" infsonewsroom:TopicId="2227" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">System Modules</category>
-									
-									<category nrid="topic-2227"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2227" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules &quot;syst&#xe8;me&quot;</category>
-									
-									<category nrid="topic-2226"  lang="EN" domain="Theme" infsonewsroom:TopicId="2226" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules for Inter-institutional Cooperation</category>
-									
-									<category nrid="topic-2226"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2226" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour la Coop&#xe9;ration Interinstitutionnelle</category>
-									
-									<category nrid="topic-2225"  lang="EN" domain="Theme" infsonewsroom:TopicId="2225" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Customer Modules</category>
-									
-									<category nrid="topic-2225"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2225" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour les clients</category>
-									
-									<category nrid="topic-2224"  lang="EN" domain="Theme" infsonewsroom:TopicId="2224" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Management Modules</category>
-									
-									<category nrid="topic-2224"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2224" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules de gestion</category>
-									
-									<category nrid="topic-2223"  lang="EN" domain="Theme" infsonewsroom:TopicId="2223" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules for AIC</category>
-									
-									<category nrid="topic-2223"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2223" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour les AIC</category>
-									
-									<category nrid="topic-2222"  lang="EN" domain="Theme" infsonewsroom:TopicId="2222" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Interpreter Modules </category>
-									
-									<category nrid="topic-2222"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2222" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0"> Modules pour les interpr&#xe8;tes</category>
-									
-									<category nrid="topic-2221"  lang="EN" domain="Theme" infsonewsroom:TopicId="2221" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Administrative Modules</category>
-									
-									<category nrid="topic-2221"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2221" infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour l&apos;encadrement</category>
-									
-									<category nrid="topic-2220"  lang="EN" domain="Theme" infsonewsroom:TopicId="2220" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Presidency Coordinator</category>
-									
-									<category nrid="topic-2220"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2220" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Coordinateur de la Pr&#xe9;sidence</category>
-									
-									<category nrid="topic-2219"  lang="EN" domain="Theme" infsonewsroom:TopicId="2219" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Whom to contact?</category>
-									
-									<category nrid="topic-2219"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2219" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Whom to contact?</category>
-									
-									<category nrid="topic-2217"  lang="EN" domain="Theme" infsonewsroom:TopicId="2217" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Various Links</category>
-									
-									<category nrid="topic-2217"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2217" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Various Links</category>
-									
-									<category nrid="topic-2216"  lang="EN" domain="Theme" infsonewsroom:TopicId="2216" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Dictionaries &amp; Databases</category>
-									
-									<category nrid="topic-2216"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2216" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Dictionaries &amp; Databases</category>
-									
-									<category nrid="topic-2215"  lang="EN" domain="Theme" infsonewsroom:TopicId="2215" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Terminology</category>
-									
-									<category nrid="topic-2215"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2215" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Terminology</category>
-									
-									<category nrid="topic-2214"  lang="EN" domain="Theme" infsonewsroom:TopicId="2214" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">International Organisations Terminology</category>
-									
-									<category nrid="topic-2214"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2214" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">International Organisations Terminology</category>
-									
-									<category nrid="topic-2213"  lang="EN" domain="Theme" infsonewsroom:TopicId="2213" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Documentation &amp; News</category>
-									
-									<category nrid="topic-2213"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2213" infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Documentation &amp; News</category>
-									
-									<category nrid="topic-2188"  lang="EN" domain="Theme" infsonewsroom:TopicId="2188" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Whom to contact?</category>
-									
-									<category nrid="topic-2188"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2188" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Qui contacter?</category>
-									
-									<category nrid="topic-2179"  lang="EN" domain="Theme" infsonewsroom:TopicId="2179" infsonewsroom:parentTopicId="1955" infsonewsroom:TopicHighlight="0">LV Glossaries</category>
-									
-									<category nrid="topic-2179"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2179" infsonewsroom:parentTopicId="1955" infsonewsroom:TopicHighlight="0">LV Glossaries</category>
-									
-									<category nrid="topic-2178"  lang="EN" domain="Theme" infsonewsroom:TopicId="2178" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Communications Network</category>
-									
-									<category nrid="topic-2178"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2178" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Communications Network</category>
-									
-									<category nrid="topic-2175"  lang="EN" domain="Theme" infsonewsroom:TopicId="2175" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Recruitment Issues</category>
-									
-									<category nrid="topic-2175"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2175" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Questions de recrutement</category>
-									
-									<category nrid="topic-2172"  lang="EN" domain="Theme" infsonewsroom:TopicId="2172" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Document Management</category>
-									
-									<category nrid="topic-2172"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2172" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Gestion de documents</category>
-									
-									<category nrid="topic-2142"  lang="EN" domain="Theme" infsonewsroom:TopicId="2142" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Where Is My Meeting</category>
-									
-									<category nrid="topic-2142"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2142" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">O&#xf9; a lieu ma r&#xe9;union ?</category>
-									
-									<category nrid="topic-2141"  lang="EN" domain="Theme" infsonewsroom:TopicId="2141" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">EESC/CoR Antenna</category>
-									
-									<category nrid="topic-2141"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2141" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">CESE/CdR Antenne</category>
-									
-									<category nrid="topic-2140"  lang="EN" domain="Theme" infsonewsroom:TopicId="2140" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Council Antenna</category>
-									
-									<category nrid="topic-2140"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2140" infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Antenne Conseil</category>
-									
-									<category nrid="topic-2133"  lang="EN" domain="Theme" infsonewsroom:TopicId="2133" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Relay</category>
-									
-									<category nrid="topic-2133"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2133" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Relay</category>
-									
-									<category nrid="topic-2132"  lang="EN" domain="Theme" infsonewsroom:TopicId="2132" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">In Memoriam</category>
-									
-									<category nrid="topic-2132"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2132" infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">In Memoriam</category>
-									
-									<category nrid="topic-2129"  lang="EN" domain="Theme" infsonewsroom:TopicId="2129" infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Information Systems</category>
-									
-									<category nrid="topic-2129"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2129" infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Syst&#xe8;mes d&apos;information</category>
-									
-									<category nrid="topic-2128"  lang="EN" domain="Theme" infsonewsroom:TopicId="2128" infsonewsroom:parentTopicId="2127" infsonewsroom:TopicHighlight="0">Technical Compliance</category>
-									
-									<category nrid="topic-2128"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2128" infsonewsroom:parentTopicId="2127" infsonewsroom:TopicHighlight="0">Conformit&#xe9; technique</category>
-									
-									<category nrid="topic-2127"  lang="EN" domain="Theme" infsonewsroom:TopicId="2127" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Conference Services &amp; Logistics</category>
-									
-									<category nrid="topic-2127"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2127" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Services de conf&#xe9;rences &amp; logistiques</category>
-									
-									<category nrid="topic-2126"  lang="EN" domain="Theme" infsonewsroom:TopicId="2126" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Financial Circuits</category>
-									
-									<category nrid="topic-2126"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2126" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Circuits financiers</category>
-									
-									<category nrid="topic-2125"  lang="EN" domain="Theme" infsonewsroom:TopicId="2125" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Financial Correspondents&apos; Meetings</category>
-									
-									<category nrid="topic-2125"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2125" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">R&#xe9;unions des correpondants financiers</category>
-									
-									<category nrid="topic-2124"  lang="EN" domain="Theme" infsonewsroom:TopicId="2124" infsonewsroom:parentTopicId="1929" infsonewsroom:TopicHighlight="0">Enlargement</category>
-									
-									<category nrid="topic-2124"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2124" infsonewsroom:parentTopicId="1929" infsonewsroom:TopicHighlight="0">Elargissement</category>
-									
-									<category nrid="topic-2123"  lang="EN" domain="Theme" infsonewsroom:TopicId="2123" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Virtual PA (E-Learning)</category>
-									
-									<category nrid="topic-2123"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2123" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Assistance p&#xe9;dagogique virtuelle (Apprentissage en ligne)</category>
-									
-									<category nrid="topic-2122"  lang="EN" domain="Theme" infsonewsroom:TopicId="2122" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Training for Trainers Seminars</category>
-									
-									<category nrid="topic-2122"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2122" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">S&#xe9;minaires de formation des formateurs</category>
-									
-									<category nrid="topic-2121"  lang="EN" domain="Theme" infsonewsroom:TopicId="2121" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Study Visits</category>
-									
-									<category nrid="topic-2121"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2121" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Visites d&apos;&#xe9;tudes</category>
-									
-									<category nrid="topic-2120"  lang="EN" domain="Theme" infsonewsroom:TopicId="2120" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Non-EU Countries</category>
-									
-									<category nrid="topic-2120"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2120" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Pays non-UE</category>
-									
-									<category nrid="topic-2119"  lang="EN" domain="Theme" infsonewsroom:TopicId="2119" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">EU &amp; Enlargement Countries</category>
-									
-									<category nrid="topic-2119"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2119" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">UE &amp; pays candidats</category>
-									
-									<category nrid="topic-2118"  lang="EN" domain="Theme" infsonewsroom:TopicId="2118" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">PASS Programme</category>
-									
-									<category nrid="topic-2118"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2118" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Programme PASS</category>
-									
-									<category nrid="topic-2117"  lang="EN" domain="Theme" infsonewsroom:TopicId="2117" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Financial Support</category>
-									
-									<category nrid="topic-2117"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2117" infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Soutien financier</category>
-									
-									<category nrid="topic-2115"  lang="EN" domain="Theme" infsonewsroom:TopicId="2115" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Strategic Planning &amp; Programming</category>
-									
-									<category nrid="topic-2115"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2115" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Planification strat&#xe9;gique &amp; programmation</category>
-									
-									<category nrid="topic-2114"  lang="EN" domain="Theme" infsonewsroom:TopicId="2114" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Risk Management &amp; Internal Control</category>
-									
-									<category nrid="topic-2114"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2114" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Gestion des risques &amp; contr&#xf4;le interne</category>
-									
-									<category nrid="topic-2113"  lang="EN" domain="Theme" infsonewsroom:TopicId="2113" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Inter-Institutional Relations</category>
-									
-									<category nrid="topic-2113"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2113" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Relations inter-institutionnelles</category>
-									
-									<category nrid="topic-2112"  lang="EN" domain="Theme" infsonewsroom:TopicId="2112" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Evaluation &amp; Surveys</category>
-									
-									<category nrid="topic-2112"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2112" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Evaluation &amp; enqu&#xea;tes</category>
-									
-									<category nrid="topic-2111"  lang="EN" domain="Theme" infsonewsroom:TopicId="2111" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Duty Office &amp; Business Continuity</category>
-									
-									<category nrid="topic-2111"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2111" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Permanence &amp; continuit&#xe9; des activit&#xe9;s</category>
-									
-									<category nrid="topic-2110"  lang="EN" domain="Theme" infsonewsroom:TopicId="2110" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Data Protection</category>
-									
-									<category nrid="topic-2110"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2110" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Protection des donn&#xe9;es</category>
-									
-									<category nrid="topic-2109"  lang="EN" domain="Theme" infsonewsroom:TopicId="2109" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Support to Interpreter Training</category>
-									
-									<category nrid="topic-2109"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2109" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Soutien &#xe0; la formation des interpr&#xe8;tes</category>
-									
-									<category nrid="topic-2108"  lang="EN" domain="Theme" infsonewsroom:TopicId="2108" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Running the DG</category>
-									
-									<category nrid="topic-2108"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2108" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">G&#xe9;rer la DG</category>
-									
-									<category nrid="topic-2107"  lang="EN" domain="Theme" infsonewsroom:TopicId="2107" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">IT &amp; Helpdesk </category>
-									
-									<category nrid="topic-2107"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2107" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Informatique &amp; support utilisateur</category>
-									
-									<category nrid="topic-2071"  lang="EN" domain="Theme" infsonewsroom:TopicId="2071" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Contacts</category>
-									
-									<category nrid="topic-2071"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2071" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Contacts</category>
-									
-									<category nrid="topic-1968"  lang="EN" domain="Theme" infsonewsroom:TopicId="1968" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">HR Booth</category>
-									
-									<category nrid="topic-1968"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1968" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine HR</category>
-									
-									<category nrid="topic-1967"  lang="EN" domain="Theme" infsonewsroom:TopicId="1967" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">RO Booth</category>
-									
-									<category nrid="topic-1967"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1967" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine RO</category>
-									
-									<category nrid="topic-1966"  lang="EN" domain="Theme" infsonewsroom:TopicId="1966" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">BG Booth</category>
-									
-									<category nrid="topic-1966"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1966" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine BG</category>
-									
-									<category nrid="topic-1965"  lang="EN" domain="Theme" infsonewsroom:TopicId="1965" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">PL Booth</category>
-									
-									<category nrid="topic-1965"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1965" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine PL</category>
-									
-									<category nrid="topic-1964"  lang="EN" domain="Theme" infsonewsroom:TopicId="1964" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">MT Booth</category>
-									
-									<category nrid="topic-1964"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1964" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine MT</category>
-									
-									<category nrid="topic-1963"  lang="EN" domain="Theme" infsonewsroom:TopicId="1963" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">ES Booth</category>
-									
-									<category nrid="topic-1963"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1963" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine ES</category>
-									
-									<category nrid="topic-1962"  lang="EN" domain="Theme" infsonewsroom:TopicId="1962" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">EL Booth</category>
-									
-									<category nrid="topic-1962"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1962" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine EL</category>
-									
-									<category nrid="topic-1961"  lang="EN" domain="Theme" infsonewsroom:TopicId="1961" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">SL Booth</category>
-									
-									<category nrid="topic-1961"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1961" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine SL</category>
-									
-									<category nrid="topic-1960"  lang="EN" domain="Theme" infsonewsroom:TopicId="1960" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">NL Booth</category>
-									
-									<category nrid="topic-1960"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1960" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine NL</category>
-									
-									<category nrid="topic-1959"  lang="EN" domain="Theme" infsonewsroom:TopicId="1959" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">IT Booth</category>
-									
-									<category nrid="topic-1959"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1959" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine IT</category>
-									
-									<category nrid="topic-1958"  lang="EN" domain="Theme" infsonewsroom:TopicId="1958" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">DA Booth</category>
-									
-									<category nrid="topic-1958"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1958" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine DA</category>
-									
-									<category nrid="topic-1957"  lang="EN" domain="Theme" infsonewsroom:TopicId="1957" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">SK Booth</category>
-									
-									<category nrid="topic-1957"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1957" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine SK </category>
-									
-									<category nrid="topic-1956"  lang="EN" domain="Theme" infsonewsroom:TopicId="1956" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">PT Booth</category>
-									
-									<category nrid="topic-1956"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1956" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine PT</category>
-									
-									<category nrid="topic-1955"  lang="EN" domain="Theme" infsonewsroom:TopicId="1955" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">LV Booth</category>
-									
-									<category nrid="topic-1955"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1955" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine LV</category>
-									
-									<category nrid="topic-1954"  lang="EN" domain="Theme" infsonewsroom:TopicId="1954" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">EN Booth</category>
-									
-									<category nrid="topic-1954"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1954" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine EN</category>
-									
-									<category nrid="topic-1953"  lang="EN" domain="Theme" infsonewsroom:TopicId="1953" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">FI Booth</category>
-									
-									<category nrid="topic-1953"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1953" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine FI</category>
-									
-									<category nrid="topic-1952"  lang="EN" domain="Theme" infsonewsroom:TopicId="1952" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">HU Booth</category>
-									
-									<category nrid="topic-1952"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1952" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine HU</category>
-									
-									<category nrid="topic-1951"  lang="EN" domain="Theme" infsonewsroom:TopicId="1951" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">ET Booth</category>
-									
-									<category nrid="topic-1951"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1951" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine ET</category>
-									
-									<category nrid="topic-1950"  lang="EN" domain="Theme" infsonewsroom:TopicId="1950" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">DE Booth</category>
-									
-									<category nrid="topic-1950"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1950" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine DE</category>
-									
-									<category nrid="topic-1949"  lang="EN" domain="Theme" infsonewsroom:TopicId="1949" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">SV Booth</category>
-									
-									<category nrid="topic-1949"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1949" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine SV</category>
-									
-									<category nrid="topic-1948"  lang="EN" domain="Theme" infsonewsroom:TopicId="1948" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">LT Booth</category>
-									
-									<category nrid="topic-1948"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1948" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine LT</category>
-									
-									<category nrid="topic-1947"  lang="EN" domain="Theme" infsonewsroom:TopicId="1947" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">FR Booth </category>
-									
-									<category nrid="topic-1947"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1947" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine FR </category>
-									
-									<category nrid="topic-1946"  lang="EN" domain="Theme" infsonewsroom:TopicId="1946" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">CS Booth</category>
-									
-									<category nrid="topic-1946"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1946" infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine CS</category>
-									
-									<category nrid="topic-1945"  lang="EN" domain="Theme" infsonewsroom:TopicId="1945" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Booths</category>
-									
-									<category nrid="topic-1945"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1945" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Cabines</category>
-									
-									<category nrid="topic-1935"  lang="EN" domain="Theme" infsonewsroom:TopicId="1935" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Security</category>
-									
-									<category nrid="topic-1935"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1935" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">S&#xe9;curit&#xe9;</category>
-									
-									<category nrid="topic-1930"  lang="EN" domain="Theme" infsonewsroom:TopicId="1930" infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">International Cooperation</category>
-									
-									<category nrid="topic-1930"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1930" infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Coop&#xe9;ration internationale</category>
-									
-									<category nrid="topic-1929"  lang="EN" domain="Theme" infsonewsroom:TopicId="1929" infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Working with Universities</category>
-									
-									<category nrid="topic-1929"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1929" infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Coop&#xe9;ration avec les universit&#xe9;s</category>
-									
-									<category nrid="topic-1923"  lang="EN" domain="Theme" infsonewsroom:TopicId="1923" infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Pedagogical Assistance</category>
-									
-									<category nrid="topic-1923"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1923" infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Assistance p&#xe9;dagogique</category>
-									
-									<category nrid="topic-1916"  lang="EN" domain="Theme" infsonewsroom:TopicId="1916" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Missions</category>
-									
-									<category nrid="topic-1916"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1916" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Missions</category>
-									
-									<category nrid="topic-1911"  lang="EN" domain="Theme" infsonewsroom:TopicId="1911" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Meeting Preparation</category>
-									
-									<category nrid="topic-1911"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1911" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Pr&#xe9;paration des r&#xe9;unions</category>
-									
-									<category nrid="topic-1906"  lang="EN" domain="Theme" infsonewsroom:TopicId="1906" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Meetings Essentials </category>
-									
-									<category nrid="topic-1906"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1906" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Les incontournables pour vos r&#xe9;unions</category>
-									
-									<category nrid="topic-1899"  lang="EN" domain="Theme" infsonewsroom:TopicId="1899" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Management Meetings</category>
-									
-									<category nrid="topic-1899"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1899" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Les R&#xe9;unions du management</category>
-									
-									<category nrid="topic-1891"  lang="EN" domain="Theme" infsonewsroom:TopicId="1891" infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Leave &amp; Time Management</category>
-									
-									<category nrid="topic-1891"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1891" infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Cong&#xe9;s &amp; gestion du temps de travail</category>
-									
-									<category nrid="topic-1880"  lang="EN" domain="Theme" infsonewsroom:TopicId="1880" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Income</category>
-									
-									<category nrid="topic-1880"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1880" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Salaires</category>
-									
-									<category nrid="topic-1876"  lang="EN" domain="Theme" infsonewsroom:TopicId="1876" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Expenditure</category>
-									
-									<category nrid="topic-1876"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1876" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">D&#xe9;penses</category>
-									
-									<category nrid="topic-1871"  lang="EN" domain="Theme" infsonewsroom:TopicId="1871" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Budget</category>
-									
-									<category nrid="topic-1871"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1871" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Budget</category>
-									
-									<category nrid="topic-1866"  lang="EN" domain="Theme" infsonewsroom:TopicId="1866" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Accountancy</category>
-									
-									<category nrid="topic-1866"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1866" infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Comptabilit&#xe9;</category>
-									
-									<category nrid="topic-1861"  lang="EN" domain="Theme" infsonewsroom:TopicId="1861" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Budget &amp; Finance</category>
-									
-									<category nrid="topic-1861"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1861" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Budget &amp; Finances</category>
-									
-									<category nrid="topic-1855"  lang="EN" domain="Theme" infsonewsroom:TopicId="1855" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Learning &amp; Development</category>
-									
-									<category nrid="topic-1855"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1855" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Formation et d&#xe9;veloppement</category>
-									
-									<category nrid="topic-1849"  lang="EN" domain="Theme" infsonewsroom:TopicId="1849" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Interpreters&apos; Delegation</category>
-									
-									<category nrid="topic-1849"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1849" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">D&#xe9;l&#xe9;gation des interpr&#xe8;tes</category>
-									
-									<category nrid="topic-1845"  lang="EN" domain="Theme" infsonewsroom:TopicId="1845" infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Helpdesks</category>
-									
-									<category nrid="topic-1845"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1845" infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Supports utilisateurs</category>
-									
-									<category nrid="topic-1839"  lang="EN" domain="Theme" infsonewsroom:TopicId="1839" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Green SCIC </category>
-									
-									<category nrid="topic-1839"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1839" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Green SCIC </category>
-									
-									<category nrid="topic-1831"  lang="EN" domain="Theme" infsonewsroom:TopicId="1831" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Ethics</category>
-									
-									<category nrid="topic-1831"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1831" infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">&#xc9;thique</category>
-									
-									<category nrid="topic-1825"  lang="EN" domain="Theme" infsonewsroom:TopicId="1825" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Communication</category>
-									
-									<category nrid="topic-1825"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1825" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Communication</category>
-									
-									<category nrid="topic-1818"  lang="EN" domain="Theme" infsonewsroom:TopicId="1818" infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Career &amp; Mobility</category>
-									
-									<category nrid="topic-1818"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1818" infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Carri&#xe8;re &amp; mobilit&#xe9;</category>
-									
-									<category nrid="topic-1812"  lang="EN" domain="Theme" infsonewsroom:TopicId="1812" infsonewsroom:parentTopicId="1818" infsonewsroom:TopicHighlight="0">Arriving &amp; Leaving</category>
-									
-									<category nrid="topic-1812"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1812" infsonewsroom:parentTopicId="1818" infsonewsroom:TopicHighlight="0">Arriver et partir</category>
-									
-									<category nrid="topic-1808"  lang="EN" domain="Theme" infsonewsroom:TopicId="1808" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">AIIC Delegations</category>
-									
-									<category nrid="topic-1808"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1808" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">AIIC Delegations</category>
-									
-									<category nrid="topic-1806"  lang="EN" domain="Theme" infsonewsroom:TopicId="1806" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Forms</category>
-									
-									<category nrid="topic-1806"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1806" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Formulaires </category>
-									
-									<category nrid="topic-1798"  lang="EN" domain="Theme" infsonewsroom:TopicId="1798" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Professional Development</category>
-									
-									<category nrid="topic-1798"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1798" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">D&#xe9;veloppement professionnel </category>
-									
-									<category nrid="topic-1794"  lang="EN" domain="Theme" infsonewsroom:TopicId="1794" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Quality Monitoring</category>
-									
-									<category nrid="topic-1794"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1794" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Suivi qualitatif </category>
-									
-									<category nrid="topic-1789"  lang="EN" domain="Theme" infsonewsroom:TopicId="1789" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Insurance &amp; Pensions</category>
-									
-									<category nrid="topic-1789"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1789" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Assurance &amp; Pensions </category>
-									
-									<category nrid="topic-1784"  lang="EN" domain="Theme" infsonewsroom:TopicId="1784" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Payments &amp; Attestations</category>
-									
-									<category nrid="topic-1784"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1784" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Paiements &amp; Attestations</category>
-									
-									<category nrid="topic-1779"  lang="EN" domain="Theme" infsonewsroom:TopicId="1779" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Travel &amp; Access Cards</category>
-									
-									<category nrid="topic-1779"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1779" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Voyage &amp; cartes d&apos;acc&#xe8;s</category>
-									
-									<category nrid="topic-1776"  lang="EN" domain="Theme" infsonewsroom:TopicId="1776" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Convention &amp; Handbook</category>
-									
-									<category nrid="topic-1776"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1776" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Convention &amp; manuel</category>
-									
-									<category nrid="topic-1769"  lang="EN" domain="Theme" infsonewsroom:TopicId="1769" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Recruitment</category>
-									
-									<category nrid="topic-1769"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1769" infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Recrutement</category>
-									
-									<category nrid="topic-1760"  lang="EN" domain="Theme" infsonewsroom:TopicId="1760" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">ACI</category>
-									
-									<category nrid="topic-1760"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1760" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">AIC</category>
-									
-									<category nrid="topic-1754"  lang="EN" domain="Theme" infsonewsroom:TopicId="1754" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">About Us</category>
-									
-									<category nrid="topic-1754"  lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1754" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">A propos de nous</category>
-									
-									<category nrid="topic-1019"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="1019" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications</category>
-									
-									<category nrid="topic-1019"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="1019" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications</category>
-									
-									<category nrid="topic-1018"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="1018" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan</category>
-									
-									<category nrid="topic-1018"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="1018" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan</category>
-									
-									<category nrid="topic-1000"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="1000" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news</category>
-									
-									<category nrid="topic-1000"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="1000" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news</category>
-									
-									<category nrid="topic-998"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="998" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter</category>
-									
-									<category nrid="topic-998"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="998" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter</category>
-									
-									<category nrid="topic-997"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="997" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial</category>
-									
-									<category nrid="topic-997"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="997" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial</category>
-									
-									<category nrid="topic-996"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="996" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue</category>
-									
-									<category nrid="topic-996"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="996" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue</category>
-									
-					</item>
-				
-					<item nrid="service-142">
-						
-								<title lang="EN">Scic S3 Newsletter</title>
-								<link lang="EN">http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=142&amp;lang=EN</link>
-								<description lang="EN"></description>
-								<infsonewsroom:archivesLink lang="EN">http://ec.europa.eu/newsroom/scic/newsletter-specific-archive.cfm?serviceId=142&amp;lang=EN</infsonewsroom:archivesLink>
-							
-								<title lang="FR">Scic S3 Newsletter</title>
-								<link lang="FR">http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=142&amp;lang=FR</link>
-								<description lang="FR"></description>
-								<infsonewsroom:archivesLink lang="FR">http://ec.europa.eu/newsroom/scic/newsletter-specific-archive.cfm?serviceId=142&amp;lang=FR</infsonewsroom:archivesLink>
-							 
-						<pubDate>Tue, 24 Jun 2014 11:12:39 GMT</pubDate>
-						<guid>http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=142</guid>
-						<infsonewsroom:BasicSvId>142</infsonewsroom:BasicSvId>
-						<infsonewsroom:BasicSvStatus>Active</infsonewsroom:BasicSvStatus>
-						<infsonewsroom:BasicSvType>Newsletter</infsonewsroom:BasicSvType>
-						<infsonewsroom:BasicSvTypeId>1041</infsonewsroom:BasicSvTypeId>
-						<infsonewsroom:BasicSvMailing>0</infsonewsroom:BasicSvMailing>
-						
-						<infsonewsroom:mailingExists>1</infsonewsroom:mailingExists> <infsonewsroom:BasicSvVisuUrl>http://ec.europa.eu/information_society/newsroom/cf/templates/scic-spp/images/banner3.jpg</infsonewsroom:BasicSvVisuUrl> 
-									<category nrid="topic-1019"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="1019" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications</category>
-									
-									<category nrid="topic-1019"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="1019" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications</category>
-									
-									<category nrid="topic-1018"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="1018" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan</category>
-									
-									<category nrid="topic-1018"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="1018" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan</category>
-									
-									<category nrid="topic-996"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="996" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue</category>
-									
-									<category nrid="topic-996"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="996" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue</category>
-									
-									<category nrid="topic-998"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="998" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter</category>
-									
-									<category nrid="topic-998"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="998" infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter</category>
-									
-									<category nrid="topic-997"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="997" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial</category>
-									
-									<category nrid="topic-997"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="997" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial</category>
-									
-									<category nrid="topic-1000"  lang="EN" domain="Newsletter" infsonewsroom:TopicId="1000" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news</category>
-									
-									<category nrid="topic-1000"  lang="FR" domain="Newsletter" infsonewsroom:TopicId="1000" infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news</category>
-									
-					</item>
-				
-			</channel>
-		  </rss>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+     xmlns:infsonewsroom="http://urltodetermine">
+    <channel>
+        <title>Interpretation - Services</title>
+        <link>http://ec.europa.eu/newsroom/scic/cf/scic/rss-service.cfm</link>
+        <description>Services list</description>
+        <language>en-gb</language>
+        <copyright>European Commission</copyright>
+        <managingEditor>cnect-editor@ec.europa.eu</managingEditor>
+        <webMaster>cnect-editor@ec.europa.eu</webMaster>
+        <ttl>30</ttl>
+
+        <item nrid="service-141">
+
+            <title lang="EN">SCIC Newsroom</title>
+            <link lang="EN">
+                http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=141&amp;lang=EN
+            </link>
+            <description lang="EN"></description>
+            <infsonewsroom:archivesLink lang="EN">http://ec.europa.eu/newsroom/scic/newsletter-central-archive.cfm
+            </infsonewsroom:archivesLink>
+
+            <title lang="FR">SCIC Newsroom</title>
+            <link lang="FR">
+                http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=141&amp;lang=FR
+            </link>
+            <description lang="FR"></description>
+            <infsonewsroom:archivesLink lang="FR">http://ec.europa.eu/newsroom/scic/newsletter-central-archive.cfm
+            </infsonewsroom:archivesLink>
+
+            <pubDate>Tue, 24 Jun 2014 11:10:52 GMT</pubDate>
+            <guid>http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=141</guid>
+            <infsonewsroom:BasicSvId>141</infsonewsroom:BasicSvId>
+            <infsonewsroom:BasicSvStatus>Active</infsonewsroom:BasicSvStatus>
+            <infsonewsroom:BasicSvType>Newsroom service</infsonewsroom:BasicSvType>
+            <infsonewsroom:BasicSvTypeId>1040</infsonewsroom:BasicSvTypeId>
+            <infsonewsroom:BasicSvMailing>1</infsonewsroom:BasicSvMailing>
+
+            <infsonewsroom:mailingExists>0</infsonewsroom:mailingExists>
+            <infsonewsroom:BasicSvVisuUrl></infsonewsroom:BasicSvVisuUrl>
+            <category nrid="topic-6961" lang="EN" domain="Theme" infsonewsroom:TopicId="6961"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Logistics &amp; Mail
+            </category>
+
+            <category nrid="topic-6961" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6961"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Logistiques et Courrier
+            </category>
+
+            <category nrid="topic-6511" lang="EN" domain="Theme" infsonewsroom:TopicId="6511"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Guidelines and Procedures
+            </category>
+
+            <category nrid="topic-6511" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6511"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Guidelines and Procedures
+            </category>
+
+            <category nrid="topic-6507" lang="EN" domain="Theme" infsonewsroom:TopicId="6507"
+                      infsonewsroom:parentTopicId="6479" infsonewsroom:TopicHighlight="0">Functional Mailboxes AMC
+            </category>
+
+            <category nrid="topic-6507" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6507"
+                      infsonewsroom:parentTopicId="6479" infsonewsroom:TopicHighlight="0">Boites fonctionnelles AMC
+            </category>
+
+            <category nrid="topic-6479" lang="EN" domain="Theme" infsonewsroom:TopicId="6479"
+                      infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">HR Business Correspondent
+            </category>
+
+            <category nrid="topic-6479" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6479"
+                      infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">HR Business Correspondent
+            </category>
+
+            <category nrid="topic-6478" lang="EN" domain="Theme" infsonewsroom:TopicId="6478"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Human Resources
+            </category>
+
+            <category nrid="topic-6478" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6478"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Human Resources
+            </category>
+
+            <category nrid="topic-6435" lang="EN" domain="Theme" infsonewsroom:TopicId="6435"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Contacting Planning
+            </category>
+
+            <category nrid="topic-6435" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="6435"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Contacter la programmation
+            </category>
+
+            <category nrid="topic-2943" lang="EN" domain="Theme" infsonewsroom:TopicId="2943"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Blog
+            </category>
+
+            <category nrid="topic-2943" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2943"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Blog
+            </category>
+
+            <category nrid="topic-2286" lang="EN" domain="Theme" infsonewsroom:TopicId="2286"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">Information for Web Publishers
+            </category>
+
+            <category nrid="topic-2286" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2286"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">Information for Web Publishers
+            </category>
+
+            <category nrid="topic-2227" lang="EN" domain="Theme" infsonewsroom:TopicId="2227"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">System Modules
+            </category>
+
+            <category nrid="topic-2227" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2227"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules &quot;syst&#xe8;me&quot;
+            </category>
+
+            <category nrid="topic-2226" lang="EN" domain="Theme" infsonewsroom:TopicId="2226"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules for
+                Inter-institutional Cooperation
+            </category>
+
+            <category nrid="topic-2226" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2226"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour la Coop&#xe9;ration
+                Interinstitutionnelle
+            </category>
+
+            <category nrid="topic-2225" lang="EN" domain="Theme" infsonewsroom:TopicId="2225"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Customer Modules
+            </category>
+
+            <category nrid="topic-2225" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2225"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour les clients
+            </category>
+
+            <category nrid="topic-2224" lang="EN" domain="Theme" infsonewsroom:TopicId="2224"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Management Modules
+            </category>
+
+            <category nrid="topic-2224" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2224"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules de gestion
+            </category>
+
+            <category nrid="topic-2223" lang="EN" domain="Theme" infsonewsroom:TopicId="2223"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules for AIC
+            </category>
+
+            <category nrid="topic-2223" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2223"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour les AIC
+            </category>
+
+            <category nrid="topic-2222" lang="EN" domain="Theme" infsonewsroom:TopicId="2222"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Interpreter Modules
+            </category>
+
+            <category nrid="topic-2222" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2222"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour les interpr&#xe8;tes
+            </category>
+
+            <category nrid="topic-2221" lang="EN" domain="Theme" infsonewsroom:TopicId="2221"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Administrative Modules
+            </category>
+
+            <category nrid="topic-2221" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2221"
+                      infsonewsroom:parentTopicId="2129" infsonewsroom:TopicHighlight="0">Modules pour l&apos;encadrement
+            </category>
+
+            <category nrid="topic-2220" lang="EN" domain="Theme" infsonewsroom:TopicId="2220"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Presidency Coordinator
+            </category>
+
+            <category nrid="topic-2220" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2220"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Coordinateur de la Pr&#xe9;sidence
+            </category>
+
+            <category nrid="topic-2219" lang="EN" domain="Theme" infsonewsroom:TopicId="2219"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Whom to contact?
+            </category>
+
+            <category nrid="topic-2219" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2219"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Whom to contact?
+            </category>
+
+            <category nrid="topic-2217" lang="EN" domain="Theme" infsonewsroom:TopicId="2217"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Various Links
+            </category>
+
+            <category nrid="topic-2217" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2217"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Various Links
+            </category>
+
+            <category nrid="topic-2216" lang="EN" domain="Theme" infsonewsroom:TopicId="2216"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Dictionaries &amp; Databases
+            </category>
+
+            <category nrid="topic-2216" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2216"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">Dictionaries &amp; Databases
+            </category>
+
+            <category nrid="topic-2215" lang="EN" domain="Theme" infsonewsroom:TopicId="2215"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Terminology
+            </category>
+
+            <category nrid="topic-2215" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2215"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Terminology
+            </category>
+
+            <category nrid="topic-2214" lang="EN" domain="Theme" infsonewsroom:TopicId="2214"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">International Organisations
+                Terminology
+            </category>
+
+            <category nrid="topic-2214" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2214"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">International Organisations
+                Terminology
+            </category>
+
+            <category nrid="topic-2213" lang="EN" domain="Theme" infsonewsroom:TopicId="2213"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Documentation &amp; News
+            </category>
+
+            <category nrid="topic-2213" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2213"
+                      infsonewsroom:parentTopicId="1911" infsonewsroom:TopicHighlight="0">EU Documentation &amp; News
+            </category>
+
+            <category nrid="topic-2188" lang="EN" domain="Theme" infsonewsroom:TopicId="2188"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Whom to contact?
+            </category>
+
+            <category nrid="topic-2188" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2188"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Qui contacter?
+            </category>
+
+            <category nrid="topic-2179" lang="EN" domain="Theme" infsonewsroom:TopicId="2179"
+                      infsonewsroom:parentTopicId="1955" infsonewsroom:TopicHighlight="0">LV Glossaries
+            </category>
+
+            <category nrid="topic-2179" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2179"
+                      infsonewsroom:parentTopicId="1955" infsonewsroom:TopicHighlight="0">LV Glossaries
+            </category>
+
+            <category nrid="topic-2178" lang="EN" domain="Theme" infsonewsroom:TopicId="2178"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Communications Network
+            </category>
+
+            <category nrid="topic-2178" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2178"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Communications Network
+            </category>
+
+            <category nrid="topic-2175" lang="EN" domain="Theme" infsonewsroom:TopicId="2175"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Recruitment Issues
+            </category>
+
+            <category nrid="topic-2175" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2175"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Questions de recrutement
+            </category>
+
+            <category nrid="topic-2172" lang="EN" domain="Theme" infsonewsroom:TopicId="2172"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Document Management
+            </category>
+
+            <category nrid="topic-2172" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2172"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Gestion de documents
+            </category>
+
+            <category nrid="topic-2142" lang="EN" domain="Theme" infsonewsroom:TopicId="2142"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Where Is My Meeting
+            </category>
+
+            <category nrid="topic-2142" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2142"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">O&#xf9; a lieu ma r&#xe9;union
+                ?
+            </category>
+
+            <category nrid="topic-2141" lang="EN" domain="Theme" infsonewsroom:TopicId="2141"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">EESC/CoR Antenna
+            </category>
+
+            <category nrid="topic-2141" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2141"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">CESE/CdR Antenne
+            </category>
+
+            <category nrid="topic-2140" lang="EN" domain="Theme" infsonewsroom:TopicId="2140"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Council Antenna
+            </category>
+
+            <category nrid="topic-2140" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2140"
+                      infsonewsroom:parentTopicId="1906" infsonewsroom:TopicHighlight="0">Antenne Conseil
+            </category>
+
+            <category nrid="topic-2133" lang="EN" domain="Theme" infsonewsroom:TopicId="2133"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Relay
+            </category>
+
+            <category nrid="topic-2133" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2133"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">SCIC Relay
+            </category>
+
+            <category nrid="topic-2132" lang="EN" domain="Theme" infsonewsroom:TopicId="2132"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">In Memoriam
+            </category>
+
+            <category nrid="topic-2132" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2132"
+                      infsonewsroom:parentTopicId="1825" infsonewsroom:TopicHighlight="0">In Memoriam
+            </category>
+
+            <category nrid="topic-2129" lang="EN" domain="Theme" infsonewsroom:TopicId="2129"
+                      infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Information Systems
+            </category>
+
+            <category nrid="topic-2129" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2129"
+                      infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Syst&#xe8;mes d&apos;information
+            </category>
+
+            <category nrid="topic-2128" lang="EN" domain="Theme" infsonewsroom:TopicId="2128"
+                      infsonewsroom:parentTopicId="2127" infsonewsroom:TopicHighlight="0">Technical Compliance
+            </category>
+
+            <category nrid="topic-2128" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2128"
+                      infsonewsroom:parentTopicId="2127" infsonewsroom:TopicHighlight="0">Conformit&#xe9; technique
+            </category>
+
+            <category nrid="topic-2127" lang="EN" domain="Theme" infsonewsroom:TopicId="2127"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Conference Services &amp;
+                Logistics
+            </category>
+
+            <category nrid="topic-2127" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2127"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Services de conf&#xe9;rences
+                &amp; logistiques
+            </category>
+
+            <category nrid="topic-2126" lang="EN" domain="Theme" infsonewsroom:TopicId="2126"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Financial Circuits
+            </category>
+
+            <category nrid="topic-2126" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2126"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Circuits financiers
+            </category>
+
+            <category nrid="topic-2125" lang="EN" domain="Theme" infsonewsroom:TopicId="2125"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Financial Correspondents&apos;
+                Meetings
+            </category>
+
+            <category nrid="topic-2125" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2125"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">R&#xe9;unions des
+                correpondants financiers
+            </category>
+
+            <category nrid="topic-2124" lang="EN" domain="Theme" infsonewsroom:TopicId="2124"
+                      infsonewsroom:parentTopicId="1929" infsonewsroom:TopicHighlight="0">Enlargement
+            </category>
+
+            <category nrid="topic-2124" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2124"
+                      infsonewsroom:parentTopicId="1929" infsonewsroom:TopicHighlight="0">Elargissement
+            </category>
+
+            <category nrid="topic-2123" lang="EN" domain="Theme" infsonewsroom:TopicId="2123"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Virtual PA (E-Learning)
+            </category>
+
+            <category nrid="topic-2123" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2123"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Assistance p&#xe9;dagogique
+                virtuelle (Apprentissage en ligne)
+            </category>
+
+            <category nrid="topic-2122" lang="EN" domain="Theme" infsonewsroom:TopicId="2122"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Training for Trainers Seminars
+            </category>
+
+            <category nrid="topic-2122" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2122"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">S&#xe9;minaires de formation
+                des formateurs
+            </category>
+
+            <category nrid="topic-2121" lang="EN" domain="Theme" infsonewsroom:TopicId="2121"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Study Visits
+            </category>
+
+            <category nrid="topic-2121" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2121"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Visites d&apos;&#xe9;tudes
+            </category>
+
+            <category nrid="topic-2120" lang="EN" domain="Theme" infsonewsroom:TopicId="2120"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Non-EU Countries
+            </category>
+
+            <category nrid="topic-2120" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2120"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Pays non-UE
+            </category>
+
+            <category nrid="topic-2119" lang="EN" domain="Theme" infsonewsroom:TopicId="2119"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">EU &amp; Enlargement Countries
+            </category>
+
+            <category nrid="topic-2119" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2119"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">UE &amp; pays candidats
+            </category>
+
+            <category nrid="topic-2118" lang="EN" domain="Theme" infsonewsroom:TopicId="2118"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">PASS Programme
+            </category>
+
+            <category nrid="topic-2118" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2118"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Programme PASS
+            </category>
+
+            <category nrid="topic-2117" lang="EN" domain="Theme" infsonewsroom:TopicId="2117"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Financial Support
+            </category>
+
+            <category nrid="topic-2117" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2117"
+                      infsonewsroom:parentTopicId="1923" infsonewsroom:TopicHighlight="0">Soutien financier
+            </category>
+
+            <category nrid="topic-2115" lang="EN" domain="Theme" infsonewsroom:TopicId="2115"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Strategic Planning &amp;
+                Programming
+            </category>
+
+            <category nrid="topic-2115" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2115"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Planification strat&#xe9;gique
+                &amp; programmation
+            </category>
+
+            <category nrid="topic-2114" lang="EN" domain="Theme" infsonewsroom:TopicId="2114"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Risk Management &amp; Internal
+                Control
+            </category>
+
+            <category nrid="topic-2114" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2114"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Gestion des risques &amp;
+                contr&#xf4;le interne
+            </category>
+
+            <category nrid="topic-2113" lang="EN" domain="Theme" infsonewsroom:TopicId="2113"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Inter-Institutional Relations
+            </category>
+
+            <category nrid="topic-2113" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2113"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Relations
+                inter-institutionnelles
+            </category>
+
+            <category nrid="topic-2112" lang="EN" domain="Theme" infsonewsroom:TopicId="2112"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Evaluation &amp; Surveys
+            </category>
+
+            <category nrid="topic-2112" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2112"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Evaluation &amp; enqu&#xea;tes
+            </category>
+
+            <category nrid="topic-2111" lang="EN" domain="Theme" infsonewsroom:TopicId="2111"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Duty Office &amp; Business
+                Continuity
+            </category>
+
+            <category nrid="topic-2111" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2111"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Permanence &amp; continuit&#xe9;
+                des activit&#xe9;s
+            </category>
+
+            <category nrid="topic-2110" lang="EN" domain="Theme" infsonewsroom:TopicId="2110"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Data Protection
+            </category>
+
+            <category nrid="topic-2110" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2110"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Protection des donn&#xe9;es
+            </category>
+
+            <category nrid="topic-2109" lang="EN" domain="Theme" infsonewsroom:TopicId="2109"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Support to Interpreter Training
+            </category>
+
+            <category nrid="topic-2109" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2109"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Soutien &#xe0; la formation des
+                interpr&#xe8;tes
+            </category>
+
+            <category nrid="topic-2108" lang="EN" domain="Theme" infsonewsroom:TopicId="2108"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Running the DG
+            </category>
+
+            <category nrid="topic-2108" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2108"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">G&#xe9;rer la DG
+            </category>
+
+            <category nrid="topic-2107" lang="EN" domain="Theme" infsonewsroom:TopicId="2107"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">IT &amp; Helpdesk
+            </category>
+
+            <category nrid="topic-2107" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2107"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Informatique &amp; support
+                utilisateur
+            </category>
+
+            <category nrid="topic-2071" lang="EN" domain="Theme" infsonewsroom:TopicId="2071"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Contacts
+            </category>
+
+            <category nrid="topic-2071" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="2071"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Contacts
+            </category>
+
+            <category nrid="topic-1968" lang="EN" domain="Theme" infsonewsroom:TopicId="1968"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">HR Booth
+            </category>
+
+            <category nrid="topic-1968" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1968"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine HR
+            </category>
+
+            <category nrid="topic-1967" lang="EN" domain="Theme" infsonewsroom:TopicId="1967"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">RO Booth
+            </category>
+
+            <category nrid="topic-1967" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1967"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine RO
+            </category>
+
+            <category nrid="topic-1966" lang="EN" domain="Theme" infsonewsroom:TopicId="1966"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">BG Booth
+            </category>
+
+            <category nrid="topic-1966" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1966"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine BG
+            </category>
+
+            <category nrid="topic-1965" lang="EN" domain="Theme" infsonewsroom:TopicId="1965"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">PL Booth
+            </category>
+
+            <category nrid="topic-1965" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1965"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine PL
+            </category>
+
+            <category nrid="topic-1964" lang="EN" domain="Theme" infsonewsroom:TopicId="1964"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">MT Booth
+            </category>
+
+            <category nrid="topic-1964" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1964"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine MT
+            </category>
+
+            <category nrid="topic-1963" lang="EN" domain="Theme" infsonewsroom:TopicId="1963"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">ES Booth
+            </category>
+
+            <category nrid="topic-1963" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1963"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine ES
+            </category>
+
+            <category nrid="topic-1962" lang="EN" domain="Theme" infsonewsroom:TopicId="1962"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">EL Booth
+            </category>
+
+            <category nrid="topic-1962" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1962"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine EL
+            </category>
+
+            <category nrid="topic-1961" lang="EN" domain="Theme" infsonewsroom:TopicId="1961"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">SL Booth
+            </category>
+
+            <category nrid="topic-1961" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1961"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine SL
+            </category>
+
+            <category nrid="topic-1960" lang="EN" domain="Theme" infsonewsroom:TopicId="1960"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">NL Booth
+            </category>
+
+            <category nrid="topic-1960" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1960"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine NL
+            </category>
+
+            <category nrid="topic-1959" lang="EN" domain="Theme" infsonewsroom:TopicId="1959"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">IT Booth
+            </category>
+
+            <category nrid="topic-1959" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1959"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine IT
+            </category>
+
+            <category nrid="topic-1958" lang="EN" domain="Theme" infsonewsroom:TopicId="1958"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">DA Booth
+            </category>
+
+            <category nrid="topic-1958" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1958"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine DA
+            </category>
+
+            <category nrid="topic-1957" lang="EN" domain="Theme" infsonewsroom:TopicId="1957"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">SK Booth
+            </category>
+
+            <category nrid="topic-1957" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1957"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine SK
+            </category>
+
+            <category nrid="topic-1956" lang="EN" domain="Theme" infsonewsroom:TopicId="1956"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">PT Booth
+            </category>
+
+            <category nrid="topic-1956" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1956"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine PT
+            </category>
+
+            <category nrid="topic-1955" lang="EN" domain="Theme" infsonewsroom:TopicId="1955"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">LV Booth
+            </category>
+
+            <category nrid="topic-1955" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1955"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine LV
+            </category>
+
+            <category nrid="topic-1954" lang="EN" domain="Theme" infsonewsroom:TopicId="1954"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">EN Booth
+            </category>
+
+            <category nrid="topic-1954" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1954"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine EN
+            </category>
+
+            <category nrid="topic-1953" lang="EN" domain="Theme" infsonewsroom:TopicId="1953"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">FI Booth
+            </category>
+
+            <category nrid="topic-1953" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1953"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine FI
+            </category>
+
+            <category nrid="topic-1952" lang="EN" domain="Theme" infsonewsroom:TopicId="1952"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">HU Booth
+            </category>
+
+            <category nrid="topic-1952" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1952"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine HU
+            </category>
+
+            <category nrid="topic-1951" lang="EN" domain="Theme" infsonewsroom:TopicId="1951"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">ET Booth
+            </category>
+
+            <category nrid="topic-1951" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1951"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine ET
+            </category>
+
+            <category nrid="topic-1950" lang="EN" domain="Theme" infsonewsroom:TopicId="1950"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">DE Booth
+            </category>
+
+            <category nrid="topic-1950" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1950"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine DE
+            </category>
+
+            <category nrid="topic-1949" lang="EN" domain="Theme" infsonewsroom:TopicId="1949"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">SV Booth
+            </category>
+
+            <category nrid="topic-1949" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1949"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine SV
+            </category>
+
+            <category nrid="topic-1948" lang="EN" domain="Theme" infsonewsroom:TopicId="1948"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">LT Booth
+            </category>
+
+            <category nrid="topic-1948" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1948"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine LT
+            </category>
+
+            <category nrid="topic-1947" lang="EN" domain="Theme" infsonewsroom:TopicId="1947"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">FR Booth
+            </category>
+
+            <category nrid="topic-1947" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1947"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine FR
+            </category>
+
+            <category nrid="topic-1946" lang="EN" domain="Theme" infsonewsroom:TopicId="1946"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">CS Booth
+            </category>
+
+            <category nrid="topic-1946" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1946"
+                      infsonewsroom:parentTopicId="1945" infsonewsroom:TopicHighlight="0">Cabine CS
+            </category>
+
+            <category nrid="topic-1945" lang="EN" domain="Theme" infsonewsroom:TopicId="1945"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Booths
+            </category>
+
+            <category nrid="topic-1945" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1945"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Cabines
+            </category>
+
+            <category nrid="topic-1935" lang="EN" domain="Theme" infsonewsroom:TopicId="1935"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Security
+            </category>
+
+            <category nrid="topic-1935" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1935"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">S&#xe9;curit&#xe9;
+            </category>
+
+            <category nrid="topic-1930" lang="EN" domain="Theme" infsonewsroom:TopicId="1930"
+                      infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">International Cooperation
+            </category>
+
+            <category nrid="topic-1930" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1930"
+                      infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Coop&#xe9;ration
+                internationale
+            </category>
+
+            <category nrid="topic-1929" lang="EN" domain="Theme" infsonewsroom:TopicId="1929"
+                      infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Working with Universities
+            </category>
+
+            <category nrid="topic-1929" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1929"
+                      infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Coop&#xe9;ration avec les
+                universit&#xe9;s
+            </category>
+
+            <category nrid="topic-1923" lang="EN" domain="Theme" infsonewsroom:TopicId="1923"
+                      infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Pedagogical Assistance
+            </category>
+
+            <category nrid="topic-1923" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1923"
+                      infsonewsroom:parentTopicId="2109" infsonewsroom:TopicHighlight="0">Assistance p&#xe9;dagogique
+            </category>
+
+            <category nrid="topic-1916" lang="EN" domain="Theme" infsonewsroom:TopicId="1916"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Missions
+            </category>
+
+            <category nrid="topic-1916" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1916"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Missions
+            </category>
+
+            <category nrid="topic-1911" lang="EN" domain="Theme" infsonewsroom:TopicId="1911"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Meeting Preparation
+            </category>
+
+            <category nrid="topic-1911" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1911"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Pr&#xe9;paration des r&#xe9;unions
+            </category>
+
+            <category nrid="topic-1906" lang="EN" domain="Theme" infsonewsroom:TopicId="1906"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Meetings Essentials
+            </category>
+
+            <category nrid="topic-1906" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1906"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Les incontournables pour vos r&#xe9;unions
+            </category>
+
+            <category nrid="topic-1899" lang="EN" domain="Theme" infsonewsroom:TopicId="1899"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Management Meetings
+            </category>
+
+            <category nrid="topic-1899" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1899"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Les R&#xe9;unions du
+                management
+            </category>
+
+            <category nrid="topic-1891" lang="EN" domain="Theme" infsonewsroom:TopicId="1891"
+                      infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Leave &amp; Time Management
+            </category>
+
+            <category nrid="topic-1891" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1891"
+                      infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Cong&#xe9;s &amp; gestion du
+                temps de travail
+            </category>
+
+            <category nrid="topic-1880" lang="EN" domain="Theme" infsonewsroom:TopicId="1880"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Income
+            </category>
+
+            <category nrid="topic-1880" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1880"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Salaires
+            </category>
+
+            <category nrid="topic-1876" lang="EN" domain="Theme" infsonewsroom:TopicId="1876"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Expenditure
+            </category>
+
+            <category nrid="topic-1876" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1876"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">D&#xe9;penses
+            </category>
+
+            <category nrid="topic-1871" lang="EN" domain="Theme" infsonewsroom:TopicId="1871"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Budget
+            </category>
+
+            <category nrid="topic-1871" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1871"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Budget
+            </category>
+
+            <category nrid="topic-1866" lang="EN" domain="Theme" infsonewsroom:TopicId="1866"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Accountancy
+            </category>
+
+            <category nrid="topic-1866" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1866"
+                      infsonewsroom:parentTopicId="1861" infsonewsroom:TopicHighlight="0">Comptabilit&#xe9;
+            </category>
+
+            <category nrid="topic-1861" lang="EN" domain="Theme" infsonewsroom:TopicId="1861"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Budget &amp; Finance
+            </category>
+
+            <category nrid="topic-1861" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1861"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Budget &amp; Finances
+            </category>
+
+            <category nrid="topic-1855" lang="EN" domain="Theme" infsonewsroom:TopicId="1855"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Learning &amp; Development
+            </category>
+
+            <category nrid="topic-1855" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1855"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Formation et d&#xe9;veloppement
+            </category>
+
+            <category nrid="topic-1849" lang="EN" domain="Theme" infsonewsroom:TopicId="1849"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Interpreters&apos; Delegation
+            </category>
+
+            <category nrid="topic-1849" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1849"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">D&#xe9;l&#xe9;gation des interpr&#xe8;tes
+            </category>
+
+            <category nrid="topic-1845" lang="EN" domain="Theme" infsonewsroom:TopicId="1845"
+                      infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Helpdesks
+            </category>
+
+            <category nrid="topic-1845" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1845"
+                      infsonewsroom:parentTopicId="2107" infsonewsroom:TopicHighlight="0">Supports utilisateurs
+            </category>
+
+            <category nrid="topic-1839" lang="EN" domain="Theme" infsonewsroom:TopicId="1839"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Green SCIC
+            </category>
+
+            <category nrid="topic-1839" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1839"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Green SCIC
+            </category>
+
+            <category nrid="topic-1831" lang="EN" domain="Theme" infsonewsroom:TopicId="1831"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">Ethics
+            </category>
+
+            <category nrid="topic-1831" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1831"
+                      infsonewsroom:parentTopicId="2108" infsonewsroom:TopicHighlight="0">&#xc9;thique
+            </category>
+
+            <category nrid="topic-1825" lang="EN" domain="Theme" infsonewsroom:TopicId="1825"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Communication
+            </category>
+
+            <category nrid="topic-1825" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1825"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">Communication
+            </category>
+
+            <category nrid="topic-1818" lang="EN" domain="Theme" infsonewsroom:TopicId="1818"
+                      infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Career &amp; Mobility
+            </category>
+
+            <category nrid="topic-1818" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1818"
+                      infsonewsroom:parentTopicId="6478" infsonewsroom:TopicHighlight="0">Carri&#xe8;re &amp; mobilit&#xe9;
+            </category>
+
+            <category nrid="topic-1812" lang="EN" domain="Theme" infsonewsroom:TopicId="1812"
+                      infsonewsroom:parentTopicId="1818" infsonewsroom:TopicHighlight="0">Arriving &amp; Leaving
+            </category>
+
+            <category nrid="topic-1812" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1812"
+                      infsonewsroom:parentTopicId="1818" infsonewsroom:TopicHighlight="0">Arriver et partir
+            </category>
+
+            <category nrid="topic-1808" lang="EN" domain="Theme" infsonewsroom:TopicId="1808"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">AIIC Delegations
+            </category>
+
+            <category nrid="topic-1808" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1808"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">AIIC Delegations
+            </category>
+
+            <category nrid="topic-1806" lang="EN" domain="Theme" infsonewsroom:TopicId="1806"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Forms
+            </category>
+
+            <category nrid="topic-1806" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1806"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Formulaires
+            </category>
+
+            <category nrid="topic-1798" lang="EN" domain="Theme" infsonewsroom:TopicId="1798"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Professional Development
+            </category>
+
+            <category nrid="topic-1798" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1798"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">D&#xe9;veloppement
+                professionnel
+            </category>
+
+            <category nrid="topic-1794" lang="EN" domain="Theme" infsonewsroom:TopicId="1794"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Quality Monitoring
+            </category>
+
+            <category nrid="topic-1794" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1794"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Suivi qualitatif
+            </category>
+
+            <category nrid="topic-1789" lang="EN" domain="Theme" infsonewsroom:TopicId="1789"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Insurance &amp; Pensions
+            </category>
+
+            <category nrid="topic-1789" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1789"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Assurance &amp; Pensions
+            </category>
+
+            <category nrid="topic-1784" lang="EN" domain="Theme" infsonewsroom:TopicId="1784"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Payments &amp; Attestations
+            </category>
+
+            <category nrid="topic-1784" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1784"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Paiements &amp; Attestations
+            </category>
+
+            <category nrid="topic-1779" lang="EN" domain="Theme" infsonewsroom:TopicId="1779"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Travel &amp; Access Cards
+            </category>
+
+            <category nrid="topic-1779" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1779"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Voyage &amp; cartes d&apos;acc&#xe8;s
+            </category>
+
+            <category nrid="topic-1776" lang="EN" domain="Theme" infsonewsroom:TopicId="1776"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Convention &amp; Handbook
+            </category>
+
+            <category nrid="topic-1776" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1776"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Convention &amp; manuel
+            </category>
+
+            <category nrid="topic-1769" lang="EN" domain="Theme" infsonewsroom:TopicId="1769"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Recruitment
+            </category>
+
+            <category nrid="topic-1769" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1769"
+                      infsonewsroom:parentTopicId="1760" infsonewsroom:TopicHighlight="0">Recrutement
+            </category>
+
+            <category nrid="topic-1760" lang="EN" domain="Theme" infsonewsroom:TopicId="1760"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">ACI
+            </category>
+
+            <category nrid="topic-1760" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1760"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">AIC
+            </category>
+
+            <category nrid="topic-1754" lang="EN" domain="Theme" infsonewsroom:TopicId="1754"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">About Us
+            </category>
+
+            <category nrid="topic-1754" lang="FR" domain="Th&#xe8;me" infsonewsroom:TopicId="1754"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">A propos de nous
+            </category>
+
+            <category nrid="topic-1019" lang="EN" domain="Newsletter" infsonewsroom:TopicId="1019"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications
+            </category>
+
+            <category nrid="topic-1019" lang="FR" domain="Newsletter" infsonewsroom:TopicId="1019"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications
+            </category>
+
+            <category nrid="topic-1018" lang="EN" domain="Newsletter" infsonewsroom:TopicId="1018"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan
+            </category>
+
+            <category nrid="topic-1018" lang="FR" domain="Newsletter" infsonewsroom:TopicId="1018"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan
+            </category>
+
+            <category nrid="topic-1000" lang="EN" domain="Newsletter" infsonewsroom:TopicId="1000"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news
+            </category>
+
+            <category nrid="topic-1000" lang="FR" domain="Newsletter" infsonewsroom:TopicId="1000"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news
+            </category>
+
+            <category nrid="topic-998" lang="EN" domain="Newsletter" infsonewsroom:TopicId="998"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter
+            </category>
+
+            <category nrid="topic-998" lang="FR" domain="Newsletter" infsonewsroom:TopicId="998"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter
+            </category>
+
+            <category nrid="topic-997" lang="EN" domain="Newsletter" infsonewsroom:TopicId="997"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial
+            </category>
+
+            <category nrid="topic-997" lang="FR" domain="Newsletter" infsonewsroom:TopicId="997"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial
+            </category>
+
+            <category nrid="topic-996" lang="EN" domain="Newsletter" infsonewsroom:TopicId="996"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue
+            </category>
+
+            <category nrid="topic-996" lang="FR" domain="Newsletter" infsonewsroom:TopicId="996"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue
+            </category>
+
+        </item>
+
+        <item nrid="service-142">
+
+            <title lang="EN">Scic S3 Newsletter</title>
+            <link lang="EN">
+                http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=142&amp;lang=EN
+            </link>
+            <description lang="EN"></description>
+            <infsonewsroom:archivesLink lang="EN">
+                http://ec.europa.eu/newsroom/scic/newsletter-specific-archive.cfm?serviceId=142&amp;lang=EN
+            </infsonewsroom:archivesLink>
+
+            <title lang="FR">Scic S3 Newsletter</title>
+            <link lang="FR">
+                http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=142&amp;lang=FR
+            </link>
+            <description lang="FR"></description>
+            <infsonewsroom:archivesLink lang="FR">
+                http://ec.europa.eu/newsroom/scic/newsletter-specific-archive.cfm?serviceId=142&amp;lang=FR
+            </infsonewsroom:archivesLink>
+
+            <pubDate>Tue, 24 Jun 2014 11:12:39 GMT</pubDate>
+            <guid>http://ec.europa.eu/newsroom/scic/subscription-quick-generic-form-fullpage.cfm?service_id=142</guid>
+            <infsonewsroom:BasicSvId>142</infsonewsroom:BasicSvId>
+            <infsonewsroom:BasicSvStatus>Active</infsonewsroom:BasicSvStatus>
+            <infsonewsroom:BasicSvType>Newsletter</infsonewsroom:BasicSvType>
+            <infsonewsroom:BasicSvTypeId>1041</infsonewsroom:BasicSvTypeId>
+            <infsonewsroom:BasicSvMailing>0</infsonewsroom:BasicSvMailing>
+
+            <infsonewsroom:mailingExists>1</infsonewsroom:mailingExists>
+            <infsonewsroom:BasicSvVisuUrl>
+                http://ec.europa.eu/information_society/newsroom/cf/templates/scic-spp/images/banner3.jpg
+            </infsonewsroom:BasicSvVisuUrl>
+            <category nrid="topic-1019" lang="EN" domain="Newsletter" infsonewsroom:TopicId="1019"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications
+            </category>
+
+            <category nrid="topic-1019" lang="FR" domain="Newsletter" infsonewsroom:TopicId="1019"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Publications
+            </category>
+
+            <category nrid="topic-1018" lang="EN" domain="Newsletter" infsonewsroom:TopicId="1018"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan
+            </category>
+
+            <category nrid="topic-1018" lang="FR" domain="Newsletter" infsonewsroom:TopicId="1018"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Mid-Term review Management Plan
+            </category>
+
+            <category nrid="topic-996" lang="EN" domain="Newsletter" infsonewsroom:TopicId="996"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue
+            </category>
+
+            <category nrid="topic-996" lang="FR" domain="Newsletter" infsonewsroom:TopicId="996"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">In this issue
+            </category>
+
+            <category nrid="topic-998" lang="EN" domain="Newsletter" infsonewsroom:TopicId="998"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter
+            </category>
+
+            <category nrid="topic-998" lang="FR" domain="Newsletter" infsonewsroom:TopicId="998"
+                      infsonewsroom:parentTopicId="0" infsonewsroom:TopicHighlight="0">SCIC Newsletter
+            </category>
+
+            <category nrid="topic-997" lang="EN" domain="Newsletter" infsonewsroom:TopicId="997"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial
+            </category>
+
+            <category nrid="topic-997" lang="FR" domain="Newsletter" infsonewsroom:TopicId="997"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Editorial
+            </category>
+
+            <category nrid="topic-1000" lang="EN" domain="Newsletter" infsonewsroom:TopicId="1000"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news
+            </category>
+
+            <category nrid="topic-1000" lang="FR" domain="Newsletter" infsonewsroom:TopicId="1000"
+                      infsonewsroom:parentTopicId="998" infsonewsroom:TopicHighlight="0">Top news
+            </category>
+
+        </item>
+
+    </channel>
+</rss>

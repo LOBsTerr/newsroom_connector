@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: 'Newsroom item'
 type: newsroom_item
-description: 'Main newsroom content item'
+description: 'Main nexteuropa_newsroom content item'
 help: ''
 new_revision: false
 preview_mode: 1
