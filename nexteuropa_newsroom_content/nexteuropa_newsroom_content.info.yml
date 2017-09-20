@@ -1,5 +1,5 @@
-name: Nexteuropa Newsroom Selections
-description: Newsroom selections
+name: Nexteuropa Newsroom Content
+description: Newsroom content
 package: Nexteuropa
 
 type: module
@@ -10,5 +10,3 @@ dependencies:
   - link:link
   - drupal:views
   - nexteuropa_newsroom
-
-configure: admin/newsroom

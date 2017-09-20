@@ -9,3 +9,4 @@ dependencies:
   - datetime:datetime
   - link:link
   - drupal:views
+  - nexteuropa_newsroom
