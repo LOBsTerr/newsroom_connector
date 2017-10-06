@@ -1,6 +1,6 @@
-nexteuropa_newsroom.multiple_delete_confirm:
+nexteuropa_newsroom.settings:
   path: '/admin/content/newsroom'
   defaults:
-    _form: 'Drupal\NexteuropaNewsroom\Form\NewsroomSettings'
+    _form: 'Drupal\nexteuropa_newsroom\Form\SettingsForm'
   requirements:
     _permission: 'administer newsroom settings'
