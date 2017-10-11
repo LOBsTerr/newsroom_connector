@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\nexteuropa_newsroom\Helpers\UniverseHelper;
+use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
 
 class SettingsForm extends ConfigFormBase {
 
@@ -63,85 +63,85 @@ class SettingsForm extends ConfigFormBase {
     $form = parent::buildForm($form, $form_state);
     $config = $this->config('nexteuropa_newsroom.settings');
 
-    $form['universe_settings'] = array(
+    $form['universe_settings'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Universe settings'),
-    );
-    $form['universe_settings']['universe_id'] = array(
+    ];
+    $form['universe_settings']['universe_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Universe ID:'),
       '#default_value' => $config->get('universe_id'),
       '#description' => $this->t('Universe ID.'),
       '#required' => TRUE,
       '#disabled' => !empty(UniverseHelper::getUniverseId()),
-    );
-    $form['universe_settings']['base_url'] = array(
+    ];
+    $form['universe_settings']['base_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Base newsroom URL:'),
       '#default_value' => $config->get('base_url'),
       '#description' => $this->t('Base newsroom URL.'),
       '#required' => TRUE,
-    );
-    $form['universe_settings']['subsite'] = array(
+    ];
+    $form['universe_settings']['subsite'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Name of the subsite:'),
       '#default_value' => $config->get('subsite'),
       '#description' => $this->t('The value you enter here will be used to filter the items belonging to this website.'),
-    );
-    $form['universe_settings']['app'] = array(
+    ];
+    $form['universe_settings']['app'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Application:'),
       '#default_value' => $config->get('app'),
       '#description' => $this->t('Application name.'),
-    );
-    $form['universe_settings']['app_key'] = array(
+    ];
+    $form['universe_settings']['app_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Application key:'),
       '#default_value' => $config->get('app_key'),
       '#description' => $this->t('Application key (hash sha256).'),
-    );
-    $form['universe_settings']['allowed_ips'] = array(
+    ];
+    $form['universe_settings']['allowed_ips'] = [
       '#type' => 'textfield',
       '#title' => $this->t('IP addresses allowed for import:'),
       '#default_value' => $config->get('allowed_ips'),
       '#description' => $this->t('Comma separated list of IP addresses where the importer can be launched from.'),
-    );
+    ];
     $newsroom_entities = [
       'item',
       'topic',
       'type',
     ];
     foreach ($newsroom_entities as $entity) {
-      $form['universe_settings'][$entity . '_import_script'] = array(
+      $form['universe_settings'][$entity . '_import_script'] = [
         '#type' => 'textfield',
         '#title' => $this->t("Import $entity script name:"),
         '#default_value' => $config->get($entity . '_import_script'),
         '#required' => TRUE,
-      );
-      $form['universe_settings'][$entity . '_import_segment'] = array(
+      ];
+      $form['universe_settings'][$entity . '_import_segment'] = [
         '#type' => 'textfield',
         '#title' => $this->t("URL chunk for single $entity import:"),
         '#default_value' => $config->get($entity . '_import_segment'),
         '#required' => TRUE,
-      );
+      ];
     }
 
-    $form['universe_settings']['item_edit_segment'] = array(
+    $form['universe_settings']['item_edit_script'] = [
       '#type' => 'textfield',
       '#title' => $this->t('URL chunk to edit an item in the Newsroom:'),
-      '#default_value' => $config->get('item_edit_segment'),
+      '#default_value' => $config->get('item_edit_script'),
       '#required' => TRUE,
-    );
-    $form['universe_settings']['proposal_script'] = array(
+    ];
+    $form['universe_settings']['proposal_script'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Newsroom proposal script:'),
       '#default_value' => $config->get('proposal_script'),
-    );
-    $form['universe_settings']['docsroom_url'] = array(
+    ];
+    $form['universe_settings']['docsroom_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Newsroom Docsroom URL:'),
       '#default_value' => $config->get('docsroom_url'),
-    );
+    ];
 
     return $form;
   }
