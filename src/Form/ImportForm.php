@@ -4,9 +4,8 @@ namespace Drupal\nexteuropa_newsroom\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
+use Drupal\nexteuropa_newsroom\Helper\ImporterHelper;
 use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
-use Drupal\nexteuropa_newsroom\Importer\BaseImporter;
 
 class ImportForm extends FormBase {
 
@@ -67,8 +66,23 @@ class ImportForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $data = simplexml_load_file(UniverseHelper::getBaseUrl() . UniverseHelper::get);
-    var_dump($data);
+    $values = $form_state->getValues();
+
+    $import = ImporterHelper::getImporter($values['type'], $values['page'], $values['number']);
+    var_dump($import->buildImportUrl());
+
+    $string = file_get_contents($import->buildImportUrl());
+    $xml = new \SimpleXMLElement($string); //
+    foreach ($xml->channel->item as $item) {
+      var_dump($item);
+//      $item->registerXPathNamespace('infsonewsroom', 'http://www.w3.org/2005/Atom');
+      $result = $item->xpath("infsonewsroom:BasicTeaser");
+      var_dump($result);
+    }
+//    $data = simplexml_load_file( );
+
+    var_dump($xml);
+    exit();
   }
 
 }

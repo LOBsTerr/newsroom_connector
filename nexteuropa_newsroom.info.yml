@@ -8,6 +8,6 @@ core: 8.x
 dependencies:
   - datetime:datetime
   - link:link
-  - drupal:views
+  - nexteuropa_newsroom
 
 configure: admin/nexteuropa_newsroom

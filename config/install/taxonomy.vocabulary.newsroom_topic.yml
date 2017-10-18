@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - nexteuropa_newsroom
+  enforced:
+    module:
+      - nexteuropa_newsroom
+name: 'Newsroom topic'
+vid: newsroom_topic
+description: 'Newsroom topics'
+hierarchy: 0
+weight: 0

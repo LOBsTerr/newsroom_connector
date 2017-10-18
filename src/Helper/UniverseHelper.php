@@ -2,7 +2,9 @@
 
 namespace Drupal\nexteuropa_newsroom\Helper;
 
-class UniverseHelper extends BaseHelper {
+use Drupal\Core\Url;
+
+class UniverseHelper extends ConfigHelper {
 
   /**
    * Get universe Id.
@@ -50,14 +52,17 @@ class UniverseHelper extends BaseHelper {
     return self::getEntityUrl('item', $newsroom_id);
   }
 
+  // TODO: Remove later - Move code to importer classes.
   public static function getTopicUrl($newsroom_id = NULL) {
     return self::getEntityUrl('topic', $newsroom_id);
   }
 
+  // TODO: Remove later - Move code to importer classes.
   public static function getTypeUrl($newsroom_id = NULL) {
     return self::getEntityUrl('type', $newsroom_id);
   }
 
+  // TODO: Remove later - Move code to importer classes.
   private static function getEntityUrl($entity_type, $newsroom_id) {
     $params = [];
     if (!empty($newsroom_id)) {
@@ -75,7 +80,7 @@ class UniverseHelper extends BaseHelper {
    * @return string
    *   Edit url on the newsroom side.
    */
-  private static function buildUrl($script_name, $params = []) {
-    return Url::fromUri(self::getBaseUrl() . $script_name, $params);
+  public static function buildUrl($script_name, $params = []) {
+    return Url::fromUri(self::getBaseUrl() . $script_name, ['query' => $params])->toUriString();
   }
 }

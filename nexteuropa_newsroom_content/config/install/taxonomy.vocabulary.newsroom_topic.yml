@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Newsroom topic'
-vid: newsroom_topic
-description: 'Newsroom topics'
-hierarchy: 0
-weight: 0
