@@ -5,7 +5,7 @@ nexteuropa_newsroom.settings:
   requirements:
     _permission: 'administer newsroom settings'
 
-nexteuropa_newsroom.settings:
+nexteuropa_newsroom.item_importer:
   path: '/admin/content/newsroom/item-importer'
   defaults:
     _form: 'Drupal\nexteuropa_newsroom\Form\ItemImporterSettingsForm'

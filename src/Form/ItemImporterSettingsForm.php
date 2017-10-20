@@ -5,29 +5,29 @@ namespace Drupal\nexteuropa_newsroom\Form;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
 
-class SettingsForm extends ConfigFormBase {
+class ItemImporterSettingsForm extends ConfigFormBase {
 
   /**
    * The HTTP client to fetch the feed data with.
    *
    * @var \GuzzleHttp\ClientInterface
    */
-  protected $httpClient;
+  protected $entityFieldManager;
 
   /**
    * {@inheritdoc}
    *
-   * @param \GuzzleHttp\ClientInterface $http_client
-   *   The Guzzle HTTP client.
+   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
+   *   The entity field manager.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, ClientInterface $http_client) {
+  public function __construct(ConfigFactoryInterface $config_factory, EntityFieldManagerInterface $entity_field_manager) {
     parent::__construct($config_factory);
-    $this->httpClient = $http_client;
+    $this->entityFieldManager = $entity_field_manager;
   }
 
   /**
@@ -36,7 +36,7 @@ class SettingsForm extends ConfigFormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
-      $container->get('http_client')
+      $container->get('entity_field.manager')
     );
   }
 
@@ -45,7 +45,7 @@ class SettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'nexteuropa_newsroom.settings',
+      'nexteuropa_newsroom.item_import_settings',
     ];
   }
 
@@ -62,86 +62,19 @@ class SettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildForm($form, $form_state);
     $config = $this->config('nexteuropa_newsroom.settings');
+    $fields = $this->entityFieldManager->getFieldDefinitions('node', 'newsroom_item');
 
-    $form['universe_settings'] = [
-      '#type' => 'fieldset',
-      '#title' => $this->t('Universe settings'),
-    ];
-    $form['universe_settings']['universe_id'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Universe ID:'),
-      '#default_value' => $config->get('universe_id'),
-      '#description' => $this->t('Universe ID.'),
-      '#required' => TRUE,
-      '#disabled' => !empty(UniverseHelper::getUniverseId()),
-    ];
-    $form['universe_settings']['base_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Base newsroom URL:'),
-      '#default_value' => $config->get('base_url'),
-      '#description' => $this->t('Base newsroom URL.'),
-      '#required' => TRUE,
-    ];
-    $form['universe_settings']['subsite'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Name of the subsite:'),
-      '#default_value' => $config->get('subsite'),
-      '#description' => $this->t('The value you enter here will be used to filter the items belonging to this website.'),
-    ];
-    $form['universe_settings']['app'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Application:'),
-      '#default_value' => $config->get('app'),
-      '#description' => $this->t('Application name.'),
-    ];
-    $form['universe_settings']['app_key'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Application key:'),
-      '#default_value' => $config->get('app_key'),
-      '#description' => $this->t('Application key (hash sha256).'),
-    ];
-    $form['universe_settings']['allowed_ips'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('IP addresses allowed for import:'),
-      '#default_value' => $config->get('allowed_ips'),
-      '#description' => $this->t('Comma separated list of IP addresses where the importer can be launched from.'),
-    ];
-    $newsroom_entities = [
-      'item',
-      'topic',
-      'type',
-    ];
-    foreach ($newsroom_entities as $entity) {
-      $form['universe_settings'][$entity . '_import_script'] = [
+    foreach ($fields as $field_key => $field) {
+      var_dump($field);
+      $field_config_key = 'xpath_' . $field_key;
+      $form[$field_config_key] = [
         '#type' => 'textfield',
-        '#title' => $this->t("Import $entity script name:"),
-        '#default_value' => $config->get($entity . '_import_script'),
-        '#required' => TRUE,
-      ];
-      $form['universe_settings'][$entity . '_import_segment'] = [
-        '#type' => 'textfield',
-        '#title' => $this->t("URL chunk for single $entity import:"),
-        '#default_value' => $config->get($entity . '_import_segment'),
+        '#title' => $field->getLabel(),
+        '#default_value' => $config->get($field_config_key),
+        '#description' => $this->t('Xpath for @label', ['@label' => $field->getLabel()]),
         '#required' => TRUE,
       ];
     }
-
-    $form['universe_settings']['item_edit_script'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('URL chunk to edit an item in the Newsroom:'),
-      '#default_value' => $config->get('item_edit_script'),
-      '#required' => TRUE,
-    ];
-    $form['universe_settings']['proposal_script'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Newsroom proposal script:'),
-      '#default_value' => $config->get('proposal_script'),
-    ];
-    $form['universe_settings']['docsroom_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Newsroom Docsroom URL:'),
-      '#default_value' => $config->get('docsroom_url'),
-    ];
 
     return $form;
   }

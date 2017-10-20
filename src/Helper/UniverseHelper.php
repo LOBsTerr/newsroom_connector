@@ -36,7 +36,7 @@ class UniverseHelper extends ConfigHelper {
    *   Edit url on the newsroom side.
    */
   public static function getItemEditUrl($newsroom_id) {
-    return self::buildUrl(self::getValue('item_edit_segment'), [self::getValue('item_import_segment') => $newsroom_id]);
+    return self::buildUrl(self::getValue('item_edit_segment'), [self::getValue('item_edit_segment') => $newsroom_id]);
   }
 
   /**

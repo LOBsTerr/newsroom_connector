@@ -2,38 +2,41 @@
 
 namespace Drupal\nexteuropa_newsroom\Helper;
 
-use Drupal\nexteuropa_newsroom\Importer\ItemImporter;
-use Drupal\nexteuropa_newsroom\Importer\TypeImporter;
-use Drupal\nexteuropa_newsroom\Importer\TopicImporter;
+use Drupal\aggregator\ItemsImporter;
+use Drupal\nexteuropa_newsroom\Importer\ItemXmlFetcher;
+use Drupal\nexteuropa_newsroom\Importer\TypeXmlFetcher;
+use Drupal\nexteuropa_newsroom\Importer\TopicXmlFetcher;
+use Drupal\taxonomy\Plugin\views\argument\Taxonomy;
 
 class ImporterHelper extends ConfigHelper {
 
-  /**
-   * Return newsroom item id edit link.
-   *
-   * @param int $newsroom_id
-   *   Original newsroom id.
-   *
-   * @return string
-   *   Edit url on the newsroom side.
-   */
-  public static function getItemImportUrl($newsroom_id) {
-    return self::getValue('base_url') . self::getUniverseId() . '/' . self::getValue('item_edit_segment') . $newsroom_id;
-  }
+  public static function getImport($type, $page, $number) {
+    $fetcher_class = $type . 'Importer';
+    $importer = new $fetcher_class($page, $number);
 
-  public static function getImporter($type, $page, $number) {
     switch ($type) {
       case 'item':
-        return new ItemImporter($page, $number);
-        break;
-
-      case 'topic':
-        return new TopicImporter($page, $number);
-        break;
-
-      case 'type':
-        return new TypeImporter($page, $number);
+        $importer = new ItemImporter($type);
         break;
     }
+
+
+//    switch ($type) {
+//      case 'item':
+//        $importer = new Importer($type);
+//        break;
+//
+//      case 'topic':
+//        $importer = new TaxonomyImporter(new TopicXmlFetcher($page, $number));
+//        break;
+//
+//      case 'type':
+//        $importer = new TaxonomyImporter(new TypeXmlFetcher($page, $number));
+//        break;
+//    }
+
+    $importer->import();
   }
+
+
 }

@@ -7,16 +7,11 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\nexteuropa_newsroom\Helper\ImporterHelper;
 use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
 
+/**
+ * Class ImportForm
+ * @package Drupal\nexteuropa_newsroom\Form
+ */
 class ImportForm extends FormBase {
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function getEditableConfigNames() {
-    return [
-      'nexteuropa_newsroom.settings',
-    ];
-  }
 
   /**
    * {@inheritdoc}
