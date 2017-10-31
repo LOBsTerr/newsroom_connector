@@ -3,7 +3,7 @@ namespace Drupal\nexteuropa_newsroom\Importer;
 
 use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
 
-abstract class XmlFetcher extends BaseFetcher {
+abstract class XmlImportUrl extends BaseImportUrl {
 
   /**
    * Builds URL to be imported.
@@ -18,11 +18,6 @@ abstract class XmlFetcher extends BaseFetcher {
       $this->getEntityUrlPart() => $this->getNewsroomId(),
     ];
     return UniverseHelper::buildUrl($this->getScript(), $params);
-  }
-
-  public function fetch() {
-    $url = $this->buildImportUrl();
-    $this->data = simplexml_load_file($url);
   }
 
   /**

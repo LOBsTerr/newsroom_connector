@@ -7,7 +7,7 @@ use Drupal\nexteuropa_newsroom\Helper\ConfigHelper;
  * Class ItemImporter
  * @package Drupal\nexteuropa_newsroom\Importer
  */
-class ItemXmlFetcher extends XmlFetcher {
+class ItemXmlImportUrl extends XmlFetcher {
   /**
    * @return array|mixed|null
    */

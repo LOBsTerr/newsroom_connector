@@ -3,11 +3,11 @@ namespace Drupal\nexteuropa_newsroom\Importer;
 
 use Drupal\nexteuropa_newsroom\Helper\ConfigHelper;
 
-class TopicXmlFetcher extends XmlFetcher {
+class TypeXmlImportUrl extends XmlFetcher {
   protected function getScript() {
-    return ConfigHelper::getValue('topic_import_script');
+    return ConfigHelper::getValue('type_import_script');
   }
   protected function getEntityUrlPart() {
-    return ConfigHelper::getValue('topic_import_segment');
+    return ConfigHelper::getValue('type_import_segment');
   }
 }

@@ -1,0 +1,5 @@
+process: NodeProcessor
+fetcher: XmlFetcher
+mappings:
+  - title:"title"
+  - body:"body"

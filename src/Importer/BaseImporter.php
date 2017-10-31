@@ -19,7 +19,7 @@ abstract class BaseImporter {
    * BaseImporter constructor.
    * @param $fetcher
    */
-  function __construct(FetcherInterface $fetcher) {
+  function __construct(ImportUrlInterface $fetcher) {
     $this->fetcher = $fetcher;
   }
 

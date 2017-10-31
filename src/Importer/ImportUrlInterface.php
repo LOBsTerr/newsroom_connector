@@ -8,7 +8,7 @@
 
 namespace Drupal\nexteuropa_newsroom\Importer;
 
-interface FetcherInterface {
+interface ImportUrlInterface {
   public function buildImportUrl();
   public function fetch();
 }

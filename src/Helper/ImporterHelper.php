@@ -3,9 +3,9 @@
 namespace Drupal\nexteuropa_newsroom\Helper;
 
 use Drupal\aggregator\ItemsImporter;
-use Drupal\nexteuropa_newsroom\Importer\ItemXmlFetcher;
-use Drupal\nexteuropa_newsroom\Importer\TypeXmlFetcher;
-use Drupal\nexteuropa_newsroom\Importer\TopicXmlFetcher;
+use Drupal\nexteuropa_newsroom\Importer\ItemXmlImportUrl;
+use Drupal\nexteuropa_newsroom\Importer\TypeXmlImportUrl;
+use Drupal\nexteuropa_newsroom\Importer\TopicXmlImportUrl;
 use Drupal\taxonomy\Plugin\views\argument\Taxonomy;
 
 class ImporterHelper extends ConfigHelper {

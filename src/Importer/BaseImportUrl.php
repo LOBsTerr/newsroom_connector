@@ -1,7 +1,7 @@
 <?php
 namespace Drupal\nexteuropa_newsroom\Importer;
 
-abstract class BaseFetcher implements FetcherInterface {
+abstract class BaseImportUrl implements ImportUrlInterface {
   protected $data = NULL;
   protected $page = 1;
   protected $number = 25;
