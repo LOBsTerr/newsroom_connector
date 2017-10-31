@@ -65,7 +65,6 @@ class ItemImporterSettingsForm extends ConfigFormBase {
     $fields = $this->entityFieldManager->getFieldDefinitions('node', 'newsroom_item');
 
     foreach ($fields as $field_key => $field) {
-      var_dump($field);
       $field_config_key = 'xpath_' . $field_key;
       $form[$field_config_key] = [
         '#type' => 'textfield',

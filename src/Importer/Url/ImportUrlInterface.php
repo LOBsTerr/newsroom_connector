@@ -6,9 +6,8 @@
  * Time: 10:13
  */
 
-namespace Drupal\nexteuropa_newsroom\Importer;
+namespace Drupal\nexteuropa_newsroom\Importer\Url;
 
 interface ImportUrlInterface {
   public function buildImportUrl();
-  public function fetch();
 }

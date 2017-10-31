@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\nexteuropa_newsroom\Importer;
+namespace Drupal\nexteuropa_newsroom\Importer\Url;
 
 abstract class BaseImportUrl implements ImportUrlInterface {
   protected $data = NULL;

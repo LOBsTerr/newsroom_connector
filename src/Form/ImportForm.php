@@ -64,6 +64,7 @@ class ImportForm extends FormBase {
     $values = $form_state->getValues();
 
     $import = ImporterHelper::getImporter($values['type'], $values['page'], $values['number']);
+
     var_dump($import->buildImportUrl());
 
     $string = file_get_contents($import->buildImportUrl());
