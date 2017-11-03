@@ -6,6 +6,8 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\nexteuropa_newsroom\Helper\ImporterHelper;
 use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
+use Drupal\nexteuropa_newsroom\Importer\Configuration;
+use Drupal\nexteuropa_newsroom\Importer\Importer;
 
 /**
  * Class ImportForm
@@ -62,22 +64,24 @@ class ImportForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
+    $configuration = new Configuration($values['type']);
+    $configuration->getUrl()->setPage($values['page']);
+    $configuration->getUrl()->setNumber($values['number']);
+    $importer_builder = new ImporterBuilder($configuration);
 
-    $import = ImporterHelper::getImporter($values['type'], $values['page'], $values['number']);
+    exit();
 
-    var_dump($import->buildImportUrl());
-
-    $string = file_get_contents($import->buildImportUrl());
-    $xml = new \SimpleXMLElement($string); //
-    foreach ($xml->channel->item as $item) {
-      var_dump($item);
-//      $item->registerXPathNamespace('infsonewsroom', 'http://www.w3.org/2005/Atom');
-      $result = $item->xpath("infsonewsroom:BasicTeaser");
-      var_dump($result);
-    }
-//    $data = simplexml_load_file( );
-
-    var_dump($xml);
+//    $string = file_get_contents($import->buildImportUrl());
+//    $xml = new \SimpleXMLElement($string); //
+//    foreach ($xml->channel->item as $item) {
+//      var_dump($item);
+////      $item->registerXPathNamespace('infsonewsroom', 'http://www.w3.org/2005/Atom');
+//      $result = $item->xpath("infsonewsroom:BasicTeaser");
+//      var_dump($result);
+//    }
+////    $data = simplexml_load_file( );
+//
+//    var_dump($xml);
     exit();
   }
 

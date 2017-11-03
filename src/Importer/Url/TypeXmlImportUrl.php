@@ -3,7 +3,7 @@ namespace Drupal\nexteuropa_newsroom\Importer\Url;
 
 use Drupal\nexteuropa_newsroom\Helper\ConfigHelper;
 
-class TypeXmlImportUrl extends XmlFetcher {
+class TypeXmlImportUrl extends XmlImportUrl {
   protected function getScript() {
     return ConfigHelper::getValue('type_import_script');
   }

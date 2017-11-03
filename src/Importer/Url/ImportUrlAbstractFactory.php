@@ -8,7 +8,6 @@
 
 namespace Drupal\nexteuropa_newsroom\Importer\Url;
 
-
 class ImportUrlAbstractFactory {
   public static function getImportUrlFactory($type) {
     switch ($type) {

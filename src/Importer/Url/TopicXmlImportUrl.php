@@ -3,7 +3,7 @@ namespace Drupal\nexteuropa_newsroom\Importer\Url;
 
 use Drupal\nexteuropa_newsroom\Helper\ConfigHelper;
 
-class TopicXmlImportUrl extends XmlFetcher {
+class TopicXmlImportUrl extends XmlImportUrl {
   protected function getScript() {
     return ConfigHelper::getValue('topic_import_script');
   }

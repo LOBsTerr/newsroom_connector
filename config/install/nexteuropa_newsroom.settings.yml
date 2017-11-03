@@ -8,6 +8,19 @@ type_import_script: 'rss-item-type-multilingual.cfm'
 type_import_segment: 'item_type_id'
 item_edit_script: 'item.cfm'
 proposal_script: 'propose-item.cfm'
+import:
+  item:
+    processor: 'node'
+    parser: 'xml'
+    bundle: 'newsroom_item'
+  topic:
+    processor: 'taxonomy_term'
+    parser: 'xml'
+    bundle: 'newsroom_topic'
+  type:
+    processor: 'taxonomy_term'
+    parser: 'xml'
+    bundle: 'newsroom_type'
 dependencies:
   enforced:
     module:

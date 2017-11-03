@@ -2,7 +2,6 @@
 namespace Drupal\nexteuropa_newsroom\Importer\Url;
 
 abstract class BaseImportUrl implements ImportUrlInterface {
-  protected $data = NULL;
   protected $page = 1;
   protected $number = 25;
   protected $newsroom_id = NULL;
@@ -18,6 +17,13 @@ abstract class BaseImportUrl implements ImportUrlInterface {
   }
 
   /**
+   * @param int $page
+   */
+  public function setPage($page) {
+    $this->page = $page;
+  }
+
+  /**
    * Gets number of items to be fetched.
    *
    * @return int
@@ -25,6 +31,13 @@ abstract class BaseImportUrl implements ImportUrlInterface {
    */
   public function getNumber() {
     return $this->number;
+  }
+
+  /**
+   * @param int $number
+   */
+  public function setNumber($number) {
+    $this->number = $number;
   }
 
   /**
@@ -38,28 +51,10 @@ abstract class BaseImportUrl implements ImportUrlInterface {
   }
 
   /**
-   * Gets fetched data.
-   *
-   * @return array
-   *   Data fetched from the URL.
+   * @param null $newsroom_id
    */
-  public function getData() {
-    return $this->data;
-  }
-
-  /**
-   * BaseImporter constructor.
-   *
-   * @param int $page
-   *   Page number.
-   * @param int $number
-   *   Number of items.
-   * @param int $newsroom_id
-   *   Original newsroom id.
-   */
-  public function __construct($page, $number, $newsroom_id = NULL) {
-    $this->page = $page;
-    $this->number = $number;
+  public function setNewsroomId($newsroom_id) {
     $this->newsroom_id = $newsroom_id;
   }
+
 }

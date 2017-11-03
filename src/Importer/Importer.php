@@ -12,18 +12,22 @@ namespace Drupal\nexteuropa_newsroom\Importer;
  * Class BaseImporter
  * @package Drupal\nexteuropa_newsroom\Importer
  */
-abstract class BaseImporter {
+class Importer {
+  protected $configuration = NULL;
+  protected $processor = NULL;
   protected $fetcher = NULL;
 
   /**
    * BaseImporter constructor.
    * @param $fetcher
    */
-  function __construct(ImportUrlInterface $fetcher) {
-    $this->fetcher = $fetcher;
+  function __construct($configuration) {
+    $this->configuration = $configuration;
   }
 
-  abstract function import();
+  function import() {
+
+  }
 
 
 }
