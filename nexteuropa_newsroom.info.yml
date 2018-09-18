@@ -8,6 +8,6 @@ core: 8.x
 dependencies:
   - datetime:datetime
   - link:link
-  - nexteuropa_newsroom
+  - geofield:geofield
 
 configure: admin/nexteuropa_newsroom

@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.newsroom_topic.field_newsroom_category_domain
     - field.field.taxonomy_term.newsroom_topic.field_newsroom_id
     - taxonomy.vocabulary.newsroom_topic
   module:
@@ -24,14 +23,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_newsroom_category_domain:
-    weight: 32
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_newsroom_id:
     weight: 33
     settings:
