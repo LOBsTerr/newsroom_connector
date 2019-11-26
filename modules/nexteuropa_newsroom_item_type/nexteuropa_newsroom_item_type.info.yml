@@ -1,0 +1,11 @@
+name: Nexteuropa Newsroom Item Type
+description: Provides Newsroom Item Type vocabulary and importer.
+package: Nexteuropa
+
+type: module
+core: 8.x
+
+dependencies:
+  - nexteuropa_newsroom
+  - drupal:taxonomy
+  - drupal:migrate_plus

@@ -1,0 +1,10 @@
+services:
+  nexteuropa_newsroom.universe_manager:
+    arguments: ['@config.factory']
+    class: Drupal\nexteuropa_newsroom\UniverseManager
+  nexteuropa_newsroom.redirector:
+    arguments: ['@entity_type.manager']
+    class: Drupal\nexteuropa_newsroom\Redirector
+  nexteuropa_newsroom.plugin.manager.newsroom_processor:
+    class: Drupal\nexteuropa_newsroom\Plugin\NewsroomProcessorManager
+    parent: default_plugin_manager

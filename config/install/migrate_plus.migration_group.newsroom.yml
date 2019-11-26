@@ -1,7 +1,7 @@
 id: newsroom
 label: Newsroom
 description: Newsroom migrations.
-source_type: Custom tables
+source_type: XML
 
 # As with the migration configuration (see beer_term), we add an enforced
 # dependency so the migration_group configuration will be removed on module

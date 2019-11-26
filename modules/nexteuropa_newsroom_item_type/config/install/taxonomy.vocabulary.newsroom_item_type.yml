@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - nexteuropa_newsroom_item_type
+name: 'Newsroom Item Type'
+vid: newsroom_item_type
+description: 'Newsroom item types'
+weight: 0

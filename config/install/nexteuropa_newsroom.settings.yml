@@ -1,26 +1,17 @@
+universe_id: ''
 base_url: 'http://ec.europa.eu/newsroom/'
 allowed_ips: '127.0.0.1,158.167.165.192,158.167.165.191,158.167.209.222,158.167.240.147,158.167.209.223,158.167.210.159,158.167.210.158'
+
 item_import_script: 'fullrss-multilingual.cfm'
 item_import_segment: 'item_id'
+
 topic_import_script: 'rss-service-multilingual.cfm'
 topic_import_segment: 'topic_id'
-type_import_script: 'rss-item-type-multilingual.cfm'
-type_import_segment: 'item_type_id'
+
 item_edit_script: 'item.cfm'
+
 proposal_script: 'propose-item.cfm'
-import:
-  item:
-    processor: 'node'
-    parser: 'xml'
-    bundle: 'newsroom_item'
-  topic:
-    processor: 'taxonomy_term'
-    parser: 'xml'
-    bundle: 'newsroom_topic'
-  type:
-    processor: 'taxonomy_term'
-    parser: 'xml'
-    bundle: 'newsroom_type'
+
 dependencies:
   enforced:
     module:

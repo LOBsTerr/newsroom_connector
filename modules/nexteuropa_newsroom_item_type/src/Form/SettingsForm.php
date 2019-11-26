@@ -166,6 +166,8 @@ class SettingsForm extends ConfigFormBase {
       ->set('item_import_segment', $values['item_import_segment'])
       ->set('topic_import_script', $values['topic_import_script'])
       ->set('topic_import_segment', $values['topic_import_segment'])
+      ->set('type_import_script', $values['type_import_script'])
+      ->set('type_import_segment', $values['type_import_segment'])
       ->set('item_edit_segment', $values['item_edit_segment'])
       ->set('proposal_script', $values['proposal_script'])
       ->set('docsroom_url', $values['docsroom_url'])
@@ -205,7 +207,7 @@ class SettingsForm extends ConfigFormBase {
   }
 
   private function buildUrl($base_part, $universe_id, $paramters) {
-    return "{$base_part}{$universe_id}/{$paramters}";
+    return $base_part . $universe_id . '/' . $paramters;
   }
 
   private function validateSubsite($base_url, $universe_id, $subsite) {
@@ -213,7 +215,7 @@ class SettingsForm extends ConfigFormBase {
     // The subsite is not mandatory.
     if (!empty($subsite)) {
       try {
-        $url = $this->buildUrl($base_url, $universe_id, "validation.cfm?subsite=$subsite");
+        $url = $this->buildUrl($base_url, $universe_id, 'validation.cfm?subsite=' . $subsite);
         $response = $this->httpClient->get($url, ['headers' => ['Accept' => 'text/plain']]);
         $body = trim((string) $response->getBody());
         $result = $body == 'True' ? TRUE : FALSE;

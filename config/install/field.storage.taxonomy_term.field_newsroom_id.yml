@@ -21,10 +21,3 @@ translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
-dependencies:
-  module:
-    - taxonomy
-    - nexteuropa_newsroom
-  enforced:
-    module:
-      - nexteuropa_newsroom

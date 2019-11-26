@@ -6,8 +6,6 @@ type: module
 core: 8.x
 
 dependencies:
-  - datetime:datetime
-  - link:link
-  - geofield:geofield
+  - drupal:taxonomy
 
 configure: admin/nexteuropa_newsroom
