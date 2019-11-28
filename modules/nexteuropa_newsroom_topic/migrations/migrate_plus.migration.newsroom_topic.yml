@@ -1,0 +1,66 @@
+id: newsroom_topic
+label: Newsroom topic
+migration_group: newsroom
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'http://lobsterr.me/topics.xml'
+
+  item_selector: '//channel/item[infsonewsroom:BasicSvType="Newsroom service"]/category[@domain!="Newsletter" and @lang="EN"]'
+
+  ids:
+    topic_id:
+      type: integer
+
+  fields:
+    -
+      name: topic_id
+      label: 'Topic ID'
+      selector: '@infsonewsroom:TopicId'
+    -
+      name: topic_name
+      label: Name
+      selector: 'text()'
+    -
+      name: parent_id
+      label: Parent
+      selector: '@infsonewsroom:parentTopicId'
+
+    -
+      name: domain
+      label: Parent
+      selector: '@domain'
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_topic
+
+  field_domain:
+    plugin: get
+    source: domain
+
+  name:
+    plugin: get
+    source: topic_name
+
+  parent:
+     -
+      plugin: skip_on_empty
+      method: process
+      source: parent_id
+     -
+      plugin: migration_lookup
+      migration: newsroom_topic
+
+  field_newsroom_id: topic_id
+
+destination:
+  plugin: entity:taxonomy_term
+
+dependencies:
+  enforced:
+    module:
+      - nexteuropa_newsroom_topic

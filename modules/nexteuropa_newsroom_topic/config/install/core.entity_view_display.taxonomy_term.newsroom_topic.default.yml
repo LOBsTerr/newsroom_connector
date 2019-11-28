@@ -8,7 +8,7 @@ dependencies:
     - text
   enforced:
       module:
-        - nexteuropa_newsroom
+        - nexteuropa_newsroom_topic
 id: taxonomy_term.newsroom_topic.default
 targetEntityType: taxonomy_term
 bundle: newsroom_topic

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom_type\Plugin\migrate;
+namespace Drupal\nexteuropa_newsroom_topic\Plugin\migrate;
 
 use Drupal\Component\Plugin\Derivative\DeriverBase;
 use Drupal\Core\Language\LanguageInterface;
@@ -9,9 +9,9 @@ use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Deriver for the newsroom item type translations.
+ * Deriver for the newsroom topic translations.
  */
-class NewsroomItemTypeLanguageDeriver extends DeriverBase implements ContainerDeriverInterface {
+class NewsroomTopicLanguageDeriver extends DeriverBase implements ContainerDeriverInterface {
 
   /**
    * @var \Drupal\Core\Language\LanguageManagerInterface
@@ -19,7 +19,7 @@ class NewsroomItemTypeLanguageDeriver extends DeriverBase implements ContainerDe
   protected $languageManager;
 
   /**
-   * NewsroomItemTypeLanguageDeriver constructor.
+   * NewsroomItemTopicLanguageDeriver constructor.
    *
    * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
    */
@@ -67,18 +67,9 @@ class NewsroomItemTypeLanguageDeriver extends DeriverBase implements ContainerDe
    */
   protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language) {
     $language_id = $language->getId();
+    $base_plugin_definition['source']['item_selector'] = '//channel/item[infsonewsroom:BasicSvType="Newsroom service"]/category[@domain!="Newsletter" and @lang="' . strtoupper($language_id) . '"]';
 
-    $base_plugin_definition['source']['fields'][] = [
-      'name' => "type_name_$language_id",
-      'label' => 'Type name - ' . $language_id,
-      'selector' => 'title[@lang="' . strtoupper($language_id) . '"]/text()',
-    ];
-
-    $base_plugin_definition['process']['name'] = [
-      'plugin' => 'get',
-      'source' => "type_name_$language_id",
-      'language' => $language_id,
-    ];
+    $base_plugin_definition['process']['name']['language'] = $language_id;
 
     $base_plugin_definition['process']['langcode'] = [
       'plugin' => 'default_value',

@@ -6,7 +6,7 @@ dependencies:
     - nexteuropa_newsroom
   enforced:
     module:
-      - nexteuropa_newsroom
+      - nexteuropa_newsroom_topic
 name: 'Newsroom topic'
 vid: newsroom_topic
 description: 'Newsroom topics'

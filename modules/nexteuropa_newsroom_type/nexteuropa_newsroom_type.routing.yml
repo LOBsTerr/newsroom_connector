@@ -2,7 +2,7 @@
 nexteuropa_newsroom_type.import:
   path: '/newsroom-import/type/{newsroom_id}'
   defaults:
-    _controller: '\Drupal\nexteuropa_newsroom_type\Controller\NexteuropaNewsroomItemTypeController::import'
+    _controller: '\Drupal\nexteuropa_newsroom_type\Controller\NexteuropaNewsroomTypeController::import'
   requirements:
     _permission: 'administer newsroom settings,import newsroom item type'
 
@@ -18,6 +18,6 @@ nexteuropa_newsroom_type.import:
 nexteuropa_newsroom_type.redirect:
   path: '/news-redirect/type/{newsroom_id}'
   defaults:
-    _controller: '\Drupal\nexteuropa_newsroom_type\Controller\NexteuropaNewsroomItemTypeController::redirectItem'
+    _controller: '\Drupal\nexteuropa_newsroom_type\Controller\NexteuropaNewsroomTypeController::redirectItem'
   requirements:
     _permission: 'administer newsroom settings,import newssroom item type'

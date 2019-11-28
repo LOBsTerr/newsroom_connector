@@ -6,7 +6,7 @@ dependencies:
     - taxonomy.vocabulary.newsroom_topic
   enforced:
       module:
-        - nexteuropa_newsroom
+        - nexteuropa_newsroom_topic
 id: taxonomy_term.newsroom_topic.field_newsroom_id
 field_name: field_newsroom_id
 entity_type: taxonomy_term

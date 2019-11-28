@@ -1,7 +1,7 @@
 id: newsroom_type_translations
 label: Newsroom type
 migration_group: newsroom
-deriver: 'Drupal\nexteuropa_newsroom_type\Plugin\migrate\NewsroomItemTypeLanguageDeriver'
+deriver: 'Drupal\nexteuropa_newsroom_type\Plugin\migrate\NewsroomTypeLanguageDeriver'
 source:
   plugin: url
   data_fetcher_plugin: http
