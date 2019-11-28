@@ -1,4 +1,4 @@
-id: newsroom_item_type
+id: newsroom_type
 label: Newsroom type
 migration_group: newsroom
 
@@ -32,13 +32,13 @@ process:
 
   vid:
     plugin: default_value
-    default_value: newsroom_item_type
+    default_value: newsroom_type
 
   name: type_name
 
   parent:
     plugin: migration_lookup
-    migration: newsroom_item_type
+    migration: newsroom_type
     source: parent_id
 
   field_newsroom_id: type_id
@@ -49,4 +49,4 @@ destination:
 dependencies:
   enforced:
     module:
-      - nexteuropa_newsroom_item_type
+      - nexteuropa_newsroom_type

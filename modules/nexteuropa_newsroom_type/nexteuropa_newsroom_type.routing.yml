@@ -1,23 +1,23 @@
 # Import specific newsroom type.
-nexteuropa_newsroom_item_type.import:
+nexteuropa_newsroom_type.import:
   path: '/newsroom-import/type/{newsroom_id}'
   defaults:
-    _controller: '\Drupal\nexteuropa_newsroom_item_type\Controller\NexteuropaNewsroomItemTypeController::import'
+    _controller: '\Drupal\nexteuropa_newsroom_type\Controller\NexteuropaNewsroomItemTypeController::import'
   requirements:
     _permission: 'administer newsroom settings,import newsroom item type'
 
 # Import newsroom item types.
-#nexteuropa_newsroom_item_type.import_type:
+#nexteuropa_newsroom_type.import_type:
 #  path: '/newsroom-import/types'
 #  defaults:
-#    _controller: '\Drupal\nexteuropa_newsroom_item_type\Controller\NexteuropaNewsroomItemTypeController::importTypes'
+#    _controller: '\Drupal\nexteuropa_newsroom_type\Controller\NexteuropaNewsroomItemTypeController::importTypes'
 #  requirements:
 #    _permission: 'administer newsroom settings,import newssroom item type'
 
 # Redirect to newsroom item type using origin newsroom id.
-nexteuropa_newsroom_item_type.redirect:
+nexteuropa_newsroom_type.redirect:
   path: '/news-redirect/type/{newsroom_id}'
   defaults:
-    _controller: '\Drupal\nexteuropa_newsroom_item_type\Controller\NexteuropaNewsroomItemTypeController::redirectItem'
+    _controller: '\Drupal\nexteuropa_newsroom_type\Controller\NexteuropaNewsroomItemTypeController::redirectItem'
   requirements:
     _permission: 'administer newsroom settings,import newssroom item type'

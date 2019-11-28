@@ -1,5 +1,5 @@
-name: Nexteuropa Newsroom Item Type
-description: Provides Newsroom Item Type vocabulary and importer.
+name: Nexteuropa Newsroom Type
+description: Provides Newsroom Type vocabulary and importer.
 package: Nexteuropa
 
 type: module

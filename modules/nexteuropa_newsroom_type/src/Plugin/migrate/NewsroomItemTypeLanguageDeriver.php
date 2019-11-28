@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom_item_type\Plugin\migrate;
+namespace Drupal\nexteuropa_newsroom_type\Plugin\migrate;
 
 use Drupal\Component\Plugin\Derivative\DeriverBase;
 use Drupal\Core\Language\LanguageInterface;

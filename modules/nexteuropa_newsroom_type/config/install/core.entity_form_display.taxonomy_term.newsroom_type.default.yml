@@ -2,17 +2,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.newsroom_item_type.field_newsroom_id
-    - taxonomy.vocabulary.newsroom_item_type
+    - field.field.taxonomy_term.newsroom_type.field_newsroom_id
+    - taxonomy.vocabulary.newsroom_type
   enforced:
     module:
-      - nexteuropa_newsroom_item_type
+      - nexteuropa_newsroom_type
   module:
     - path
     - text
-id: taxonomy_term.newsroom_item_type.default
+id: taxonomy_term.newsroom_type.default
 targetEntityType: taxonomy_term
-bundle: newsroom_item_type
+bundle: newsroom_type
 mode: default
 content:
   description:

@@ -1,7 +1,7 @@
-id: newsroom_item_type_translations
+id: newsroom_type_translations
 label: Newsroom type
 migration_group: newsroom
-deriver: 'Drupal\nexteuropa_newsroom_item_type\Plugin\migrate\NewsroomItemTypeLanguageDeriver'
+deriver: 'Drupal\nexteuropa_newsroom_type\Plugin\migrate\NewsroomItemTypeLanguageDeriver'
 source:
   plugin: url
   data_fetcher_plugin: http
@@ -24,12 +24,12 @@ process:
 
   vid:
     plugin: default_value
-    default_value: newsroom_item_type
+    default_value: newsroom_type
 
   tid:
     plugin: migration_lookup
     source: type_id
-    migration: newsroom_item_type
+    migration: newsroom_type
 
   content_translation_source:
     plugin: default_value
@@ -42,4 +42,4 @@ destination:
 dependencies:
   enforced:
     module:
-      - nexteuropa_newsroom_item_type
+      - nexteuropa_newsroom_type

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom_item_type\Controller;
+namespace Drupal\nexteuropa_newsroom_type\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Language\LanguageManagerInterface;
@@ -65,12 +65,12 @@ class NexteuropaNewsroomItemTypeController extends ControllerBase {
    *   An array of log level classes.
    */
   public function import($newsroom_id) {
-    $this->newsroomProcessorPluginManager->createInstance('newsroom_item_type')->import($newsroom_id);
+    $this->newsroomProcessorPluginManager->createInstance('newsroom_type')->import($newsroom_id);
     $this->redirectItem($newsroom_id);
   }
 
   public function redirectItem($newsroom_id) {
-    $this->newsroomProcessorPluginManager->createInstance('newsroom_item_type')->redirect($newsroom_id);
+    $this->newsroomProcessorPluginManager->createInstance('newsroom_type')->redirect($newsroom_id);
   }
 
 }

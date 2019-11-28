@@ -3,14 +3,14 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_newsroom_id
-    - taxonomy.vocabulary.newsroom_item_type
+    - taxonomy.vocabulary.newsroom_type
   enforced:
     module:
-      - nexteuropa_newsroom_item_type
-id: taxonomy_term.newsroom_item_type.field_newsroom_id
+      - nexteuropa_newsroom_type
+id: taxonomy_term.newsroom_type.field_newsroom_id
 field_name: field_newsroom_id
 entity_type: taxonomy_term
-bundle: newsroom_item_type
+bundle: newsroom_type
 label: 'Newsroom ID'
 description: 'Original nexteuropa_newsroom id. Used to keep connection between nexteuropa_newsroom application and Drupal side.'
 required: false
