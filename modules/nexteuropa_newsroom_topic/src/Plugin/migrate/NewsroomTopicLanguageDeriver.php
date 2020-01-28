@@ -67,9 +67,25 @@ class NewsroomTopicLanguageDeriver extends DeriverBase implements ContainerDeriv
    */
   protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language) {
     $language_id = $language->getId();
-    $base_plugin_definition['source']['item_selector'] = '//channel/item[infsonewsroom:BasicSvType="Newsroom service"]/category[@domain!="Newsletter" and @lang="' . strtoupper($language_id) . '"]';
+    $language_code = strtoupper($language_id);
 
-    $base_plugin_definition['process']['name']['language'] = $language_id;
+    // Name.
+    $base_plugin_definition['source']['fields'][] = [
+      'name' => "topic_name_$language_id",
+      'label' => "Topic name - $language_id",
+      'selector' => 'title[@lang="' . $language_code . '"]/text()',
+    ];
+
+    $base_plugin_definition['process']['name'][] = [
+      'plugin' => 'skip_on_empty',
+      'source' => "topic_name_$language_id",
+      'method' => 'row',
+    ];
+    $base_plugin_definition['process']['name'][] = [
+      'plugin' => 'get',
+      'source' => "topic_name_$language_id",
+      'language' => $language_id,
+    ];
 
     $base_plugin_definition['process']['langcode'] = [
       'plugin' => 'default_value',

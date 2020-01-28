@@ -2,6 +2,9 @@ id: newsroom_topic_translations
 label: Newsroom topic
 migration_group: newsroom
 deriver: 'Drupal\nexteuropa_newsroom_topic\Plugin\migrate\NewsroomTopicLanguageDeriver'
+migration_tags:
+  - newsroom_topic
+
 source:
   plugin: url
   data_fetcher_plugin: http
@@ -18,11 +21,7 @@ source:
     -
       name: topic_id
       label: 'Topic ID'
-      selector: '@infsonewsroom:TopicId'
-    -
-      name: topic_name
-      label: Name
-      selector: 'text()'
+      selector: 'infsonewsroom:topicId/text()'
 
 process:
 
@@ -34,10 +33,6 @@ process:
     plugin: migration_lookup
     source: topic_id
     migration: newsroom_topic
-
-  name:
-    plugin: get
-    source: topic_name
 
   content_translation_source:
     plugin: default_value
@@ -51,3 +46,7 @@ dependencies:
   enforced:
     module:
       - nexteuropa_newsroom_topic
+
+migration_dependencies:
+  required:
+    - newsroom_topic

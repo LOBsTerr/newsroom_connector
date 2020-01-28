@@ -2,13 +2,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.field_newsroom_domain
+    - field.storage.taxonomy_term.field_newsroom_topic_type
     - taxonomy.vocabulary.newsroom_topic
-id: taxonomy_term.newsroom_topic.field_newsroom_domain
-field_name: field_newsroom_domain
+id: taxonomy_term.newsroom_topic.field_newsroom_topic_type
+field_name: field_newsroom_topic_type
 entity_type: taxonomy_term
 bundle: newsroom_topic
-label: Domain
+label: 'Topic type'
 description: ''
 required: false
 translatable: false

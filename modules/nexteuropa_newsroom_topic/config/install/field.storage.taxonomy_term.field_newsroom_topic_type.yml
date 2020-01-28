@@ -6,8 +6,8 @@ dependencies:
   enforced:
     module:
       - nexteuropa_newsroom_topic
-id: taxonomy_term.field_newsroom_domain
-field_name: field_newsroom_domain
+id: taxonomy_term.field_newsroom_topic_type
+field_name: field_newsroom_topic_type
 entity_type: taxonomy_term
 type: string
 settings:

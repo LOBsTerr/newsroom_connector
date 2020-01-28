@@ -1,14 +1,17 @@
 id: newsroom_topic
 label: Newsroom topic
 migration_group: newsroom
+migration_tags:
+  - newsroom_topic
 
 source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
+#  urls: 'https://ec.europa.eu/newsroom/dae/rss-topic-multilingual-v2.cfm'
   urls: 'http://lobsterr.me/topics.xml'
 
-  item_selector: '//channel/item[infsonewsroom:BasicSvType="Newsroom service"]/category[@domain!="Newsletter" and @lang="EN"]'
+  item_selector: '//channel/item[infsonewsroom:definedBy="User"]'
 
   ids:
     topic_id:
@@ -18,29 +21,29 @@ source:
     -
       name: topic_id
       label: 'Topic ID'
-      selector: '@infsonewsroom:TopicId'
+      selector: 'infsonewsroom:topicId/text()'
     -
       name: topic_name
       label: Name
-      selector: 'text()'
+      selector: 'title[@lang="EN"]/text()'
     -
       name: parent_id
       label: Parent
-      selector: '@infsonewsroom:parentTopicId'
-
+      selector: 'infsonewsroom:parentTopicId/text()'
     -
-      name: domain
-      label: Parent
-      selector: '@domain'
+      name: topic_type
+      label: 'Topic type'
+      selector: 'infsonewsroom:topicType[@lang="EN"]/text()'
+
 process:
 
   vid:
     plugin: default_value
     default_value: newsroom_topic
 
-  field_domain:
+  field_newsroom_topic_type:
     plugin: get
-    source: domain
+    source: topic_type
 
   name:
     plugin: get

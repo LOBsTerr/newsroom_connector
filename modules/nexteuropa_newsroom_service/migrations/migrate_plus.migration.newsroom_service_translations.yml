@@ -20,10 +20,6 @@ source:
       name: service_id
       label: 'Service ID'
       selector: 'infsonewsroom:BasicSvId/text()'
-    -
-      name: service_name
-      label: Name
-      selector: 'title[@lang="EN"]/text()'
 
 process:
 
