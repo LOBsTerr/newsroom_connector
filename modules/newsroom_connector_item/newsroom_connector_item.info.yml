@@ -1,0 +1,14 @@
+name: Newsroom Connector Item
+description: Provides Newsroom Item content type and importer.
+package: Newsroom
+
+type: module
+core: 8.x
+php: (>=7.1)
+
+dependencies:
+  - drupal:node
+  - link:link
+  - geofield:geofield
+
+configure: admin/newsroom_connector

@@ -1,0 +1,22 @@
+newsroom_connector.settings:
+  path: '/admin/content/newsroom'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\SettingsForm'
+  requirements:
+    _permission: 'administer newsroom settings'
+
+newsroom_connector.item_importer:
+  path: '/admin/content/newsroom/item-importer'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\ItemImporterSettingsForm'
+  requirements:
+    _permission: 'administer newsroom settings'
+
+newsroom_connector.import:
+  path: '/newsroom/import'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\ImportForm'
+  requirements:
+    _permission: 'administer newsroom settings'
+  options:
+    _admin_route: TRUE

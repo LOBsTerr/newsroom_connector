@@ -1,0 +1,53 @@
+id: newsroom_service_translations
+label: Newsroom service
+migration_group: newsroom
+deriver: 'Drupal\newsroom_connector_service\Plugin\migrate\NewsroomServiceLanguageDeriver'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  #urls: 'https://ec.europa.eu/newsroom/dae/rss-service-multilingual-v2.cfm'
+  urls: 'http://lobsterr.me/services.xml'
+
+  item_selector: '//channel/item'
+
+  ids:
+    service_id:
+      type: integer
+
+  fields:
+    -
+      name: service_id
+      label: 'Service ID'
+      selector: 'infsonewsroom:BasicSvId/text()'
+
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_service
+
+  tid:
+    plugin: migration_lookup
+    source: service_id
+    migration: newsroom_service
+
+  content_translation_source:
+    plugin: default_value
+    default_value: 'en'
+
+destination:
+  plugin: entity:taxonomy_term
+  translations: true
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+
+migration_dependencies:
+  required:
+    - newsroom_service
+
+migration_tags:
+  - newsroom_service

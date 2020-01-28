@@ -1,0 +1,54 @@
+id: newsroom_type
+label: Newsroom type
+migration_group: newsroom
+migration_tags:
+  - newsroom_type
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'http://lobsterr.me/types.xml'
+
+  item_selector: '//channel/item'
+
+  ids:
+    type_id:
+      type: integer
+
+  fields:
+    -
+      name: type_id
+      label: 'Type ID'
+      selector: 'infsonewsroom:BasicTypeId/text()'
+    -
+      name: type_name
+      label: Name
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: parent_id
+      label: Parent
+      selector: 'infsonewsroom:BasicTypeParent/text()'
+
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_type
+
+  name: type_name
+
+  parent:
+    plugin: migration_lookup
+    migration: newsroom_type
+    source: parent_id
+
+  field_newsroom_id: type_id
+
+destination:
+  plugin: entity:taxonomy_term
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_type

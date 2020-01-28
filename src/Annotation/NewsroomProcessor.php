@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom\Annotation;
+namespace Drupal\newsroom_connector\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
 
 /**
  * Defines a Newsroom processor item annotation object.
  *
- * @see \Drupal\nexteuropa_newsroom\Plugin\NewsroomProcessorManager
+ * @see \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager
  * @see plugin_api
  *
  * @Annotation

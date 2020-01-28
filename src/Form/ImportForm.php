@@ -1,17 +1,17 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom\Form;
+namespace Drupal\newsroom_connector\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\nexteuropa_newsroom\Helper\ImporterHelper;
-use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
-use Drupal\nexteuropa_newsroom\Importer\Configuration;
-use Drupal\nexteuropa_newsroom\Importer\Importer;
+use Drupal\newsroom_connector\Helper\ImporterHelper;
+use Drupal\newsroom_connector\Helper\UniverseHelper;
+use Drupal\newsroom_connector\Importer\Configuration;
+use Drupal\newsroom_connector\Importer\Importer;
 
 /**
  * Class ImportForm
- * @package Drupal\nexteuropa_newsroom\Form
+ * @package Drupal\newsroom_connector\Form
  */
 class ImportForm extends FormBase {
 
@@ -19,7 +19,7 @@ class ImportForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'nexteuropa_newsroom_settings_form';
+    return 'newsroom_connector_settings_form';
   }
 
   /**

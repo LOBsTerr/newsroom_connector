@@ -9,4 +9,4 @@ source_type: XML
 dependencies:
   enforced:
     module:
-      - nexteuropa_newsroom
+      - newsroom_connector

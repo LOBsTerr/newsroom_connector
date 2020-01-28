@@ -1,0 +1,13 @@
+name: Newsroom Connector Service
+description: Newsroom service
+package: Newsroom
+
+type: module
+core: 8.x
+php: (>=7.1)
+
+dependencies:
+  - drupal:migrate_plus
+  - drupal:taxonomy
+  - newsroom_connector
+  - newsroom_connector_media

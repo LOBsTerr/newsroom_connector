@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom\Plugin;
+namespace Drupal\newsroom_connector\Plugin;
 
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -9,7 +9,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationPluginManager;
 use Drupal\migrate_tools\MigrateExecutable;
-use Drupal\nexteuropa_newsroom\UniverseManagerInterface;
+use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -31,7 +31,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   /**
    * The universe manager.
    *
-   * @var \Drupal\nexteuropa_newsroom\UniverseManager
+   * @var \Drupal\newsroom_connector\UniverseManager
    */
   protected $universeManager;
 
@@ -72,7 +72,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $plugin_id,
       $plugin_definition,
       $container->get('entity_type.manager'),
-      $container->get('nexteuropa_newsroom.universe_manager'),
+      $container->get('newsroom_connector.universe_manager'),
       $container->get('plugin.manager.migration'),
       $container->get('language_manager')
     );

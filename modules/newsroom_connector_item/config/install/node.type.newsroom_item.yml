@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - newsroom_connector
+  enforced:
+      module:
+        - newsroom_connector
+name: 'Newsroom item'
+type: newsroom_item
+description: 'Main newsroom_connector content item'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

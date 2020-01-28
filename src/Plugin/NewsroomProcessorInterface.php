@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom\Plugin;
+namespace Drupal\newsroom_connector\Plugin;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
 use Drupal\Component\Plugin\ConfigurableInterface;

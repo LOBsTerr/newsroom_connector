@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom;
+namespace Drupal\newsroom_connector;
 
 interface UniverseManagerInterface {
 

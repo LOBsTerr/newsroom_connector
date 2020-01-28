@@ -3,10 +3,10 @@ status: true
 dependencies:
   module:
     - taxonomy
-    - nexteuropa_newsroom
+    - newsroom_connector
   enforced:
     module:
-      - nexteuropa_newsroom
+      - newsroom_connector
 id: taxonomy_term.field_newsroom_id
 field_name: field_newsroom_id
 entity_type: taxonomy_term

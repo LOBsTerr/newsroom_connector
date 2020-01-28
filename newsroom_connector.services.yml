@@ -1,0 +1,10 @@
+services:
+  newsroom_connector.universe_manager:
+    arguments: ['@config.factory']
+    class: Drupal\newsroom_connector\UniverseManager
+  newsroom_connector.redirector:
+    arguments: ['@entity_type.manager']
+    class: Drupal\newsroom_connector\Redirector
+  newsroom_connector.plugin.manager.newsroom_processor:
+    class: Drupal\newsroom_connector\Plugin\NewsroomProcessorManager
+    parent: default_plugin_manager

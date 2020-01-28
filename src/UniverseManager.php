@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom;
+namespace Drupal\newsroom_connector;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Url;
@@ -18,7 +18,7 @@ class UniverseManager implements UniverseManagerInterface {
    * {@inheritdoc}
    */
   public function __construct(ConfigFactoryInterface $configFactory) {
-    $this->settings = $configFactory->get('nexteuropa_newsroom.settings');
+    $this->settings = $configFactory->get('newsroom_connector.settings');
   }
 
   /**

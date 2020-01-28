@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom\Form;
+namespace Drupal\newsroom_connector\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\nexteuropa_newsroom\UniverseManager;
+use Drupal\newsroom_connector\UniverseManager;
 
 class SettingsForm extends ConfigFormBase {
 
@@ -38,7 +38,7 @@ class SettingsForm extends ConfigFormBase {
     return new static(
       $container->get('config.factory'),
       $container->get('http_client'),
-      $container->get('nexteuropa_newsroom.universe_manager')
+      $container->get('newsroom_connector.universe_manager')
     );
   }
 
@@ -47,7 +47,7 @@ class SettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'nexteuropa_newsroom.settings',
+      'newsroom_connector.settings',
     ];
   }
 
@@ -55,7 +55,7 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'nexteuropa_newsroom_settings_form';
+    return 'newsroom_connector_settings_form';
   }
 
   /**
@@ -63,7 +63,7 @@ class SettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildForm($form, $form_state);
-    $config = $this->config('nexteuropa_newsroom.settings');
+    $config = $this->config('newsroom_connector.settings');
 
     $form['universe_settings'] = [
       '#type' => 'fieldset',
@@ -157,7 +157,7 @@ class SettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-    $this->config('nexteuropa_newsroom.settings')
+    $this->config('newsroom_connector.settings')
       ->set('universe_id', $values['universe_id'])
       ->set('base_url', $values['base_url'])
       ->set('allowed_ips', $values['allowed_ips'])
@@ -200,7 +200,7 @@ class SettingsForm extends ConfigFormBase {
       $result = $response->getStatusCode() == 200;
     }
     catch (RequestException $exception) {
-      watchdog_exception('nexteuropa_newsroom', $exception);
+      watchdog_exception('newsroom_connector', $exception);
     }
 
     return $result;
@@ -221,7 +221,7 @@ class SettingsForm extends ConfigFormBase {
         $result = $body == 'True' ? TRUE : FALSE;
       }
       catch (RequestException $exception) {
-        watchdog_exception('nexteuropa_newsroom', $exception);
+        watchdog_exception('newsroom_connector', $exception);
       }
     }
 

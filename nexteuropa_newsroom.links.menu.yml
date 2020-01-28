@@ -1,6 +1,0 @@
-nexteuropa_newsroom.admin_config:
-  route_name: nexteuropa_newsroom.settings
-  parent: system.admin_config_content
-  title: Newsroom
-  weight: 10
-  description: 'Nexteuropa newsroom configuration.'

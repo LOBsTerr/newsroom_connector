@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nexteuropa_newsroom\Plugin;
+namespace Drupal\newsroom_connector\Plugin;
 
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Cache\CacheBackendInterface;
@@ -23,10 +23,10 @@ class NewsroomProcessorManager extends DefaultPluginManager {
    *   The module handler to invoke the alter hook with.
    */
   public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
-    parent::__construct('Plugin/newsroom', $namespaces, $module_handler, 'Drupal\nexteuropa_newsroom\Plugin\NewsroomProcessorInterface', 'Drupal\nexteuropa_newsroom\Annotation\NewsroomProcessor');
+    parent::__construct('Plugin/newsroom', $namespaces, $module_handler, 'Drupal\newsroom_connector\Plugin\NewsroomProcessorInterface', 'Drupal\newsroom_connector\Annotation\NewsroomProcessor');
 
-    $this->alterInfo('nexteuropa_newsroom_newsroom_processor_info');
-    $this->setCacheBackend($cache_backend, 'nexteuropa_newsroom_newsroom_processor_plugins');
+    $this->alterInfo('newsroom_connector_newsroom_processor_info');
+    $this->setCacheBackend($cache_backend, 'newsroom_connector_newsroom_processor_plugins');
   }
 
 }

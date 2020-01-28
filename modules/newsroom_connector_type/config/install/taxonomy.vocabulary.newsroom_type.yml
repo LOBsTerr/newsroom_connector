@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_type
+name: 'Newsroom Type'
+vid: newsroom_type
+description: 'Newsroom types'
+weight: 0
