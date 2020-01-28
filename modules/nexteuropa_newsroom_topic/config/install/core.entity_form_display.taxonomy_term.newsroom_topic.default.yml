@@ -8,8 +8,8 @@ dependencies:
     - path
     - text
   enforced:
-      module:
-        - nexteuropa_newsroom_topic
+    module:
+      - nexteuropa_newsroom_topic
 id: taxonomy_term.newsroom_topic.default
 targetEntityType: taxonomy_term
 bundle: newsroom_topic

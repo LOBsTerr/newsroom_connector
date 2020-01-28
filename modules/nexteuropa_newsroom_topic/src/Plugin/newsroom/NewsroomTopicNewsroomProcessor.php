@@ -12,7 +12,7 @@ use Drupal\nexteuropa_newsroom\Plugin\NewsroomProcessorBase;
  *   content_type = "taxonomy_term",
  *   bundle = "newsroom_topic",
  *   bundle_field = "vid",
- *   import_script = "rss-service-multilingual.cfm",
+ *   import_script = "rss-topic-multilingual-v2.cfm",
  *   import_segment = "topic_id",
  *   label = @Translation("Newsroom topic")
  * )

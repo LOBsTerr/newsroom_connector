@@ -1,0 +1,23 @@
+# Import specific newsroom service.
+nexteuropa_newsroom_service.import:
+  path: '/newsroom-import/service/{newsroom_id}'
+  defaults:
+    _controller: '\Drupal\nexteuropa_newsroom_service\Controller\NexteuropaNewsroomServiceController::import'
+  requirements:
+    _permission: 'administer newsroom settings,import newsroom item service'
+
+# Import newsroom item services.
+#nexteuropa_newsroom_service.import_service:
+#  path: '/newsroom-import/services'
+#  defaults:
+#    _controller: '\Drupal\nexteuropa_newsroom_service\Controller\NexteuropaNewsroomTypeController::importTypes'
+#  requirements:
+#    _permission: 'administer newsroom settings,import newssroom item service'
+
+# Redirect to newsroom item service using origin newsroom id.
+nexteuropa_newsroom_service.redirect:
+  path: '/news-redirect/service/{newsroom_id}'
+  defaults:
+    _controller: '\Drupal\nexteuropa_newsroom_service\Controller\NexteuropaNewsroomServiceController::redirectItem'
+  requirements:
+    _permission: 'administer newsroom settings,import newsroom item service'

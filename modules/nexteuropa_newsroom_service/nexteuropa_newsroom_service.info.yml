@@ -1,5 +1,5 @@
-name: Nexteuropa Newsroom Type
-description: Provides Newsroom Type vocabulary and importer.
+name: Nexteuropa Newsroom Service
+description: Newsroom service
 package: Nexteuropa
 
 type: module
@@ -10,3 +10,4 @@ dependencies:
   - drupal:migrate_plus
   - drupal:taxonomy
   - nexteuropa_newsroom
+  - nexteuropa_newsroom_media

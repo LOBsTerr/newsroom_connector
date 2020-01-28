@@ -1,0 +1,70 @@
+id: newsroom_service_logo
+label: Newsroom logos.
+migration_group: newsroom
+migration_tags:
+  - newsroom_service
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'https://ec.europa.eu/newsroom/dae/rss-service-multilingual-v2.cfm'
+  # We need only not empty items.
+  item_selector: '//channel/item[infsonewsroom:BasicSvVisuUrl[string-length(normalize-space(text())) > 0]]'
+
+  ids:
+    service_id:
+      type: integer
+
+  fields:
+    -
+      name: service_id
+      label: 'Service ID'
+      selector: 'infsonewsroom:BasicSvId/text()'
+    -
+      name: service_name
+      label: Name
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: image
+      label: 'Image'
+      selector: 'infsonewsroom:BasicSvVisuUrl/text()'
+
+  constants:
+    file_dest_uri: 'public://newsroom/services'
+
+destination:
+  plugin: 'entity:file'
+
+process:
+  file_name:
+    - plugin: callback
+      callable: basename
+      source: image
+
+  file_dest:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/file_dest_uri
+        - '@file_name'
+    -
+      plugin: urlencode
+
+  filename: service_name
+
+  uri:
+    plugin: file_copy
+    source:
+      - image
+      - '@file_dest'
+
+  status:
+    plugin: default_value
+    default_value: 1
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_service

@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Newsroom Service'
-vid: newsroom_service
-description: ''
-hierarchy: 0
-weight: 0

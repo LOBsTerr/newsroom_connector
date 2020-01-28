@@ -1,0 +1,121 @@
+id: newsroom_service
+label: Newsroom service
+migration_group: newsroom
+migration_tags:
+  - newsroom_service
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'https://ec.europa.eu/newsroom/dae/rss-service-multilingual-v2.cfm'
+
+  item_selector: '//channel/item'
+
+  ids:
+    service_id:
+      type: integer
+
+  fields:
+    -
+      name: service_id
+      label: 'Service ID'
+      selector: 'infsonewsroom:BasicSvId/text()'
+    -
+      name: service_name
+      label: Name
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: description
+      label: 'Description'
+      selector: 'description[@lang="EN"]/text()'
+    -
+      name: archive_link
+      label: 'Archive Link URL'
+      selector: 'infsonewsroom:archivesLink[@lang="EN"]/text()'
+    -
+      name: is_active
+      label: 'Is Active?'
+      selector: 'infsonewsroom:isActive/text()'
+    -
+      name: is_private
+      label: 'Is Private?'
+      selector: 'infsonewsroom:isPrivate/text()'
+    -
+      name: can_subscribe
+      label: 'Can Subscribe?'
+      selector: 'infsonewsroom:CanSubscribe/text()'
+    -
+      name: show_archive
+      label: 'Show archive?'
+      selector: 'infsonewsroom:Archive/text()'
+    -
+      name: service_type
+      label: 'Service type'
+      selector: 'infsonewsroom:BasicSvType/text()'
+    -
+      name: image
+      label: 'Image'
+      selector: 'infsonewsroom:BasicSvVisuUrl/text()'
+
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_service
+
+  name:
+    plugin: get
+    source: service_name
+
+  description:
+    plugin: get
+    source: description
+
+  field_newsroom_archive_link:
+    plugin: get
+    source: archive_link
+
+  field_newsroom_is_active:
+    plugin: get
+    source: is_active
+
+  field_newsroom_is_private:
+    plugin: get
+    source: is_private
+
+  field_newsroom_can_subscribe:
+    plugin: get
+    source: can_subscribe
+
+  field_newsroom_show_archive:
+    plugin: get
+    source: show_archive
+
+  field_newsroom_service_type:
+    plugin: get
+    source: service_type
+
+  'field_newsroom_service_image/target_id':
+    -
+      plugin: skip_on_empty
+      source: image
+      method: process
+    -
+      plugin: migration_lookup
+      migration: newsroom_service_logo_media
+      source: service_id
+
+  field_newsroom_id: service_id
+
+destination:
+  plugin: entity:taxonomy_term
+
+dependencies:
+  enforced:
+    module:
+      - nexteuropa_newsroom_service
+
+migration_dependencies:
+  required:
+    - newsroom_service_logo_media

@@ -1,0 +1,104 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - nexteuropa_newsroom_service
+  config:
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_archive_link
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_show_archive
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_can_subscribe
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_description
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_id
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_is_active
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_is_private
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_service_image
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_service_type
+    - taxonomy.vocabulary.newsroom_service
+  module:
+    - link
+    - text
+id: taxonomy_term.newsroom_service.default
+targetEntityType: taxonomy_term
+bundle: newsroom_service
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_newsroom_archive_link:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_newsroom_show_archive:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_newsroom_can_subscribe:
+    weight: 7
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_newsroom_description:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_newsroom_is_active:
+    weight: 4
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_newsroom_is_private:
+    weight: 5
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_newsroom_service_image:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_newsroom_id: true
+  field_newsroom_service_type: true
+  langcode: true

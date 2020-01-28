@@ -138,7 +138,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected function runImport($plugin_id, $url) {
     $migration = $this->migrationPluginManager->createInstance($plugin_id);
     $source = $migration->get('source');
-    $source['url'] = $url;
+    $source['urls'] = $url;
     $migration->set('source', $source);
     $executable = new MigrateExecutable($migration, new MigrateMessage());
     $executable->import();

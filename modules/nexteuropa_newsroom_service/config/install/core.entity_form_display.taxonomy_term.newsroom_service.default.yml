@@ -1,0 +1,121 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_archive_link
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_show_archive
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_can_subscribe
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_description
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_id
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_is_active
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_is_private
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_service_image
+    - field.field.taxonomy_term.newsroom_service.field_newsroom_service_type
+    - taxonomy.vocabulary.newsroom_service
+  module:
+    - link
+    - path
+    - text
+id: taxonomy_term.newsroom_service.default
+targetEntityType: taxonomy_term
+bundle: newsroom_service
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_newsroom_archive_link:
+    weight: 102
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_show_archive:
+    weight: 106
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_newsroom_can_subscribe:
+    weight: 107
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_newsroom_description:
+    weight: 103
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_newsroom_is_active:
+    weight: 104
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_newsroom_is_private:
+    weight: 105
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_newsroom_service_image:
+    weight: 101
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_newsroom_id: true
+  field_newsroom_service_type: true

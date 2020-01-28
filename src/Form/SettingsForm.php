@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\nexteuropa_newsroom\Helper\UniverseHelper;
+use Drupal\nexteuropa_newsroom\UniverseManager;
 
 class SettingsForm extends ConfigFormBase {
 
@@ -25,9 +25,10 @@ class SettingsForm extends ConfigFormBase {
    * @param \GuzzleHttp\ClientInterface $http_client
    *   The Guzzle HTTP client.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, ClientInterface $http_client) {
+  public function __construct(ConfigFactoryInterface $config_factory, ClientInterface $http_client, UniverseManager $universeManager) {
     parent::__construct($config_factory);
     $this->httpClient = $http_client;
+    $this->universeManager = $universeManager;
   }
 
   /**
@@ -36,7 +37,8 @@ class SettingsForm extends ConfigFormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
-      $container->get('http_client')
+      $container->get('http_client'),
+      $container->get('nexteuropa_newsroom.universe_manager')
     );
   }
 
@@ -77,7 +79,7 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('universe_id'),
       '#description' => $this->t('Universe ID.'),
       '#required' => TRUE,
-      '#disabled' => !empty(UniverseHelper::getUniverseId()),
+      '#disabled' => !empty($this->universeManager->getUniverseId()),
     ];
     $form['universe_settings']['general']['base_url'] = [
       '#type' => 'textfield',

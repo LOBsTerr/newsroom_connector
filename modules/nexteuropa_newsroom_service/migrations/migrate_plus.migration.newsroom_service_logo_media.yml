@@ -1,0 +1,66 @@
+id: newsroom_service_logo_media
+label: Newsroom media logos.
+migration_group: newsroom
+migration_tags:
+  - newsroom_service
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'https://ec.europa.eu/newsroom/dae/rss-service-multilingual-v2.cfm'
+
+  # We need only not empty items.
+  item_selector: '//channel/item[infsonewsroom:BasicSvVisuUrl[normalize-space(string-length(text())) > 0]]'
+
+  ids:
+    service_id:
+      type: integer
+
+  fields:
+    - name: service_id
+      label: 'Service ID'
+      selector: 'infsonewsroom:BasicSvId/text()'
+    - name: service_name
+      label: Name
+      selector: 'title[@lang="EN"]/text()'
+    - name: image
+      label: 'Image'
+      selector: 'infsonewsroom:BasicSvVisuUrl/text()'
+
+destination:
+  plugin: 'entity:media'
+
+process:
+
+  bundle:
+    plugin: default_value
+    default_value: newsroom_image
+
+  name: service_name
+
+  'field_media_image_newsroom/target_id':
+    -
+      plugin: skip_on_empty
+      source: image
+      method: process
+    -
+      plugin: migration_lookup
+      migration: newsroom_service_logo
+      source: service_id
+
+  'field_media_image_newsroom/title': service_name
+
+  'field_media_image_newsroom/alt': service_name
+
+  status:
+    plugin: default_value
+    default_value: 1
+
+dependencies:
+  enforced:
+    module:
+      - nexteuropa_newsroom_service
+
+migration_dependencies:
+  required:
+    - newsroom_service_logo

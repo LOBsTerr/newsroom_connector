@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_newsroom_show_archive
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_show_archive
+field_name: field_newsroom_show_archive
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Show archive?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Show archive'
+  off_label: 'Do not show archive'
+field_type: boolean

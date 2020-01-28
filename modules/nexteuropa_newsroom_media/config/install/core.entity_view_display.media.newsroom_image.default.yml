@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.newsroom_image.field_media_image_newsroom
+    - image.style.newsroom_large
+    - media.type.newsroom_image
+  module:
+    - image
+id: media.newsroom_image.default
+targetEntityType: media
+bundle: newsroom_image
+mode: default
+content:
+  field_media_image_newsroom:
+    label: visually_hidden
+    weight: 0
+    settings:
+      image_style: newsroom_large
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
