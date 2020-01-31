@@ -3,9 +3,6 @@ status: true
 dependencies:
   config:
     - node.type.newsroom_item
-  enforced:
-      module:
-        - newsroom_connector
 id: node.newsroom_item.promote
 field_name: promote
 entity_type: node

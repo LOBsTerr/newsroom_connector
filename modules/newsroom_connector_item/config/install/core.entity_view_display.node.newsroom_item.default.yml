@@ -2,37 +2,292 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.newsroom_item.body
+    - field.field.node.newsroom_item.field_newsroom_body
+    - field.field.node.newsroom_item.field_newsroom_contact_info
+    - field.field.node.newsroom_item.field_newsroom_contact_text
+    - field.field.node.newsroom_item.field_newsroom_date
+    - field.field.node.newsroom_item.field_newsroom_docsroom_ids
+    - field.field.node.newsroom_item.field_newsroom_documents
+    - field.field.node.newsroom_item.field_newsroom_hl_topics
     - field.field.node.newsroom_item.field_newsroom_id
+    - field.field.node.newsroom_item.field_newsroom_image
+    - field.field.node.newsroom_item.field_newsroom_linked_object
+    - field.field.node.newsroom_item.field_newsroom_location
+    - field.field.node.newsroom_item.field_newsroom_main_link
+    - field.field.node.newsroom_item.field_newsroom_organiser
+    - field.field.node.newsroom_item.field_newsroom_parent_content
+    - field.field.node.newsroom_item.field_newsroom_pr_coordinator
+    - field.field.node.newsroom_item.field_newsroom_primary_topic
+    - field.field.node.newsroom_item.field_newsroom_project_acronym
+    - field.field.node.newsroom_item.field_newsroom_project_name
+    - field.field.node.newsroom_item.field_newsroom_project_website
+    - field.field.node.newsroom_item.field_newsroom_quote_box
+    - field.field.node.newsroom_item.field_newsroom_registration_link
+    - field.field.node.newsroom_item.field_newsroom_related_content
+    - field.field.node.newsroom_item.field_newsroom_see_also
+    - field.field.node.newsroom_item.field_newsroom_speaker
+    - field.field.node.newsroom_item.field_newsroom_teaser
+    - field.field.node.newsroom_item.field_newsroom_topics
+    - field.field.node.newsroom_item.field_newsroom_type
+    - field.field.node.newsroom_item.field_newsroom_venue
     - node.type.newsroom_item
   module:
+    - datetime_range
+    - link
+    - options
     - text
     - user
-  enforced:
-      module:
-        - newsroom_connector
 id: node.newsroom_item.default
 targetEntityType: node
 bundle: newsroom_item
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
+  field_newsroom_body:
+    weight: 105
+    label: above
     settings: {  }
     third_party_settings: {  }
+    type: text_default
     region: content
-  field_newsroom_id:
-    weight: 102
+  field_newsroom_contact_info:
+    weight: 128
     label: above
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: number_integer
+    type: string
+    region: content
+  field_newsroom_contact_text:
+    weight: 127
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_date:
+    weight: 108
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_newsroom_docsroom_ids:
+    weight: 115
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_newsroom_documents:
+    weight: 114
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_newsroom_hl_topics:
+    weight: 112
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_newsroom_id:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_image:
+    type: entity_reference_entity_view
+    weight: 104
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_newsroom_linked_object:
+    weight: 129
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_newsroom_location:
+    weight: 122
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_main_link:
+    weight: 109
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_newsroom_organiser:
+    weight: 124
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_parent_content:
+    weight: 117
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_newsroom_pr_coordinator:
+    weight: 121
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_primary_topic:
+    weight: 113
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_newsroom_project_acronym:
+    weight: 118
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_project_name:
+    weight: 119
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_project_website:
+    weight: 120
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_newsroom_quote_box:
+    weight: 130
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_newsroom_registration_link:
+    weight: 126
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_newsroom_related_content:
+    weight: 116
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_newsroom_see_also:
+    weight: 107
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_newsroom_speaker:
+    weight: 125
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_teaser:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_newsroom_topics:
+    weight: 111
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_newsroom_type:
+    weight: 110
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_newsroom_venue:
+    weight: 123
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   links:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  langcode: true

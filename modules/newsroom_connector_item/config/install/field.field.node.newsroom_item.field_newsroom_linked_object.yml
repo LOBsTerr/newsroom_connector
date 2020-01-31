@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsroom_linked_object
+    - node.type.newsroom_item
+id: node.newsroom_item.field_newsroom_linked_object
+field_name: field_newsroom_linked_object
+entity_type: node
+bundle: newsroom_item
+label: 'Linked object'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

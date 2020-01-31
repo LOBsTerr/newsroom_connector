@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_media
 name: newsroom_large
 label: 'Newsroom Large (480×480)'
 effects:

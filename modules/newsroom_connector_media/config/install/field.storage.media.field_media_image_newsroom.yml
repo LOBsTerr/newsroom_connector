@@ -5,6 +5,9 @@ dependencies:
     - file
     - image
     - media
+  enforced:
+    module:
+      - newsroom_connector_media
 id: media.field_media_image_newsroom
 field_name: field_media_image_newsroom
 entity_type: media
@@ -23,7 +26,7 @@ settings:
 module: image
 locked: false
 cardinality: 1
-translatable: true
+translatable: false
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false

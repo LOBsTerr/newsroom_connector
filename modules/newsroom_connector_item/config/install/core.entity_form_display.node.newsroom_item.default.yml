@@ -2,42 +2,292 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.newsroom_item.body
+    - field.field.node.newsroom_item.field_newsroom_body
+    - field.field.node.newsroom_item.field_newsroom_contact_info
+    - field.field.node.newsroom_item.field_newsroom_contact_text
+    - field.field.node.newsroom_item.field_newsroom_date
+    - field.field.node.newsroom_item.field_newsroom_docsroom_ids
+    - field.field.node.newsroom_item.field_newsroom_documents
+    - field.field.node.newsroom_item.field_newsroom_hl_topics
     - field.field.node.newsroom_item.field_newsroom_id
+    - field.field.node.newsroom_item.field_newsroom_image
+    - field.field.node.newsroom_item.field_newsroom_linked_object
+    - field.field.node.newsroom_item.field_newsroom_location
+    - field.field.node.newsroom_item.field_newsroom_main_link
+    - field.field.node.newsroom_item.field_newsroom_organiser
+    - field.field.node.newsroom_item.field_newsroom_parent_content
+    - field.field.node.newsroom_item.field_newsroom_pr_coordinator
+    - field.field.node.newsroom_item.field_newsroom_primary_topic
+    - field.field.node.newsroom_item.field_newsroom_project_acronym
+    - field.field.node.newsroom_item.field_newsroom_project_name
+    - field.field.node.newsroom_item.field_newsroom_project_website
+    - field.field.node.newsroom_item.field_newsroom_quote_box
+    - field.field.node.newsroom_item.field_newsroom_registration_link
+    - field.field.node.newsroom_item.field_newsroom_related_content
+    - field.field.node.newsroom_item.field_newsroom_see_also
+    - field.field.node.newsroom_item.field_newsroom_speaker
+    - field.field.node.newsroom_item.field_newsroom_teaser
+    - field.field.node.newsroom_item.field_newsroom_topics
+    - field.field.node.newsroom_item.field_newsroom_type
+    - field.field.node.newsroom_item.field_newsroom_venue
     - node.type.newsroom_item
   module:
+    - datetime_range
+    - link
     - path
     - text
-  enforced:
-      module:
-        - newsroom_connector
 id: node.newsroom_item.default
 targetEntityType: node
 bundle: newsroom_item
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 121
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_newsroom_id:
-    weight: 122
+  field_newsroom_body:
+    weight: 125
     settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: number
+    type: text_textarea
     region: content
+  field_newsroom_contact_info:
+    weight: 148
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_contact_text:
+    weight: 147
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_date:
+    weight: 128
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_newsroom_docsroom_ids:
+    weight: 135
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_newsroom_documents:
+    weight: 134
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_hl_topics:
+    weight: 132
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_id:
+    weight: 126
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_image:
+    weight: 124
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_linked_object:
+    weight: 149
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_newsroom_location:
+    weight: 142
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_main_link:
+    weight: 129
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_organiser:
+    weight: 144
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_parent_content:
+    weight: 137
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_pr_coordinator:
+    weight: 141
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_primary_topic:
+    weight: 133
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_project_acronym:
+    weight: 138
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_project_name:
+    weight: 139
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_project_website:
+    weight: 140
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_quote_box:
+    weight: 150
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_newsroom_registration_link:
+    weight: 146
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_related_content:
+    weight: 136
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_see_also:
+    weight: 127
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_speaker:
+    weight: 145
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_teaser:
+    weight: 122
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_newsroom_topics:
+    weight: 131
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_type:
+    weight: 130
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_venue:
+    weight: 143
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
     weight: 30
@@ -73,6 +323,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 5
@@ -80,6 +335,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
     third_party_settings: {  }
 hidden: {  }

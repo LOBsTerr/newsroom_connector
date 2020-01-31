@@ -3,6 +3,9 @@ status: true
 dependencies:
   config:
     - field.field.media.newsroom_image.field_media_image_newsroom
+    - field.field.media.newsroom_image.field_newsroom_alt_text
+    - field.field.media.newsroom_image.field_newsroom_caption
+    - field.field.media.newsroom_image.field_newsroom_copyright
     - image.style.newsroom_thumbnail
     - media.type.newsroom_image
   module:
@@ -26,6 +29,30 @@ content:
       preview_image_style: newsroom_thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_newsroom_alt_text:
+    weight: 101
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_caption:
+    weight: 102
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_copyright:
+    weight: 103
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   langcode:
     type: language_select

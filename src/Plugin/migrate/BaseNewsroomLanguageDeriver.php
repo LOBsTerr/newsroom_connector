@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Deriver for the newsroom translations.
  */
-abstract class BaseServiceLanguageDeriver extends DeriverBase implements ContainerDeriverInterface {
+abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements ContainerDeriverInterface {
 
   /**
    * @var \Drupal\Core\Language\LanguageManagerInterface
@@ -52,6 +52,7 @@ abstract class BaseServiceLanguageDeriver extends DeriverBase implements Contain
 
       $derivative = $this->getDerivativeValues($base_plugin_definition, $language);
       $this->derivatives[$language->getId()] = $derivative;
+
     }
 
     return $this->derivatives;

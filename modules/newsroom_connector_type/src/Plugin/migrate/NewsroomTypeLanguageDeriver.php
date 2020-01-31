@@ -3,12 +3,12 @@
 namespace Drupal\newsroom_connector_type\Plugin\migrate;
 
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\newsroom_connector\Plugin\migrate\BaseServiceLanguageDeriver;
+use Drupal\newsroom_connector\Plugin\migrate\BaseNewsroomLanguageDeriver;
 
 /**
  * Deriver for the newsroom type translations.
  */
-class NewsroomTypeLanguageDeriver extends BaseServiceLanguageDeriver {
+class NewsroomTypeLanguageDeriver extends BaseNewsroomLanguageDeriver {
 
   /**
    * {@inheritdoc}

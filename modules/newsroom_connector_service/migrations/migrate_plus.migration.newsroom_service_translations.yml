@@ -2,6 +2,7 @@ id: newsroom_service_translations
 label: Newsroom service
 migration_group: newsroom
 deriver: 'Drupal\newsroom_connector_service\Plugin\migrate\NewsroomServiceLanguageDeriver'
+
 source:
   plugin: url
   data_fetcher_plugin: http
