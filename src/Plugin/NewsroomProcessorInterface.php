@@ -3,10 +3,8 @@
 namespace Drupal\newsroom_connector\Plugin;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
-use Drupal\Component\Plugin\ConfigurableInterface;
-use Drupal\Core\Plugin\PluginFormInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Symfony\Component\EventDispatcher\Event;
+use Drupal\Core\Url;
 
 /**
  * Defines an interface for Activity processor plugins.
@@ -22,6 +20,11 @@ interface NewsroomProcessorInterface extends PluginInspectionInterface, Containe
    * Import.
    */
   public function import($newsroom_id = NULL);
+
+  /**
+   * Import from URL.
+   */
+  public function runImport(Url $url);
 
   /**
    * Get Newsroom entity URL.

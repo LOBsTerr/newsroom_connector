@@ -2,12 +2,16 @@
 
 namespace Drupal\newsroom_connector\Form;
 
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\newsroom_connector\Helper\ImporterHelper;
 use Drupal\newsroom_connector\Helper\UniverseHelper;
 use Drupal\newsroom_connector\Importer\Configuration;
 use Drupal\newsroom_connector\Importer\Importer;
+use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class ImportForm
@@ -16,40 +20,55 @@ use Drupal\newsroom_connector\Importer\Importer;
 class ImportForm extends FormBase {
 
   /**
+   * Migration plugin manager service.
+   *
+   * @var \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager
+   */
+  protected $newsroomProcessorPluginManager;
+
+
+  protected $plugin;
+
+  /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'newsroom_connector_settings_form';
+    return 'newsroom_connector_import_form';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function __construct(NewsroomProcessorManager $newsroom_processor_plugin_manager) {
+    $this->newsroomProcessorPluginManager = $newsroom_processor_plugin_manager;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('newsroom_connector.plugin.manager.newsroom_processor')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state, $plugin_id = NULL) {
+    $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
+    if (!$plugin) {
+      throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
+    }
+    else {
+      $this->plugin = $plugin;
+    }
+
     $form = [];
-    $form['type'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Entity type:'),
-      '#default_value' => 'item',
-      '#options' => [
-        'item' => $this->t('Item'),
-        'topic' => $this->t('Topic'),
-        'type' => $this->t('Type'),
-      ],
-      '#required' => TRUE,
-    ];
-    $form['number'] = [
+    $form['url'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Number of items:'),
-      '#default_value' => 25,
-      '#description' => $this->t('The maximum number per page 500.'),
-      '#required' => TRUE,
-    ];
-    $form['page'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Page:'),
-      '#default_value' => 1,
-      '#description' => $this->t('To avoid performance issues we import restricted item per page.'),
+      '#title' => $this->t('URL'),
+      '#default_value' => $plugin->getEntityUrl()->toUriString(),
       '#required' => TRUE,
     ];
     $form['actions']['submit'] = [
@@ -63,26 +82,8 @@ class ImportForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $values = $form_state->getValues();
-    $configuration = new Configuration($values['type']);
-    $configuration->getUrl()->setPage($values['page']);
-    $configuration->getUrl()->setNumber($values['number']);
-    $importer_builder = new ImporterBuilder($configuration);
-
-    exit();
-
-//    $string = file_get_contents($import->buildImportUrl());
-//    $xml = new \SimpleXMLElement($string); //
-//    foreach ($xml->channel->item as $item) {
-//      var_dump($item);
-////      $item->registerXPathNamespace('infsonewsroom', 'http://www.w3.org/2005/Atom');
-//      $result = $item->xpath("infsonewsroom:BasicTeaser");
-//      var_dump($result);
-//    }
-////    $data = simplexml_load_file( );
-//
-//    var_dump($xml);
-    exit();
+    $url = Url::fromUri($form_state->getValue('url'));
+    $this->plugin->runImport($url);
   }
 
 }

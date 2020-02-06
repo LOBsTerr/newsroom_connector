@@ -66,4 +66,11 @@ class NewsroomProcessor extends Plugin {
    */
   public $import_segment;
 
+  /**
+   * Migrations.
+   *
+   * @var array
+   */
+  public $migrations;
+
 }

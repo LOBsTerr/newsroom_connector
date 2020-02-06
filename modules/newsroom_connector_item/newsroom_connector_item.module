@@ -1,0 +1,31 @@
+<?php
+
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Row;
+/**
+ * Implements hook_migrate_MIGRATION_ID_prepare_row().
+ */
+function newsroom_connector_item_migrate_newsroom_item_prepare_row (
+  Row $row,
+  MigrateSourceInterface $source,
+  MigrationInterface $migration
+) {
+  $related_documents_titles = $row->getSourceProperty('related_documents_title');
+  $related_documents_urls = $row->getSourceProperty('related_documents_url');
+
+  $data = [];
+  if (!empty($related_documents_urls)) {
+    if (is_array($related_documents_urls)) {
+      foreach ($related_documents_urls as $key => $item) {
+        $data[$key]['url'] = $related_documents_urls[$key];
+        $data[$key]['title'] = $related_documents_titles[$key];
+      }
+    }
+    else {
+      $data[0]['url'] = $related_documents_urls;
+      $data[0]['title'] = $related_documents_titles;
+    }
+  }
+  $row->setSourceProperty('documents', $data);
+}

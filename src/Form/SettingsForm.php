@@ -112,25 +112,6 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('allowed_ips'),
       '#description' => $this->t('Comma separated list of IP addresses where the importer can be launched from.'),
     ];
-//    $newsroom_entities = [
-//      'item',
-//      'topic',
-//      'type',
-//    ];
-//    foreach ($newsroom_entities as $entity) {
-//      $form['universe_settings']["$entity_import_script"] = [
-//        '#type' => 'textfield',
-//        '#title' => $this->t("Import $entity script name:"),
-//        '#default_value' => $config->get($entity . '_import_script'),
-//        '#required' => TRUE,
-//      ];
-//      $form['universe_settings'][$entity . '_import_segment'] = [
-//        '#type' => 'textfield',
-//        '#title' => $this->t("URL chunk for single $entity import:"),
-//        '#default_value' => $config->get($entity . '_import_segment'),
-//        '#required' => TRUE,
-//      ];
-//    }
 
     $form['universe_settings']['general']['item_edit_script'] = [
       '#type' => 'textfield',
@@ -164,10 +145,6 @@ class SettingsForm extends ConfigFormBase {
       ->set('app', $values['app'])
       ->set('app_key', $values['app_key'])
       ->set('subsite', $values['subsite'])
-      ->set('item_import_script', $values['item_import_script'])
-      ->set('item_import_segment', $values['item_import_segment'])
-      ->set('topic_import_script', $values['topic_import_script'])
-      ->set('topic_import_segment', $values['topic_import_segment'])
       ->set('item_edit_segment', $values['item_edit_segment'])
       ->set('proposal_script', $values['proposal_script'])
       ->set('docsroom_url', $values['docsroom_url'])

@@ -14,7 +14,12 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *   bundle_field = "vid",
  *   import_script = "rss-service-multilingual-v2.cfm",
  *   import_segment = "service_id",
- *   label = @Translation("Newsroom service")
+ *   label = @Translation("Newsroom service"),
+ *   migrations = {
+ *     "newsroom_service_logo",
+ *     "newsroom_service_logo_media",
+ *     "newsroom_service",
+ *   }
  * )
  */
 class NewsroomServiceNewsroomProcessor extends NewsroomProcessorBase {

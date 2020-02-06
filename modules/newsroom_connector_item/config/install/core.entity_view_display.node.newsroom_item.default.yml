@@ -120,11 +120,11 @@ content:
     third_party_settings: {  }
     region: content
   field_newsroom_linked_object:
-    weight: 129
+    weight: 131
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: text_default
     region: content
   field_newsroom_location:
     weight: 122
@@ -211,7 +211,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: text_default
     region: content
   field_newsroom_registration_link:
     weight: 126

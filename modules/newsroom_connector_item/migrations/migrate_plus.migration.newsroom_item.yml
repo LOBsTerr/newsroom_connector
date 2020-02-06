@@ -8,7 +8,10 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
-  urls: 'http://lobsterr.me/item.xml'
+  urls:
+   - 'http://lobsterr.me/item.xml?gffg'
+#   - 'http://lobsterr.me/item_child.xml'
+#   - 'http://lobsterr.me/item_parent.xml?tt'
 
   item_selector: '//channel/item'
 
@@ -157,17 +160,19 @@ source:
       name: docsroom_ids
       label: 'Docsroom documents IDs'
       selector: 'enclosure[@external_app="DocsRoom"]/@external_id'
+
+
 process:
 
   type:
     plugin: default_value
     default_value: newsroom_item
 
-  name:
+  title:
     plugin: get
-    source: item_name
+    source: title
 
-  field_newsroom_body/value:
+  'field_newsroom_body/value':
     plugin: get
     source: body
 
@@ -175,13 +180,21 @@ process:
     plugin: get
     source: teaser
 
-  field_newsroom_date/value:
-    plugin: get
+  'field_newsroom_date/value':
     source: start_date
+    plugin: format_date
+    from_format: 'D, j M Y H:i:s \G\M\T'
+    to_format: 'Y-m-d'
+    settings:
+      validate_format: false
 
-  field_newsroom_date/end_value:
-    plugin: get
+  'field_newsroom_date/end_value':
     source: end_date
+    plugin: format_date
+    from_format: 'D, j M Y H:i:s \G\M\T'
+    to_format: 'Y-m-d'
+    settings:
+      validate_format: false
 
   'field_newsroom_image/target_id':
     -
@@ -192,12 +205,13 @@ process:
       plugin: migration_lookup
       migration: newsroom_item_image_media
       source: item_id
+      no_stub: true
 
-  'field_newsroom_type_id/target_id':
-    -
-      plugin: migration_lookup
-      migration: newsroom_type
-      source: type_id
+  'field_newsroom_type/target_id':
+    plugin: migration_lookup
+    migration: newsroom_type
+    source: type_id
+    no_stub: true
 
   'field_newsroom_see_also/uri':
     plugin: get
@@ -207,17 +221,17 @@ process:
     plugin: get
     source: see_also_text
 
-  'field_newsroom_main_link/uri':
-    plugin: get
-    source: main_link
-
-  'field_newsroom_documents/uri':
+  'field_newsroom_main_link':
     plugin: get
     source: related_documents_url
 
-  'field_newsroom_documents/title':
-    plugin: get
-    source: related_documents_title
+  # source documents in newsroom_connector_item_migrate_newsroom_item_prepare_row.
+  'field_newsroom_documents':
+    plugin: iterator
+    source: documents
+    process:
+      title: 'title'
+      uri: 'url'
 
   field_newsroom_id:
     plugin: get
@@ -227,30 +241,35 @@ process:
     plugin: get
     source: see_also_text
 
-  'field_newsroom_parent_topic/target_id':
-    - plugin: migration_lookup
-      migration: newsroom_topic
-      source: parent_topic
+  'field_newsroom_primary_topic/target_id':
+    plugin: migration_lookup
+    migration: newsroom_topic
+    source: primary_topic
+    no_stub: true
 
-  'field_newsroom_hl_topics/target_id':
-    - plugin: migration_lookup
-      migration: newsroom_topic
-      source: highlighted_topics
+  'field_newsroom_hl_topics':
+    plugin: migration_lookup
+    migration: newsroom_topic
+    source: highlighted_topics
+    no_stub: true
 
-  'field_newsroom_topics/target_id':
-    - plugin: migration_lookup
-      migration: newsroom_topic
-      source: topics
+  'field_newsroom_topics':
+    plugin: migration_lookup
+    migration: newsroom_topic
+    source: topics
+    no_stub: true
 
-  'field_newsroom_related_content/target_id':
-    - plugin: migration_lookup
-      migration: newsroom_item
-      source: related_content
+  'field_newsroom_related_content':
+    plugin: migration_lookup
+    migration: newsroom_item
+    source: related_content
+    no_stub: true
 
   'field_newsroom_parent_content/target_id':
-    - plugin: migration_lookup
-      migration: newsroom_item
-      source: parent_content
+    plugin: migration_lookup
+    migration: newsroom_item
+    source: parent_content
+    no_stub: true
 
   field_newsroom_project_acronym:
     plugin: get
@@ -268,7 +287,7 @@ process:
     plugin: get
     source: project_website_title
 
-  field_newsroom_project_coordinator:
+  field_newsroom_pr_coordinator:
     plugin: get
     source: project_coordinator
 
@@ -292,11 +311,11 @@ process:
     plugin: get
     source: speaker
 
-  field_newsroom_registration_link/uli:
+  'field_newsroom_registration_link/uri':
     plugin: get
     source: registration_link_url
 
-  field_newsroom_registration_link/title:
+  'field_newsroom_registration_link/title':
     plugin: get
     source: registration_link_text
 
@@ -319,7 +338,6 @@ process:
   field_newsroom_docsroom_ids:
     plugin: get
     source: docsroom_ids
-
 
 destination:
   plugin: entity:node

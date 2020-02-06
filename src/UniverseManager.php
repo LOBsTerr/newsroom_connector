@@ -90,7 +90,7 @@ class UniverseManager implements UniverseManagerInterface {
    *   Edit url on the newsroom side.
    */
   public function buildUrl($script_name, $params = []) {
-    return Url::fromUri($this->getBaseUrl() . '/' . $script_name, ['query' => $params])->toUriString();
+    return Url::fromUri($this->getBaseUrl() . '/' . $script_name, ['query' => $params]);
   }
 
 

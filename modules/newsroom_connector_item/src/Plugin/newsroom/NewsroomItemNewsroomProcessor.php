@@ -14,7 +14,12 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *   bundle_field = "type",
  *   import_script = "fullrss-multilingual.cfm",
  *   import_segment = "item_id",
- *   label = @Translation("Newsroom item")
+ *   label = @Translation("Newsroom item"),
+ *   migrations = {
+ *     "newsroom_item_image",
+ *     "newsroom_item_image_media",
+ *     "newsroom_item",
+ *   }
  * )
  */
 class NewsroomItemNewsroomProcessor extends NewsroomProcessorBase {

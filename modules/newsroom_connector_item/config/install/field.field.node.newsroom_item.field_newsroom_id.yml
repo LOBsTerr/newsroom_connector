@@ -10,7 +10,7 @@ entity_type: node
 bundle: newsroom_item
 label: 'Newsroom Id'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

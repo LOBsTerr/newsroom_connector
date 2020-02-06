@@ -5,17 +5,43 @@ newsroom_connector.settings:
   requirements:
     _permission: 'administer newsroom settings'
 
-newsroom_connector.item_importer:
-  path: '/admin/content/newsroom/item-importer'
+newsroom_connector.import:
+  path: '/newsroom-import/{type}/{newsroom_id}'
   defaults:
-    _form: 'Drupal\newsroom_connector\Form\ItemImporterSettingsForm'
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::import'
   requirements:
     _permission: 'administer newsroom settings'
 
-newsroom_connector.import:
-  path: '/newsroom/import'
+newsroom_connector.redirect:
+  path: '/newsroom-redirect/{type}/{newsroom_id}'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::redirectItem'
+  requirements:
+    _permission: 'administer newsroom settings'
+
+# BC the old format of redirector.
+newsroom_connector.item_redirect:
+  path: '/news-redirect/{newsroom_id}'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::newsRedirect'
+  requirements:
+    _permission: 'administer newsroom settings'
+
+newsroom_connector.importers:
+  path: '/admin/content/newsroom/importers'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::importers'
+    _title: 'Importers'
+  requirements:
+    _permission: 'administer newsroom settings'
+  options:
+    _admin_route: TRUE
+
+newsroom_connector.import_form:
+  path: '/admin/content/newsroom/importers/{plugin_id}'
   defaults:
     _form: 'Drupal\newsroom_connector\Form\ImportForm'
+    _title: 'Import'
   requirements:
     _permission: 'administer newsroom settings'
   options:
