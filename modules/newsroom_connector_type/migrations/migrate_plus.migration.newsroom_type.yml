@@ -42,6 +42,7 @@ process:
     plugin: migration_lookup
     migration: newsroom_type
     source: parent_id
+    no_stub: true
 
   field_newsroom_id: type_id
 

@@ -1,0 +1,14 @@
+newsroom.settings:
+  route_name: 'newsroom_connector.settings'
+  title: 'Settings'
+  description: 'Manage Newsroom connector settings'
+  base_route: 'newsroom_connector.settings'
+  weight: 10
+
+newsroom.importers:
+  route_name: 'newsroom_connector.importers'
+  title: 'Importers'
+  description: 'Importers'
+  base_route: 'newsroom_connector.settings'
+  weight: 20
+

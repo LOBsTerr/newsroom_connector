@@ -50,26 +50,19 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected $languageManager;
 
   /**
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
-   */
-  protected $configFactory;
-
-  /**
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition,
     EntityTypeManagerInterface $entity_type_manager,
     UniverseManagerInterface $universeManager,
     MigrationPluginManager $migrationPluginManager,
-    LanguageManagerInterface $languageManager,
-    ConfigFactoryInterface $config_factory
+    LanguageManagerInterface $languageManager
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
     $this->universeManager = $universeManager;
     $this->migrationPluginManager = $migrationPluginManager;
     $this->languageManager = $languageManager;
-    $this->configFactory = $config_factory;
   }
 
   /**
@@ -83,8 +76,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $container->get('entity_type.manager'),
       $container->get('newsroom_connector.universe_manager'),
       $container->get('plugin.manager.migration'),
-      $container->get('language_manager'),
-      $container->get('config.factory')
+      $container->get('language_manager')
     );
   }
 
@@ -101,6 +93,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       throw new NotFoundHttpException();
     }
   }
+
 
   private function getEntityByNewsroomId($newsroom_id) {
     $entity = NULL;
@@ -119,6 +112,9 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     return $entity;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getEntityUrl($newsroom_id = NULL) {
     $params = [];
     $definition = $this->getPluginDefinition();
@@ -128,7 +124,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
 
     // @TODO move it to a separate class.
     if ($this->getPluginId() == 'newsroom_item') {
-      $config = $this->configFactory->get('newsroom_connector.settings');
+      $config = $this->universeManager->getConfig();
       if ($config->get('subsite')) {
         $params['subsite'] = $config->get('subsite');
       }
@@ -139,11 +135,17 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     return $this->universeManager->buildUrl($definition['import_script'], $params);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function import($newsroom_id = NULL) {
     $url = $this->getEntityUrl($newsroom_id);
     $this->runImport($url);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function runImport(Url $url) {
 
     $definition = $this->getPluginDefinition();
@@ -154,6 +156,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     foreach ($definition['migrations'] as $migration_id) {
       $this->runMigration($migration_id, $url);
 
+      // Run translations migrations.
       $languages = $this->languageManager->getLanguages();
       foreach ($languages as $language) {
         $language_id = $language->getId();
@@ -168,7 +171,18 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     }
   }
 
-  protected function runMigration($migration_id, $url) {
+  /**
+   * Execute migration for the given URL.
+   *
+   * @param string $migration_id
+   *   Migration Id.
+   * @param Drupal\Core\Url $url
+   *   Url object.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
+   * @throws \Drupal\migrate\MigrateException
+   */
+  protected function runMigration($migration_id, Url $url) {
     $migration = $this->migrationPluginManager->createInstance($migration_id);
     if (!empty($migration)) {
       $source = $migration->get('source');

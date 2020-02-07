@@ -1,6 +1,6 @@
 newsroom_connector.admin_config:
   route_name: newsroom_connector.settings
   parent: system.admin_config_content
-  title: Newsroom
+  title: 'Newsroom connector'
   weight: 10
-  description: 'Newsroom configuration.'
+  description: 'Newsroom connector configuration.'

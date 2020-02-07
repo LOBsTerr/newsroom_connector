@@ -37,6 +37,7 @@ process:
     plugin: migration_lookup
     source: item_id
     migration: newsroom_item_image_media
+    no_stub: true
 
   content_translation_source:
     plugin: default_value

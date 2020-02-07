@@ -7,4 +7,5 @@ core: 8.x
 php: (>=7.1)
 
 dependencies:
-  - drupal:datetime_range
+  - drupal:file
+  - drupal:media

@@ -12,7 +12,7 @@ use Drupal\Core\Url;
 interface NewsroomProcessorInterface extends PluginInspectionInterface, ContainerFactoryPluginInterface {
 
   /**
-   * Redirect.
+   * Redirect to item by original Newsroom ID.
    */
   public function redirect($newsroom_id);
 

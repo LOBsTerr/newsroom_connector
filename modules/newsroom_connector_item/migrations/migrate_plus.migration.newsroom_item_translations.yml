@@ -1,7 +1,7 @@
 id: newsroom_item_translations
-label: Newsroom images translations.
+label: Newsroom item translations.
 migration_group: newsroom
-#deriver: 'Drupal\newsroom_connector_item\Plugin\migrate\NewsroomItemImageLanguageDeriver'
+deriver: 'Drupal\newsroom_connector_item\Plugin\migrate\NewsroomItemLanguageDeriver'
 migration_tags:
   - newsroom_item
 
@@ -22,55 +22,25 @@ source:
       name: item_id
       label: 'Item ID'
       selector: 'infsonewsroom:BasicId/text()'
-    -
-      name: image
-      label: 'Image'
-      selector: 'enclosure[@type="image/jpeg" and @schema="Public"]/@url'
-    -
-      name: image_title
-      label: 'Image title'
-      selector: 'infsonewsroom:PicTitle[@lang="EN"]/text()'
-    -
-      name: image_title_fr
-      label: 'Image title FR'
-      selector: 'infsonewsroom:PicTitle[@lang="FR"]/text()'
-  constants:
-    file_dest_uri: 'public://newsroom/items'
 
 destination:
-  plugin: 'entity:file'
+  plugin: 'entity:node'
+  translations: true
 
 process:
-  file_name:
-    - plugin: callback
-      callable: basename
-      source: image
-
-  file_dest:
-    -
-      plugin: concat
-      delimiter: /
-      source:
-        - constants/file_dest_uri
-        - '@file_name'
-    -
-      plugin: urlencode
-
-  filename: image_title
-
-  uri:
-    plugin: file_copy
-    source:
-      - image
-      - '@file_dest'
-
-  status:
+  type:
     plugin: default_value
-    default_value: 1
+    default_value: newsroom_item
 
-  langcode:
+  nid:
+    plugin: migration_lookup
+    source: item_id
+    migration: newsroom_item
+    no_stub: true
+
+  content_translation_source:
     plugin: default_value
-    default_value: 1
+    default_value: 'en'
 
 dependencies:
   enforced:

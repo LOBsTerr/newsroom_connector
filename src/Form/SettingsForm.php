@@ -112,12 +112,15 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('allowed_ips'),
       '#description' => $this->t('Comma separated list of IP addresses where the importer can be launched from.'),
     ];
-
+    $form['universe_settings']['general']['item_edit_segment'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('URL parameter to edit an item in the Newsroom:'),
+      '#default_value' => $config->get('item_edit_segment'),
+    ];
     $form['universe_settings']['general']['item_edit_script'] = [
       '#type' => 'textfield',
       '#title' => $this->t('URL chunk to edit an item in the Newsroom:'),
       '#default_value' => $config->get('item_edit_script'),
-      '#required' => TRUE,
     ];
     $form['universe_settings']['general']['proposal_script'] = [
       '#type' => 'textfield',
@@ -146,6 +149,7 @@ class SettingsForm extends ConfigFormBase {
       ->set('app_key', $values['app_key'])
       ->set('subsite', $values['subsite'])
       ->set('item_edit_segment', $values['item_edit_segment'])
+      ->set('item_edit_script', $values['item_edit_script'])
       ->set('proposal_script', $values['proposal_script'])
       ->set('docsroom_url', $values['docsroom_url'])
       ->save();

@@ -1,5 +1,5 @@
 id: newsroom_topic_translations
-label: Newsroom topic
+label: Newsroom topic translations
 migration_group: newsroom
 deriver: 'Drupal\newsroom_connector_topic\Plugin\migrate\NewsroomTopicLanguageDeriver'
 migration_tags:
@@ -9,9 +9,9 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
-  urls: 'http://lobsterr.me/topics.xml'
+  urls: 'http://ec.europa.eu/newsroom/dae/rss-topic-multilingual-v2.cfm?t=1581003599'
 
-  item_selector: '//channel/item'
+  item_selector: '//channel/item[infsonewsroom:definedBy="User"]'
 
   ids:
     topic_id:
@@ -33,6 +33,7 @@ process:
     plugin: migration_lookup
     source: topic_id
     migration: newsroom_topic
+    no_stub: true
 
   content_translation_source:
     plugin: default_value

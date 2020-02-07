@@ -66,6 +66,7 @@ class NewsroomConnectorController extends ControllerBase {
   public function import($type, $newsroom_id) {
     // Convert type to proper plugin id.
     $plugin_id = "newsroom_$type";
+
     $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
     if ($plugin) {
       $plugin->import($newsroom_id);

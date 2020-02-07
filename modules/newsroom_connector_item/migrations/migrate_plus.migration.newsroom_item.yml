@@ -9,9 +9,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
   urls:
-   - 'http://lobsterr.me/item.xml?gffg'
-#   - 'http://lobsterr.me/item_child.xml'
-#   - 'http://lobsterr.me/item_parent.xml?tt'
+   - 'http://lobsterr.me/item.xml?gffgd'
 
   item_selector: '//channel/item'
 
@@ -95,7 +93,7 @@ source:
     -
       name: project_acronym
       label: 'Project acronym'
-      selector: 'infsonewsroom:ContextProjectAcronym/text()'
+      selector: 'infsonewsroom:ContextProjectAcronym[@lang="EN"]/text()'
     -
       name: project_name
       label: 'Project name'
@@ -225,7 +223,7 @@ process:
     plugin: get
     source: related_documents_url
 
-  # source documents in newsroom_connector_item_migrate_newsroom_item_prepare_row.
+  # source documents is formed in newsroom_connector_item_migrate_newsroom_item_prepare_row.
   'field_newsroom_documents':
     plugin: iterator
     source: documents

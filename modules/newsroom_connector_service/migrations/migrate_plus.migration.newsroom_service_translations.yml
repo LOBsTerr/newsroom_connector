@@ -32,6 +32,7 @@ process:
     plugin: migration_lookup
     source: service_id
     migration: newsroom_service
+    no_stub: true
 
   content_translation_source:
     plugin: default_value

@@ -1,10 +1,13 @@
+# Settings form.
 newsroom_connector.settings:
   path: '/admin/content/newsroom'
   defaults:
     _form: 'Drupal\newsroom_connector\Form\SettingsForm'
+    _title: 'Newsroom Connector'
   requirements:
     _permission: 'administer newsroom settings'
 
+# Import single item.
 newsroom_connector.import:
   path: '/newsroom-import/{type}/{newsroom_id}'
   defaults:
@@ -12,6 +15,7 @@ newsroom_connector.import:
   requirements:
     _permission: 'administer newsroom settings'
 
+# Redirect to drupal entity based on give Newsroo mID.
 newsroom_connector.redirect:
   path: '/newsroom-redirect/{type}/{newsroom_id}'
   defaults:
@@ -19,7 +23,7 @@ newsroom_connector.redirect:
   requirements:
     _permission: 'administer newsroom settings'
 
-# BC the old format of redirector.
+# BC the old format of redirect.
 newsroom_connector.item_redirect:
   path: '/news-redirect/{newsroom_id}'
   defaults:
@@ -27,6 +31,7 @@ newsroom_connector.item_redirect:
   requirements:
     _permission: 'administer newsroom settings'
 
+# List of available importers.
 newsroom_connector.importers:
   path: '/admin/content/newsroom/importers'
   defaults:
@@ -37,6 +42,7 @@ newsroom_connector.importers:
   options:
     _admin_route: TRUE
 
+# Import form for different entities.
 newsroom_connector.import_form:
   path: '/admin/content/newsroom/importers/{plugin_id}'
   defaults:

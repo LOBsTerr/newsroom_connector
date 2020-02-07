@@ -33,6 +33,7 @@ process:
     plugin: migration_lookup
     source: type_id
     migration: newsroom_type
+    no_stub: true
 
   content_translation_source:
     plugin: default_value

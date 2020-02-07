@@ -24,14 +24,10 @@ class NewsroomTopicLanguageDeriver extends BaseNewsroomLanguageDeriver {
       'selector' => 'title[@lang="' . $language_code . '"]/text()',
     ];
 
-    $base_plugin_definition['process']['name'][] = [
+    $base_plugin_definition['process']['name'] = [
       'plugin' => 'skip_on_empty',
       'source' => "topic_name_$language_id",
       'method' => 'row',
-    ];
-    $base_plugin_definition['process']['name'][] = [
-      'plugin' => 'get',
-      'source' => "topic_name_$language_id",
       'language' => $language_id,
     ];
 

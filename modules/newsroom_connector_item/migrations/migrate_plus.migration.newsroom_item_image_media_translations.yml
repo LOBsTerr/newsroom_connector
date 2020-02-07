@@ -1,5 +1,5 @@
 id: newsroom_item_image_media_translations
-label: Newsroom item media images.
+label: Newsroom item media images translations.
 migration_group: newsroom
 deriver: 'Drupal\newsroom_connector_item\Plugin\migrate\NewsroomItemImageMediaLanguageDeriver'
 migration_tags:
@@ -38,6 +38,7 @@ process:
     plugin: migration_lookup
     source: item_id
     migration: newsroom_item_image_media
+    no_stub: true
 
   content_translation_source:
     plugin: default_value

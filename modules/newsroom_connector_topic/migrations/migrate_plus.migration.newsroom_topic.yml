@@ -8,8 +8,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
-#  urls: 'https://ec.europa.eu/newsroom/dae/rss-topic-multilingual-v2.cfm'
-  urls: 'http://lobsterr.me/topics.xml'
+  urls: 'http://ec.europa.eu/newsroom/dae/rss-topic-multilingual-v2.cfm?t=1581003599'
 
   item_selector: '//channel/item[infsonewsroom:definedBy="User"]'
 
@@ -56,6 +55,7 @@ process:
       source: parent_id
      -
       plugin: migration_lookup
+      no_stub: true
       migration: newsroom_topic
 
   field_newsroom_id: topic_id

@@ -1,6 +1,9 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
   module:
     - node
 id: node.field_newsroom_project_name
