@@ -1,0 +1,82 @@
+id: newsroom_newsletter_issue
+label: Newsroom newsletter issue
+migration_group: newsroom
+migration_tags:
+  - newsroom_newsletter_issue
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls:
+   - 'https://ec.europa.eu/newsroom/dae/rss-issue-multilingual.cfm'
+
+  item_selector: '//channel/item'
+
+  ids:
+    issue_id:
+      type: integer
+
+  fields:
+    -
+      name: issue_id
+      label: 'Issue ID'
+      selector: 'infsonewsroom:BasicIssueId/text()'
+    -
+      name: title
+      label: 'Title'
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: date
+      label: 'Publication date'
+      selector: 'pubDate/text()'
+    -
+      name: link
+      label: 'Link'
+      selector: 'link[@lang="EN"]/text()'
+    -
+      name: service_id
+      label: 'Service ID'
+      selector: 'infsonewsroom:BasicSvId/text()'
+
+process:
+
+  type:
+    plugin: default_value
+    default_value: newsroom_newsletter_issue
+
+  title:
+    plugin: get
+    source: title
+
+  field_newsroom_id:
+    plugin: get
+    source: issue_id
+
+  'field_newsroom_issue_date/value':
+    source: date
+    plugin: format_date
+    from_format: 'd-m-Y'
+    to_format: 'Y-m-d'
+    settings:
+      validate_format: false
+
+  'field_newsroom_main_link/uri': link
+
+  'field_newsroom_service':
+    plugin: migration_lookup
+    migration: newsroom_service
+    source: service_id
+    no_stub: true
+
+destination:
+  plugin: entity:node
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_newsletter_issue
+
+migration_dependencies:
+  required:
+    - newsroom_service

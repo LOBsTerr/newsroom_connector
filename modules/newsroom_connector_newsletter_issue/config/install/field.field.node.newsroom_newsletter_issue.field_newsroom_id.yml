@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsroom_id
+    - node.type.newsroom_newsletter_issue
+id: node.newsroom_newsletter_issue.field_newsroom_id
+field_name: field_newsroom_id
+entity_type: node
+bundle: newsroom_newsletter_issue
+label: 'Newsroom Id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

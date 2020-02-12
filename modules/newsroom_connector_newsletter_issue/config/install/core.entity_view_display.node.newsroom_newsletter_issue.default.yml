@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.newsroom_newsletter_issue.field_newsroom_id
+    - field.field.node.newsroom_newsletter_issue.field_newsroom_issue_date
+    - field.field.node.newsroom_newsletter_issue.field_newsroom_main_link
+    - field.field.node.newsroom_newsletter_issue.field_newsroom_service
+    - node.type.newsroom_newsletter_issue
+  module:
+    - datetime
+    - link
+    - user
+id: node.newsroom_newsletter_issue.default
+targetEntityType: node
+bundle: newsroom_newsletter_issue
+mode: default
+content:
+  field_newsroom_id:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newsroom_issue_date:
+    weight: 101
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_newsroom_main_link:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_newsroom_service:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

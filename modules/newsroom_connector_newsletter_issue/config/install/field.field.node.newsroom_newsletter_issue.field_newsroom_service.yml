@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsroom_service
+    - node.type.newsroom_newsletter_issue
+    - taxonomy.vocabulary.newsroom_service
+id: node.newsroom_newsletter_issue.field_newsroom_service
+field_name: field_newsroom_service
+entity_type: node
+bundle: newsroom_newsletter_issue
+label: Service
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      newsroom_service: newsroom_service
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

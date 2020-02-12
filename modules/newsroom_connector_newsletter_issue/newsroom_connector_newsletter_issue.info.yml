@@ -1,0 +1,14 @@
+name: Newsroom Connector Newsletter Issue
+description: Provides Newsroom newsletter issue content type and importer.
+package: Newsroom
+
+type: module
+core: 8.x
+php: (>=7.1)
+
+dependencies:
+  - drupal:node
+  - link:link
+  - newsroom_connector:newsroom_connector_service
+
+configure: admin/content/newsroom

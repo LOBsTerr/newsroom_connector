@@ -89,9 +89,6 @@ class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver 
 //      'language' => $language_id,
 //    ];
 
-//    var_dump($base_plugin_definition['source']['fields']);
-//    var_dump($base_plugin_definition['process']);
-
     return $base_plugin_definition;
   }
 

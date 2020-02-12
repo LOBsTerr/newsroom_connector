@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsroom_issue_date
+    - node.type.newsroom_newsletter_issue
+  module:
+    - datetime
+id: node.newsroom_newsletter_issue.field_newsroom_issue_date
+field_name: field_newsroom_issue_date
+entity_type: node
+bundle: newsroom_newsletter_issue
+label: 'Issue date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
