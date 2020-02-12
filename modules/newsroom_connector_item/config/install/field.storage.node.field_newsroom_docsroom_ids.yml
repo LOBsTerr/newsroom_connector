@@ -1,20 +1,16 @@
 langcode: en
 status: true
 dependencies:
-  enforced:
-    module:
-      - newsroom_connector_item
   module:
     - node
-    - options
 id: node.field_newsroom_docsroom_ids
 field_name: field_newsroom_docsroom_ids
 entity_type: node
-type: list_integer
+type: integer
 settings:
-  allowed_values: {  }
-  allowed_values_function: ''
-module: options
+  unsigned: false
+  size: normal
+module: core
 locked: false
 cardinality: -1
 translatable: true

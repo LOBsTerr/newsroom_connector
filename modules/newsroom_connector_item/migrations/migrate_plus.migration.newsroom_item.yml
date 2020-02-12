@@ -9,7 +9,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
   urls:
-   - 'http://lobsterr.me/item.xml?gffgd'
+   - 'http://lobsterr.me/item.xml?gffgd1'
 
   item_selector: '//channel/item'
 
