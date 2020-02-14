@@ -1,0 +1,53 @@
+id: newsroom_team_responsible_translations
+label: Newsroom team responsible translations
+migration_group: newsroom
+deriver: 'Drupal\newsroom_connector_team_responsible\Plugin\migrate\NewsroomTeamResponsibleLanguageDeriver'
+migration_tags:
+  - newsroom_team_responsible
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'http://ec.europa.eu/newsroom/dae/rss-topic-multilingual-v2.cfm?t=1581003599'
+
+  item_selector: '//channel/item[infsonewsroom:definedBy="System" and infsonewsroom:topicType="Responsible"]'
+
+  ids:
+    topic_id:
+      type: integer
+
+  fields:
+    -
+      name: topic_id
+      label: 'Topic ID'
+      selector: 'infsonewsroom:topicId/text()'
+
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_team_responsible
+
+  tid:
+    plugin: migration_lookup
+    source: topic_id
+    migration: newsroom_team_responsible
+    no_stub: true
+
+  content_translation_source:
+    plugin: default_value
+    default_value: 'en'
+
+destination:
+  plugin: entity:taxonomy_term
+  translations: true
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_team_responsible
+
+migration_dependencies:
+  required:
+    - newsroom_team_responsible

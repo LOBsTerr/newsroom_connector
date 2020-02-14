@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - newsroom_connector
+  enforced:
+    module:
+      - newsroom_connector_team_responsible
+name: 'Newsroom team responsible'
+vid: newsroom_team_responsible
+description: 'Newsroom responsible teams'
+hierarchy: 0
+weight: 0

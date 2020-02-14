@@ -1,0 +1,14 @@
+name: Newsroom Connector Country
+description: Provides Newsroom Country vocabulary and importer.
+package: Newsroom
+
+type: module
+core: 8.x
+php: (>=7.1)
+
+dependencies:
+  - newsroom_connector
+  - drupal:taxonomy
+  - drupal:migrate_plus
+
+configure: admin/newsroom_connector

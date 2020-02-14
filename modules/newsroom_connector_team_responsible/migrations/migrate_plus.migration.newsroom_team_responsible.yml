@@ -1,0 +1,61 @@
+id: newsroom_team_responsible
+label: Newsroom team responsible
+migration_group: newsroom
+migration_tags:
+  - newsroom_team_responsible
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'http://ec.europa.eu/newsroom/dae/rss-topic-multilingual-v2.cfm?t=1581003599'
+
+  item_selector: '//channel/item[infsonewsroom:definedBy="System" and infsonewsroom:topicType="Responsible"]'
+
+  ids:
+    topic_id:
+      type: integer
+
+  fields:
+    -
+      name: topic_id
+      label: 'Topic ID'
+      selector: 'infsonewsroom:topicId/text()'
+    -
+      name: name
+      label: Name
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: parent_id
+      label: Parent
+      selector: 'infsonewsroom:parentTopicId/text()'
+
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_team_responsible
+
+  name:
+    plugin: get
+    source: name
+
+  parent:
+     -
+      plugin: skip_on_empty
+      method: process
+      source: parent_id
+     -
+      plugin: migration_lookup
+      no_stub: true
+      migration: newsroom_team_responsible
+
+  field_newsroom_id: topic_id
+
+destination:
+  plugin: entity:taxonomy_term
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_team_responsible
