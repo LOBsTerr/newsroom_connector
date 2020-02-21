@@ -77,7 +77,7 @@ class UniverseManager implements UniverseManagerInterface {
    *   Edit url on the newsroom side.
    */
   public function getItemEditUrl($newsroom_id) {
-    return $this->buildUrl($this->getValue('item_edit_segment'), [$this->getValue('item_edit_segment') => $newsroom_id]);
+    return $this->buildUrl($this->getValue('item_edit_script'), [$this->getValue('item_edit_segment') => $newsroom_id]);
   }
 
   /**

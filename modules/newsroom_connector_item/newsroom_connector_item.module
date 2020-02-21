@@ -3,6 +3,10 @@
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Row;
+use Drupal\Core\Link;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_migrate_MIGRATION_ID_prepare_row().
@@ -29,4 +33,53 @@ function newsroom_connector_item_migrate_newsroom_item_prepare_row (
     }
   }
   $row->setSourceProperty('documents', $data);
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function newsroom_connector_item_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['node']['newsroom_item']['display']['newsroom_action_buttons'] = [
+    'label' => t('Action buttons'),
+    'description' => t('Displays buttons to edit or to reimport newsroom item.'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function newsroom_connector_item_node_view(
+  array &$build,
+  EntityInterface $entity,
+  EntityViewDisplayInterface $display,
+  $view_mode
+) {
+
+  if ($entity->bundle() == 'newsroom_item') {
+    // Newsroom action buttons.
+    if ($display->getComponent('newsroom_action_buttons')) {
+      $newsroom_id = $entity->field_newsroom_id->value;
+      if (!empty($newsroom_id)) {
+        $universe_manager = \Drupal::service('newsroom_connector.universe_manager');
+        $items = [
+          Link::fromTextAndUrl('Edit', $universe_manager->getItemEditUrl($newsroom_id))->toRenderable(),
+          Link::fromTextAndUrl('Import', URL::fromRoute('newsroom_connector.import', [
+            'type' => 'item',
+            'newsroom_id' => $newsroom_id,
+          ]))->toRenderable(),
+        ];
+        $build['newsroom_action_buttons'] = [
+          '#theme' => 'item_list',
+          '#items' => $items,
+        ];
+      }
+    }
+  }
+
 }
