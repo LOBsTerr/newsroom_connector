@@ -55,8 +55,10 @@ interface UniverseManagerInterface {
   /**
    * Return newsroom item id edit link.
    *
-   * @param int $newsroom_id
+   * @param string $script_name
    *   Original newsroom id.
+   * @param array $params
+   *   URL parameters.
    *
    * @return string
    *   Edit url on the newsroom side.

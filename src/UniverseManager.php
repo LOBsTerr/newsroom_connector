@@ -3,12 +3,11 @@
 namespace Drupal\newsroom_connector;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Url;
 
 class UniverseManager implements UniverseManagerInterface {
 
   /**
-   * Imutable configuration.
+   * Immutable configuration.
    *
    * @var \Drupal\Core\Config\ImmutableConfig
    */
@@ -22,25 +21,14 @@ class UniverseManager implements UniverseManagerInterface {
   }
 
   /**
-   * Get newsroom config.
-   *
-   * @return \Drupal\Core\Config\ImmutableConfig
-   *   Configuration of the newsroom.
+   * {@inheritdoc}
    */
   public function getConfig() {
     return $this->settings;
   }
 
   /**
-   * Get configuration value.
-   *
-   * @param string $name
-   *   Configuration name.
-   * @param mix|null $default_value
-   *   Default value for configuration.
-   *
-   * @return array|mixed|null
-   *   Configuration value.
+   * {@inheritdoc}
    */
   public function getValue($name, $default_value = NULL) {
     $value = $this->getConfig()->get($name);
@@ -48,52 +36,31 @@ class UniverseManager implements UniverseManagerInterface {
   }
 
   /**
-   * Get universe Id.
-   *
-   * @return string
-   *   Universe Id.
+   * {@inheritdoc}
    */
   public function getUniverseId() {
     return $this->getValue('universe_id');
   }
 
   /**
-   * Return newsroom base url.
-   *
-   * @return string
-   *   Newsroom base URL.
+   * {@inheritdoc}
    */
   public function getBaseUrl() {
     return $this->getValue('base_url') . $this->getUniverseId();
   }
 
   /**
-   * Return newsroom item id edit link.
-   *
-   * @param int $newsroom_id
-   *   Original newsroom id.
-   *
-   * @return string
-   *   Edit url on the newsroom side.
+   * {@inheritdoc}
    */
   public function getItemEditUrl($newsroom_id) {
     return $this->buildUrl($this->getValue('item_edit_script'), [$this->getValue('item_edit_segment') => $newsroom_id]);
   }
 
   /**
-   * Return newsroom item id edit link.
-   *
-   * @param int $newsroom_id
-   *   Original newsroom id.
-   *
-   * @return string
-   *   Edit url on the newsroom side.
+   * {@inheritdoc}
    */
   public function buildUrl($script_name, $params = []) {
-    return Url::fromUri($this->getBaseUrl() . '/' . $script_name, ['query' => $params]);
+    return Url::fromUri($this->getBaseUrl() . $script_name, ['query' => $params]);
   }
-
-
-
 
 }
