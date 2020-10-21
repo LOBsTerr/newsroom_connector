@@ -3,6 +3,7 @@
 namespace Drupal\newsroom_connector;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Url;
 
 class UniverseManager implements UniverseManagerInterface {
 
