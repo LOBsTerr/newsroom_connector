@@ -8,9 +8,9 @@ php: (>=7.1)
 
 dependencies:
   - drupal:node
-  - drupal:datetime_range
-  - link:link
+  - drupal:media
   - geofield:geofield
+  - link:link
   - newsroom_connector:newsroom_connector_topic
   - newsroom_connector:newsroom_connector_type
   - newsroom_connector:newsroom_connector_media
