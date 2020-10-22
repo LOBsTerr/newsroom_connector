@@ -47,7 +47,7 @@ class UniverseManager implements UniverseManagerInterface {
    * {@inheritdoc}
    */
   public function getBaseUrl() {
-    return $this->getValue('base_url') . $this->getUniverseId();
+    return $this->getValue('base_url') . $this->getUniverseId() . '/';
   }
 
   /**
