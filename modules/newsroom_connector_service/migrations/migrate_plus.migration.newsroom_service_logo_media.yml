@@ -62,6 +62,6 @@ dependencies:
     module:
       - newsroom_connector_service
 
-migration_dependencies:
-  required:
-    - newsroom_service_logo
+#migration_dependencies:
+#  required:
+#    - newsroom_service_logo
