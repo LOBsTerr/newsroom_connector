@@ -160,6 +160,11 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $languages = $this->languageManager->getLanguages();
       foreach ($languages as $language) {
         $language_id = $language->getId();
+        // For languages pt-pt, we take the first part only.
+        if (strpos($language_id, '-') !== FALSE) {
+          $parts = explode('-', $language_id);
+          $language_id = $parts[0];
+        }
 
         // We skip EN as that is the original language.
         if ($language_id === 'en') {
