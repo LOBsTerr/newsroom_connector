@@ -45,13 +45,21 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
   public function getDerivativeDefinitions($base_plugin_definition) {
     $languages = $this->languageManager->getLanguages();
     foreach ($languages as $language) {
+
       // We skip EN as that is the original language.
       if ($language->getId() === 'en') {
         continue;
       }
 
-      $derivative = $this->getDerivativeValues($base_plugin_definition, $language);
-      $this->derivatives[$language->getId()] = $derivative;
+      $language_code = $language->getId();
+      // For languages pt-pt, we take the first part only.
+      if (strpos($language_code, '-') !== FALSE) {
+        $parts = explode('-', $language_code);
+        $language_code = $parts[0];
+      }
+
+      $derivative = $this->getDerivativeValues($base_plugin_definition, $language, strtoupper($language_code));
+      $this->derivatives[$language_code] = $derivative;
 
     }
 
@@ -62,10 +70,14 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
    * Creates a derivative definition for each available language.
    *
    * @param array $base_plugin_definition
+   *  Base plugin definition.
    * @param LanguageInterface $language
+   *  Language.
+   * @param string $language_code
+   *  Newsroom language code.
    *
    * @return array
    */
-  protected abstract function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language);
+  protected abstract function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code);
 
 }

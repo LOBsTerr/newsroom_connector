@@ -115,7 +115,3 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_service
-
-#migration_dependencies:
-#  required:
-#    - newsroom_service_logo_media

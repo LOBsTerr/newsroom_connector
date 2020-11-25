@@ -48,6 +48,3 @@ dependencies:
     module:
       - newsroom_connector_team_responsible
 
-migration_dependencies:
-  required:
-    - newsroom_team_responsible

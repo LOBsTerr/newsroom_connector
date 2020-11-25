@@ -2,6 +2,8 @@ id: newsroom_service_translations
 label: Newsroom service
 migration_group: newsroom
 deriver: 'Drupal\newsroom_connector_service\Plugin\migrate\NewsroomServiceLanguageDeriver'
+migration_tags:
+  - newsroom_service
 
 source:
   plugin: url
@@ -47,9 +49,3 @@ dependencies:
     module:
       - newsroom_connector_service
 
-migration_dependencies:
-  required:
-    - newsroom_service
-
-migration_tags:
-  - newsroom_service

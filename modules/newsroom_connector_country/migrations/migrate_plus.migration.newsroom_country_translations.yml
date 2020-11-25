@@ -48,6 +48,3 @@ dependencies:
     module:
       - newsroom_connector_country
 
-migration_dependencies:
-  required:
-    - newsroom_country

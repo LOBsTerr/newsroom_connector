@@ -13,13 +13,13 @@ class NewsroomTypeLanguageDeriver extends BaseNewsroomLanguageDeriver {
   /**
    * {@inheritdoc}
    */
-  protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language) {
+  protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code) {
     $language_id = $language->getId();
 
     $base_plugin_definition['source']['fields'][] = [
       'name' => "type_name_$language_id",
       'label' => "Type name - $language_id",
-      'selector' => 'title[@lang="' . strtoupper($language_id) . '"]/text()',
+      'selector' => 'title[@lang="' . $language_code . '"]/text()',
     ];
 
     $base_plugin_definition['process']['name'] = [

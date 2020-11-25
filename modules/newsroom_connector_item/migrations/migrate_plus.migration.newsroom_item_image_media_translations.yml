@@ -49,6 +49,3 @@ dependencies:
     module:
       - newsroom_connector_item
 
-migration_dependencies:
-  required:
-    - newsroom_item_image_media

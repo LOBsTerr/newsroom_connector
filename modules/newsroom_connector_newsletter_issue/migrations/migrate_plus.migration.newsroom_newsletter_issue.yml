@@ -76,7 +76,3 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_newsletter_issue
-
-migration_dependencies:
-  required:
-    - newsroom_service
