@@ -3,14 +3,14 @@
 namespace Drupal\newsroom_connector\Plugin;
 
 use Drupal\Component\Plugin\PluginBase;
-use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationPluginManager;
-use Drupal\migrate_tools\MigrateExecutable;
+use Drupal\newsroom_connector\MigrateBatchExecutable;
 use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -22,6 +22,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProcessorInterface {
 
   use StringTranslationTrait;
+  use DependencySerializationTrait;
 
   /**
    * The entity type manager.
@@ -147,7 +148,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    * {@inheritdoc}
    */
   public function runImport(Url $url) {
-
     $definition = $this->getPluginDefinition();
     if (empty($definition['migrations'])) {
       return;
@@ -191,12 +191,14 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected function runMigration($migration_id, Url $url) {
     $migration = $this->migrationPluginManager->createInstance($migration_id);
     if (!empty($migration)) {
-      $source = $migration->get('source');
-      $source['urls'] = $url->toUriString();
-      $migration->set('source', $source);
-      $migration->getIdMap()->prepareUpdate();
-      $executable = new MigrateExecutable($migration, new MigrateMessage());
-      $executable->import();
+      $options = [
+        'limit' => 0,
+        'update' => 1,
+        'force' => 0,
+        'source_url' => $url->toUriString(),
+      ];
+      $executable = new MigrateBatchExecutable($migration, new MigrateMessage(), $options);
+      $executable->batchImport();
     }
   }
 
