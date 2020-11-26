@@ -1,5 +1,5 @@
 id: newsroom_service_logo_media_translations
-label: Newsroom service media logos.
+label: Newsroom service media logos translations.
 migration_group: newsroom
 deriver: 'Drupal\newsroom_connector_item\Plugin\migrate\NewsroomItemImageMediaLanguageDeriver'
 migration_tags:

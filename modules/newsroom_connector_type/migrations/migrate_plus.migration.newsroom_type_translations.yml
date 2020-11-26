@@ -1,5 +1,5 @@
 id: newsroom_type_translations
-label: Newsroom type
+label: Newsroom type translations
 migration_group: newsroom
 deriver: 'Drupal\newsroom_connector_type\Plugin\migrate\NewsroomTypeLanguageDeriver'
 migration_tags:
