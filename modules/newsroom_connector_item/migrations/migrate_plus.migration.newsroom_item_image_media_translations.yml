@@ -9,7 +9,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
-  urls: 'http://lobsterr.me/item.xml??tt'
+  urls: 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
 
   # We need only not empty items.
   item_selector: '//channel/item[enclosure[@type="image/jpeg" and @schema="Public" and string-length(@url) > 0]]'

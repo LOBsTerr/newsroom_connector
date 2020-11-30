@@ -9,7 +9,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
-  urls: 'http://lobsterr.me/item.xml'
+  urls: 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
 
   item_selector: '//channel/item'
 

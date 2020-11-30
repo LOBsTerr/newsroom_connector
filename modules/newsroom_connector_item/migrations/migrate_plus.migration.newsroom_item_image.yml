@@ -8,7 +8,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
-  urls: 'https://ec.europa.eu/newsroom/dae/fullrss-multilingual.cfm?t=1580919913&item_id=667551'
+  urls: 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
 
   item_selector: '//channel/item[enclosure[@type="image/jpeg" and @schema="Public" and string-length(@url) > 0]]'
 

@@ -9,7 +9,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
   urls:
-   - 'http://lobsterr.me/item.xml?gffgd1'
+   - 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
 
   item_selector: '//channel/item'
 
@@ -336,6 +336,10 @@ process:
   field_newsroom_docsroom_ids:
     plugin: get
     source: docsroom_ids
+
+  langcode:
+    plugin: default_value
+    default_value: 'en'
 
 destination:
   plugin: entity:node
