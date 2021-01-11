@@ -221,7 +221,7 @@ process:
 
   'field_newsroom_main_link':
     plugin: get
-    source: related_documents_url
+    source: main_link
 
   # source documents is formed in newsroom_connector_item_migrate_newsroom_item_prepare_row.
   'field_newsroom_documents':
