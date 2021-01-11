@@ -16,6 +16,21 @@ function newsroom_connector_item_migrate_newsroom_item_prepare_row (
   MigrateSourceInterface $source,
   MigrationInterface $migration
 ) {
+  $newsroom_id = $row->getSourceProperty('item_id');
+
+  $see_also_url = $row->getSourceProperty('see_also_url');
+  if (!filter_var($see_also_url, FILTER_VALIDATE_URL)) {
+    $row->setSourceProperty('see_also_url', NULL);
+    $row->setSourceProperty('see_also_title', NULL);
+    \Drupal::logger('newsroom')->error(t('URL for field "See also" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
+  }
+
+  $main_url = $row->getSourceProperty('main_link');
+  if (!filter_var($main_url, FILTER_VALIDATE_URL)) {
+    $row->setSourceProperty('main_link', NULL);
+    \Drupal::logger('newsroom')->error(t('URL for field "Main url" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
+  }
+
   $related_documents_titles = $row->getSourceProperty('related_documents_title');
   $related_documents_urls = $row->getSourceProperty('related_documents_url');
 
