@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_entity_delete().
+ */
+function newsroom_connector_service_taxonomy_term_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'newsroom_service') {
+    if ($media = \Drupal::service('entity_type.manager')->getStorage('media')->load($entity->field_newsroom_service_image->target_id)) {
+      $media->delete();
+    }
+  }
+}
