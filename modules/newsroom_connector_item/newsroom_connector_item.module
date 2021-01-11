@@ -83,3 +83,14 @@ function newsroom_connector_item_node_view(
   }
 
 }
+
+/**
+ * Implements hook_entity_delete().
+ */
+function newsroom_connector_item_node_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'newsroom_item') {
+    if ($media = \Drupal::service('entity_type.manager')->getStorage('media')->load($entity->field_newsroom_image->target_id)) {
+      $media->delete();
+    }
+  }
+}
