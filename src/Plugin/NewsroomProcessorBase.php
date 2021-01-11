@@ -9,7 +9,9 @@ use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
+use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\MigrationPluginManager;
+use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\newsroom_connector\MigrateBatchExecutable;
 use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -23,6 +25,8 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
 
   use StringTranslationTrait;
   use DependencySerializationTrait;
+
+  protected $useBatch = TRUE;
 
   /**
    * The entity type manager.
@@ -87,8 +91,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   public function redirect($newsroom_id) {
     $entity = $this->getEntityByNewsroomId($newsroom_id);
     if (!empty($entity)) {
-      $response = new RedirectResponse($entity->toUrl()->toString());
-      $response->send();
+      return new RedirectResponse($entity->toUrl()->toString());
     }
     else {
       throw new NotFoundHttpException();
@@ -139,7 +142,8 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   /**
    * {@inheritdoc}
    */
-  public function import($newsroom_id = NULL) {
+  public function import($newsroom_id, $use_batch = TRUE) {
+    $this->useBatch = $use_batch;
     $url = $this->getEntityUrl($newsroom_id);
     $this->runImport($url);
   }
@@ -190,15 +194,31 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    */
   protected function runMigration($migration_id, Url $url) {
     $migration = $this->migrationPluginManager->createInstance($migration_id);
+
+    $status = $migration->getStatus();
+    if ($status !== MigrationInterface::STATUS_IDLE) {
+      $migration->setStatus(MigrationInterface::STATUS_IDLE);
+    }
+
     if (!empty($migration)) {
-      $options = [
-        'limit' => 0,
-        'update' => 1,
-        'force' => 0,
-        'source_url' => $url->toUriString(),
-      ];
-      $executable = new MigrateBatchExecutable($migration, new MigrateMessage(), $options);
-      $executable->batchImport();
+      if ($this->useBatch) {
+        $options = [
+          'limit' => 0,
+          'update' => 1,
+          'force' => 0,
+          'source_url' => $url->toUriString(),
+        ];
+        $executable = new MigrateBatchExecutable($migration, new MigrateMessage(), $options);
+        $executable->batchImport();
+      }
+      else {
+        $source = $migration->get('source');
+        $source['urls'] = $url->toUriString();
+        $migration->set('source', $source);
+        $migration->getIdMap()->prepareUpdate();
+        $executable = new MigrateExecutable($migration, new MigrateMessage());
+        $executable->import();
+      }
     }
   }
 

@@ -19,7 +19,7 @@ interface NewsroomProcessorInterface extends PluginInspectionInterface, Containe
   /**
    * Import.
    */
-  public function import($newsroom_id = NULL);
+  public function import($newsroom_id);
 
   /**
    * Import from URL.
@@ -29,6 +29,6 @@ interface NewsroomProcessorInterface extends PluginInspectionInterface, Containe
   /**
    * Get Newsroom entity URL.
    */
-  public function getEntityUrl($newsroom_id = NULL);
+  public function getEntityUrl($newsroom_id);
 
 }

@@ -69,8 +69,9 @@ class NewsroomConnectorController extends ControllerBase {
 
     $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
     if ($plugin) {
-      $plugin->import($newsroom_id);
-      $plugin->redirect($newsroom_id);
+      $plugin->import($newsroom_id, FALSE);
+
+      return $plugin->redirect($newsroom_id);
     }
     else {
       throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
@@ -81,7 +82,7 @@ class NewsroomConnectorController extends ControllerBase {
    * Old redirection.
    */
   public function newsRedirect($newsroom_id) {
-    $this->redirect('item', $newsroom_id);
+    return $this->redirect('item', $newsroom_id);
   }
 
   /**
@@ -97,7 +98,7 @@ class NewsroomConnectorController extends ControllerBase {
     $plugin_id = "newsroom_$type";
     $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
     if ($plugin) {
-      $plugin->redirect($newsroom_id);
+      return $plugin->redirect($newsroom_id);
     }
     else {
       throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
