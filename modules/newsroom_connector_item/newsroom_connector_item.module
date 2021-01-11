@@ -31,6 +31,19 @@ function newsroom_connector_item_migrate_newsroom_item_prepare_row (
     \Drupal::logger('newsroom')->error(t('URL for field "Main url" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
   }
 
+  $project_website_url = $row->getSourceProperty('project_website_url');
+  if (!filter_var($project_website_url, FILTER_VALIDATE_URL)) {
+    $row->setSourceProperty('project_website_url', NULL);
+    $row->setSourceProperty('project_website_title', NULL);
+    \Drupal::logger('newsroom')->error(t('URL for field "Project website" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
+  }
+
+  $registration_link_url = $row->getSourceProperty('registration_link_url');
+  if (!filter_var($registration_link_url, FILTER_VALIDATE_URL)) {
+    $row->setSourceProperty('registration_link_url', NULL);
+    \Drupal::logger('newsroom')->error(t('URL for field "Registration link" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
+  }
+
   $related_documents_titles = $row->getSourceProperty('related_documents_title');
   $related_documents_urls = $row->getSourceProperty('related_documents_url');
 
