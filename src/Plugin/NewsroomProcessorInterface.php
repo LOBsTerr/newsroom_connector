@@ -19,7 +19,7 @@ interface NewsroomProcessorInterface extends PluginInspectionInterface, Containe
   /**
    * Import.
    */
-  public function import($newsroom_id);
+  public function import($newsroom_id, $use_batch = TRUE);
 
   /**
    * Import from URL.

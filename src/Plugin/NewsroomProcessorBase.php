@@ -7,7 +7,6 @@ use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\MigrationPluginManager;
@@ -151,14 +150,17 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   /**
    * {@inheritdoc}
    */
-  public function runImport(Url $url) {
+  public function runImport($url) {
     $definition = $this->getPluginDefinition();
     if (empty($definition['migrations'])) {
       return;
     }
 
+    $migration_ids = [];
+    $translations_ids = [];
+
     foreach ($definition['migrations'] as $migration_id) {
-      $this->runMigration($migration_id, $url);
+      $migration_ids[] = $migration_id;
 
       // Run translations migrations.
       $languages = $this->languageManager->getLanguages();
@@ -176,8 +178,18 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
           $language_id = $parts[0];
         }
 
-        $this->runMigration("{$this->pluginId}_translations:{$language_id}", $url);
+        $translations_ids[] = "{$this->pluginId}_translations:{$language_id}";
       }
+    }
+
+    // First we run main content migrations.
+    foreach ($migration_ids as $id) {
+      $this->runMigration($id, $url);
+    }
+
+    // Then we run main translations migrations.
+    foreach ($translations_ids as $id) {
+      $this->runMigration($id, $url);
     }
   }
 
@@ -186,13 +198,11 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    *
    * @param string $migration_id
    *   Migration Id.
-   * @param Drupal\Core\Url $url
-   *   Url object.
    *
    * @throws \Drupal\Component\Plugin\Exception\PluginException
    * @throws \Drupal\migrate\MigrateException
    */
-  protected function runMigration($migration_id, Url $url) {
+  protected function runMigration($migration_id, $url) {
     $migration = $this->migrationPluginManager->createInstance($migration_id);
 
     $status = $migration->getStatus();
@@ -205,7 +215,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
         $options = [
           'limit' => 0,
           'update' => 1,
-          'force' => 0,
+          'force' => 1,
           'source_url' => $url->toUriString(),
         ];
         $executable = new MigrateBatchExecutable($migration, new MigrateMessage(), $options);
@@ -218,6 +228,8 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
         $migration->getIdMap()->prepareUpdate();
         $executable = new MigrateExecutable($migration, new MigrateMessage());
         $executable->import();
+
+        $this->t('Import has been successfully finished');
       }
     }
   }
