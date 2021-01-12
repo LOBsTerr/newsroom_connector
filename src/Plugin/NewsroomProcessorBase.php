@@ -205,13 +205,11 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    */
   protected function runMigration($migration_id, $url) {
     $migration = $this->migrationPluginManager->createInstance($migration_id);
-
-    $status = $migration->getStatus();
-    if ($status !== MigrationInterface::STATUS_IDLE) {
-      $migration->setStatus(MigrationInterface::STATUS_IDLE);
-    }
-
     if (!empty($migration)) {
+      $status = $migration->getStatus();
+      if ($status !== MigrationInterface::STATUS_IDLE) {
+        $migration->setStatus(MigrationInterface::STATUS_IDLE);
+      }
       if ($this->useBatch) {
         $options = [
           'limit' => 0,
