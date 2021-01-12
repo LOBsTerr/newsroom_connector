@@ -8,7 +8,7 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: http
-  data_parser_plugin: simple_xml
+  data_parser_plugin: newsroom_simple_xml
   urls: 'http://lobsterr.me/types.xml'
 
   item_selector: '//channel/item'

@@ -151,6 +151,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    * {@inheritdoc}
    */
   public function runImport($url) {
+
     $definition = $this->getPluginDefinition();
     if (empty($definition['migrations'])) {
       return;

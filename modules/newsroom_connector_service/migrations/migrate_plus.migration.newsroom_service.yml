@@ -7,7 +7,7 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: http
-  data_parser_plugin: simple_xml
+  data_parser_plugin: newsroom_simple_xml
   urls: 'https://ec.europa.eu/newsroom/dae/rss-service-multilingual-v2.cfm'
 
   item_selector: '//channel/item'

@@ -8,7 +8,7 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: http
-  data_parser_plugin: simple_xml
+  data_parser_plugin: newsroom_simple_xml
   urls: 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
 
   # We need only not empty items.
