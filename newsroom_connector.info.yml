@@ -11,4 +11,4 @@ dependencies:
   - drupal:migrate_plus
   - drupal:migrate_tools
 
-configure: admin/newsroom_connector
+configure: newsroom_connector.settings

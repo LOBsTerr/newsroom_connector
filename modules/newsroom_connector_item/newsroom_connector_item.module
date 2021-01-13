@@ -44,6 +44,12 @@ function newsroom_connector_item_migrate_newsroom_item_prepare_row (
     \Drupal::logger('newsroom')->error(t('URL for field "Registration link" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
   }
 
+  $start_date = $row->getSourceProperty('start_date');
+  $end_date = $row->getSourceProperty('end_date');
+  if (!empty($start_date) && empty($end_date)) {
+    $row->setSourceProperty('end_date', $start_date);
+  }
+
   $related_documents_titles = $row->getSourceProperty('related_documents_title');
   $related_documents_urls = $row->getSourceProperty('related_documents_url');
 

@@ -3,7 +3,7 @@ description: Provides Newsroom newsletter issue content type and importer.
 package: Newsroom
 
 type: module
-core: 8.x
+core_version_requirement: ^8 || ^9
 php: (>=7.1)
 
 dependencies:
