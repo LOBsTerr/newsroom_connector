@@ -19,27 +19,27 @@ function newsroom_connector_item_migrate_newsroom_item_prepare_row (
   $newsroom_id = $row->getSourceProperty('item_id');
 
   $see_also_url = $row->getSourceProperty('see_also_url');
-  if (!filter_var($see_also_url, FILTER_VALIDATE_URL)) {
+  if (!empty($see_also_url) && !filter_var($see_also_url, FILTER_VALIDATE_URL)) {
     $row->setSourceProperty('see_also_url', NULL);
     $row->setSourceProperty('see_also_title', NULL);
     \Drupal::logger('newsroom')->error(t('URL for field "See also" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
   }
 
   $main_url = $row->getSourceProperty('main_link');
-  if (!filter_var($main_url, FILTER_VALIDATE_URL)) {
+  if (!empty($main_url) && !filter_var($main_url, FILTER_VALIDATE_URL)) {
     $row->setSourceProperty('main_link', NULL);
     \Drupal::logger('newsroom')->error(t('URL for field "Main url" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
   }
 
   $project_website_url = $row->getSourceProperty('project_website_url');
-  if (!filter_var($project_website_url, FILTER_VALIDATE_URL)) {
+  if (!empty($project_website_url) && !filter_var($project_website_url, FILTER_VALIDATE_URL)) {
     $row->setSourceProperty('project_website_url', NULL);
     $row->setSourceProperty('project_website_title', NULL);
     \Drupal::logger('newsroom')->error(t('URL for field "Project website" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
   }
 
   $registration_link_url = $row->getSourceProperty('registration_link_url');
-  if (!filter_var($registration_link_url, FILTER_VALIDATE_URL)) {
+  if (!empty($registration_link_url) && !filter_var($registration_link_url, FILTER_VALIDATE_URL)) {
     $row->setSourceProperty('registration_link_url', NULL);
     \Drupal::logger('newsroom')->error(t('URL for field "Registration link" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
   }
