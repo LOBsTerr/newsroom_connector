@@ -9,13 +9,54 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Url;
 
 /**
- * Implements hook_migrate_MIGRATION_ID_prepare_row().
+ * Implements hook_migrate_prepare_row().
  */
-function newsroom_connector_item_migrate_newsroom_item_prepare_row (
+function newsroom_connector_migrate_prepare_row (
   Row $row,
   MigrateSourceInterface $source,
   MigrationInterface $migration
 ) {
+
+  // Validate URLs and set values to NULL if the URL is invalid.
+  $is_newsroom_item = strpos($migration->id(), 'newsroom_item') !== FALSE;
+  if (strpos($migration->id(), 'newsroom_item_translations') !== FALSE || strpos($migration->id(), 'newsroom_item') !== FALSE) {
+    _newsroom_connector_validate_urls($row);
+  }
+
+  if ($is_newsroom_item) {
+    $start_date = $row->getSourceProperty('start_date');
+    $end_date = $row->getSourceProperty('end_date');
+    if (!empty($start_date) && empty($end_date)) {
+      $row->setSourceProperty('end_date', $start_date);
+    }
+
+    $related_documents_titles = $row->getSourceProperty('related_documents_title');
+    $related_documents_urls = $row->getSourceProperty('related_documents_url');
+
+    $data = [];
+    if (!empty($related_documents_urls)) {
+      if (is_array($related_documents_urls)) {
+        foreach ($related_documents_urls as $key => $item) {
+          $data[$key]['url'] = $related_documents_urls[$key];
+          $data[$key]['title'] = $related_documents_titles[$key];
+        }
+      }
+      else {
+        $data[0]['url'] = $related_documents_urls;
+        $data[0]['title'] = $related_documents_titles;
+      }
+    }
+    $row->setSourceProperty('documents', $data);
+  }
+}
+
+/**
+ * Validate urls.
+ *
+ * @param Row $row
+ *   Migration row.
+ */
+function _newsroom_connector_validate_urls(&$row) {
   $newsroom_id = $row->getSourceProperty('item_id');
 
   $see_also_url = $row->getSourceProperty('see_also_url');
@@ -43,30 +84,6 @@ function newsroom_connector_item_migrate_newsroom_item_prepare_row (
     $row->setSourceProperty('registration_link_url', NULL);
     \Drupal::logger('newsroom')->error(t('URL for field "Registration link" is not correct for newsroom id - @id', ['@id' => $newsroom_id]));
   }
-
-  $start_date = $row->getSourceProperty('start_date');
-  $end_date = $row->getSourceProperty('end_date');
-  if (!empty($start_date) && empty($end_date)) {
-    $row->setSourceProperty('end_date', $start_date);
-  }
-
-  $related_documents_titles = $row->getSourceProperty('related_documents_title');
-  $related_documents_urls = $row->getSourceProperty('related_documents_url');
-
-  $data = [];
-  if (!empty($related_documents_urls)) {
-    if (is_array($related_documents_urls)) {
-      foreach ($related_documents_urls as $key => $item) {
-        $data[$key]['url'] = $related_documents_urls[$key];
-        $data[$key]['title'] = $related_documents_titles[$key];
-      }
-    }
-    else {
-      $data[0]['url'] = $related_documents_urls;
-      $data[0]['title'] = $related_documents_titles;
-    }
-  }
-  $row->setSourceProperty('documents', $data);
 }
 
 /**
