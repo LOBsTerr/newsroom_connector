@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Provides newsroom_connector_item functionality.
+ */
+
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Row;
@@ -7,6 +12,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Url;
+use Drupal\newsroom_connector_item\Plugin\newsroom\NewsroomItemNewsroomProcessor;
 
 /**
  * Implements hook_migrate_prepare_row().
@@ -138,9 +144,22 @@ function newsroom_connector_item_node_view(
 /**
  * Implements hook_entity_delete().
  */
-function newsroom_connector_item_node_delete(Drupal\Core\Entity\EntityInterface $entity) {
+function newsroom_connector_item_node_delete(EntityInterface $entity) {
   if ($entity->bundle() == 'newsroom_item') {
-    if ($media = \Drupal::service('entity_type.manager')->getStorage('media')->load($entity->field_newsroom_image->target_id)) {
+
+    // Clean up migrations.
+    $migration_manager = \Drupal::service('newsroom_connector.migration_manager');
+    $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM, $entity);
+
+    // Remove media.
+    if ($media = $entity->field_newsroom_image->entity) {
+
+      // Clean up migrations.
+      $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM_IMAGE_MEDIA, $media);
+      if ($file = $media->field_media_image_newsroom->entity) {
+        $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM_IMAGE, $file);
+      }
+
       $media->delete();
     }
   }

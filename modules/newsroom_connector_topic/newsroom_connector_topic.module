@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Provides newsroom_connector_topic functionality.
+ */
+
+use Drupal\newsroom_connector_topic\Plugin\newsroom\NewsroomTopicNewsroomProcessor;
+
+/**
+ * Implements hook_entity_delete().
+ */
+function newsroom_connector_topic_taxonomy_term_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'newsroom_topic') {
+    // Clean up migrations.
+    \Drupal::service('newsroom_connector.migration_manager')->cleanUpMigrations(NewsroomTopicNewsroomProcessor::MIGRATION_TOPIC, $entity);
+  }
+}
+

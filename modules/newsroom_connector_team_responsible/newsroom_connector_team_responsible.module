@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Provides newsroom_connector_team_responsible functionality.
+ */
+
+use Drupal\newsroom_connector_team_responsible\Plugin\newsroom\NewsroomTeamResponsibleNewsroomProcessor;
+
+/**
+ * Implements hook_entity_delete().
+ */
+function newsroom_connector_team_responsible_taxonomy_term_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'newsroom_team_responsible') {
+    // Clean up migrations.
+    \Drupal::service('newsroom_connector.migration_manager')->cleanUpMigrations(NewsroomTeamResponsibleNewsroomProcessor::MIGRATION_TEAM_RESPONSIBLE, $entity);
+  }
+}
+

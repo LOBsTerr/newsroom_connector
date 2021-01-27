@@ -7,11 +7,13 @@ use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\MigrationPluginManager;
 use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\newsroom_connector\MigrateBatchExecutable;
+use Drupal\newsroom_connector\MigrationManagerInterface;
 use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -49,24 +51,35 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected $migrationPluginManager;
 
   /**
+   * Language manager.
+   *
    * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected $languageManager;
+
+  /**
+   * Migration manager.
+   *
+   * @var \Drupal\newsroom_connector\MigrationManagerInterface
+   */
+  protected $migrationManager;
 
   /**
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition,
     EntityTypeManagerInterface $entity_type_manager,
-    UniverseManagerInterface $universeManager,
-    MigrationPluginManager $migrationPluginManager,
-    LanguageManagerInterface $languageManager
+    UniverseManagerInterface $universe_manager,
+    MigrationPluginManager $migration_plugin_manager,
+    LanguageManagerInterface $language_manager,
+    MigrationManagerInterface $migration_manager
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
-    $this->universeManager = $universeManager;
-    $this->migrationPluginManager = $migrationPluginManager;
-    $this->languageManager = $languageManager;
+    $this->universeManager = $universe_manager;
+    $this->migrationPluginManager = $migration_plugin_manager;
+    $this->languageManager = $language_manager;
+    $this->migrationManager = $migration_manager;
   }
 
   /**
@@ -80,7 +93,8 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $container->get('entity_type.manager'),
       $container->get('newsroom_connector.universe_manager'),
       $container->get('plugin.manager.migration'),
-      $container->get('language_manager')
+      $container->get('language_manager'),
+      $container->get('newsroom_connector.migration_manager')
     );
   }
 
@@ -150,7 +164,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   /**
    * {@inheritdoc}
    */
-  public function runImport($url) {
+  public function runImport(Url $url) {
 
     $definition = $this->getPluginDefinition();
     if (empty($definition['migrations'])) {
@@ -173,13 +187,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
           continue;
         }
 
-        // For languages pt-pt, we take the first part only.
-        if (strpos($language_id, '-') !== FALSE) {
-          $parts = explode('-', $language_id);
-          $language_id = $parts[0];
-        }
-
-        $translations_ids[] = "{$this->pluginId}_translations:{$language_id}";
+        $translations_ids[] = $this->migrationManager->getTranslationMigrationId($this->getPluginId(), $language_id);
       }
     }
 

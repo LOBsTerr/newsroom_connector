@@ -24,4 +24,8 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  */
 class NewsroomItemNewsroomProcessor extends NewsroomProcessorBase {
 
+  // Newsroom item importers.
+  const MIGRATION_ITEM = 'newsroom_item';
+  const MIGRATION_ITEM_IMAGE_MEDIA = 'newsroom_item_image_media';
+  const MIGRATION_ITEM_IMAGE = 'newsroom_item_image';
 }

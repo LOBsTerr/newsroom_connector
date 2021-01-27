@@ -5,16 +5,14 @@
  * Provides newsroom_connector_type functionality.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\newsroom_connector_type\Plugin\newsroom\NewsroomTypeNewsroomProcessor;
 
 /**
- * Implements hook_help().
+ * Implements hook_entity_delete().
  */
-function newsroom_connector_type_help($route_name, RouteMatchInterface $route_match) {
-  if ($route_name == 'help.page.token') {
-    $output = '<h3>' . t('About') . '</h3>';
-    $output .= '<p>' . t('The <a href=":project">Newsroom Connector Type</a> module provides a newsroom item taxonomy vocabulary and importer for it. This module is part of newsroom connector') . '</p>';
-    $output .= '<dl>';
-    return $output;
+function newsroom_connector_type_taxonomy_term_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'newsroom_type') {
+    // Clean up migrations.
+    \Drupal::service('newsroom_connector.migration_manager')->cleanUpMigrations(NewsroomTypeNewsroomProcessor::MIGRATION_TYPE, $entity);
   }
 }

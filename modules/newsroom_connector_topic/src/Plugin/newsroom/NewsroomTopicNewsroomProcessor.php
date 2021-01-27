@@ -22,4 +22,6 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  */
 class NewsroomTopicNewsroomProcessor extends NewsroomProcessorBase {
 
+  const MIGRATION_TOPIC = 'newsroom_topic';
+
 }

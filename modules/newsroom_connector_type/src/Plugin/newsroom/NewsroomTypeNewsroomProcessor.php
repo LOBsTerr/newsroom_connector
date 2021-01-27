@@ -22,4 +22,6 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  */
 class NewsroomTypeNewsroomProcessor extends NewsroomProcessorBase {
 
+  // Newsroom type importer.
+  const MIGRATION_TYPE = 'newsroom_type';
 }

@@ -6,6 +6,7 @@ use Drupal\Component\Plugin\Derivative\DeriverBase;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
+use Drupal\newsroom_connector\MigrationManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -19,12 +20,23 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
   protected $languageManager;
 
   /**
+   * Migration manager.
+   *
+   * @var \Drupal\newsroom_connector\MigrationManagerInterface
+   */
+  protected $migrationManager;
+
+  /**
    * NewsroomItemServiceLanguageDeriver constructor.
    *
    * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
+   *   Language manager.
+   * @param \Drupal\newsroom_connector\MigrationManagerInterface $migration_manager
+   *   Migration manager.
    */
-  public function __construct(LanguageManagerInterface $languageManager) {
+  public function __construct(LanguageManagerInterface $languageManager, MigrationManagerInterface $migration_manager) {
     $this->languageManager = $languageManager;
+    $this->migrationManager = $migration_manager;
   }
 
   /**
@@ -35,7 +47,8 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
     $base_plugin_id
   ) {
     return new static(
-      $container->get('language_manager')
+      $container->get('language_manager'),
+      $container->get('newsroom_connector.migration_manager')
     );
   }
 
@@ -51,16 +64,9 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
         continue;
       }
 
-      $language_code = $language->getId();
-      // For languages pt-pt, we take the first part only.
-      if (strpos($language_code, '-') !== FALSE) {
-        $parts = explode('-', $language_code);
-        $language_code = $parts[0];
-      }
+      $language_code = $this->migrationManager->normalizeLanguage($language->getId());
 
-      $derivative = $this->getDerivativeValues($base_plugin_definition, $language, strtoupper($language_code));
-      $this->derivatives[$language_code] = $derivative;
-
+      $this->derivatives[$language_code] = $this->getDerivativeValues($base_plugin_definition, $language, strtoupper($language_code));
     }
 
     return $this->derivatives;

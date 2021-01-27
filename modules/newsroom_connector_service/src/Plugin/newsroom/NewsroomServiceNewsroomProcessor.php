@@ -24,4 +24,8 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  */
 class NewsroomServiceNewsroomProcessor extends NewsroomProcessorBase {
 
+  const MIGRATION_SERVICE = 'newsroom_service';
+  const MIGRATION_SERVICE_IMAGE_MEDIA = 'newsroom_service_logo_media';
+  const MIGRATION_SERVICE_IMAGE = 'newsroom_service_logo';
+
 }

@@ -22,4 +22,6 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  */
 class NewsroomCountryNewsroomProcessor extends NewsroomProcessorBase {
 
+  const MIGRATION_COUNTRY = 'newsroom_country';
+
 }

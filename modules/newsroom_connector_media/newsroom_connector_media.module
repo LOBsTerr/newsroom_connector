@@ -5,7 +5,7 @@
  */
 function newsroom_connector_media_media_delete(Drupal\Core\Entity\EntityInterface $entity) {
   if ($entity->bundle() == 'newsroom_image') {
-    if ($file = \Drupal::service('entity_type.manager')->getStorage('file')->load($entity->field_media_image_newsroom->target_id)) {
+    if ($file = $entity->field_media_image_newsroom->entity) {
       $file->delete();
     }
   }
