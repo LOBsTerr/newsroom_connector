@@ -159,6 +159,9 @@ source:
       label: 'Docsroom documents IDs'
       selector: 'enclosure[@external_app="DocsRoom"]/@external_id'
 
+    - name: promote_to_homepage
+      label: 'Promote to homepage'
+      selector: 'infsonewsroom:pubHighlight/text()'
 
 process:
 
@@ -348,6 +351,10 @@ process:
   langcode:
     plugin: default_value
     default_value: 'en'
+
+  promote:
+    plugin: get
+    source: promote_to_homepage
 
 destination:
   plugin: entity:node
