@@ -48,9 +48,10 @@ class SimpleXml extends DataParserPluginBase {
     $cid = 'newsroom_http_plugin' . crc32($url);
     $cache_backend = \Drupal::service('cache.default');
     $data_cached = $cache_backend->get($cid);
+
     if (!$data_cached) {
 
-      $xml_data = (string) $this->getDataFetcherPlugin()->getResponseContent($url);
+      $xml_data = $this->sanitizeXML((string) $this->getDataFetcherPlugin()->getResponseContent($url));
 
       // Store the tree into the cache.
       $cache_backend->set($cid, $xml_data, time() + 3600);
@@ -68,6 +69,23 @@ class SimpleXml extends DataParserPluginBase {
     $xpath = $this->configuration['item_selector'];
     $this->matches = $xml->xpath($xpath);
     return TRUE;
+  }
+
+  /**
+   * Sanitize wrong HTML entities.
+   *
+   * @param string $string
+   *   String to be sanitized.
+   *
+   * @return string
+   *   Sanitized string.
+   */
+  function sanitizeXML($string) {
+    if (empty($string)) {
+      return $string;
+    }
+
+    return preg_replace('/&#\d{5};/i', '', $string);
   }
 
   /**
