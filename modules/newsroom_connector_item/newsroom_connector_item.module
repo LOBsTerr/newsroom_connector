@@ -22,14 +22,12 @@ function newsroom_connector_migrate_prepare_row (
   MigrateSourceInterface $source,
   MigrationInterface $migration
 ) {
-
   // Validate URLs and set values to NULL if the URL is invalid.
-  $is_newsroom_item = strpos($migration->id(), 'newsroom_item') !== FALSE;
-  if (strpos($migration->id(), 'newsroom_item_translations') !== FALSE || strpos($migration->id(), 'newsroom_item') !== FALSE) {
+  if (strpos($migration->id(), 'newsroom_item_translations') !== FALSE || $migration->id() == 'newsroom_item') {
     _newsroom_connector_validate_urls($row);
   }
 
-  if ($is_newsroom_item) {
+  if ($migration->id() == 'newsroom_item') {
     $start_date = $row->getSourceProperty('start_date');
     $end_date = $row->getSourceProperty('end_date');
     if (!empty($start_date) && empty($end_date)) {
