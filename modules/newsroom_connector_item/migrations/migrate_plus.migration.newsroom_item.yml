@@ -163,6 +163,10 @@ source:
       label: 'Promote to homepage'
       selector: 'infsonewsroom:pubHighlight/text()'
 
+    - name: published_date
+      label: 'Published date'
+      selector: 'pubDate/text()'
+
 process:
 
   type:
@@ -355,6 +359,10 @@ process:
   promote:
     plugin: get
     source: promote_to_homepage
+
+  created:
+    plugin: get
+    source: published_date
 
 destination:
   plugin: entity:node

@@ -8,7 +8,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
-  urls: 'http://ec.europa.eu/newsroom/dae/rss-topic-multilingual-v2.cfm?t=1581003599'
+  urls: 'http://ec.europa.eu/newsroom/cnect_acc/rss-topic-multilingual-v2.cfm?t=1581003599'
 
   item_selector: '//channel/item[infsonewsroom:definedBy="System" and infsonewsroom:topicType="Country"]'
 

@@ -7,7 +7,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
-  urls: 'https://ec.europa.eu/newsroom/dae/rss-service-multilingual-v2.cfm'
+  urls: 'https://ec.europa.eu/newsroom/cnect_acc/rss-service-multilingual-v2.cfm'
 
   # We need only not empty items.
   item_selector: '//channel/item[infsonewsroom:BasicSvVisuUrl[normalize-space(string-length(text())) > 0]]'

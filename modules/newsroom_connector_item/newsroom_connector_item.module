@@ -28,6 +28,10 @@ function newsroom_connector_migrate_prepare_row (
   }
 
   if ($migration->id() == 'newsroom_item') {
+    // Convert the date to timestamp
+    $published_date = strtotime(str_replace('GMT', '', $row->getSourceProperty('published_date')));
+    $row->setSourceProperty('published_date', $published_date);
+
     $start_date = $row->getSourceProperty('start_date');
     $end_date = $row->getSourceProperty('end_date');
     if (!empty($start_date) && empty($end_date)) {
