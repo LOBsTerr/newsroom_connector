@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Update hooks.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Increase the size of text fields.
+ */
+function newsroom_connector_media_update_9001(&$sandbox) {
+
+  if ($schema = Database::getConnection()->schema()) {
+    $length = 500;
+    $fields = [
+      'field_newsroom_caption',
+      'field_newsroom_alt_text',
+      'field_newsroom_copyright',
+    ];
+    $table_prefixes = [
+      'media',
+      'media_revision'
+    ];
+    $config_factory = \Drupal::configFactory();
+    foreach ($fields as $field_name) {
+      foreach ($table_prefixes as $table_prefix) {
+        $schema->changeField(
+          "{$table_prefix}__{$field_name}",
+          "{$field_name}_value",
+          "{$field_name}_value",
+          [
+            'type' => 'varchar',
+            'length' => $length,
+            'default' => '',
+          ]
+        );
+      }
+
+      $config = $config_factory->getEditable('field.storage.media.' . $field_name);
+      $settings = $config->get('settings');
+      $settings['max_length'] = $length;
+      $config->set('settings', $settings);
+      $config->save();
+    }
+  }
+}

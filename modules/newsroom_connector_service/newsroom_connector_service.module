@@ -8,20 +8,21 @@
 use Drupal\newsroom_connector_service\Plugin\newsroom\NewsroomServiceNewsroomProcessor;
 
 /**
- * Implements hook_entity_delete().
+ * Implements hook_migrate_prepare_row().
  */
-function newsroom_connector_service_taxonomy_term_delete(Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity->bundle() == 'newsroom_service') {
-    // Clean up migrations.
-    $migration_manager = \Drupal::service('newsroom_connector.migration_manager');
-    $migration_manager->cleanUpMigrations(NewsroomServiceNewsroomProcessor::MIGRATION_SERVICE, $entity);
+function newsroom_connector_service_migrate_prepare_row (
+  Row $row,
+  MigrateSourceInterface $source,
+  MigrationInterface $migration
+) {
 
-    if ($media = $entity->field_newsroom_service_image->entity) {
-      $migration_manager->cleanUpMigrations(NewsroomServiceNewsroomProcessor::MIGRATION_SERVICE_IMAGE_MEDIA, $media);
-      if ($file = $media->field_media_image_newsroom->entity) {
-        $migration_manager->cleanUpMigrations(NewsroomServiceNewsroomProcessor::MIGRATION_SERVICE_IMAGE, $file);
-      }
-      $media->delete();
+  // Set title as alt text if it is empty.
+  if (strpos($migration->id(), 'newsroom_service_logo_media_translations') !== FALSE || $migration->id() == 'newsroom_service_logo_media') {
+    $newsroom_item_title = $row->getSourceProperty('item_name');
+    $image_alt = $row->getSourceProperty('image_alt');
+
+    if (empty($image_alt)) {
+      $row->setSourceProperty('image_alt', $newsroom_item_title);
     }
   }
 }

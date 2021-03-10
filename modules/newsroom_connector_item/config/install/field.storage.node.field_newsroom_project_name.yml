@@ -11,7 +11,7 @@ field_name: field_newsroom_project_name
 entity_type: node
 type: string
 settings:
-  max_length: 255
+  max_length: 500
   is_ascii: false
   case_sensitive: false
 module: core
