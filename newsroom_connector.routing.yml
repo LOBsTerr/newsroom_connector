@@ -38,7 +38,7 @@ newsroom_connector.importers:
     _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::importers'
     _title: 'Importers'
   requirements:
-    _permission: 'administer newsroom settings'
+    _permission: 'import newsroom content'
   options:
     _admin_route: TRUE
 
@@ -49,6 +49,6 @@ newsroom_connector.import_form:
     _form: 'Drupal\newsroom_connector\Form\ImportForm'
     _title: 'Import'
   requirements:
-    _permission: 'administer newsroom settings'
+    _permission: 'import newsroom content'
   options:
     _admin_route: TRUE

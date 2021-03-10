@@ -120,12 +120,13 @@ function newsroom_connector_item_node_view(
   $view_mode
 ) {
 
-  if ($entity->bundle() == 'newsroom_item') {
-    // Newsroom action buttons.
-    if ($display->getComponent('newsroom_action_buttons')) {
+  if ($entity->bundle() == 'newsroom_item' && $display->getComponent('newsroom_action_buttons')) {
+    $current_user = \Drupal::currentUser();
+    if ($current_user->hasPermission('import newsroom content')) {
       $newsroom_id = $entity->field_newsroom_id->value;
       if (!empty($newsroom_id)) {
         $universe_manager = \Drupal::service('newsroom_connector.universe_manager');
+        // Newsroom action buttons.
         $items = [
           Link::fromTextAndUrl('Edit', $universe_manager->getItemEditUrl($newsroom_id))->toRenderable(),
           Link::fromTextAndUrl('Import', URL::fromRoute('newsroom_connector.import', [
