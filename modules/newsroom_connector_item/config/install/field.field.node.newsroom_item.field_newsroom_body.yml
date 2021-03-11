@@ -5,7 +5,11 @@ dependencies:
     - field.storage.node.field_newsroom_body
     - node.type.newsroom_item
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    newsroom_basic_html: newsroom_basic_html
 id: node.newsroom_item.field_newsroom_body
 field_name: field_newsroom_body
 entity_type: node

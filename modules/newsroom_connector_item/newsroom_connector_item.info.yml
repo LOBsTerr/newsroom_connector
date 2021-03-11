@@ -7,13 +7,14 @@ core_version_requirement: ^8 || ^9
 php: (>=7.1)
 
 dependencies:
-  - drupal:node
-  - drupal:media
   - drupal:datetime_range
+  - drupal:link
+  - drupal:media
+  - drupal:node
+  - allowed_formats:allowed_formats
   - geofield:geofield
-  - link:link
+  - newsroom_connector:newsroom_connector_media
   - newsroom_connector:newsroom_connector_topic
   - newsroom_connector:newsroom_connector_type
-  - newsroom_connector:newsroom_connector_media
 
 configure: admin/content/newsroom
