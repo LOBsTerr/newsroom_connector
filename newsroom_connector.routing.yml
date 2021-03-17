@@ -13,7 +13,7 @@ newsroom_connector.import:
   defaults:
     _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::import'
   requirements:
-    _permission: 'administer newsroom settings'
+    _access: 'TRUE'
 
 # Redirect to drupal entity based on give Newsroom ID.
 newsroom_connector.redirect:
