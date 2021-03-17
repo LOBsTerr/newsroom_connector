@@ -82,7 +82,7 @@ class NewsroomConnectorController extends ControllerBase {
    * Old redirection.
    */
   public function newsRedirect($newsroom_id) {
-    return $this->redirect('item', $newsroom_id);
+    return $this->redirectItem('item', $newsroom_id);
   }
 
   /**
