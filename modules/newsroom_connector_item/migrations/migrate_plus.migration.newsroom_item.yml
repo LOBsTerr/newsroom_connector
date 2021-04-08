@@ -9,7 +9,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
   urls:
-   - 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
+    - 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
 
   item_selector: '//channel/item'
 
@@ -340,13 +340,21 @@ process:
     plugin: get
     source: contact_text
 
-  field_newsroom_linked_object:
+  'field_newsroom_linked_object/value':
     plugin: get
     source: linked_object
 
-  field_newsroom_quote_box:
+  'field_newsroom_linked_object/format':
+    plugin: default_value
+    default_value: newsroom_basic_html
+
+  'field_newsroom_quote_box/value':
     plugin: get
     source: quote_box
+
+  'field_newsroom_quote_box/format':
+    plugin: default_value
+    default_value: newsroom_basic_html
 
   field_newsroom_docsroom_ids:
     plugin: get
@@ -371,3 +379,4 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_item
+s
