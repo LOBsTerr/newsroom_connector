@@ -5,12 +5,10 @@ namespace Drupal\newsroom_connector\Plugin;
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\migrate\Plugin\MigrationPluginManager;
 use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\newsroom_connector\MigrateBatchExecutable;
 use Drupal\newsroom_connector\MigrationManagerInterface;
@@ -44,23 +42,9 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected $universeManager;
 
   /**
-   * Migration plugin manager service.
-   *
-   * @var \Drupal\migrate\Plugin\MigrationPluginManager
-   */
-  protected $migrationPluginManager;
-
-  /**
-   * Language manager.
-   *
-   * @var \Drupal\Core\Language\LanguageManagerInterface
-   */
-  protected $languageManager;
-
-  /**
    * Migration manager.
    *
-   * @var \Drupal\newsroom_connector\MigrationManagerInterface
+   * @var \Drupal\newsroom_connector\MigrationManager
    */
   protected $migrationManager;
 
@@ -70,15 +54,11 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   public function __construct(array $configuration, $plugin_id, $plugin_definition,
     EntityTypeManagerInterface $entity_type_manager,
     UniverseManagerInterface $universe_manager,
-    MigrationPluginManager $migration_plugin_manager,
-    LanguageManagerInterface $language_manager,
     MigrationManagerInterface $migration_manager
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
     $this->universeManager = $universe_manager;
-    $this->migrationPluginManager = $migration_plugin_manager;
-    $this->languageManager = $language_manager;
     $this->migrationManager = $migration_manager;
   }
 
@@ -92,8 +72,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $plugin_definition,
       $container->get('entity_type.manager'),
       $container->get('newsroom_connector.universe_manager'),
-      $container->get('plugin.manager.migration'),
-      $container->get('language_manager'),
       $container->get('newsroom_connector.migration_manager')
     );
   }
@@ -111,7 +89,15 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     }
   }
 
-
+  /**
+   * Get entity by original newsroom id
+   *
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   *
+   * @return \Drupal\Core\Entity\EntityInterface|null
+   *   Entity associated with newsroom id.
+   */
   private function getEntityByNewsroomId($newsroom_id) {
     $entity = NULL;
     $definition = $this->getPluginDefinition();
@@ -176,19 +162,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
 
     foreach ($definition['migrations'] as $migration_id) {
       $migration_ids[] = $migration_id;
-
-      // Run translations migrations.
-      $languages = $this->languageManager->getLanguages();
-      foreach ($languages as $language) {
-        $language_id = $language->getId();
-
-        // We skip EN as that is the original language.
-        if ($language_id === 'en') {
-          continue;
-        }
-
-        $translations_ids[] = $this->migrationManager->getTranslationMigrationId($this->getPluginId(), $language_id);
-      }
+      $translations_ids = array_merge($translations_ids, $this->migrationManager->getTranslationMigrationIds($migration_id));
     }
 
     // First we run main content migrations.
@@ -212,7 +186,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    * @throws \Drupal\migrate\MigrateException
    */
   protected function runMigration($migration_id, $url) {
-    $migration = $this->migrationPluginManager->createInstance($migration_id);
+    $migration = $this->migrationManager->getMigration($migration_id);
     if (!empty($migration)) {
       $status = $migration->getStatus();
       if ($status !== MigrationInterface::STATUS_IDLE) {
@@ -229,7 +203,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
         $executable->batchImport();
       }
       else {
-        $source = $migration->get('source');
+        $source = $migration->getSourceConfiguration();
         $source['urls'] = $url->toUriString();
         $migration->set('source', $source);
         $migration->getIdMap()->prepareUpdate();

@@ -158,12 +158,12 @@ source:
       name: docsroom_ids
       label: 'Docsroom documents IDs'
       selector: 'enclosure[@external_app="DocsRoom"]/@external_id'
-
-    - name: promote_to_homepage
+    -
+      name: promote_to_homepage
       label: 'Promote to homepage'
       selector: 'infsonewsroom:pubHighlight/text()'
-
-    - name: published_date
+    -
+      name: published_date
       label: 'Published date'
       selector: 'pubDate/text()'
 
@@ -206,15 +206,10 @@ process:
       validate_format: false
 
   'field_newsroom_image/target_id':
-    -
-      plugin: skip_on_empty
-      source: image
-      method: process
-    -
-      plugin: migration_lookup
-      migration: newsroom_item_image_media
-      source: item_id
-      no_stub: true
+    plugin: migration_lookup
+    migration: newsroom_item_image_media
+    source: item_id
+    no_stub: true
 
   'field_newsroom_type/target_id':
     plugin: migration_lookup

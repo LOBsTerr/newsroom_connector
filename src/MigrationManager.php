@@ -41,7 +41,7 @@ class MigrationManager implements MigrationManagerInterface {
     $languages = $this->languageManager->getLanguages();
     foreach ($languages as $language) {
       $destination_keys['langcode'] = $language->getId();
-      $this->deleteDestination($this->getTranslationMigrationId($migration_id, $language->getId()), $destination_keys);
+      $this->deleteDestination($this->getTranslationMigrationIds($migration_id), $destination_keys);
     }
   }
 
@@ -61,9 +61,23 @@ class MigrationManager implements MigrationManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public function getTranslationMigrationId($migration_id, $language_id) {
-    $language_id = $this->normalizeLanguage($language_id);
-    return "{$migration_id}_translations:{$language_id}";
+  public function getTranslationMigrationIds($migration_id) {
+    // Run translations migrations.
+    $translation_migration_ids = [];
+    $languages = $this->languageManager->getLanguages();
+    foreach ($languages as $language) {
+      $language_id = $language->getId();
+
+      // We skip EN as that is the original language.
+      if ($language_id === 'en') {
+        continue;
+      }
+
+      $language_id = $this->normalizeLanguage($language_id);
+      $translation_migration_ids[] = "{$migration_id}_translations:{$language_id}";
+    }
+
+    return $translation_migration_ids;
   }
 
   /**
@@ -75,13 +89,26 @@ class MigrationManager implements MigrationManagerInterface {
    *  Destination keys.
    */
   protected function deleteDestination($migration_id, array $destination_keys) {
-    $migration = $this->migrationPluginManager->createInstance($migration_id);
+    $migration = $this->getMigration($migration_id);
     if (empty($migration)) {
       return;
     }
     /** @var \Drupal\migrate\Plugin\MigrateIdMapInterface $id_map */
     $id_map = $migration->getIdMap();
     $id_map->deleteDestination($destination_keys);
+  }
+
+  /**
+   * Gets migration.
+   *
+   * @param string $migration_id
+   *   Migration id.
+   *
+   * @return \Drupal\migrate\Plugin\MigrationInterface|null
+   *   Migration object.
+   */
+  public function getMigration($migration_id) {
+    return $this->migrationPluginManager->createInstance($migration_id);
   }
 
 }

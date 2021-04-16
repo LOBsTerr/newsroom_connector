@@ -18,10 +18,11 @@ source:
     service_id:
       type: integer
 
-    fields:
-      - name: service_id
-        label: 'Service ID'
-        selector: 'infsonewsroom:BasicSvId/text()'
+  fields:
+    -
+      name: service_id
+      label: 'Service ID'
+      selector: 'infsonewsroom:BasicSvId/text()'
 
 destination:
   plugin: 'entity:media'

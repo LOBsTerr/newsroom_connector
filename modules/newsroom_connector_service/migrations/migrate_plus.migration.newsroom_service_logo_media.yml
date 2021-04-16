@@ -3,6 +3,7 @@ label: Newsroom media logos.
 migration_group: newsroom
 migration_tags:
   - newsroom_service
+
 source:
   plugin: url
   data_fetcher_plugin: http
@@ -17,13 +18,16 @@ source:
       type: integer
 
   fields:
-    - name: service_id
+    -
+      name: service_id
       label: 'Service ID'
       selector: 'infsonewsroom:BasicSvId/text()'
-    - name: service_name
+    -
+      name: service_name
       label: Name
       selector: 'title[@lang="EN"]/text()'
-    - name: image
+    -
+      name: image
       label: 'Image'
       selector: 'infsonewsroom:BasicSvVisuUrl/text()'
 

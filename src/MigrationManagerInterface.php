@@ -27,16 +27,13 @@ interface MigrationManagerInterface {
   public function normalizeLanguage($language_id);
 
   /**
-   * Get migration id for translations.
+   * Get migration ids for translations.
    *
    * @param string $migration_id
    *   Plugin id
-   * @param string $language_id
-   *   Language id.
-   *
-   * @return string
-   *   Translation migration id.
+   * @return array
+   *   List of translation migration ids.
    */
-  public function getTranslationMigrationId($migration_id, $language_id);
+  public function getTranslationMigrationIds($migration_id);
 
 }

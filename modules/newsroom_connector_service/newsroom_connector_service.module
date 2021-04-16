@@ -5,7 +5,9 @@
  * Provides newsroom_connector_service functionality.
  */
 
-use Drupal\newsroom_connector_service\Plugin\newsroom\NewsroomServiceNewsroomProcessor;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Row;
 
 /**
  * Implements hook_migrate_prepare_row().
