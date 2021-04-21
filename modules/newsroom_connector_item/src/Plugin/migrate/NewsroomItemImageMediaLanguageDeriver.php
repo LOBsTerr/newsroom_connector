@@ -28,7 +28,12 @@ class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver 
       'selector' => 'infsonewsroom:PicTitle[@lang="' . $language_code . '"]/text()',
     ];
 
-    $base_plugin_definition['process']['name'] = [
+    $base_plugin_definition['process']['name'][] = [
+      'plugin' => 'skip_on_empty',
+      'method' => 'row',
+      'source' => 'image_name',
+    ];
+    $base_plugin_definition['process']['name'][] = [
       'plugin' => 'get',
       'source' => 'image_name',
       'language' => $language_id,
