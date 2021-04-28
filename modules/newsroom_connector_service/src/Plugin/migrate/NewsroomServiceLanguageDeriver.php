@@ -33,6 +33,7 @@ class NewsroomServiceLanguageDeriver extends BaseNewsroomLanguageDeriver {
       'source' => "service_name_$language_id",
       'method' => 'row',
     ];
+
     $base_plugin_definition['process']['name'][] = [
       'plugin' => 'get',
       'source' => "service_name_$language_id",

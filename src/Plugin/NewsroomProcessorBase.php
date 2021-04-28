@@ -28,13 +28,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected $useBatch = TRUE;
 
   /**
-   * The entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
    * The universe manager.
    *
    * @var \Drupal\newsroom_connector\UniverseManager
@@ -52,12 +45,10 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition,
-    EntityTypeManagerInterface $entity_type_manager,
     UniverseManagerInterface $universe_manager,
     MigrationManagerInterface $migration_manager
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->entityTypeManager = $entity_type_manager;
     $this->universeManager = $universe_manager;
     $this->migrationManager = $migration_manager;
   }
@@ -70,7 +61,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('entity_type.manager'),
       $container->get('newsroom_connector.universe_manager'),
       $container->get('newsroom_connector.migration_manager')
     );
@@ -99,20 +89,8 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    *   Entity associated with newsroom id.
    */
   private function getEntityByNewsroomId($newsroom_id) {
-    $entity = NULL;
     $definition = $this->getPluginDefinition();
-    $items = $this->entityTypeManager
-      ->getStorage($definition['content_type'])
-      ->loadByProperties([
-        'field_newsroom_id' => $newsroom_id,
-        $definition['bundle_field'] => $definition['bundle'],
-      ]);
-
-    if ($item = reset($items)) {
-      $entity = $item;
-    }
-
-    return $entity;
+    return $this->migrationManager->getEntityByNewsroomId($newsroom_id, $definition['entity_type'], $definition['bundle'], $definition['bundle_field']);
   }
 
   /**
@@ -188,11 +166,16 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected function runMigration($migration_id, $url) {
     $migration = $this->migrationManager->getMigration($migration_id);
     if (!empty($migration)) {
+
+      // Reset the status if it in IDLE mode after failing migrations.
       $status = $migration->getStatus();
       if ($status !== MigrationInterface::STATUS_IDLE) {
         $migration->setStatus(MigrationInterface::STATUS_IDLE);
       }
+
       if ($this->useBatch) {
+        // Set custom url, based on universe settings.
+        // Always force update.
         $options = [
           'limit' => 0,
           'update' => 1,
@@ -203,9 +186,12 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
         $executable->batchImport();
       }
       else {
+        // Set custom url, based on universe settings.
         $source = $migration->getSourceConfiguration();
         $source['urls'] = $url->toUriString();
         $migration->set('source', $source);
+
+        // Always force update.
         $migration->getIdMap()->prepareUpdate();
         $executable = new MigrateExecutable($migration, new MigrateMessage());
         $executable->import();

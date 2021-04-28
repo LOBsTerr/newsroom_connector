@@ -22,7 +22,12 @@ class NewsroomTypeLanguageDeriver extends BaseNewsroomLanguageDeriver {
       'selector' => 'title[@lang="' . $language_code . '"]/text()',
     ];
 
-    $base_plugin_definition['process']['name'] = [
+    $base_plugin_definition['process']['name'][] = [
+      'plugin' => 'skip_on_empty',
+      'method' => 'row',
+      'source' => "type_name_$language_id",
+    ];
+    $base_plugin_definition['process']['name'][] = [
       'plugin' => 'get',
       'source' => "type_name_$language_id",
       'language' => $language_id,

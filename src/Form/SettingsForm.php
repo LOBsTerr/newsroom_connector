@@ -5,6 +5,9 @@ namespace Drupal\newsroom_connector\Form;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\migrate\MigrateMessage;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\ClientInterface;
@@ -83,6 +86,7 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+
     $form = parent::buildForm($form, $form_state);
     $config = $this->config('newsroom_connector.settings');
 

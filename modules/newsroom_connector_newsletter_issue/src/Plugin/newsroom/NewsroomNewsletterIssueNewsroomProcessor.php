@@ -9,7 +9,7 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *
  * @NewsroomProcessor (
  *   id = "newsroom_newsletter_issue",
- *   content_type = "node",
+ *   entity_type = "node",
  *   bundle = "newsroom_newsletter_issue",
  *   bundle_field = "type",
  *   import_script = "rss-issue-multilingual.cfm",

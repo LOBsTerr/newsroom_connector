@@ -14,7 +14,6 @@ use Drupal\Component\Annotation\Plugin;
  */
 class NewsroomProcessor extends Plugin {
 
-
   /**
    * The plugin ID.
    *
@@ -32,11 +31,11 @@ class NewsroomProcessor extends Plugin {
   public $label;
 
   /**
-   * The content type.
+   * The entity type.
    *
    * @var string
    */
-  public $content_type;
+  public $entity_type;
 
   /**
    * The bundle.

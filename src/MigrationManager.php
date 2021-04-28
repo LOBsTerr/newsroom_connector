@@ -3,8 +3,15 @@
 namespace Drupal\newsroom_connector;
 
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\migrate\Event\MigrateEvents;
+use Drupal\migrate\Event\MigrateRollbackEvent;
+use Drupal\migrate\Event\MigrateRowDeleteEvent;
+use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\MigrationPluginManager;
+use Drupal\migrate_plus\Event\MigrateEvents as MigratePlusEvents;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class MigrationManager implements MigrationManagerInterface {
 
@@ -21,11 +28,27 @@ class MigrationManager implements MigrationManagerInterface {
   protected $languageManager;
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * The event dispatcher.
+   *
+   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
+   */
+  protected $dispatcher;
+
+  /**
    * {@inheritdoc}
    */
-  public function __construct(MigrationPluginManager $migrationPluginManager, LanguageManagerInterface $languageManager) {
+  public function __construct(MigrationPluginManager $migrationPluginManager, LanguageManagerInterface $languageManager, EntityTypeManagerInterface $entity_type_manager, EventDispatcherInterface $dispatcher) {
     $this->migrationPluginManager = $migrationPluginManager;
     $this->languageManager = $languageManager;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->dispatcher = $dispatcher;
   }
 
   /**
@@ -38,10 +61,10 @@ class MigrationManager implements MigrationManagerInterface {
     $this->deleteDestination($migration_id, $destination_keys);
 
     // Run cleanup for translations' migrations.
-    $languages = $this->languageManager->getLanguages();
-    foreach ($languages as $language) {
-      $destination_keys['langcode'] = $language->getId();
-      $this->deleteDestination($this->getTranslationMigrationIds($migration_id), $destination_keys);
+    $translation_migrations = $this->getTranslationMigrationIds($migration_id);
+    foreach ($translation_migrations as $language_id => $translation_migration) {
+      $destination_keys['langcode'] = $language_id;
+      $this->deleteDestination($translation_migration, $destination_keys);
     }
   }
 
@@ -74,7 +97,7 @@ class MigrationManager implements MigrationManagerInterface {
       }
 
       $language_id = $this->normalizeLanguage($language_id);
-      $translation_migration_ids[] = "{$migration_id}_translations:{$language_id}";
+      $translation_migration_ids[$language_id] = "{$migration_id}_translations:{$language_id}";
     }
 
     return $translation_migration_ids;
@@ -99,16 +122,74 @@ class MigrationManager implements MigrationManagerInterface {
   }
 
   /**
-   * Gets migration.
-   *
-   * @param string $migration_id
-   *   Migration id.
-   *
-   * @return \Drupal\migrate\Plugin\MigrationInterface|null
-   *   Migration object.
+   * {@inheritdoc}
    */
   public function getMigration($migration_id) {
     return $this->migrationPluginManager->createInstance($migration_id);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function rollback($migration_id, array $source_id_values = []) {
+    $migration = $this->getMigration($migration_id);
+    if (empty($migration)) {
+      return;
+    }
+
+    $id_map = $migration->getIdMap();
+    $id_map->prepareUpdate();
+
+    $id_map->rewind();
+    $destination = $migration->getDestinationPlugin();
+
+    while ($id_map->valid()) {
+      $map_source_id = $id_map->currentSource();
+      if (in_array($map_source_id['item_id'], $source_id_values, TRUE)) {
+        $destination_ids = $id_map->currentDestination();
+        $this->dispatchRowDeleteEvent(MigrateEvents::PRE_ROW_DELETE, $migration, $destination_ids);
+        $this->dispatchRowDeleteEvent(MigratePlusEvents::MISSING_SOURCE_ITEM, $migration, $destination_ids);
+        $destination->rollback($destination_ids);
+        $this->dispatchRowDeleteEvent(MigrateEvents::POST_ROW_DELETE, $migration, $destination_ids);
+        $id_map->delete($map_source_id);
+      }
+      $id_map->next();
+    }
+    $this->dispatcher->dispatch(MigrateEvents::POST_ROLLBACK, new MigrateRollbackEvent($migration));
+  }
+
+  /**
+   * Dispatches MigrateRowDeleteEvent event.
+   *
+   * @param string $event_name
+   *   The event name to dispatch.
+   * @param \Drupal\migrate\Plugin\MigrationInterface $migration
+   *   The active migration.
+   * @param array $destination_ids
+   *   The destination identifier values of the record.
+   */
+  protected function dispatchRowDeleteEvent($event_name, MigrationInterface $migration, array $destination_ids) {
+    // Symfony changing dispatcher so implementation could change.
+    $this->dispatcher->dispatch($event_name, new MigrateRowDeleteEvent($migration, $destination_ids));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getEntityByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field) {
+    $entity = NULL;
+    $items = $this->entityTypeManager
+      ->getStorage($entity_type)
+      ->loadByProperties([
+        'field_newsroom_id' => $newsroom_id,
+        $bundle_field => $bundle,
+      ]);
+
+    if ($item = reset($items)) {
+      $entity = $item;
+    }
+
+    return $entity;
   }
 
 }

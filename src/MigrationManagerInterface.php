@@ -36,4 +36,47 @@ interface MigrationManagerInterface {
    */
   public function getTranslationMigrationIds($migration_id);
 
+  /**
+   * Rollback migration items.
+   *
+   * @param string $migration_id
+   *  Migration id.
+   *
+   * @param array $source_id_values
+   *   Sources ids.
+   *
+   * @return void
+   */
+  public function rollback($migration_id, array $source_id_values = []);
+
+  /**
+   * Get entity by original newsroom id
+   *
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   * @param string $entity_type
+   *   Entity type.
+   * @param string $bundle
+   *   Bundle.
+   * @param string $bundle_field
+   *   Bundle field.
+   *
+   * @return \Drupal\Core\Entity\EntityInterface|null
+   *   Entity associated with newsroom id.
+   */
+  public function getEntityByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field);
+
+  /**
+   * Get migration.
+   *
+   * @param string $migration_id
+   *   Migration id.
+   *
+   * @return \Drupal\migrate\Plugin\MigrationInterface|null
+   *   Migration object.
+   */
+  public function getMigration($migration_id);
+
+
+
 }

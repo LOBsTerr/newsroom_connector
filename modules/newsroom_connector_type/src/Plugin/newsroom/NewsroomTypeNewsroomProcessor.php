@@ -9,7 +9,7 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *
  * @NewsroomProcessor (
  *   id = "newsroom_type",
- *   content_type = "taxonomy_term",
+ *   entity_type = "taxonomy_term",
  *   bundle = "newsroom_type",
  *   bundle_field = "vid",
  *   import_script = "rss-item-type-multilingual.cfm",

@@ -5,7 +5,7 @@ services:
     class: Drupal\newsroom_connector\UniverseManager
 
   newsroom_connector.migration_manager:
-    arguments: [ '@plugin.manager.migration', '@language_manager' ]
+    arguments: [ '@plugin.manager.migration', '@language_manager', '@entity_type.manager', '@event_dispatcher']
     class: Drupal\newsroom_connector\MigrationManager
 
   newsroom_connector.plugin.manager.newsroom_processor:

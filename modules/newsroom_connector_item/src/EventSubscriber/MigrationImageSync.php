@@ -33,13 +33,6 @@ class MigrationImageSync implements EventSubscriberInterface {
   protected $migrationManager;
 
   /**
-   * Migration plugin manager service.
-   *
-   * @var \Drupal\migrate\Plugin\MigrationPluginManager
-   */
-  protected $migrationPluginManager;
-
-  /**
    * MigrationImportSync constructor.
    *
    * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
@@ -87,60 +80,10 @@ class MigrationImageSync implements EventSubscriberInterface {
         $migration_to_rollback = [$media_migration_id];
         $migration_to_rollback = array_merge($migration_to_rollback, $this->migrationManager->getTranslationMigrationIds($media_migration_id));
         foreach ($migration_to_rollback as $migration_rollback_id) {
-          $this->rollback($migration_rollback_id, $source_id_values);
+          $this->migrationManager->rollback($migration_rollback_id, $source_id_values);
         }
       }
     }
-  }
-
-  /**
-   * Rollback missing images.
-   *
-   * @param string $migration_id
-   *   Migration id.
-   * @param array $source_id_values
-   *   List of items with missing images.
-   */
-  protected function rollback($migration_id, $source_id_values) {
-    $migration = $this->migrationManager->getMigration($migration_id);
-    if (empty($migration)) {
-      return;
-    }
-
-    $id_map = $migration->getIdMap();
-    $id_map->prepareUpdate();
-
-    $id_map->rewind();
-    $destination = $migration->getDestinationPlugin();
-
-    while ($id_map->valid()) {
-      $map_source_id = $id_map->currentSource();
-      if (in_array($map_source_id['item_id'], $source_id_values, TRUE)) {
-        $destination_ids = $id_map->currentDestination();
-        $this->dispatchRowDeleteEvent(MigrateEvents::PRE_ROW_DELETE, $migration, $destination_ids);
-        $this->dispatchRowDeleteEvent(MigratePlusEvents::MISSING_SOURCE_ITEM, $migration, $destination_ids);
-        $destination->rollback($destination_ids);
-        $this->dispatchRowDeleteEvent(MigrateEvents::POST_ROW_DELETE, $migration, $destination_ids);
-        $id_map->delete($map_source_id);
-      }
-      $id_map->next();
-    }
-    $this->dispatcher->dispatch(MigrateEvents::POST_ROLLBACK, new MigrateRollbackEvent($migration));
-  }
-
-  /**
-   * Dispatches MigrateRowDeleteEvent event.
-   *
-   * @param string $event_name
-   *   The event name to dispatch.
-   * @param \Drupal\migrate\Plugin\MigrationInterface $migration
-   *   The active migration.
-   * @param array $destination_ids
-   *   The destination identifier values of the record.
-   */
-  protected function dispatchRowDeleteEvent($event_name, MigrationInterface $migration, array $destination_ids) {
-    // Symfony changing dispatcher so implementation could change.
-    $this->dispatcher->dispatch($event_name, new MigrateRowDeleteEvent($migration, $destination_ids));
   }
 
 }

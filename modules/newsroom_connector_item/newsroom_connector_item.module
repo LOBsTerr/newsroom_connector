@@ -5,6 +5,7 @@
  * Provides newsroom_connector_item functionality.
  */
 
+use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Row;
@@ -12,6 +13,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Url;
+use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\newsroom_connector_item\Plugin\newsroom\NewsroomItemNewsroomProcessor;
 
 /**
@@ -174,6 +176,36 @@ function newsroom_connector_item_node_delete(EntityInterface $entity) {
       }
 
       $media->delete();
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function newsroom_connector_item_cron() {
+
+  // Run importers for deleted and unpublished items.
+  $migrations = [
+    'deleted_newsroom_items' => 'fullrss-deleted.cfm',
+    'unpublished_newsroom_items' => 'fullrss-unpublished.cfm',
+  ];
+
+  $base_url = \Drupal::service('newsroom_connector.universe_manager')->getBaseUrl();
+  $newsroom_migration_manager = \Drupal::service('newsroom_connector.migration_manager');
+  foreach ($migrations as $migration_id => $script) {
+    $migration = $newsroom_migration_manager->getMigration($migration_id);
+    if (!empty($migration)) {
+      $status = $migration->getStatus();
+      if ($status !== MigrationInterface::STATUS_IDLE) {
+        $migration->setStatus(MigrationInterface::STATUS_IDLE);
+      }
+      $source = $migration->getSourceConfiguration();
+      $source['urls'] = $base_url . $script;
+      $migration->set('source', $source);
+      $migration->getIdMap()->prepareUpdate();
+      $executable = new MigrateExecutable($migration, new MigrateMessage());
+      $executable->import();
     }
   }
 }
