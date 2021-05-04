@@ -86,7 +86,6 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
     $form = parent::buildForm($form, $form_state);
     $config = $this->config('newsroom_connector.settings');
 
@@ -130,12 +129,6 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('Application key:'),
       '#default_value' => $config->get('app_key'),
       '#description' => $this->t('Application key (hash sha256).'),
-    ];
-    $form['universe_settings']['general']['allowed_ips'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('IP addresses allowed for import:'),
-      '#default_value' => $config->get('allowed_ips'),
-      '#description' => $this->t('Comma separated list of IP addresses where the importer can be launched from.'),
     ];
     $form['universe_settings']['general']['item_edit_segment'] = [
       '#type' => 'textfield',
@@ -197,7 +190,6 @@ class SettingsForm extends ConfigFormBase {
     $settings = $this->config('newsroom_connector.settings')
       ->set('universe_id', $values['universe_id'])
       ->set('base_url', $values['base_url'])
-      ->set('allowed_ips', $values['allowed_ips'])
       ->set('app', $values['app'])
       ->set('app_key', $values['app_key'])
       ->set('subsite', $values['subsite'])

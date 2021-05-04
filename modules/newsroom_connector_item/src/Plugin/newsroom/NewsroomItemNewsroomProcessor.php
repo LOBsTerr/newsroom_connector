@@ -12,7 +12,7 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *   entity_type = "node",
  *   bundle = "newsroom_item",
  *   bundle_field = "type",
- *   import_script = "fullrss-multilingual.cfm",
+ *   import_script = "feed/full",
  *   import_segment = "item_id",
  *   label = @Translation("Newsroom item"),
  *   migrations = {

@@ -9,7 +9,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
   urls:
-    - 'https://ec.europa.eu/newsroom/cnect_acc/fullrss-multilingual.cfm'
+    - 'https://ec.europa.eu/newsroom/dae/feed/full'
 
   item_selector: '//channel/item'
 
@@ -192,7 +192,7 @@ process:
   'field_newsroom_date/value':
     source: start_date
     plugin: format_date
-    from_format: 'D, j M Y H:i:s \G\M\T'
+    from_format: 'D, j M Y H:i:s \U\T\C'
     to_format: 'Y-m-d'
     settings:
       validate_format: false
@@ -200,7 +200,7 @@ process:
   'field_newsroom_date/end_value':
     source: end_date
     plugin: format_date
-    from_format: 'D, j M Y H:i:s \G\M\T'
+    from_format: 'D, j M Y H:i:s \U\T\C'
     to_format: 'Y-m-d'
     settings:
       validate_format: false

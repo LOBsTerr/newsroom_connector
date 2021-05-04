@@ -30,8 +30,9 @@ function newsroom_connector_item_migrate_prepare_row (
   }
 
   if ($migration->id() == 'newsroom_item') {
-    // Convert the date to timestamp
-    $published_date = strtotime(str_replace('GMT', '', $row->getSourceProperty('published_date')));
+
+    // Convert the date to timestamp, to get a correct date we need to clean UTC.
+    $published_date = strtotime(str_replace('UTC', '', $row->getSourceProperty('published_date')));
     $row->setSourceProperty('published_date', $published_date);
 
     $start_date = $row->getSourceProperty('start_date');
@@ -187,8 +188,8 @@ function newsroom_connector_item_cron() {
 
   // Run importers for deleted and unpublished items.
   $migrations = [
-    'deleted_newsroom_items' => 'fullrss-deleted.cfm',
-    'unpublished_newsroom_items' => 'fullrss-unpublished.cfm',
+    'deleted_newsroom_items' => 'deleted',
+    'unpublished_newsroom_items' => 'unpublished',
   ];
 
   $base_url = \Drupal::service('newsroom_connector.universe_manager')->getBaseUrl();

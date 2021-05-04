@@ -12,7 +12,7 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *   entity_type = "taxonomy_term",
  *   bundle = "newsroom_team_responsible",
  *   bundle_field = "vid",
- *   import_script = "rss-topic-multilingual-v2.cfm",
+ *   import_script = "feed/topics",
  *   import_segment = "topic_id",
  *   label = @Translation("Newsroom team responsible"),
  *   migrations = {

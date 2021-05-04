@@ -1,5 +1,5 @@
-id: unpublished_newsroom_items
-label: Unpublished newsroom items
+id: deleted_newsroom_items
+label: Deleted newsroom items
 migration_group: newsroom
 migration_tags:
   - newsroom_item
@@ -9,7 +9,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
   urls:
-    - 'https://ec.europa.eu/newsroom/dae/feed/unpublished'
+    - 'https://ec.europa.eu/newsroom/dae/feed/deleted'
 
   item_selector: '//channel/item'
 
@@ -24,7 +24,7 @@ source:
       selector: 'infsonewsroom:BasicId/text()'
 
 destination:
-  plugin: 'unpublished_newsroom_item'
+  plugin: 'deleted_newsroom_item'
 
 dependencies:
   enforced:
