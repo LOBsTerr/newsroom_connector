@@ -23,4 +23,5 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
 class NewsroomTeamResponsibleNewsroomProcessor extends NewsroomProcessorBase {
 
   const MIGRATION_TEAM_RESPONSIBLE = 'team_responsible';
+
 }

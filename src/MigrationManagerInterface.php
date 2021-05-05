@@ -4,13 +4,18 @@ namespace Drupal\newsroom_connector;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 
+/**
+ * Interface Migration Manager Interface.
+ *
+ * @package Drupal\newsroom_connector
+ */
 interface MigrationManagerInterface {
 
   /**
    * Clean migration records for a deleted entity.
    *
    * @param string $migration_id
-   *   Migration id
+   *   Migration id.
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    *   Deleted entity.
    */
@@ -21,6 +26,7 @@ interface MigrationManagerInterface {
    *
    * @param string $language_id
    *   Language id.
+   *
    * @return string
    *   Normalized language.
    */
@@ -30,7 +36,8 @@ interface MigrationManagerInterface {
    * Get migration ids for translations.
    *
    * @param string $migration_id
-   *   Plugin id
+   *   Plugin id.
+   *
    * @return array
    *   List of translation migration ids.
    */
@@ -40,17 +47,14 @@ interface MigrationManagerInterface {
    * Rollback migration items.
    *
    * @param string $migration_id
-   *  Migration id.
-   *
+   *   Migration id.
    * @param array $source_id_values
    *   Sources ids.
-   *
-   * @return void
    */
   public function rollback($migration_id, array $source_id_values = []);
 
   /**
-   * Get entity by original newsroom id
+   * Get entity by original newsroom id.
    *
    * @param int $newsroom_id
    *   Original newsroom id.
@@ -76,7 +80,5 @@ interface MigrationManagerInterface {
    *   Migration object.
    */
   public function getMigration($migration_id);
-
-
 
 }

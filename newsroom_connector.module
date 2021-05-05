@@ -6,8 +6,8 @@
  */
 
 /**
-* Implements hook_cron().
-*/
+ * Implements hook_cron().
+ */
 function newsroom_connector_cron() {
   // Run all importers with activated cron settings.
   /** @var \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager $processor_manager */

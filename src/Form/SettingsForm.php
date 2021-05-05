@@ -5,15 +5,17 @@ namespace Drupal\newsroom_connector\Form;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\migrate\MigrateMessage;
-use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\newsroom_connector\UniverseManager;
 
+/**
+ * Class Settings Form.
+ *
+ * @package Drupal\newsroom_connector\Form
+ */
 class SettingsForm extends ConfigFormBase {
 
   /**
@@ -38,8 +40,10 @@ class SettingsForm extends ConfigFormBase {
   protected $universeManager;
 
   /**
-   * Settings form
+   * Settings form.
    *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   Config factory.
    * @param \GuzzleHttp\ClientInterface $http_client
    *   The Guzzle HTTP client.
    * @param \Drupal\newsroom_connector\UniverseManager $universe_manager
@@ -163,6 +167,15 @@ class SettingsForm extends ConfigFormBase {
     return $form;
   }
 
+  /**
+   * Get cron import setting name.
+   *
+   * @param string $plugin_id
+   *   Plugin id.
+   *
+   * @return string
+   *   Setting name.
+   */
   protected function getCronImortSettingName($plugin_id) {
     return "cron_import_{$plugin_id}";
   }
@@ -189,7 +202,7 @@ class SettingsForm extends ConfigFormBase {
       $settings->set($cron_import_setting_name, $values[$cron_import_setting_name]);
     }
 
-   $settings->save();
+    $settings->save();
 
     parent::submitForm($form, $form_state);
   }
@@ -197,18 +210,33 @@ class SettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
+  public function noValidateForm(array &$form, FormStateInterface $form_state) {
     $universe_id = $form_state->getValue('universe_id');
     $base_url = $form_state->getValue('base_url');
-    $subsite = $form_state->getValue('subsite');
+
+    // @TODO Find another way to validate universe id.
     if (!$this->validateUniverseId($base_url, $universe_id)) {
       $form_state->setErrorByName('universe_id', $this->t('Wrong newsroom universe ID.'));
     }
+
+    // @TODO Bring it back, when it is done on the newsroom
+    $subsite = $form_state->getValue('subsite');
     if (!$this->validateSubsite($base_url, $universe_id, $subsite)) {
       $form_state->setErrorByName('subsite', $this->t('Wrong subsite.'));
     }
   }
 
+  /**
+   * Validates universe id.
+   *
+   * @param string $base_url
+   *   Base part of URL.
+   * @param string $universe_id
+   *   Universe id.
+   *
+   * @return bool
+   *   Result.
+   */
   private function validateUniverseId($base_url, $universe_id) {
     $result = FALSE;
 
@@ -224,10 +252,37 @@ class SettingsForm extends ConfigFormBase {
     return $result;
   }
 
-  private function buildUrl($base_part, $universe_id, $paramters) {
+  /**
+   * Builds universe URL.
+   *
+   * @param string $base_part
+   *   Base part of URL.
+   * @param string $universe_id
+   *   Universe id.
+   * @param array $paramters
+   *   URL parameters.
+   *
+   * @return string
+   *   URL string.
+   */
+  private function buildUrl($base_part, $universe_id, array $paramters) {
+    // @TODO: Use universe manager instead.
     return "{$base_part}{$universe_id}/{$paramters}";
   }
 
+  /**
+   * Validates subsite.
+   *
+   * @param string $base_url
+   *   Base part of URL.
+   * @param string $universe_id
+   *   Universe id.
+   * @param string $subsite
+   *   Subsite.
+   *
+   * @return bool
+   *   Result
+   */
   private function validateSubsite($base_url, $universe_id, $subsite) {
     $result = TRUE;
     // The subsite is not mandatory.
@@ -245,4 +300,5 @@ class SettingsForm extends ConfigFormBase {
 
     return $result;
   }
+
 }

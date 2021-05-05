@@ -10,5 +10,3 @@ dependencies:
   - drupal:node
   - link:link
   - newsroom_connector:newsroom_connector
-
-configure: admin/content/newsroom

@@ -26,7 +26,7 @@ function newsroom_connector_item_update_9001(&$sandbox) {
     ];
     $table_prefixes = [
       'node',
-      'node_revision'
+      'node_revision',
     ];
     $config_factory = \Drupal::configFactory();
     foreach ($fields as $field_name) {

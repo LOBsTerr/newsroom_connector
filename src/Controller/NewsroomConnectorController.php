@@ -4,29 +4,15 @@ namespace Drupal\newsroom_connector\Controller;
 
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
-use Drupal\migrate\Plugin\MigrationPluginManager;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * NewsroomConnectorTypeController class.
+ * Newsroom Connector Controller class.
  */
 class NewsroomConnectorController extends ControllerBase {
-
-  /**
-   * @var \Drupal\Core\Language\LanguageManagerInterface
-   */
-  protected $languageManager;
-
-  /**
-   * Migration plugin manager service.
-   *
-   * @var \Drupal\migrate\Plugin\MigrationPluginManager
-   */
-  protected $migrationPluginManager;
 
   /**
    * Migration plugin manager service.
@@ -40,28 +26,30 @@ class NewsroomConnectorController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('language_manager'),
-      $container->get('plugin.manager.migration'),
       $container->get('newsroom_connector.plugin.manager.newsroom_processor')
     );
   }
 
   /**
-   * Constructs a MessageController object.
+   * Constructs a Newsroom Connector object.
    *
-   * @param \Drupal\Core\Database\Connection $database
-   *   A database connection.
-   * @param \Drupal\migrate_plus\Plugin\MigrationConfigEntityPluginManager $migration_config_entity_plugin_manager
-   *   The plugin manager for config entity-based migrations.
+   * @param \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager $newsroom_processor_plugin_manager
+   *   Newsroom process plugin manager.
    */
-  public function __construct(LanguageManagerInterface $languageManager, MigrationPluginManager $migrationPluginManager, NewsroomProcessorManager $newsroomProcessorPluginManager) {
-    $this->languageManager = $languageManager;
-    $this->migrationPluginManager = $migrationPluginManager;
-    $this->newsroomProcessorPluginManager = $newsroomProcessorPluginManager;
+  public function __construct(NewsroomProcessorManager $newsroom_processor_plugin_manager) {
+    $this->newsroomProcessorPluginManager = $newsroom_processor_plugin_manager;
   }
 
   /**
    * Import item.
+   *
+   * @param string $type
+   *   Content type.
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   *
+   * @return mixed
+   *   Response object.
    */
   public function import($type, $newsroom_id) {
     // Convert type to proper plugin id.
@@ -79,7 +67,13 @@ class NewsroomConnectorController extends ControllerBase {
   }
 
   /**
-   * Old redirection.
+   * Redirect item by original newsroom id.
+   *
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   *
+   * @return mixed
+   *   Response object.
    */
   public function newsRedirect($newsroom_id) {
     return $this->redirectItem('item', $newsroom_id);
@@ -88,11 +82,13 @@ class NewsroomConnectorController extends ControllerBase {
   /**
    * Redirects item to local entity.
    *
-   * @param $type
-   * @param $newsroom_id
+   * @param string $type
+   *   Type of the content.
+   * @param int $newsroom_id
+   *   Original newsroom id.
    *
-   * @throws \Drupal\Component\Plugin\Exception\PluginException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @return mixed
+   *   Response object.
    */
   public function redirectItem($type, $newsroom_id) {
     $plugin_id = "newsroom_$type";
@@ -115,16 +111,19 @@ class NewsroomConnectorController extends ControllerBase {
     $plugins = $this->newsroomProcessorPluginManager->getDefinitions();
     $data = [];
     foreach ($plugins as $plugin_id => $plugin) {
-      $data[] = [Link::fromTextAndUrl($plugin['label']->render(), Url::fromRoute('newsroom_connector.import_form', ['plugin_id' => $plugin_id]))];
+      $url = Url::fromRoute('newsroom_connector.import_form', ['plugin_id' => $plugin_id]);
+      $data[] = [
+        Link::fromTextAndUrl($plugin['label']->render(), $url),
+      ];
     }
 
     $table = [
       '#theme' => 'table',
       '#rows' => $data,
       '#header' => [
-        'Name'
+        'Name',
       ],
-      '#empty' => $this->t('No importers')
+      '#empty' => $this->t('No importers'),
     ];
 
     return $table;

@@ -51,7 +51,7 @@ class SimpleXml extends DataParserPluginBase {
 
     if (!$data_cached) {
 
-      $xml_data = $this->sanitizeXML((string) $this->getDataFetcherPlugin()->getResponseContent($url));
+      $xml_data = $this->sanitizeXml((string) $this->getDataFetcherPlugin()->getResponseContent($url));
 
       // Store the tree into the cache.
       $cache_backend->set($cid, $xml_data, time() + 3600);
@@ -80,7 +80,7 @@ class SimpleXml extends DataParserPluginBase {
    * @return string
    *   Sanitized string.
    */
-  function sanitizeXML($string) {
+  protected function sanitizeXml($string) {
     if (empty($string)) {
       return $string;
     }

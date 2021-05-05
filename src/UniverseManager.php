@@ -5,6 +5,11 @@ namespace Drupal\newsroom_connector;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Url;
 
+/**
+ * Class Universe Manager.
+ *
+ * @package Drupal\newsroom_connector
+ */
 class UniverseManager implements UniverseManagerInterface {
 
   /**

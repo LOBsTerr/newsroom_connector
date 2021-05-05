@@ -4,10 +4,6 @@ namespace Drupal\newsroom_connector_item\EventSubscriber;
 
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigrateImportEvent;
-use Drupal\migrate\Event\MigrateRollbackEvent;
-use Drupal\migrate\Event\MigrateRowDeleteEvent;
-use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\migrate_plus\Event\MigrateEvents as MigratePlusEvents;
 use Drupal\newsroom_connector\MigrationManager;
 use Drupal\newsroom_connector_item\Plugin\newsroom\NewsroomItemNewsroomProcessor;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;

@@ -5,15 +5,15 @@
  * Provides newsroom_connector_country functionality.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\newsroom_connector_country\Plugin\newsroom\NewsroomCountryNewsroomProcessor;
 
 /**
  * Implements hook_entity_delete().
  */
-function newsroom_connector_country_taxonomy_term_delete(Drupal\Core\Entity\EntityInterface $entity) {
+function newsroom_connector_country_taxonomy_term_delete(EntityInterface $entity) {
   if ($entity->bundle() == 'newsroom_country') {
     // Clean up migrations.
     \Drupal::service('newsroom_connector.migration_manager')->cleanUpMigrations(NewsroomCountryNewsroomProcessor::MIGRATION_COUNTRY, $entity);
   }
 }
-

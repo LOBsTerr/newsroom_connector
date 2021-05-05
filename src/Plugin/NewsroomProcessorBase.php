@@ -4,7 +4,6 @@ namespace Drupal\newsroom_connector\Plugin;
 
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\Core\DependencyInjection\DependencySerializationTrait;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
@@ -25,6 +24,11 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   use StringTranslationTrait;
   use DependencySerializationTrait;
 
+  /**
+   * Use batch or standard migation.
+   *
+   * @var bool
+   */
   protected $useBatch = TRUE;
 
   /**
@@ -44,7 +48,10 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition,
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
     UniverseManagerInterface $universe_manager,
     MigrationManagerInterface $migration_manager
   ) {
@@ -80,7 +87,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   }
 
   /**
-   * Get entity by original newsroom id
+   * Get entity by original newsroom id.
    *
    * @param int $newsroom_id
    *   Original newsroom id.
@@ -159,11 +166,10 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    *
    * @param string $migration_id
    *   Migration Id.
-   *
-   * @throws \Drupal\Component\Plugin\Exception\PluginException
-   * @throws \Drupal\migrate\MigrateException
+   * @param \Drupal\Core\Url $url
+   *   Url.
    */
-  protected function runMigration($migration_id, $url) {
+  protected function runMigration($migration_id, Url $url) {
     $migration = $this->migrationManager->getMigration($migration_id);
     if (!empty($migration)) {
 

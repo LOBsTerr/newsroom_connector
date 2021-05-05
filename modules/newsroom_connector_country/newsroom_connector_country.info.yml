@@ -7,7 +7,7 @@ core_version_requirement: ^8 || ^9
 php: (>=7.1)
 
 dependencies:
-  - newsroom_connector
+  - newsroom_connector:newsroom_connector
   - drupal:taxonomy
   - drupal:migrate_plus
 

@@ -11,4 +11,3 @@ newsroom.importers:
   description: 'Importers'
   base_route: 'newsroom_connector.settings'
   weight: 20
-

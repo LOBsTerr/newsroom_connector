@@ -2,6 +2,11 @@
 
 namespace Drupal\newsroom_connector;
 
+/**
+ * Interface Universe Manager Interface.
+ *
+ * @package Drupal\newsroom_connector
+ */
 interface UniverseManagerInterface {
 
   /**
@@ -63,5 +68,6 @@ interface UniverseManagerInterface {
    * @return string
    *   Edit url on the newsroom side.
    */
-  public function buildUrl($script_name, $params = []);
+  public function buildUrl($script_name, array $params = []);
+
 }

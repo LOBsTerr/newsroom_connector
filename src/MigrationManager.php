@@ -13,6 +13,11 @@ use Drupal\migrate\Plugin\MigrationPluginManager;
 use Drupal\migrate_plus\Event\MigrateEvents as MigratePlusEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
+/**
+ * Class Migration Manager.
+ *
+ * @package Drupal\newsroom_connector
+ */
 class MigrationManager implements MigrationManagerInterface {
 
   /**
@@ -23,6 +28,8 @@ class MigrationManager implements MigrationManagerInterface {
   protected $migrationPluginManager;
 
   /**
+   * Language manager.
+   *
    * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected $languageManager;
@@ -107,9 +114,9 @@ class MigrationManager implements MigrationManagerInterface {
    * Delete migration records based on keys.
    *
    * @param string $migration_id
-   *  Migration id.
+   *   Migration id.
    * @param array $destination_keys
-   *  Destination keys.
+   *   Destination keys.
    */
   protected function deleteDestination($migration_id, array $destination_keys) {
     $migration = $this->getMigration($migration_id);

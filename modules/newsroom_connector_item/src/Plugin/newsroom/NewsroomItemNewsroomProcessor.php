@@ -28,4 +28,5 @@ class NewsroomItemNewsroomProcessor extends NewsroomProcessorBase {
   const MIGRATION_ITEM = 'newsroom_item';
   const MIGRATION_ITEM_IMAGE_MEDIA = 'newsroom_item_image_media';
   const MIGRATION_ITEM_IMAGE = 'newsroom_item_image';
+
 }

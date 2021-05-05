@@ -136,7 +136,7 @@ class MigrateBatchExecutable extends MigrateExecutable {
    */
   protected function batchOperations(array $migrations, $operation, array $options = []) {
     $operations = [];
-    foreach ($migrations as $id => $migration) {
+    foreach ($migrations as $migration) {
 
       if (!empty($options['update'])) {
         $migration->getIdMap()->prepareUpdate();
@@ -274,7 +274,7 @@ class MigrateBatchExecutable extends MigrateExecutable {
    */
   public static function batchFinishedImport($success, array $results, array $operations) {
     if ($success) {
-      foreach ($results as $migration_id => $result) {
+      foreach ($results as $result) {
         $singular_message = "Processed 1 item (@created created, @updated updated, @failures failed, @ignored ignored) - done with '@name'";
         $plural_message = "Processed @numitems items (@created created, @updated updated, @failures failed, @ignored ignored) - done with '@name'";
         \Drupal::messenger()->addStatus(\Drupal::translation()->formatPlural($result['@numitems'],

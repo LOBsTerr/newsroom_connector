@@ -6,15 +6,12 @@ use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\newsroom_connector\Helper\ImporterHelper;
-use Drupal\newsroom_connector\Helper\UniverseHelper;
-use Drupal\newsroom_connector\Importer\Configuration;
-use Drupal\newsroom_connector\Importer\Importer;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class ImportForm
+ * Class Import Form.
+ *
  * @package Drupal\newsroom_connector\Form
  */
 class ImportForm extends FormBase {
@@ -26,7 +23,11 @@ class ImportForm extends FormBase {
    */
   protected $newsroomProcessorPluginManager;
 
-
+  /**
+   * Process newsroom plugin instance.
+   *
+   * @var Drupal\newsroom_connector\Plugin\NewsroomProcessorInterface
+   */
   protected $plugin;
 
   /**

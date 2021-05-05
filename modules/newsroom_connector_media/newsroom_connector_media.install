@@ -21,7 +21,7 @@ function newsroom_connector_media_update_9001(&$sandbox) {
     ];
     $table_prefixes = [
       'media',
-      'media_revision'
+      'media_revision',
     ];
     $config_factory = \Drupal::configFactory();
     foreach ($fields as $field_name) {

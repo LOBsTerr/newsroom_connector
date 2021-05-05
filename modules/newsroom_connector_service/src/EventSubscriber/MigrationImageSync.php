@@ -100,7 +100,7 @@ class MigrationImageSync implements EventSubscriberInterface {
    * @param array $source_id_values
    *   List of items with missing images.
    */
-  protected function rollback($migration_id, $source_id_values) {
+  protected function rollback($migration_id, array $source_id_values) {
     $migration = $this->migrationManager->getMigration($migration_id);
     if (empty($migration)) {
       return;

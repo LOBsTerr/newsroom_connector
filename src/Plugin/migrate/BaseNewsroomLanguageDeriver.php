@@ -15,6 +15,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements ContainerDeriverInterface {
 
   /**
+   * Language manager.
+   *
    * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected $languageManager;
@@ -76,14 +78,15 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
    * Creates a derivative definition for each available language.
    *
    * @param array $base_plugin_definition
-   *  Base plugin definition.
-   * @param LanguageInterface $language
-   *  Language.
+   *   Base plugin definition.
+   * @param \Drupal\Core\Language\LanguageInterface $language
+   *   Language.
    * @param string $language_code
-   *  Newsroom language code.
+   *   Newsroom language code.
    *
    * @return array
+   *   List of derivatives.
    */
-  protected abstract function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code);
+  abstract protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code);
 
 }
