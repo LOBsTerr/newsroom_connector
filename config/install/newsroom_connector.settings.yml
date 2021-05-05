@@ -1,8 +1,6 @@
 universe_id: ''
 base_url: 'https://ec.europa.eu/newsroom/'
-item_edit_script: 'item.cfm'
-item_edit_segment: 'item_id'
-proposal_script: 'propose-item.cfm'
+docsroom_url: ''
 
 dependencies:
   enforced:

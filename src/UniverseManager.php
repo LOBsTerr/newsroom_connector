@@ -54,7 +54,7 @@ class UniverseManager implements UniverseManagerInterface {
    * {@inheritdoc}
    */
   public function getItemEditUrl($newsroom_id) {
-    return $this->buildUrl($this->getValue('item_edit_script'), [$this->getValue('item_edit_segment') => $newsroom_id]);
+    return $this->buildUrl("item/{$newsroom_id}/edit");
   }
 
   /**

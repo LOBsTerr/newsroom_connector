@@ -130,21 +130,6 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('app_key'),
       '#description' => $this->t('Application key (hash sha256).'),
     ];
-    $form['universe_settings']['general']['item_edit_segment'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('URL parameter to edit an item in the Newsroom:'),
-      '#default_value' => $config->get('item_edit_segment'),
-    ];
-    $form['universe_settings']['general']['item_edit_script'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('URL chunk to edit an item in the Newsroom:'),
-      '#default_value' => $config->get('item_edit_script'),
-    ];
-    $form['universe_settings']['general']['proposal_script'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Newsroom proposal script:'),
-      '#default_value' => $config->get('proposal_script'),
-    ];
     $form['universe_settings']['general']['docsroom_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Newsroom Docsroom URL:'),
