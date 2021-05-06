@@ -59,7 +59,7 @@ class UniverseManager implements UniverseManagerInterface {
    * {@inheritdoc}
    */
   public function getItemEditUrl($newsroom_id) {
-    return $this->buildUrl("item/{$newsroom_id}/edit");
+    return Url::fromUri($this->getValue('base_url') . 'eui/' . $this->getUniverseId() . "/item/{$newsroom_id}/edit");
   }
 
   /**

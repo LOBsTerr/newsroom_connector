@@ -189,8 +189,8 @@ function newsroom_connector_item_cron() {
 
   // Run importers for deleted and unpublished items.
   $migrations = [
-    'deleted_newsroom_items' => 'deleted',
-    'unpublished_newsroom_items' => 'unpublished',
+    'deleted_newsroom_items' => 'feed/deleted',
+    'unpublished_newsroom_items' => 'feed/unpublished',
   ];
 
   $base_url = \Drupal::service('newsroom_connector.universe_manager')->getBaseUrl();
