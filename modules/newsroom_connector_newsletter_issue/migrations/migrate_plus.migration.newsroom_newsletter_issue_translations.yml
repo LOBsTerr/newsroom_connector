@@ -9,7 +9,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
-  urls: 'http://ec.europa.eu/newsroom/cnect_acc/rss-issue-multilingual.cfm'
+  urls: 'http://ec.europa.eu/newsroom/dae/feed/newsletter-issues'
 
   item_selector: '//channel/item'
 

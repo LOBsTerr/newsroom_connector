@@ -12,7 +12,7 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *   entity_type = "taxonomy_term",
  *   bundle = "newsroom_country",
  *   bundle_field = "vid",
- *   import_script = "rss-country-multilingual-v2.cfm",
+ *   import_script = "feed/topics",
  *   import_segment = "country_id",
  *   label = @Translation("Newsroom country"),
  *   migrations = {

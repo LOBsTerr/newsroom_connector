@@ -12,7 +12,7 @@ use Drupal\newsroom_connector\Plugin\NewsroomProcessorBase;
  *   entity_type = "node",
  *   bundle = "newsroom_newsletter_issue",
  *   bundle_field = "type",
- *   import_script = "rss-issue-multilingual.cfm",
+ *   import_script = "feed/newsletter-issues",
  *   import_segment = "",
  *   label = @Translation("Newsroom newsletter issue"),
  *   migrations = {
