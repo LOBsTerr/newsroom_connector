@@ -5,7 +5,11 @@
  * Update hooks.
  */
 
+use Drupal\Core\Config\ExtensionInstallStorage;
+use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Database\Database;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Increase the size of text fields.
@@ -50,4 +54,56 @@ function newsroom_connector_item_update_9001(&$sandbox) {
       $config->save();
     }
   }
+}
+
+/**
+ * Add author field.
+ */
+function newsroom_connector_item_update_9002(&$sandbox) {
+  $field_name = 'field_newsroom_author';
+  $entity_type = 'node';
+  $bundle = 'newsroom_item';
+
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $install_storage = new ExtensionInstallStorage(
+    \Drupal::service('config.storage'),
+    InstallStorage::CONFIG_INSTALL_DIRECTORY,
+    InstallStorage::DEFAULT_COLLECTION,
+    TRUE,
+    NULL
+  );
+  $field_storage_config = $install_storage->read("field.storage.{$entity_type}.{$field_name}");
+
+  FieldStorageConfig::create($field_storage_config)->save();
+
+  $field_config = $install_storage->read("field.field.{$entity_type}.{$bundle}.{$field_name}");
+  FieldConfig::create($field_config)->save();
+
+  $display_form = $entity_type_manager
+    ->getStorage('entity_form_display')
+    ->load("{$entity_type}.{$bundle}.default")
+    ->setComponent($field_name, [
+      'type'   => 'string_textfield',
+      'weight' => 32,
+      'settings' => [
+        'size' => 60,
+        'placeholder' => '',
+      ],
+      'region' => 'content',
+    ]);
+  $display_form->save();
+
+  $display_view = $entity_type_manager
+    ->getStorage('entity_view_display')
+    ->load("{$entity_type}.{$bundle}.default")
+    ->setComponent($field_name, [
+      'type'   => 'string',
+      'weight' => 126,
+      'settings' => [
+        'link_to_entity' => false,
+      ],
+      'region' => 'content',
+    ]);
+
+  $display_view->save();
 }
