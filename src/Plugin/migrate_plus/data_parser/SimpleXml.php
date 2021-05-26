@@ -60,7 +60,8 @@ class SimpleXml extends DataParserPluginBase {
       $xml_data = $data_cached->data;
     }
 
-    $xml = simplexml_load_string(trim($xml_data));
+    // Pass LIBXML_NOCDATA to use CDATA as a string.
+    $xml = simplexml_load_string(trim($xml_data), 'SimpleXMLElement', LIBXML_NOCDATA);
     foreach (libxml_get_errors() as $error) {
       $error_string = self::parseLibXmlError($error);
       throw new MigrateException($error_string);
