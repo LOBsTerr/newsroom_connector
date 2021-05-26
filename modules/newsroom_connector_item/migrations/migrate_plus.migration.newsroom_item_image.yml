@@ -10,7 +10,7 @@ source:
   data_parser_plugin: newsroom_simple_xml
   urls: 'https://ec.europa.eu/newsroom/dae/feed/full'
 
-  item_selector: '//channel/item[enclosure[@type="image/jpeg" and @schema="Public" and string-length(@url) > 0]]'
+  item_selector: '//channel/item[enclosure[@nrdoctype="image" and string-length(@url) > 0]]'
 
   ids:
     item_id:
@@ -24,7 +24,7 @@ source:
     -
       name: image
       label: 'Image'
-      selector: 'enclosure[@type="image/jpeg" and @schema="Public"]/@url'
+      selector: 'enclosure[@nrdoctype="image"]/@url'
     -
       name: image_title
       label: 'Image title'

@@ -12,7 +12,7 @@ source:
   urls: 'https://ec.europa.eu/newsroom/dae/feed/full'
 
   # We need only not empty items.
-  item_selector: '//channel/item[enclosure[@type="image/jpeg" and @schema="Public" and string-length(@url) > 0]]'
+  item_selector: '//channel/item[enclosure[@nrdoctype="image" and string-length(@url) > 0]]'
 
   ids:
     item_id:
