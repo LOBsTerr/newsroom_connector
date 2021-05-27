@@ -189,18 +189,20 @@ process:
     plugin: get
     source: teaser
 
+  # RFC 2822 - Example: Thu, 21 Dec 2000 16:01:07 +0200 (php 'r' format or 'D, j M Y H:i:s O')
   'field_newsroom_date/value':
     source: start_date
     plugin: format_date
-    from_format: 'D, j M Y H:i:s \U\T\C'
+    from_format: 'D, j M Y H:i:s O'
     to_format: 'Y-m-d'
     settings:
       validate_format: false
 
+  # RFC 2822 - Example: Thu, 21 Dec 2000 16:01:07 +0200 (php 'r' format or 'D, j M Y H:i:s O')
   'field_newsroom_date/end_value':
     source: end_date
     plugin: format_date
-    from_format: 'D, j M Y H:i:s \U\T\C'
+    from_format: 'D, j M Y H:i:s O'
     to_format: 'Y-m-d'
     settings:
       validate_format: false
