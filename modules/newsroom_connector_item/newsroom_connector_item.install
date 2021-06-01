@@ -107,3 +107,42 @@ function newsroom_connector_item_update_9002(&$sandbox) {
 
   $display_view->save();
 }
+
+/**
+ * Update fields definitions.
+ */
+function newsroom_connector_item_update_9003(&$sandbox) {
+    $keyvalue = \Drupal::service('keyvalue');
+    $length = 500;
+
+    $fields = [
+        'field_newsroom_alt_text' => 'media',
+        'field_newsroom_caption' => 'media',
+        'field_newsroom_copyright' => 'media',
+        'field_newsroom_contact_info' => 'node',
+        'field_newsroom_contact_text' => 'node',
+        'field_newsroom_location' => 'node',
+        'field_newsroom_organiser' => 'node',
+        'field_newsroom_pr_coordinator' => 'node',
+        'field_newsroom_project_name' => 'node',
+        'field_newsroom_speaker' => 'node',
+        'field_newsroom_venue' => 'node',
+    ];
+    foreach ($fields as $field => $entity_type) {
+        $value_name = "{$entity_type}.field_schema_data.{$field}";
+        $value = $keyvalue->get('entity.storage_schema.sql')->get($value_name);
+
+
+        $field_name = "{$entity_type}__{$field}";
+        $field_revision_name = "{$entity_type}_revision__{$field}";
+        $value[$field_name]['fields']["{$field}_value"]['length'] = $length;
+        $value[$field_revision_name]['fields']["{$field}_value"]['length'] = $length;
+        $keyvalue->get('entity.storage_schema.sql')->set($value_name, $value);
+
+
+        $field_definitions = $keyvalue->get('entity.definitions.installed')->get("{$entity_type}.field_storage_definitions");
+        $field_definitions[$field]->setSetting('max_length', $length);
+        $keyvalue->get('entity.definitions.installed')->set("{$entity_type}.field_storage_definitions", $field_definitions);
+
+    }
+}

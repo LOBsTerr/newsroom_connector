@@ -100,8 +100,8 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
       ],
       [
         'name' => 'author',
-        'field' => 'field_newsroom_speaker',
-        'xpath' => 'infsonewsroom:ContextSpeaker',
+        'field' => 'field_newsroom_author',
+        'xpath' => 'infsonewsroom:ContextAuthor',
       ],
       [
         'name' => 'registration_link_url',
