@@ -7,6 +7,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
+use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -22,11 +23,19 @@ class NewsroomConnectorController extends ControllerBase {
   protected $newsroomProcessorPluginManager;
 
   /**
+   * The universe manager.
+   *
+   * @var \Drupal\newsroom_connector\UniverseManager
+   */
+  protected $universeManager;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('newsroom_connector.plugin.manager.newsroom_processor')
+      $container->get('newsroom_connector.plugin.manager.newsroom_processor'),
+      $container->get('newsroom_connector.universe_manager')
     );
   }
 
@@ -35,9 +44,12 @@ class NewsroomConnectorController extends ControllerBase {
    *
    * @param \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager $newsroom_processor_plugin_manager
    *   Newsroom process plugin manager.
+   * @param \Drupal\newsroom_connector\UniverseManager $universe_manager
+   *   The universe manager.
    */
-  public function __construct(NewsroomProcessorManager $newsroom_processor_plugin_manager) {
+  public function __construct(NewsroomProcessorManager $newsroom_processor_plugin_manager, UniverseManagerInterface $universe_manager) {
     $this->newsroomProcessorPluginManager = $newsroom_processor_plugin_manager;
+    $this->universeManager = $universe_manager;
   }
 
   /**
@@ -110,11 +122,18 @@ class NewsroomConnectorController extends ControllerBase {
   public function importers() {
     $plugins = $this->newsroomProcessorPluginManager->getDefinitions();
     $data = [];
-    foreach ($plugins as $plugin_id => $plugin) {
-      $url = Url::fromRoute('newsroom_connector.import_form', ['plugin_id' => $plugin_id]);
-      $data[] = [
-        Link::fromTextAndUrl($plugin['label']->render(), $url),
-      ];
+    $empty_message = $this->t('No importers');
+    $import_disabled = $this->universeManager->getConfig()->get('import_disabled');
+    if ($import_disabled) {
+      $empty_message = $this->t('Import is disabled');
+    }
+    else {
+      foreach ($plugins as $plugin_id => $plugin) {
+        $url = Url::fromRoute('newsroom_connector.import_form', ['plugin_id' => $plugin_id]);
+        $data[] = [
+          Link::fromTextAndUrl($plugin['label']->render(), $url),
+        ];
+      }
     }
 
     $table = [
@@ -123,7 +142,7 @@ class NewsroomConnectorController extends ControllerBase {
       '#header' => [
         'Name',
       ],
-      '#empty' => $this->t('No importers'),
+      '#empty' => $empty_message,
     ];
 
     return $table;
