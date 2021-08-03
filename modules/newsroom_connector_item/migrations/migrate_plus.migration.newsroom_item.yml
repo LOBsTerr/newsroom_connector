@@ -73,15 +73,15 @@ source:
     -
       name: topics
       label: 'Topics'
-      selector: 'category[@domain!="Newsletter"]/@infsonewsroom:TopicId'
+      selector: 'category[@domain="Subchapter"]/@infsonewsroom:TopicId'
     -
       name: primary_topic
       label: 'Primary topic'
-      selector: 'category[@infsonewsroom:TopicPrimary="1" and @domain!="Newsletter"]/@infsonewsroom:TopicId'
+      selector: 'category[@infsonewsroom:TopicPrimary="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
     -
       name: highlighted_topics
       label: 'Highlighted topic'
-      selector: 'category[@infsonewsroom:TopicHighlight="1" and @domain!="Newsletter"]/@infsonewsroom:TopicId'
+      selector: 'category[@infsonewsroom:TopicHighlight="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
     -
       name: related_content
       label: 'Related content'
@@ -368,6 +368,10 @@ process:
   created:
     plugin: get
     source: published_date
+
+  status:
+    plugin: default_value
+    default_value: 1
 
 destination:
   plugin: entity:node

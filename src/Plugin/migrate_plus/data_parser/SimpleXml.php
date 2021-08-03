@@ -54,7 +54,7 @@ class SimpleXml extends DataParserPluginBase {
       $xml_data = $this->sanitizeXml((string) $this->getDataFetcherPlugin()->getResponseContent($url));
 
       // Store the tree into the cache.
-      $cache_backend->set($cid, $xml_data, time() + 3600);
+      $cache_backend->set($cid, $xml_data, time() + 60);
     }
     else {
       $xml_data = $data_cached->data;
