@@ -1,5 +1,5 @@
 name: Newsroom Connector Service
-description: Newsroom service
+description: Provides Newsroom Service vocabulary and importer.
 package: Newsroom
 
 type: module
