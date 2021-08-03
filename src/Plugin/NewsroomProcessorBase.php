@@ -136,6 +136,10 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    * {@inheritdoc}
    */
   public function runImport(Url $url) {
+    $import_disabled = $this->universeManager->getConfig()->get('import_disabled');
+    if ($import_disabled) {
+      return;
+    }
 
     $definition = $this->getPluginDefinition();
     if (empty($definition['migrations'])) {
@@ -201,8 +205,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
         $migration->getIdMap()->prepareUpdate();
         $executable = new MigrateExecutable($migration, new MigrateMessage());
         $executable->import();
-
-        $this->t('Import has been successfully finished');
       }
     }
   }

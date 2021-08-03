@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
+use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -22,6 +23,13 @@ class ImportForm extends FormBase {
    * @var \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager
    */
   protected $newsroomProcessorPluginManager;
+
+  /**
+   * The universe manager.
+   *
+   * @var \Drupal\newsroom_connector\UniverseManager
+   */
+  protected $universeManager;
 
   /**
    * Process newsroom plugin instance.
@@ -40,8 +48,9 @@ class ImportForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(NewsroomProcessorManager $newsroom_processor_plugin_manager) {
+  public function __construct(NewsroomProcessorManager $newsroom_processor_plugin_manager, UniverseManagerInterface $universe_manager) {
     $this->newsroomProcessorPluginManager = $newsroom_processor_plugin_manager;
+    $this->universeManager = $universe_manager;
   }
 
   /**
@@ -49,7 +58,8 @@ class ImportForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('newsroom_connector.plugin.manager.newsroom_processor')
+      $container->get('newsroom_connector.plugin.manager.newsroom_processor'),
+      $container->get('newsroom_connector.universe_manager')
     );
   }
 
@@ -57,25 +67,34 @@ class ImportForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $plugin_id = NULL) {
-    $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
-    if (!$plugin) {
-      throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
+    $import_disabled = $this->universeManager->getConfig()->get('import_disabled');
+    if ($import_disabled) {
+      $form['messge'] = [
+        '#type' => 'markup',
+        '#markup' => 'Import is disabled',
+      ];
     }
     else {
-      $this->plugin = $plugin;
+      $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
+      if (!$plugin) {
+        throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
+      } else {
+        $this->plugin = $plugin;
+      }
+
+      $form = [];
+      $form['url'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('URL'),
+        '#default_value' => $plugin->getEntityUrl()->toUriString(),
+        '#required' => TRUE,
+      ];
+      $form['actions']['submit'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Import'),
+      ];
     }
 
-    $form = [];
-    $form['url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('URL'),
-      '#default_value' => $plugin->getEntityUrl()->toUriString(),
-      '#required' => TRUE,
-    ];
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Import'),
-    ];
     return $form;
   }
 
