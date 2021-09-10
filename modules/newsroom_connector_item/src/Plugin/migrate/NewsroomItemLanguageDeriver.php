@@ -149,6 +149,11 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
       ];
     }
 
+    $base_plugin_definition['process']['field_newsroom_body/format'] = [
+      'plugin' => 'default_value',
+      'default_value' => 'newsroom_basic_html',
+    ];
+
     return $base_plugin_definition;
   }
 
