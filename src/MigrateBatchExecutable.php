@@ -32,6 +32,13 @@ class MigrateBatchExecutable extends MigrateExecutable {
     protected $checkDependencies = 0;
 
     /**
+     * Source URL.
+     *
+     * @var string
+     */
+    protected $sourceUrl = '';
+
+    /**
      * The current batch context.
      *
      * @var array
@@ -129,7 +136,7 @@ class MigrateBatchExecutable extends MigrateExecutable {
      */
     protected function batchOperations(array $migrations, $operation, array $options = []) {
         $operations = [];
-        foreach ($migrations as $id => $migration) {
+        foreach ($migrations as $migration) {
 
             if (!empty($options['update'])) {
                 $migration->getIdMap()->prepareUpdate();
@@ -148,7 +155,7 @@ class MigrateBatchExecutable extends MigrateExecutable {
                 $dependencies = $migration->getMigrationDependencies();
                 if (!empty($dependencies['required'])) {
                     $required_migrations = $this->migrationPluginManager->createInstances($dependencies['required']);
-                    // For dependent migrations will need to be migrate all items.
+                    // For dependent migrations will need to be migrated all items.
                     $operations = array_merge($operations, $this->batchOperations($required_migrations, $operation, [
                         'limit' => 0,
                         'update' => $options['update'],
@@ -158,7 +165,7 @@ class MigrateBatchExecutable extends MigrateExecutable {
             }
 
             $operations[] = [
-                '\Drupal\migrate_tools\MigrateBatchExecutable::batchProcessImport',
+                '\Drupal\newsroom_connector\MigrateBatchExecutable::batchProcessImport',
                 [$migration->id(), $options],
             ];
         }
@@ -194,6 +201,12 @@ class MigrateBatchExecutable extends MigrateExecutable {
         // Each batch run we need to reinitialize the counter for the migration.
         if (!empty($options['limit']) && isset($context['results'][$migration->id()]['@numitems'])) {
             $options['limit'] = $options['limit'] - $context['results'][$migration->id()]['@numitems'];
+        }
+
+        if (!empty($options['source_url'])) {
+            $source = $migration->getSourceConfiguration();
+            $source['urls'] = $options['source_url'];
+            $migration->set('source', $source);
         }
 
         $executable = new MigrateBatchExecutable($migration, $message, $options);
