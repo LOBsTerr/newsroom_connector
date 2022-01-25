@@ -49,7 +49,7 @@ source:
     -
       name: type_id
       label: 'Type'
-      selector: 'infsonewsroom:NewsType/@id'
+      selector: 'infsonewsroom:NewsType[@lang="EN"]/@id'
     -
       name: see_also_text
       label: 'See also - text'
@@ -73,15 +73,15 @@ source:
     -
       name: topics
       label: 'Topics'
-      selector: 'category[@domain="Subchapter"]/@infsonewsroom:TopicId'
+      selector: 'category[@lang="EN" and @domain="Subchapter"]/@infsonewsroom:TopicId'
     -
       name: primary_topic
       label: 'Primary topic'
-      selector: 'category[@infsonewsroom:TopicPrimary="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
+      selector: 'category[@lang="EN" and @infsonewsroom:TopicPrimary="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
     -
       name: highlighted_topics
       label: 'Highlighted topic'
-      selector: 'category[@infsonewsroom:TopicHighlight="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
+      selector: 'category[@lang="EN" and @infsonewsroom:TopicHighlight="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
     -
       name: related_content
       label: 'Related content'
