@@ -153,7 +153,8 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
 
     foreach ($definition['migrations'] as $migration_id) {
       $migration_ids[] = $migration_id;
-      $translations_ids = array_merge($translations_ids, $this->migrationManager->getTranslationMigrationIds($migration_id));
+      // User array_values to get an array without language key.
+      $translations_ids = array_merge($translations_ids, array_values($this->migrationManager->getTranslationMigrationIds($migration_id)));
     }
 
     // First we run main content migrations.

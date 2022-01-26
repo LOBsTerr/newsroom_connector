@@ -104,7 +104,7 @@ class MigrationManager implements MigrationManagerInterface {
       }
 
       $language_id = $this->normalizeLanguage($language_id);
-      $translation_migration_ids[] = "{$migration_id}_translations:{$language_id}";
+      $translation_migration_ids[$language_id] = "{$migration_id}_translations:{$language_id}";
     }
 
     return $translation_migration_ids;
