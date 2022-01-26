@@ -24,7 +24,7 @@ source:
     -
       name: image
       label: 'Image'
-      selector: 'enclosure[@nrdoctype="image"]/@url'
+      selector: 'enclosure[@nrdoctype="image" and @lang="EN"]/@url'
     -
       name: image_title
       label: 'Image title'
