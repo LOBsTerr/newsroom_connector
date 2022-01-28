@@ -8,6 +8,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_media
+      - newsroom_connector
 third_party_settings:
   content_translation:
     enabled: true

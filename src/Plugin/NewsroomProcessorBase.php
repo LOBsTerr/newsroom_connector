@@ -113,7 +113,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     // @TODO move it to a separate class.
     if ($this->getPluginId() == 'newsroom_item') {
       // To use a new version of RSS.
-      $params['v'] = 'new';
       $config = $this->universeManager->getConfig();
       if ($config->get('subsite')) {
         $params['subsite'] = $config->get('subsite');

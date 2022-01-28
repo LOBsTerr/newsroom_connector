@@ -7,8 +7,9 @@ dependencies:
   module:
     - text
   enforced:
-      module:
-        - newsroom_connector_team_responsible
+    module:
+      - newsroom_connector_team_responsible
+      - newsroom_connector
 id: taxonomy_term.newsroom_team_responsible.default
 targetEntityType: taxonomy_term
 bundle: newsroom_team_responsible

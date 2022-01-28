@@ -197,7 +197,6 @@ class SettingsForm extends ConfigFormBase {
       ->set('app', $values['app'])
       ->set('app_key', $values['app_key'])
       ->set('subsite', $values['subsite'])
-      ->set('item_edit_script', $values['item_edit_script'])
       ->set('proposal_script', $values['proposal_script'])
       ->set('docsroom_url', $values['docsroom_url']);
 

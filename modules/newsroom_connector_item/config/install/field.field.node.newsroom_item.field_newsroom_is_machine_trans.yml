@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
+  config:
+    - field.storage.node.field_newsroom_is_machine_trans
+    - node.type.newsroom_item
+id: node.newsroom_item.field_newsroom_is_machine_trans
+field_name: field_newsroom_is_machine_trans
+entity_type: node
+bundle: newsroom_item
+label: 'Is machine translated'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Is machine translated'
+  off_label: 'Is not machine translated'
+field_type: boolean

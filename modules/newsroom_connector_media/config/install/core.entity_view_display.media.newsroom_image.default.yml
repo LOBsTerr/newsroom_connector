@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_media
+      - newsroom_connector
   config:
     - field.field.media.newsroom_image.field_media_image_newsroom
     - field.field.media.newsroom_image.field_newsroom_alt_text

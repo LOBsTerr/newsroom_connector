@@ -105,12 +105,12 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
       ],
       [
         'name' => 'registration_link_url',
-        'field' => 'field_newsroom_registration_link/title',
+        'field' => 'field_newsroom_registration_link/uri',
         'xpath' => 'infsonewsroom:ContextRegistrationLink',
       ],
       [
         'name' => 'registration_link_text',
-        'field' => 'field_newsroom_registration_link/uri',
+        'field' => 'field_newsroom_registration_link/title',
         'xpath' => 'infsonewsroom:ContextRegistrationLinkText',
       ],
       [
@@ -132,6 +132,11 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
         'name' => 'quote_box',
         'field' => 'field_newsroom_quote_box',
         'xpath' => 'infsonewsroom:FullQuoteBox',
+      ],
+      [
+        'name' => 'is_machine_translated',
+        'field' => 'field_newsroom_is_machine_trans',
+        'xpath' => 'infsonewsroom:MachineTranslation',
       ],
     ];
 

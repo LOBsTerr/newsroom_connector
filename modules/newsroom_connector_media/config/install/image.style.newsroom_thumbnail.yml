@@ -4,6 +4,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_media
+      - newsroom_connector
 name: newsroom_thumbnail
 label: 'Newsroom Thumbnail (100×100)'
 effects:

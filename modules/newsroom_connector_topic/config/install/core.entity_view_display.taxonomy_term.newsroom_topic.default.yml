@@ -7,8 +7,9 @@ dependencies:
   module:
     - text
   enforced:
-      module:
-        - newsroom_connector_topic
+    module:
+      - newsroom_connector_topic
+      - newsroom_connector
 id: taxonomy_term.newsroom_topic.default
 targetEntityType: taxonomy_term
 bundle: newsroom_topic

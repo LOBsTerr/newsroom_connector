@@ -4,6 +4,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_media
+      - newsroom_connector
 name: newsroom_large
 label: 'Newsroom Large (480×480)'
 effects:

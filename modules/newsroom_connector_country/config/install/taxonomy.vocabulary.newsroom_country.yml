@@ -7,6 +7,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_country
+      - newsroom_connector
 name: 'Newsroom country'
 vid: newsroom_country
 description: 'Newsroom countries'

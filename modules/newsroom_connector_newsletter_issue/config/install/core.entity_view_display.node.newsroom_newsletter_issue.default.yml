@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_newsletter_issue
+      - newsroom_connector
   config:
     - field.field.node.newsroom_newsletter_issue.field_newsroom_id
     - field.field.node.newsroom_newsletter_issue.field_newsroom_issue_date

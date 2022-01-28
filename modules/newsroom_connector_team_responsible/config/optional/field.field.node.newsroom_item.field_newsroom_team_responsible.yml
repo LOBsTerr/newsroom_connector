@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_team_responsible
+      - newsroom_connector
   config:
     - field.storage.node.field_newsroom_team_responsible
     - node.type.newsroom_item

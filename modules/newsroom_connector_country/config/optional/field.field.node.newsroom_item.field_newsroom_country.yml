@@ -5,6 +5,10 @@ dependencies:
     - field.storage.node.field_newsroom_country
     - node.type.newsroom_item
     - taxonomy.vocabulary.newsroom_country
+  enforced:
+    module:
+      - newsroom_connector_country
+      - newsroom_connector
 id: node.newsroom_item.field_newsroom_country
 field_name: field_newsroom_country
 entity_type: node

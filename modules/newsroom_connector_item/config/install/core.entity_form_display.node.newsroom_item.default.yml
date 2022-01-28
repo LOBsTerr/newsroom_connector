@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
   config:
     - field.field.node.newsroom_item.field_newsroom_body
     - field.field.node.newsroom_item.field_newsroom_contact_info
@@ -31,6 +35,7 @@ dependencies:
     - field.field.node.newsroom_item.field_newsroom_topics
     - field.field.node.newsroom_item.field_newsroom_type
     - field.field.node.newsroom_item.field_newsroom_venue
+    - field.field.node.newsroom_item.field_newsroom_is_machine_trans
     - node.type.newsroom_item
   module:
     - datetime_range

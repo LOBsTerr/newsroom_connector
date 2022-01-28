@@ -8,6 +8,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_topic
+      - newsroom_connector
   module:
     - path
     - text

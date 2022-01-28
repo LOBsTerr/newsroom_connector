@@ -7,6 +7,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_type
+      - newsroom_connector
 id: taxonomy_term.newsroom_type.field_newsroom_id
 field_name: field_newsroom_id
 entity_type: taxonomy_term

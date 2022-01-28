@@ -9,7 +9,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
   urls:
-    - 'https://ec.europa.eu/newsroom/dae/feed/full'
+    - 'https://ec.europa.eu/newsroom/dae/feed/full/new'
 
   item_selector: '//channel/item'
 
@@ -166,7 +166,10 @@ source:
       name: published_date
       label: 'Published date'
       selector: 'pubDate/text()'
-
+    -
+      name: is_machine_translated
+      label: 'Is machine translated'
+      selector: 'infsonewsroom:MachineTranslation[@lang="EN"]/text()'
 process:
 
   type:
@@ -368,6 +371,10 @@ process:
   created:
     plugin: get
     source: published_date
+
+  field_newsroom_is_machine_trans:
+    plugin: get
+    source: is_machine_translated
 
   status:
     plugin: default_value

@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+      - newsroom_connector
   config:
     - field.storage.taxonomy_term.field_newsroom_can_subscribe
     - taxonomy.vocabulary.newsroom_service

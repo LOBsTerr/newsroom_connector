@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
   config:
     - node.type.newsroom_item
   module:

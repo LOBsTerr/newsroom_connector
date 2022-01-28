@@ -4,6 +4,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector_service
+      - newsroom_connector
   module:
     - taxonomy
 id: taxonomy_term.field_newsroom_service_type

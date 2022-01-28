@@ -3,6 +3,10 @@ status: true
 dependencies:
   module:
     - editor
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
 name: 'Newsroom Basic HTML'
 format: newsroom_basic_html
 weight: 0

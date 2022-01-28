@@ -5,6 +5,10 @@ dependencies:
     - taxonomy.vocabulary.newsroom_country
   module:
     - content_translation
+  enforced:
+    module:
+      - newsroom_connector_country
+      - newsroom_connector
 third_party_settings:
   content_translation:
     enabled: true

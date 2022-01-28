@@ -8,7 +8,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: newsroom_simple_xml
-  urls: 'https://ec.europa.eu/newsroom/dae/feed/full'
+  urls: 'https://ec.europa.eu/newsroom/dae/feed/full/new'
 
   # We need only not empty items.
   item_selector: '//channel/item[enclosure[@nrdoctype="image" and string-length(@url) > 0]]'

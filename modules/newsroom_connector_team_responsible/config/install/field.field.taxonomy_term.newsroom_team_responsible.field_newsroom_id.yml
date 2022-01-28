@@ -5,8 +5,9 @@ dependencies:
     - field.storage.taxonomy_term.field_newsroom_id
     - taxonomy.vocabulary.newsroom_team_responsible
   enforced:
-      module:
-        - newsroom_connector_team_responsible
+    module:
+      - newsroom_connector_team_responsible
+      - newsroom_connector
 id: taxonomy_term.newsroom_team_responsible.field_newsroom_id
 field_name: field_newsroom_id
 entity_type: taxonomy_term

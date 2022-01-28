@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_team_responsible
+      - newsroom_connector
   config:
     - taxonomy.vocabulary.newsroom_team_responsible
   module:
