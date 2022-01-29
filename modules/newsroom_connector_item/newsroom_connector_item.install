@@ -107,9 +107,9 @@ function newsroom_connector_item_update_9003(&$sandbox) {
 /**
  * Add is machine translated field.
  */
-function newsroom_connector_item_update_9004(&$sandbox) {
-  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans');
-}
+//function newsroom_connector_item_update_9004(&$sandbox) {
+//  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans');
+//}
 
 /**
  * Install field from module config files.
