@@ -295,6 +295,13 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_newsroom_is_machine_trans:
+    type: boolean_checkbox
+    weight: 37
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: { }
   langcode:
     type: language_select
     weight: 2

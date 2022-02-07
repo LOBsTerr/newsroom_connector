@@ -298,6 +298,16 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_newsroom_is_machine_trans:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 132
+    region: content
   links:
     weight: 100
     settings: {  }

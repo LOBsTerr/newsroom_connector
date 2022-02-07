@@ -107,9 +107,9 @@ function newsroom_connector_item_update_9003(&$sandbox) {
 /**
  * Add is machine translated field.
  */
-//function newsroom_connector_item_update_9004(&$sandbox) {
-//  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans');
-//}
+function newsroom_connector_item_update_9004(&$sandbox) {
+  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans');
+}
 
 /**
  * Install field from module config files.
@@ -135,31 +135,18 @@ function _newsroom_connector_item_install_field($field_name) {
   $field_config = $install_storage->read("field.field.{$entity_type}.{$bundle}.{$field_name}");
   FieldConfig::create($field_config)->save();
 
-  $display_form = $entity_type_manager
-    ->getStorage('entity_form_display')
-    ->load("{$entity_type}.{$bundle}.default")
-    ->setComponent($field_name, [
-      'type' => 'string_textfield',
-      'weight' => 32,
-      'settings' => [
-        'size' => 60,
-        'placeholder' => '',
-      ],
-      'region' => 'content',
-    ]);
-  $display_form->save();
+  $displays = [
+    'entity_form_display',
+    'entity_view_display',
+  ];
 
-  $display_view = $entity_type_manager
-    ->getStorage('entity_view_display')
-    ->load("{$entity_type}.{$bundle}.default")
-    ->setComponent($field_name, [
-      'type' => 'string',
-      'weight' => 126,
-      'settings' => [
-        'link_to_entity' => FALSE,
-      ],
-      'region' => 'content',
-    ]);
+  foreach ($displays as $display_id) {
+    $display_config = $install_storage->read("core.{$display_id}.{$entity_type}.{$bundle}.default");
 
-  $display_view->save();
+    $display = $entity_type_manager
+      ->getStorage($display_id)
+      ->load("{$entity_type}.{$bundle}.default")
+      ->setComponent($field_name, $display_config['content'][$field_name]);
+    $display->save();
+  }
 }
