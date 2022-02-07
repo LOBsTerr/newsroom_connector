@@ -137,6 +137,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    * {@inheritdoc}
    */
   public function runImport(Url $url) {
+
     $import_disabled = $this->universeManager->getConfig()->get('import_disabled');
     if ($import_disabled) {
       return;

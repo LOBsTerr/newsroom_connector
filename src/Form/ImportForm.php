@@ -69,7 +69,7 @@ class ImportForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $plugin_id = NULL) {
     $import_disabled = $this->universeManager->getConfig()->get('import_disabled');
     if ($import_disabled) {
-      $form['messge'] = [
+      $form['message'] = [
         '#type' => 'markup',
         '#markup' => 'Import is disabled',
       ];
