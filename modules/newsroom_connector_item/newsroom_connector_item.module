@@ -28,7 +28,7 @@ function newsroom_connector_item_migrate_prepare_row(
   $migration_id = $migration->id();
   if (strpos($migration_id, 'newsroom_item_translations') !== FALSE || $migration_id == 'newsroom_item') {
     _newsroom_connector_validate_urls($row);
-//    $row->setSourceProperty('is_machine_translated', $row->getSourceProperty('is_machine_translated') == 'True');
+    $row->setSourceProperty('is_machine_translated', $row->getSourceProperty('is_machine_translated') == 'True');
   }
 
   if ($migration_id == 'newsroom_item') {

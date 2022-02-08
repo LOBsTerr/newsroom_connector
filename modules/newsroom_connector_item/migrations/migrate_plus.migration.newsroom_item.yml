@@ -371,10 +371,10 @@ process:
   created:
     plugin: get
     source: published_date
-#
-#  field_newsroom_is_machine_trans:
-#    plugin: get
-#    source: is_machine_translated
+
+  field_newsroom_is_machine_trans:
+    plugin: get
+    source: is_machine_translated
 
   status:
     plugin: default_value
