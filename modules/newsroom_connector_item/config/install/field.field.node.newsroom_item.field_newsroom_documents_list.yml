@@ -42,7 +42,7 @@ settings:
       cnect_accordion_section:
         weight: 18
         enabled: false
-      newsroom_documents:
+      newsroom_document:
         weight: 16
         enabled: true
       oe_accordion:
