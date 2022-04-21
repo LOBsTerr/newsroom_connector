@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.newsroom_documents.field_newsroom_documents
+    - field.field.paragraph.newsroom_documents.field_newsroom_is_machine_trans
+    - paragraphs.paragraphs_type.newsroom_documents
+  module:
+    - link
+id: paragraph.newsroom_documents.default
+targetEntityType: paragraph
+bundle: newsroom_documents
+mode: default
+content:
+  admin_title:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_newsroom_documents:
+    type: link_default
+    weight: -9
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_newsroom_is_machine_trans:
+    type: boolean_checkbox
+    weight: -8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

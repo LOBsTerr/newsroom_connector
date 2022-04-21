@@ -20,6 +20,7 @@
     "drupal/allowed_formats": "^1.3.0",
     "drupal/migrate_plus": "^5.1",
     "drupal/migrate_tools": "^5.0",
-    "drupal/geofield": "^1.16"
+    "drupal/geofield": "^1.16",
+    "drupal/paragraphs": "^1.13"
   }
 }

@@ -11,6 +11,7 @@ dependencies:
   - drupal:link
   - drupal:media
   - drupal:node
+  - drupal:paragraphs
   - allowed_formats:allowed_formats
   - geofield:geofield
   - newsroom_connector:newsroom_connector_media

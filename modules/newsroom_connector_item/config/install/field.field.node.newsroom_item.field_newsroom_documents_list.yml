@@ -1,0 +1,80 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsroom_documents_list
+    - node.type.newsroom_item
+    - paragraphs.paragraphs_type.newsroom_documents
+  module:
+    - composite_reference
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 0
+  composite_reference:
+    composite: false
+    composite_revisions: false
+id: node.newsroom_item.field_newsroom_documents_list
+field_name: field_newsroom_documents_list
+entity_type: node
+bundle: newsroom_item
+label: Documents
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      newsroom_documents: newsroom_documents
+    negate: 0
+    target_bundles_drag_drop:
+      cnect_accordion:
+        weight: 17
+        enabled: false
+      cnect_accordion_section:
+        weight: 18
+        enabled: false
+      newsroom_documents:
+        weight: 16
+        enabled: true
+      oe_accordion:
+        weight: 19
+        enabled: false
+      oe_accordion_item:
+        weight: 20
+        enabled: false
+      oe_content_row:
+        weight: 21
+        enabled: false
+      oe_contextual_navigation:
+        weight: 22
+        enabled: false
+      oe_fact:
+        weight: 23
+        enabled: false
+      oe_facts_figures:
+        weight: 24
+        enabled: false
+      oe_links_block:
+        weight: 25
+        enabled: false
+      oe_list_item:
+        weight: 26
+        enabled: false
+      oe_list_item_block:
+        weight: 27
+        enabled: false
+      oe_quote:
+        weight: 28
+        enabled: false
+      oe_rich_text:
+        weight: 29
+        enabled: false
+      oe_social_media_follow:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

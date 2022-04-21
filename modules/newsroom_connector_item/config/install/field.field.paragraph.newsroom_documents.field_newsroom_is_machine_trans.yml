@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_newsroom_is_machine_trans
+    - paragraphs.paragraphs_type.newsroom_documents
+id: paragraph.newsroom_documents.field_newsroom_is_machine_trans
+field_name: field_newsroom_is_machine_trans
+entity_type: paragraph
+bundle: newsroom_documents
+label: 'Is machine translated'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Is machine translated'
+  off_label: 'Is not machine translated'
+field_type: boolean
