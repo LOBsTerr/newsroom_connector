@@ -117,6 +117,7 @@ function newsroom_connector_item_update_9005(&$sandbox) {
   if (!\Drupal::moduleHandler()->moduleExists($module)) {
     \Drupal::service('module_installer')->install([$module]);
   }
+  drupal_flush_all_caches();
   $install_storage = new ExtensionInstallStorage(
     \Drupal::service('config.storage'),
     InstallStorage::CONFIG_INSTALL_DIRECTORY,

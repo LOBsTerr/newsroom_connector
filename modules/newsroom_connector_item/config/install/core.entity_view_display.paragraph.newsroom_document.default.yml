@@ -1,6 +1,10 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
   config:
     - field.field.paragraph.newsroom_document.field_newsroom_documents
     - field.field.paragraph.newsroom_document.field_newsroom_is_machine_trans
