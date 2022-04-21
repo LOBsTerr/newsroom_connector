@@ -115,6 +115,10 @@ function newsroom_connector_item_update_9004(&$sandbox) {
  * Install newsroom documents paragraph.
  */
 function newsroom_connector_item_update_9005(&$sandbox) {
+  $module = 'paragraphs';
+  if (!\Drupal::moduleHandler()->moduleExists($module)) {
+    \Drupal::service('module_installer')->install([$module]);
+  }
   $install_storage = new ExtensionInstallStorage(
     \Drupal::service('config.storage'),
     InstallStorage::CONFIG_INSTALL_DIRECTORY,
@@ -127,15 +131,15 @@ function newsroom_connector_item_update_9005(&$sandbox) {
     ->create($install_storage->read('paragraphs.paragraphs_type.newsroom_document'))
     ->save();
 
-  _newsroom_connector_item_install_field('field_newsroom_documents', 'paragraph', 'newsroom_document');
-  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans', 'paragraph', 'newsroom_document');
-
   $entity_type_manager->getStorage('entity_form_display')
     ->create($install_storage->read('core.entity_form_display.paragraph.newsroom_document.default'))
     ->save();
   $entity_type_manager->getStorage('entity_view_display')
     ->create($install_storage->read('core.entity_view_display.paragraph.newsroom_document.default'))
     ->save();
+
+  _newsroom_connector_item_install_field('field_newsroom_documents', 'paragraph', 'newsroom_document');
+  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans', 'paragraph', 'newsroom_document');
 
   _newsroom_connector_item_install_field('field_newsroom_documents_list', 'node', 'newsroom_item');
 }
