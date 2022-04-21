@@ -5,7 +5,7 @@ dependencies:
     module:
       - newsroom_connector_item
       - newsroom_connector
-id: newsroom_documents
+id: newsroom_document
 label: 'Newsroom documents'
 icon_uuid: null
 icon_default: null

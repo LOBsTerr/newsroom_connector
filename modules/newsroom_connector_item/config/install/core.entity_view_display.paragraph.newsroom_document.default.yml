@@ -8,12 +8,12 @@ dependencies:
   config:
     - field.field.paragraph.newsroom_document.field_newsroom_documents
     - field.field.paragraph.newsroom_document.field_newsroom_is_machine_trans
-    - paragraphs.paragraphs_type.newsroom_documents
+    - paragraphs.paragraphs_type.newsroom_document
   module:
     - link
 id: paragraph.newsroom_document.default
 targetEntityType: paragraph
-bundle: newsroom_documents
+bundle: newsroom_document
 mode: default
 content:
   field_newsroom_documents:

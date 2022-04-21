@@ -8,7 +8,7 @@ dependencies:
   config:
     - field.storage.node.field_newsroom_documents_list
     - node.type.newsroom_item
-    - paragraphs.paragraphs_type.newsroom_documents
+    - paragraphs.paragraphs_type.newsroom_document
   module:
     - composite_reference
     - entity_reference_revisions
@@ -33,7 +33,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      newsroom_documents: newsroom_documents
+      newsroom_document: newsroom_document
     negate: 0
     target_bundles_drag_drop:
       cnect_accordion:
