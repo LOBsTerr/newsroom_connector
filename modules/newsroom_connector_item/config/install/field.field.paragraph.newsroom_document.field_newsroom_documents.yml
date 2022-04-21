@@ -6,7 +6,7 @@ dependencies:
     - paragraphs.paragraphs_type.newsroom_documents
   module:
     - link
-id: paragraph.newsroom_documents.field_newsroom_documents
+id: paragraph.newsroom_document.field_newsroom_documents
 field_name: field_newsroom_documents
 entity_type: paragraph
 bundle: newsroom_documents

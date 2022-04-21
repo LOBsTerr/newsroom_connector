@@ -60,7 +60,7 @@ function newsroom_connector_item_update_9001(&$sandbox) {
  * Add author field.
  */
 function newsroom_connector_item_update_9002(&$sandbox) {
-  _newsroom_connector_item_install_field('field_newsroom_author');
+  _newsroom_connector_item_install_field('field_newsroom_author', 'node', 'newsroom_item');
 }
 
 /**
@@ -108,7 +108,36 @@ function newsroom_connector_item_update_9003(&$sandbox) {
  * Add is machine translated field.
  */
 function newsroom_connector_item_update_9004(&$sandbox) {
-  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans');
+  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans', 'node', 'newsroom_item');
+}
+
+/**
+ * Install newsroom documents paragraph.
+ */
+function newsroom_connector_item_update_9005(&$sandbox) {
+  $install_storage = new ExtensionInstallStorage(
+    \Drupal::service('config.storage'),
+    InstallStorage::CONFIG_INSTALL_DIRECTORY,
+    InstallStorage::DEFAULT_COLLECTION,
+    TRUE,
+    NULL
+  );
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $entity_type_manager->getStorage('paragraphs_type')
+    ->create($install_storage->read('paragraphs.paragraphs_type.newsroom_document'))
+    ->save();
+
+  _newsroom_connector_item_install_field('field_newsroom_documents', 'paragraph', 'newsroom_document');
+  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans', 'paragraph', 'newsroom_document');
+
+  $entity_type_manager->getStorage('entity_form_display')
+    ->create($install_storage->read('core.entity_form_display.paragraph.newsroom_document.default'))
+    ->save();
+  $entity_type_manager->getStorage('entity_view_display')
+    ->create($install_storage->read('core.entity_view_display.paragraph.newsroom_document.default'))
+    ->save();
+
+  _newsroom_connector_item_install_field('field_newsroom_documents_list', 'node', 'newsroom_item');
 }
 
 /**
@@ -116,10 +145,7 @@ function newsroom_connector_item_update_9004(&$sandbox) {
  *
  * @param string $field_name
  */
-function _newsroom_connector_item_install_field($field_name) {
-  $entity_type = 'node';
-  $bundle = 'newsroom_item';
-
+function _newsroom_connector_item_install_field($field_name, $entity_type, $bundle) {
   $entity_type_manager = \Drupal::entityTypeManager();
   $install_storage = new ExtensionInstallStorage(
     \Drupal::service('config.storage'),

@@ -1,7 +1,7 @@
-id: newsroom_item_translations
-label: Newsroom item translations.
+id: newsroom_item_document_translations
+label: Newsroom item document translations.
 migration_group: newsroom
-deriver: 'Drupal\newsroom_connector_item\Plugin\migrate\NewsroomItemLanguageDeriver'
+deriver: 'Drupal\newsroom_connector_item\Plugin\migrate\NewsroomItemDocumentLanguageDeriver'
 migration_tags:
   - newsroom_item
 
@@ -11,7 +11,8 @@ source:
   data_parser_plugin: newsroom_simple_xml
   urls: 'https://ec.europa.eu/newsroom/dae/feed/full/new'
 
-  item_selector: '//channel/item'
+  # We need only not empty items.
+  item_selector: '//channel/item[enclosure[@nrdoctype="image" and string-length(@url) > 0]]'
 
   ids:
     item_id:
@@ -24,15 +25,16 @@ source:
       selector: 'infsonewsroom:BasicId/text()'
 
 destination:
-  plugin: 'entity:node'
+  plugin: 'entity:media'
   translations: true
 
 process:
+
   type:
     plugin: default_value
-    default_value: newsroom_item
+    default_value: newsroom_image
 
-  nid:
+  id:
     plugin: migration_lookup
     source: item_id
     migration: newsroom_item

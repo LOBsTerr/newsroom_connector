@@ -67,4 +67,4 @@ process:
 dependencies:
   enforced:
     module:
-      - newsroom_item
+      - newsroom_connector_item

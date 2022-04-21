@@ -4,7 +4,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_newsroom_is_machine_trans
     - paragraphs.paragraphs_type.newsroom_documents
-id: paragraph.newsroom_documents.field_newsroom_is_machine_trans
+id: paragraph.newsroom_document.field_newsroom_is_machine_trans
 field_name: field_newsroom_is_machine_trans
 entity_type: paragraph
 bundle: newsroom_documents
