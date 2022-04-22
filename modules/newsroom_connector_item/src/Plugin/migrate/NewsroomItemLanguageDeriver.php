@@ -162,12 +162,17 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
     $base_plugin_definition['source']['fields'][] = [
       'name' => 'related_documents_url',
       'label' => 'Related documents - URL',
-      'selector' => 'enclosure[@nrdoctype="document" and ' . $language_code . ' and not(@external_app="DocsRoom")]/@url',
+      'selector' => 'enclosure[@nrdoctype="document" and @lang="' . $language_code . '" and not(@external_app="DocsRoom")]/@url',
     ];
     $base_plugin_definition['source']['fields'][] = [
       'name' => 'related_documents_title',
       'label' => 'Related documents - title',
-      'selector' => 'enclosure[@nrdoctype="document" and ' . $language_code . ' and not(@external_app="DocsRoom")]/@title',
+      'selector' => 'enclosure[@nrdoctype="document" and @lang="' . $language_code . '" and not(@external_app="DocsRoom")]/@title',
+    ];
+    $base_plugin_definition['source']['fields'][] = [
+      'name' => 'related_documents_machine_translation',
+      'label' => 'Related documents - machine translation',
+      'selector' => 'enclosure[@nrdoctype="document" and @lang="' . $language_code . '" and not(@external_app="DocsRoom")]/@machineTranslation',
     ];
 
     $base_plugin_definition['process']['field_newsroom_documents'] = [

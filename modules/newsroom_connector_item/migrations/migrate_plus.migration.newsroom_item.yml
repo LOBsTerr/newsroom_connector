@@ -71,6 +71,10 @@ source:
       label: 'Related documents - Title'
       selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@title'
     -
+      name: related_documents_machine_translation
+      label: 'Related documents - machine translation'
+      selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@machineTranslation'
+    -
       name: topics
       label: 'Topics'
       selector: 'category[@domain="Subchapter"]/@infsonewsroom:TopicId'

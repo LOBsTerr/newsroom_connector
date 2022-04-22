@@ -34,6 +34,7 @@ function newsroom_connector_item_migrate_prepare_row(
     $related_documents_urls = $row->getSourceProperty('related_documents_url');
 
     $data = [];
+
     if (!empty($related_documents_urls)) {
       if (is_array($related_documents_urls)) {
         foreach ($related_documents_urls as $key => $item) {
@@ -46,6 +47,7 @@ function newsroom_connector_item_migrate_prepare_row(
         $data[0]['title'] = $related_documents_titles;
       }
     }
+
     $row->setSourceProperty('documents', $data);
   }
 
