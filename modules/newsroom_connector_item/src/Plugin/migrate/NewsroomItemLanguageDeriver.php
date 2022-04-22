@@ -133,11 +133,11 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
         'field' => 'field_newsroom_quote_box',
         'xpath' => 'infsonewsroom:FullQuoteBox',
       ],
-//      [
-//        'name' => 'is_machine_translated',
-//        'field' => 'field_newsroom_is_machine_trans',
-//        'xpath' => 'infsonewsroom:MachineTranslation',
-//      ],
+      [
+        'name' => 'is_machine_translated',
+        'field' => 'field_newsroom_is_machine_trans',
+        'xpath' => 'infsonewsroom:MachineTranslation',
+      ],
     ];
 
     foreach ($fields as $field) {
@@ -157,6 +157,26 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
     $base_plugin_definition['process']['field_newsroom_body/format'] = [
       'plugin' => 'default_value',
       'default_value' => 'newsroom_basic_html',
+    ];
+
+    $base_plugin_definition['source']['fields'][] = [
+      'name' => 'related_documents_url',
+      'label' => 'Related documents - URL',
+      'selector' => 'enclosure[@nrdoctype="document" and ' . $language_code . ' and not(@external_app="DocsRoom")]/@url',
+    ];
+    $base_plugin_definition['source']['fields'][] = [
+      'name' => 'related_documents_title',
+      'label' => 'Related documents - title',
+      'selector' => 'enclosure[@nrdoctype="document" and ' . $language_code . ' and not(@external_app="DocsRoom")]/@title',
+    ];
+
+    $base_plugin_definition['process']['field_newsroom_documents'] = [
+      'plugin' => 'sub_process',
+      'source' => 'documents',
+      'process' => [
+        'title' => 'title',
+        'uri' => 'url',
+      ],
     ];
 
     return $base_plugin_definition;
