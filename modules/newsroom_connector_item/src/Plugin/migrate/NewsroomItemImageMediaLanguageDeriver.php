@@ -6,7 +6,7 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\newsroom_connector\Plugin\migrate\BaseNewsroomLanguageDeriver;
 
 /**
- * Deriver for the newsroom item media image translations.
+ * Deriver for the newsroom item translations.
  */
 class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver {
 

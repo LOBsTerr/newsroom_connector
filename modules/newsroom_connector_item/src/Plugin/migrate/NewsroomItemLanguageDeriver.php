@@ -133,11 +133,11 @@ class NewsroomItemLanguageDeriver extends BaseNewsroomLanguageDeriver {
         'field' => 'field_newsroom_quote_box',
         'xpath' => 'infsonewsroom:FullQuoteBox',
       ],
-      [
-        'name' => 'is_machine_translated',
-        'field' => 'field_newsroom_is_machine_trans',
-        'xpath' => 'infsonewsroom:MachineTranslation',
-      ],
+//      [
+//        'name' => 'is_machine_translated',
+//        'field' => 'field_newsroom_is_machine_trans',
+//        'xpath' => 'infsonewsroom:MachineTranslation',
+//      ],
     ];
 
     foreach ($fields as $field) {

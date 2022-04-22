@@ -45,4 +45,4 @@ process:
 dependencies:
   enforced:
     module:
-      - newsroom_connector_item
+      - newsroom_item

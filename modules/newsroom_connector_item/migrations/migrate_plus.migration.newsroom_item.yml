@@ -244,12 +244,6 @@ process:
       title: 'title'
       uri: 'url'
 
-  'field_newsroom_documents_list/target_id':
-    plugin: migration_lookup
-    migration: newsroom_item_image_document
-    source: item_id
-    no_stub: true
-
   field_newsroom_id:
     plugin: get
     source: item_id
@@ -377,10 +371,10 @@ process:
   created:
     plugin: get
     source: published_date
-
-  field_newsroom_is_machine_trans:
-    plugin: get
-    source: is_machine_translated
+#
+#  field_newsroom_is_machine_trans:
+#    plugin: get
+#    source: is_machine_translated
 
   status:
     plugin: default_value
