@@ -65,11 +65,15 @@ source:
     -
       name: related_documents_url
       label: 'Related documents - URL'
-      selector: 'enclosure[@nrdoctype="document" and not(@external_app="DocsRoom")]/@url'
+      selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@url'
     -
       name: related_documents_title
       label: 'Related documents - Title'
-      selector: 'enclosure[@nrdoctype="document" and not(@external_app="DocsRoom")]/@title'
+      selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@title'
+    -
+      name: related_documents_machine_translation
+      label: 'Related documents - machine translation'
+      selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@machineTranslation'
     -
       name: topics
       label: 'Topics'
@@ -371,10 +375,10 @@ process:
   created:
     plugin: get
     source: published_date
-#
-#  field_newsroom_is_machine_trans:
-#    plugin: get
-#    source: is_machine_translated
+
+  field_newsroom_is_machine_trans:
+    plugin: get
+    source: is_machine_translated
 
   status:
     plugin: default_value
