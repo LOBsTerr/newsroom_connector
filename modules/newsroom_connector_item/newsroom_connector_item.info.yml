@@ -8,6 +8,7 @@ php: (>=7.1)
 
 dependencies:
   - drupal:datetime_range
+  - drupal:entity_data
   - drupal:link
   - drupal:media
   - drupal:node
