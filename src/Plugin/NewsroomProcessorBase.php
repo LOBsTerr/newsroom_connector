@@ -15,6 +15,7 @@ use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Base class for Newsroom processor plugins.
@@ -25,7 +26,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   use DependencySerializationTrait;
 
   /**
-   * Use batch or standard migation.
+   * Use batch or standard migration.
    *
    * @var bool
    */
@@ -46,6 +47,13 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected $migrationManager;
 
   /**
+   * Request.
+   *
+   * @var \Symfony\Component\HttpFoundation\Request
+   */
+  protected $request;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(
@@ -53,11 +61,13 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     $plugin_id,
     $plugin_definition,
     UniverseManagerInterface $universe_manager,
-    MigrationManagerInterface $migration_manager
+    MigrationManagerInterface $migration_manager,
+    Request $request
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->universeManager = $universe_manager;
     $this->migrationManager = $migration_manager;
+    $this->request = $request;
   }
 
   /**
@@ -69,7 +79,8 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $plugin_id,
       $plugin_definition,
       $container->get('newsroom_connector.universe_manager'),
-      $container->get('newsroom_connector.migration_manager')
+      $container->get('newsroom_connector.migration_manager'),
+      $container->get('request_stack')->getCurrentRequest()
     );
   }
 
@@ -79,7 +90,10 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   public function redirect($newsroom_id) {
     $entity = $this->getEntityByNewsroomId($newsroom_id);
     if (!empty($entity)) {
-      return new RedirectResponse($entity->toUrl()->toString());
+      $query_parameters = $this->request->query->all();
+      $entity_url = $entity->toUrl();
+      $entity_url->setOptions(array('query' => $query_parameters));
+      return new RedirectResponse($entity_url->toString());
     }
     else {
       throw new NotFoundHttpException();
