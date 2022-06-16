@@ -23,6 +23,11 @@ source:
       label: 'Item ID'
       selector: 'infsonewsroom:BasicId/text()'
 
+process:
+  type:
+    plugin: default_value
+    default_value: newsroom_item
+
 destination:
   plugin: 'deleted_newsroom_item'
 
