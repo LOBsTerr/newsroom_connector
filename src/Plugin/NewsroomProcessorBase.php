@@ -8,7 +8,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\migrate_tools\MigrateExecutable;
+use Drupal\newsroom_connector\MigrateExecutable;
 use Drupal\newsroom_connector\MigrateBatchExecutable;
 use Drupal\newsroom_connector\MigrationManagerInterface;
 use Drupal\newsroom_connector\UniverseManagerInterface;

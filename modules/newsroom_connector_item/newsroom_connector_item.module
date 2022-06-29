@@ -13,7 +13,7 @@ use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
-use Drupal\migrate_tools\MigrateExecutable;
+use Drupal\newsroom_connector\MigrateExecutable;
 use Drupal\newsroom_connector_item\Plugin\newsroom\NewsroomItemNewsroomProcessor;
 
 /**

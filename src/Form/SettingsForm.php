@@ -114,6 +114,11 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('Disable import'),
       '#default_value' => $config->get('import_disabled') ?? 0,
     ];
+    $form['universe_settings']['general']['debug'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Debug'),
+      '#default_value' => $config->get('debug') ?? 0,
+    ];
     $form['universe_settings']['general']['base_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Base newsroom URL:'),
@@ -192,6 +197,7 @@ class SettingsForm extends ConfigFormBase {
     $values = $form_state->getValues();
     $settings = $this->config('newsroom_connector.settings')
       ->set('universe_id', $values['universe_id'])
+      ->set('debug', $values['debug'])
       ->set('import_disabled', $values['import_disabled'])
       ->set('base_url', $values['base_url'])
       ->set('app', $values['app'])

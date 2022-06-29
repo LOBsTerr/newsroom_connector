@@ -1,6 +1,7 @@
 universe_id: ''
 base_url: 'https://ec.europa.eu/newsroom/'
 docsroom_url: ''
+debug: false
 
 dependencies:
   enforced:
