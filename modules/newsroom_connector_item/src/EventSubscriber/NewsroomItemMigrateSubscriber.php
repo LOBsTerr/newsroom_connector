@@ -57,6 +57,10 @@ class NewsroomItemMigrateSubscriber implements EventSubscriberInterface {
    *   The migration import event.
    */
   public function updateDocuments(MigratePostRowSaveEvent $event) {
+    // We set here information for documents, which are machine translated
+    // and which are not. It wasn't possible to use paragraphs of a specific
+    // implementation of documents on the NR. A document doesn't have
+    // translations, it is created one for a specific language.
     $migration_id = $event->getMigration()->id();
     if (strpos($migration_id, 'newsroom_item_translations') !== FALSE || $migration_id == NewsroomItemNewsroomProcessor::MIGRATION_ITEM) {
       $nid = $event->getDestinationIdValues()[0] ?? NULL;
@@ -70,11 +74,13 @@ class NewsroomItemMigrateSubscriber implements EventSubscriberInterface {
       if (!empty($related_documents_urls)) {
         if (is_array($related_documents_urls)) {
           foreach ($related_documents_urls as $key => $item) {
-            $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls[$key], 'node', $related_documents_machine_translations[$key] == 'True' ? 1 : 0);
+            // @TODO: Get rid off  "True" value when it is updated in the feed.
+            $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls[$key], 'node', $related_documents_machine_translations[$key] == 1 || $related_documents_machine_translations[$key] == 'True' ? 1 : 0);
           }
         }
         else {
-          $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls, 'node', $related_documents_machine_translations == 'True' ? 1 : 0);
+          // @TODO: Get rid off  "True" value when it is updated in the feed.
+          $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls, 'node', $related_documents_machine_translations == 1 || $related_documents_machine_translations == 'True' ? 1 : 0);
         }
       }
     }

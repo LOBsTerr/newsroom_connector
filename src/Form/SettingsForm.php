@@ -219,20 +219,15 @@ class SettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function noValidateForm(array &$form, FormStateInterface $form_state) {
+  public function validateForm(array &$form, FormStateInterface $form_state) {
     $universe_id = $form_state->getValue('universe_id');
     $base_url = $form_state->getValue('base_url');
 
-    // @TODO Find another way to validate universe id.
     if (!$this->validateUniverseId($base_url, $universe_id)) {
       $form_state->setErrorByName('universe_id', $this->t('Wrong newsroom universe ID.'));
     }
 
-    // @TODO Bring it back, when it is done on the newsroom
-    $subsite = $form_state->getValue('subsite');
-    if (!$this->validateSubsite($base_url, $universe_id, $subsite)) {
-      $form_state->setErrorByName('subsite', $this->t('Wrong subsite.'));
-    }
+    // @TODO Add validation for subsite.
   }
 
   /**
@@ -250,7 +245,7 @@ class SettingsForm extends ConfigFormBase {
     $result = FALSE;
 
     try {
-      $url = $this->buildUrl($base_url, $universe_id, 'logout.cfm');
+      $url = $this->buildUrl($base_url, $universe_id, 'newsletter-archives/view');
       $response = $this->httpClient->get($url);
       $result = $response->getStatusCode() == 200;
     }
@@ -268,46 +263,14 @@ class SettingsForm extends ConfigFormBase {
    *   Base part of URL.
    * @param string $universe_id
    *   Universe id.
-   * @param array $paramters
+   * @param string $paramters
    *   URL parameters.
    *
    * @return string
    *   URL string.
    */
-  private function buildUrl($base_part, $universe_id, array $paramters) {
-    // @TODO: Use universe manager instead.
+  private function buildUrl($base_part, $universe_id, $paramters) {
     return "{$base_part}{$universe_id}/{$paramters}";
-  }
-
-  /**
-   * Validates subsite.
-   *
-   * @param string $base_url
-   *   Base part of URL.
-   * @param string $universe_id
-   *   Universe id.
-   * @param string $subsite
-   *   Subsite.
-   *
-   * @return bool
-   *   Result
-   */
-  private function validateSubsite($base_url, $universe_id, $subsite) {
-    $result = TRUE;
-    // The subsite is not mandatory.
-    if (!empty($subsite)) {
-      try {
-        $url = $this->buildUrl($base_url, $universe_id, "validation.cfm?subsite=$subsite");
-        $response = $this->httpClient->get($url, ['headers' => ['Accept' => 'text/plain']]);
-        $body = trim((string) $response->getBody());
-        $result = $body == 'True' ? TRUE : FALSE;
-      }
-      catch (RequestException $exception) {
-        watchdog_exception('newsroom_connector', $exception);
-      }
-    }
-
-    return $result;
   }
 
 }

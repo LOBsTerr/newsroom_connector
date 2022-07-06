@@ -79,6 +79,8 @@ class DeleteNewsroomItem extends DestinationBase implements ContainerFactoryPlug
    * {@inheritdoc}
    */
   public function import(Row $row, array $old_destination_id_values = []) {
+    // This migration plugin, actually takes newsroom item migration and
+    // rolls back newsroom item with given id.
     $migrations[] = NewsroomItemNewsroomProcessor::MIGRATION_ITEM;
     $migrations = array_merge($migrations, $this->migrationManager->getTranslationMigrationIds(NewsroomItemNewsroomProcessor::MIGRATION_ITEM));
 

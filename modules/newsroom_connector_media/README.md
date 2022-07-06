@@ -1,3 +1,3 @@
-Newsroom Connector Media
+###Newsroom Connector Media
 
-Newsroom Connector Media configuration
+Contains configurations of media type, image styles and all related fields.

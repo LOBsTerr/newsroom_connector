@@ -127,6 +127,13 @@ function newsroom_connector_item_update_9005(&$sandbox) {
 }
 
 /**
+ * Add documents match language field.
+ */
+function newsroom_connector_item_update_9006(&$sandbox) {
+  _newsroom_connector_item_install_field('field_newsroom_docs_match_lang');
+}
+
+/**
  * Install field from module config files.
  *
  * @param string $field_name

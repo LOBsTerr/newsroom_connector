@@ -45,6 +45,7 @@ class SimpleXml extends DataParserPluginBase {
     // that occur from attempting to load the XML string into an object here.
     libxml_clear_errors();
 
+    // We cache result of fetch operation to accelerate batch operations.
     $cid = 'newsroom_http_plugin' . crc32($url);
     $cache_backend = \Drupal::service('cache.default');
     $data_cached = $cache_backend->get($cid);

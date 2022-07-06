@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.newsroom_item.field_newsroom_contact_info
     - field.field.node.newsroom_item.field_newsroom_contact_text
     - field.field.node.newsroom_item.field_newsroom_date
+    - field.field.node.newsroom_item.field_newsroom_docs_match_lang
     - field.field.node.newsroom_item.field_newsroom_docsroom_ids
     - field.field.node.newsroom_item.field_newsroom_documents
     - field.field.node.newsroom_item.field_newsroom_hl_topics
@@ -83,6 +84,13 @@ content:
     third_party_settings: {  }
     type: daterange_default
     region: content
+  field_newsroom_docs_match_lang:
+    type: boolean_checkbox
+    weight: 38
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: { }
   field_newsroom_docsroom_ids:
     weight: 21
     settings: {  }

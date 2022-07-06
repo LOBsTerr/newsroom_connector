@@ -28,8 +28,11 @@ function newsroom_connector_item_migrate_prepare_row(
   $migration_id = $migration->id();
   if (strpos($migration_id, 'newsroom_item_translations') !== FALSE || $migration_id == 'newsroom_item') {
     _newsroom_connector_validate_urls($row);
-    $row->setSourceProperty('is_machine_translated', $row->getSourceProperty('is_machine_translated') == 'True');
+    // @TODO: Get rid off  "True" value when it is updated in the feed.
+    $row->setSourceProperty('is_machine_translated', $row->getSourceProperty('is_machine_translated') == 1 || $row->getSourceProperty('is_machine_translated') == 'True');
 
+    // We need to preprocess documents to handle them correctly by
+    // plugin: sub_process
     $related_documents_titles = $row->getSourceProperty('related_documents_title');
     $related_documents_urls = $row->getSourceProperty('related_documents_url');
 
@@ -52,7 +55,8 @@ function newsroom_connector_item_migrate_prepare_row(
   }
 
   if ($migration_id == 'newsroom_item') {
-    // We set empty string for fields, which don't have values. So, they will be reset.
+    // We set empty string for fields, which don't have values.
+    // So, they will be reset.
     $source_fields = $row->getSource()['fields'];
     foreach ($source_fields as $source_field) {
       $source_field_name = $source_field['name'];
@@ -92,6 +96,9 @@ function newsroom_connector_item_migrate_prepare_row(
  *   Migration row.
  */
 function _newsroom_connector_validate_urls(Row &$row) {
+  // Because NR doesn't have proper validation of URLs, when can face
+  // an exception when value for link field is set that URL is not valid
+  // to avoid this case we set to NULL not valid URLs.
   $newsroom_id = $row->getSourceProperty('item_id');
   $logger = \Drupal::logger('newsroom');
 
@@ -148,6 +155,7 @@ function newsroom_connector_item_node_view(
   $view_mode
 ) {
 
+  // Add edit / import buttons here, if user has rights and it is newsroom item.
   if ($entity->bundle() == 'newsroom_item' && $display->getComponent('newsroom_action_buttons')) {
     $current_user = \Drupal::currentUser();
     if ($current_user->hasPermission('import newsroom content')) {
@@ -177,12 +185,12 @@ function newsroom_connector_item_node_view(
  */
 function newsroom_connector_item_node_delete(EntityInterface $entity) {
   if ($entity->bundle() == 'newsroom_item') {
-
+    // if newsroom item is deleted, we want to be
     // Clean up migrations.
     $migration_manager = \Drupal::service('newsroom_connector.migration_manager');
     $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM, $entity);
 
-    // Remove media.
+    // If newsroom item is deleted, we don't want to keep media for it.
     if ($media = $entity->field_newsroom_image->entity) {
 
       // Clean up migrations.

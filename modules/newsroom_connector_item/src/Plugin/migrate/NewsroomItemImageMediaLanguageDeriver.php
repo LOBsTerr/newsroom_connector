@@ -33,6 +33,7 @@ class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver 
       'method' => 'row',
       'source' => 'image_name',
     ];
+
     $base_plugin_definition['process']['name'][] = [
       'plugin' => 'get',
       'source' => 'image_name',
@@ -77,21 +78,6 @@ class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver 
       'source' => 'copyright',
       'language' => $language_id,
     ];
-
-    // @TODO add it later.
-    // File title.
-//    $base_plugin_definition['process']['field_media_image_newsroom/title'] = [
-//      'plugin' => 'get',
-//      'source' => 'image_name',
-//      'language' => $language_id,
-//    ];
-
-    // File alt text.
-//    $base_plugin_definition['process']['field_media_image_newsroom/alt'] = [
-//      'plugin' => 'get',
-//      'source' => 'image_name',
-//      'language' => $language_id,
-//    ];
 
     return $base_plugin_definition;
   }

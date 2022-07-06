@@ -57,7 +57,9 @@ class MigrationImageSync implements EventSubscriberInterface {
    *   The migration import event.
    */
   public function sync(MigrateImportEvent $event) {
-
+    // We want to be sure, that we don't have duplication of medias/images for
+    // newsroom item, before the import we do rollback for media importers,
+    // which will also remove images.
     $migration = $event->getMigration();
     if ($migration->id() == NewsroomItemNewsroomProcessor::MIGRATION_ITEM) {
       $source = clone $migration->getSourcePlugin();
