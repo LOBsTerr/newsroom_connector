@@ -44,7 +44,7 @@ class NewsroomConnectorController extends ControllerBase {
    *
    * @param \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager $newsroom_processor_plugin_manager
    *   Newsroom process plugin manager.
-   * @param \Drupal\newsroom_connector\UniverseManager $universe_manager
+   * @param \Drupal\newsroom_connector\UniverseManagerInterface $universe_manager
    *   The universe manager.
    */
   public function __construct(NewsroomProcessorManager $newsroom_processor_plugin_manager, UniverseManagerInterface $universe_manager) {

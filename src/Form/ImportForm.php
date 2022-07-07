@@ -78,7 +78,8 @@ class ImportForm extends FormBase {
       $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
       if (!$plugin) {
         throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
-      } else {
+      }
+      else {
         $this->plugin = $plugin;
       }
 

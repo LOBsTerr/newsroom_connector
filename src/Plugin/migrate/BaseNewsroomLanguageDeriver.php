@@ -68,7 +68,7 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
 
       $language_code = $this->migrationManager->normalizeLanguage($language->getId());
 
-      $this->derivatives[$language_code] = $this->getDerivativeValues($base_plugin_definition, $language, strtoupper($language_code));
+      $this->derivatives[$language_code] = $this->getDerivativeValues($base_plugin_definition, $language, mb_strtoupper($language_code));
     }
 
     return $this->derivatives;

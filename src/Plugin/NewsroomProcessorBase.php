@@ -92,7 +92,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     if (!empty($entity)) {
       $query_parameters = $this->request->query->all();
       $entity_url = $entity->toUrl();
-      $entity_url->setOptions(array('query' => $query_parameters));
+      $entity_url->setOptions(['query' => $query_parameters]);
       return new RedirectResponse($entity_url->toString());
     }
     else {
