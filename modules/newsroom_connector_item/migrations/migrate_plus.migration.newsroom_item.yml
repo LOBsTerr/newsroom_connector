@@ -77,15 +77,15 @@ source:
     -
       name: topics
       label: 'Topics'
-      selector: 'category[@domain="Subchapter"]/@infsonewsroom:TopicId'
+      selector: 'category[not(@domain="Newsletter")]/@infsonewsroom:TopicId'
     -
       name: primary_topic
       label: 'Primary topic'
-      selector: 'category[@infsonewsroom:TopicPrimary="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
+      selector: 'category[@infsonewsroom:TopicPrimary="1" and not(@domain="Newsletter")]/@infsonewsroom:TopicId'
     -
       name: highlighted_topics
       label: 'Highlighted topic'
-      selector: 'category[@infsonewsroom:TopicHighlight="1" and @domain="Subchapter"]/@infsonewsroom:TopicId'
+      selector: 'category[@infsonewsroom:TopicHighlight="1" and not(@domain="Newsletter")]/@infsonewsroom:TopicId'
     -
       name: related_content
       label: 'Related content'
