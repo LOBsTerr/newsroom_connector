@@ -32,7 +32,7 @@ source:
     -
       name: topic_type
       label: 'Topic type'
-      selector: 'infsonewsroom:topicType[@lang="EN"]/text()'
+      selector: 'infsonewsroom:topicType/text()'
 
 process:
 
