@@ -48,7 +48,7 @@ class MigrateBatchExecutable extends MigrateBatchExecutableBase {
   /**
    * {@inheritdoc}
    */
-  public function batchImport() {
+  public function batchImport(): void {
     // Create the batch operations for each migration that needs to be executed.
     // This includes the migration for this executable, but also the dependent
     // migrations.
@@ -79,7 +79,7 @@ class MigrateBatchExecutable extends MigrateBatchExecutableBase {
   /**
    * {@inheritdoc}
    */
-  protected function batchOperations(array $migrations, $operation, array $options = []) {
+  protected function batchOperations(array $migrations, $operation, array $options = []): array {
     $operations = [];
     foreach ($migrations as $migration) {
 
@@ -124,14 +124,14 @@ class MigrateBatchExecutable extends MigrateBatchExecutableBase {
   /**
    * {@inheritdoc}
    */
-  public static function batchProcessImport($migration_id, array $options, &$context) {
+  public static function batchProcessImport(string $migration_id, array $options, &$context): void {
     if (empty($context['sandbox'])) {
       $context['finished'] = 0;
       $context['sandbox'] = [];
       $context['sandbox']['total'] = 0;
       $context['sandbox']['counter'] = 0;
       $context['sandbox']['batch_limit'] = 0;
-      $context['sandbox']['operation'] = MigrateBatchExecutable::BATCH_IMPORT;
+      $context['sandbox']['operation'] = self::BATCH_IMPORT;
     }
 
     // Prepare the migration executable.
@@ -142,7 +142,7 @@ class MigrateBatchExecutable extends MigrateBatchExecutableBase {
 
     // Each batch run we need to reinitialize the counter for the migration.
     if (!empty($options['limit']) && isset($context['results'][$migration->id()]['@numitems'])) {
-      $options['limit'] = $options['limit'] - $context['results'][$migration->id()]['@numitems'];
+      $options['limit'] -= $context['results'][$migration->id()]['@numitems'];
     }
 
     // Changed code.
@@ -167,7 +167,7 @@ class MigrateBatchExecutable extends MigrateBatchExecutableBase {
       ];
     }
 
-    // Every iteration, we reset out batch counter.
+    // Every iteration, we reset our batch counter.
     $context['sandbox']['batch_counter'] = 0;
 
     // Make sure we know our batch context.
@@ -187,9 +187,7 @@ class MigrateBatchExecutable extends MigrateBatchExecutableBase {
     ];
 
     // Do some housekeeping.
-    if (
-      $result != MigrationInterface::RESULT_INCOMPLETE
-    ) {
+    if ($result !== MigrationInterface::RESULT_INCOMPLETE) {
       $context['finished'] = 1;
     }
     else {
