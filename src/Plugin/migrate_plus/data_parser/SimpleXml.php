@@ -38,7 +38,7 @@ class SimpleXml extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function openSourceUrl($url) {
+  protected function openSourceUrl($url): bool {
     // Clear XML error buffer. Other Drupal code that executed during the
     // migration may have polluted the error buffer and could create false
     // positives in our error check below. We are only concerned with errors
@@ -93,7 +93,7 @@ class SimpleXml extends DataParserPluginBase {
   /**
    * {@inheritdoc}
    */
-  protected function fetchNextRow() {
+  protected function fetchNextRow(): void {
     $target_element = array_shift($this->matches);
 
     // If we've found the desired element, populate the currentItem and

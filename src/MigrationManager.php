@@ -162,7 +162,7 @@ class MigrationManager implements MigrationManagerInterface {
       }
       $id_map->next();
     }
-    $this->dispatcher->dispatch(MigrateEvents::POST_ROLLBACK, new MigrateRollbackEvent($migration));
+    $this->dispatcher->dispatch(new MigrateRollbackEvent($migration), MigrateEvents::POST_ROLLBACK);
   }
 
   /**
@@ -177,7 +177,7 @@ class MigrationManager implements MigrationManagerInterface {
    */
   protected function dispatchRowDeleteEvent($event_name, MigrationInterface $migration, array $destination_ids) {
     // Symfony changing dispatcher so implementation could change.
-    $this->dispatcher->dispatch($event_name, new MigrateRowDeleteEvent($migration, $destination_ids));
+    $this->dispatcher->dispatch(new MigrateRowDeleteEvent($migration, $destination_ids), $event_name);
   }
 
   /**
