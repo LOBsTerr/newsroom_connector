@@ -81,4 +81,13 @@ interface MigrationManagerInterface {
    */
   public function getMigration($migration_id);
 
+  /**
+   * Clean mappings by source id.
+   *
+   * @param string $migration_id
+   *   Migration id.
+   * @param string $source_id
+   *   Source id.
+   */
+  public function deleteMappingsBySourceId($migration_id, $source_id);
 }

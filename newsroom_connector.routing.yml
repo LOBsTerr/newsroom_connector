@@ -55,3 +55,12 @@ newsroom_connector.import_form:
     _permission: 'import newsroom content'
   options:
     _admin_route: TRUE
+
+# Clean mappings records.
+newsroom_connector.clean_mappings:
+  path: '/admin/content/newsroom/importers/{plugin_id}/clean-mappings'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\CleanMigrationMappingsForm'
+    _title: 'Clean migration mappings'
+  requirements:
+    _permission: 'administer newsroom settings'

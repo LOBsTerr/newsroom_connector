@@ -129,9 +129,11 @@ class NewsroomConnectorController extends ControllerBase {
     }
     else {
       foreach ($plugins as $plugin_id => $plugin) {
-        $url = Url::fromRoute('newsroom_connector.import_form', ['plugin_id' => $plugin_id]);
+        $import_url = Url::fromRoute('newsroom_connector.import_form', ['plugin_id' => $plugin_id]);
+        $clean_url = Url::fromRoute('newsroom_connector.clean_mappings', ['plugin_id' => $plugin_id]);
         $data[] = [
-          Link::fromTextAndUrl($plugin['label']->render(), $url),
+          Link::fromTextAndUrl($plugin['label']->render(), $import_url),
+          Link::fromTextAndUrl('Clean', $clean_url),
         ];
       }
     }
@@ -141,6 +143,7 @@ class NewsroomConnectorController extends ControllerBase {
       '#rows' => $data,
       '#header' => [
         'Name',
+        'Clean mappings'
       ],
       '#empty' => $empty_message,
     ];

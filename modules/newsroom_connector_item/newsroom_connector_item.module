@@ -186,6 +186,7 @@ function newsroom_connector_item_node_view(
 function newsroom_connector_item_node_delete(EntityInterface $entity) {
   if ($entity->bundle() == 'newsroom_item') {
     // If newsroom item is deleted, we want to be clean up migrations.
+    /** @var \Drupal\newsroom_connector\MigrationManager $migration_manager */
     $migration_manager = \Drupal::service('newsroom_connector.migration_manager');
     $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM, $entity);
 

@@ -191,6 +191,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    *   Url.
    */
   protected function runMigration($migration_id, Url $url) {
+
     $migration = $this->migrationManager->getMigration($migration_id);
     if (!empty($migration)) {
 
@@ -223,6 +224,20 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
         $executable = new MigrateExecutable($migration, new MigrateMessage());
         $executable->import();
       }
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function deleteMappingsBySourceId($newsroom_id) {
+    $definition = $this->getPluginDefinition();
+    if (empty($definition['migrations'])) {
+      return;
+    }
+
+    foreach ($definition['migrations'] as $migration_id) {
+      $this->migrationManager->deleteMappingsBySourceId($migration_id, $newsroom_id);
     }
   }
 

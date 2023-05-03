@@ -78,6 +78,19 @@ class MigrationManager implements MigrationManagerInterface {
   /**
    * {@inheritdoc}
    */
+  public function deleteMappingsBySourceId($migration_id, $source_id) {
+    $this->deleteDestinationBySourceId($migration_id, $source_id);
+
+    // Run cleanup for translations' migrations.
+    $translation_migrations = $this->getTranslationMigrationIds($migration_id);
+    foreach ($translation_migrations as $language_id => $translation_migration) {
+      $this->deleteDestinationBySourceId($translation_migration, $source_id);
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function normalizeLanguage($language_id) {
     // For languages pt-pt, we take the first part only.
     if (strpos($language_id, '-') !== FALSE) {
@@ -111,7 +124,7 @@ class MigrationManager implements MigrationManagerInterface {
   }
 
   /**
-   * Delete migration records based on keys.
+   * Delete migration destination records based on keys.
    *
    * @param string $migration_id
    *   Migration id.
@@ -126,6 +139,55 @@ class MigrationManager implements MigrationManagerInterface {
     /** @var \Drupal\migrate\Plugin\MigrateIdMapInterface $id_map */
     $id_map = $migration->getIdMap();
     $id_map->deleteDestination($destination_keys);
+  }
+
+  /**
+   * Delete migration destination records based on keys.
+   *
+   * @param string $migration_id
+   *   Migration id.
+   * @param string $source_id
+   *   Source ID.
+   */
+  protected function deleteDestinationBySourceId($migration_id, $source_id) {
+    $migration = $this->getMigration($migration_id);
+    if (empty($migration)) {
+      return;
+    }
+
+    /** @var \Drupal\migrate\Plugin\MigrateIdMapInterface $id_map */
+    $id_map = $migration->getIdMap();
+    $destination_ids = $this->getDestinationIdsBySourceIds($migration, [$source_id]);
+    if (empty($destination_ids)) {
+      return;
+    }
+
+    foreach ($destination_ids as $destination_id) {
+      $id_map->deleteDestination($destination_id);
+    }
+
+  }
+
+  /**
+   * Get destination ids by source ids.
+   *
+   * @param \Drupal\migrate\Plugin\MigrationInterface $migration
+   *   Migration.
+   * @param array $source_id_values
+   *   List of source IDs.
+   *
+   * @return array
+   *   List of destination IDs.
+   */
+  protected function getDestinationIdsBySourceIds(MigrationInterface $migration, array $source_id_values) {
+    $destination_keys = array_keys($migration->getDestinationPlugin()->getIds());
+    $indexed_ids = $migration->getIdMap()
+      ->lookupDestinationIds($source_id_values);
+    $keyed_ids = [];
+    foreach ($indexed_ids as $id) {
+      $keyed_ids[] = array_combine($destination_keys, $id);
+    }
+    return $keyed_ids;
   }
 
   /**
