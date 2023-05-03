@@ -178,6 +178,7 @@ source:
       name: documents_match_language
       label: 'Documents match language'
       selector: 'infsonewsroom:docMatchLanguage/text()'
+
 process:
 
   type:

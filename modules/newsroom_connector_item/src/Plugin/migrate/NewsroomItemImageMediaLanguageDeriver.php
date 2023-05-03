@@ -6,7 +6,7 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\newsroom_connector\Plugin\migrate\BaseNewsroomLanguageDeriver;
 
 /**
- * Deriver for the newsroom item translations.
+ * Deriver for the newsroom item media translations.
  */
 class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver {
 
@@ -15,6 +15,7 @@ class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver 
    */
   protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code) {
     $language_id = $language->getId();
+    $base_plugin_definition['source']['item_selector'] = '//channel/item[string-length(infsonewsroom:PicTitle[@lang="' . $language_code . '"]) > 0 and enclosure[@lang="' . $language_code . '" and @nrdoctype="image" and string-length(@url) > 0]]';
 
     $base_plugin_definition['process']['langcode'] = [
       'plugin' => 'default_value',
@@ -26,12 +27,6 @@ class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver 
       'name' => 'image_name',
       'label' => 'Image name',
       'selector' => 'infsonewsroom:PicTitle[@lang="' . $language_code . '"]/text()',
-    ];
-
-    $base_plugin_definition['process']['name'][] = [
-      'plugin' => 'skip_on_empty',
-      'method' => 'row',
-      'source' => 'image_name',
     ];
 
     $base_plugin_definition['process']['name'][] = [

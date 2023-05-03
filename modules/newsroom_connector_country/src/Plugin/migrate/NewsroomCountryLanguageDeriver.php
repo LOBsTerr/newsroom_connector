@@ -16,6 +16,8 @@ class NewsroomCountryLanguageDeriver extends BaseNewsroomLanguageDeriver {
   protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code) {
     $language_id = $language->getId();
 
+    $base_plugin_definition['source']['item_selector'] = '//channel/item[string-length(title[@lang="' . $language_code . '"]) > 0]';
+
     // Name.
     $base_plugin_definition['source']['fields'][] = [
       'name' => 'name',
@@ -23,10 +25,9 @@ class NewsroomCountryLanguageDeriver extends BaseNewsroomLanguageDeriver {
       'selector' => 'title[@lang="' . $language_code . '"]/text()',
     ];
 
-    $base_plugin_definition['process']['name'] = [
-      'plugin' => 'skip_on_empty',
-      'source' => 'name',
-      'method' => 'row',
+    $base_plugin_definition['process']['name'][] = [
+      'plugin' => 'get',
+      'source' => "type_name_$language_id",
       'language' => $language_id,
     ];
 
