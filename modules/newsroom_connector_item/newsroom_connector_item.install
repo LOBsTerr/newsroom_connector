@@ -132,6 +132,30 @@ function newsroom_connector_item_update_9006(&$sandbox) {
 }
 
 /**
+ * Replace ckeditor to ckeditor5.
+ */
+function newsroom_connector_item_update_9007(&$sandbox) {
+  $config_storage = \Drupal::service('config.storage');
+
+  // Get the storage for optional extension configuration.
+  $optional_storage = new ExtensionInstallStorage(
+    $config_storage,
+    InstallStorage::CONFIG_INSTALL_DIRECTORY,
+    InstallStorage::DEFAULT_COLLECTION,
+    TRUE,
+    NULL
+  );
+
+  $config_name = 'filter.format.newsroom_basic_html';
+  $config = \Drupal::configFactory()->getEditable($config_name);
+  $config->set($config_name, $optional_storage->read($config_name));
+  $config->save(TRUE);
+
+  $config_name = 'editor.editor.newsroom_basic_html';
+  $config_storage->write($config_name, $optional_storage->read($config_name));
+}
+
+/**
  * Install field from module config files.
  *
  * @param string $field_name
