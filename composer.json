@@ -17,11 +17,11 @@
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "require": {
-    "drupal/core": "^9.5 || ^10",
-    "drupal/allowed_formats": "^1.4",
-    "drupal/entity_data": "^1.0",
+    "drupal/core": "^10.1",
+    "drupal/allowed_formats": "^3.0",
+    "drupal/entity_data": "^1.1",
     "drupal/migrate_plus": "^6.0",
     "drupal/migrate_tools": "^6.0",
-    "drupal/geofield": "^1.16"
+    "drupal/geofield": "^1.5"
   }
 }
