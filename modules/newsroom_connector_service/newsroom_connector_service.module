@@ -20,11 +20,11 @@ function newsroom_connector_service_migrate_prepare_row(
 
   // Set title as alt text if it is empty.
   if (strpos($migration->id(), 'newsroom_service_logo_media_translations') !== FALSE || $migration->id() == 'newsroom_service_logo_media') {
-    $newsroom_item_title = $row->getSourceProperty('item_name');
     $image_alt = $row->getSourceProperty('image_alt');
 
     if (empty($image_alt)) {
-      $row->setSourceProperty('image_alt', $newsroom_item_title);
+      $title = $row->getSourceProperty('service_name');
+      $row->setSourceProperty('image_alt', $title);
     }
   }
 }
