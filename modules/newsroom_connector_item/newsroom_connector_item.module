@@ -80,13 +80,20 @@ function newsroom_connector_item_migrate_prepare_row(
 
   // Set title as alt text if it is empty.
   if (strpos($migration_id, 'newsroom_item_image_media_translations') !== FALSE || $migration_id == 'newsroom_item_image_media') {
-    $newsroom_item_title = $row->getSourceProperty('item_name');
-    $image_alt = $row->getSourceProperty('image_alt');
+    $picture_title = $row->getSourceProperty('item_name');
+    if (empty($picture_title)) {
+      // Set item title as picture title if it's empty.
+      $picture_title = $row->getSourceProperty('title');
+      $row->setSourceProperty('image_alt', $picture_title);
+      $row->setSourceProperty('item_name', $picture_title);
+    }
 
+    $image_alt = $row->getSourceProperty('image_alt');
     if (empty($image_alt)) {
-      $row->setSourceProperty('image_alt', $newsroom_item_title);
+      $row->setSourceProperty('image_alt', $picture_title);
     }
   }
+
 }
 
 /**

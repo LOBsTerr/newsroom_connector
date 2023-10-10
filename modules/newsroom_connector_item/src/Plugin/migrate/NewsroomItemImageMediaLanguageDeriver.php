@@ -22,6 +22,13 @@ class NewsroomItemImageMediaLanguageDeriver extends BaseNewsroomLanguageDeriver 
       'default_value' => $language_id,
     ];
 
+    // Title.
+    $base_plugin_definition['source']['fields'][] = [
+      'name' => 'title',
+      'label' => 'Title',
+      'selector' => 'title[@lang="' . $language_code . '"]/text()',
+    ];
+
     // Name.
     $base_plugin_definition['source']['fields'][] = [
       'name' => 'image_name',

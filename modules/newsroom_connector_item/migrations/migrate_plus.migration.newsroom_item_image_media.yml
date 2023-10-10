@@ -23,6 +23,10 @@ source:
       label: 'Item ID'
       selector: 'infsonewsroom:BasicId/text()'
     -
+      name: title
+      label: Title
+      selector: 'title[@lang="EN"]/text()'
+    -
       name: item_name
       label: Name
       selector: 'infsonewsroom:PicTitle[@lang="EN"]/text()'

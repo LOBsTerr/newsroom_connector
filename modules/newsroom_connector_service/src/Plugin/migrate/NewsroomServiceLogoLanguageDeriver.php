@@ -16,6 +16,12 @@ class NewsroomServiceLogoLanguageDeriver extends BaseNewsroomLanguageDeriver {
   protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code) {
     $language_id = $language->getId();
 
+    $base_plugin_definition['source']['fields'][] = [
+      'name' => 'service_name',
+      'label' => 'Name',
+      'selector' => 'title[@lang="' . $language_code . '"]/text()',
+    ];
+
     $base_plugin_definition['process']['langcode'] = [
       'plugin' => 'default_value',
       'default_value' => $language_id,
