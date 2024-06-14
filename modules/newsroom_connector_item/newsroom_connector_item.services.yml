@@ -1,4 +1,10 @@
 services:
+  newsroom_connector_item.migration_clean_up:
+    class: Drupal\newsroom_connector_item\EventSubscriber\MigrationCleanUpBrokenItems
+    tags:
+      - { name: event_subscriber }
+    arguments: [ '@event_dispatcher', '@entity_type.manager', '@newsroom_connector.migration_manager' ]
+
   newsroom_connector_item.migration_image_sync:
     class: Drupal\newsroom_connector_item\EventSubscriber\MigrationImageSync
     tags:

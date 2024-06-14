@@ -2,6 +2,7 @@
 
 namespace Drupal\newsroom_connector_item\EventSubscriber;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigrateImportEvent;
 use Drupal\newsroom_connector\MigrationManager;
@@ -10,9 +11,9 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Sync newsroom item images.
+ * Clean up broken nodes.
  */
-class MigrationImageSync implements EventSubscriberInterface {
+class MigrationCleanUpBrokenItems implements EventSubscriberInterface {
 
   /**
    * The event dispatcher.
@@ -20,6 +21,13 @@ class MigrationImageSync implements EventSubscriberInterface {
    * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
    */
   protected $dispatcher;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
 
   /**
    * Migration manager.
@@ -33,14 +41,16 @@ class MigrationImageSync implements EventSubscriberInterface {
    *
    * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
    *   The event dispatcher.
-   * @param \Drupal\newsroom_connector\MigrationManager $migration_manager
-   *   Migration manager.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
    */
   public function __construct(
     EventDispatcherInterface $dispatcher,
+    EntityTypeManagerInterface $entity_type_manager,
     MigrationManager $migration_manager,
   ) {
     $this->dispatcher = $dispatcher;
+    $this->entityTypeManager = $entity_type_manager;
     $this->migrationManager = $migration_manager;
   }
 
@@ -49,7 +59,7 @@ class MigrationImageSync implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     $events = [];
-    $events[MigrateEvents::PRE_IMPORT][] = ['sync'];
+    $events[MigrateEvents::PRE_IMPORT][] = ['clean'];
     return $events;
   }
 
@@ -59,30 +69,37 @@ class MigrationImageSync implements EventSubscriberInterface {
    * @param \Drupal\migrate\Event\MigrateImportEvent $event
    *   The migration import event.
    */
-  public function sync(MigrateImportEvent $event) {
-    // We want to be sure, that we don't have duplication of medias/images for
-    // newsroom item, before the import we do rollback for media importers,
-    // which will also remove images.
+  public function clean(MigrateImportEvent $event) {
+    // We want to get rid off newsroom items, which don't have mappings and we
+    // can't track them, so for us they are broken.
     $migration = $event->getMigration();
+
+    $entity_type = 'node';
+    $bundle = 'newsroom_item';
+    $bundle_field = 'type';
+
     if ($migration->id() == NewsroomItemNewsroomProcessor::MIGRATION_ITEM) {
       $source = clone $migration->getSourcePlugin();
       $source->rewind();
-      $source_id_values = [];
-      while ($source->valid()) {
-        $image = $source->current()->getSourceProperty('image');
-        if (empty($image)) {
-          $source_id_values[] = $source->current()->getSourceProperty('item_id');
-        }
-        $source->next();
-      }
 
-      if (!empty($source_id_values)) {
-        $media_migration_id = NewsroomItemNewsroomProcessor::MIGRATION_ITEM_IMAGE_MEDIA;
-        $migration_to_rollback = [$media_migration_id];
-        $migration_to_rollback = array_merge($migration_to_rollback, $this->migrationManager->getTranslationMigrationIds($media_migration_id));
-        foreach ($migration_to_rollback as $migration_rollback_id) {
-          $this->migrationManager->rollback($migration_rollback_id, $source_id_values);
+      while ($source->valid()) {
+        $newsroom_id = $source->current()->getSourceProperty('item_id');
+        if (!empty($newsroom_id)) {
+          $destination_ids = $this->migrationManager->getDestinationIdsBySourceIds($migration, [$newsroom_id]);
+          if (!empty($destination_ids)) {
+            $nodes = $this->migrationManager->getEntitiesByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field);
+            foreach ($destination_ids as $destination) {
+              foreach ($nodes as $node) {
+
+                if ($node->id() != $destination['nid']) {
+                  $node->delete();
+                }
+              }
+            }
+          }
         }
+
+        $source->next();
       }
     }
   }

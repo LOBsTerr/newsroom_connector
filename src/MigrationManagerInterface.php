@@ -71,6 +71,23 @@ interface MigrationManagerInterface {
   public function getEntityByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field);
 
   /**
+   * Get entities by original newsroom id.
+   *
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   * @param string $entity_type
+   *   Entity type.
+   * @param string $bundle
+   *   Bundle.
+   * @param string $bundle_field
+   *   Bundle field.
+   *
+   * @return \Drupal\Core\Entity\EntityInterface|null
+   *   Entity associated with newsroom id.
+   */
+  public function getEntitiesByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field);
+
+  /**
    * Get migration.
    *
    * @param string $migration_id

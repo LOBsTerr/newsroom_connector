@@ -10,7 +10,7 @@ source:
   data_parser_plugin: newsroom_simple_xml
   urls: 'https://ec.europa.eu/newsroom/dae/feed/item-types'
 
-  item_selector: '//channel/item'
+  item_selector: '//channel/item[string-length(title[@lang="EN"]) > 0]'
 
   ids:
     type_id:

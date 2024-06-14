@@ -49,9 +49,21 @@ class MigrationManager implements MigrationManagerInterface {
   protected $dispatcher;
 
   /**
+   * Migratinos plugins.
+   *
+   * @var array
+   */
+  protected $migrations = [];
+
+  /**
    * {@inheritdoc}
    */
-  public function __construct(MigrationPluginManager $migrationPluginManager, LanguageManagerInterface $languageManager, EntityTypeManagerInterface $entity_type_manager, EventDispatcherInterface $dispatcher) {
+  public function __construct(
+    MigrationPluginManager $migrationPluginManager,
+    LanguageManagerInterface $languageManager,
+    EntityTypeManagerInterface $entity_type_manager,
+    EventDispatcherInterface $dispatcher,
+  ) {
     $this->migrationPluginManager = $migrationPluginManager;
     $this->languageManager = $languageManager;
     $this->entityTypeManager = $entity_type_manager;
@@ -179,7 +191,7 @@ class MigrationManager implements MigrationManagerInterface {
    * @return array
    *   List of destination IDs.
    */
-  protected function getDestinationIdsBySourceIds(MigrationInterface $migration, array $source_id_values) {
+  public function getDestinationIdsBySourceIds(MigrationInterface $migration, array $source_id_values) {
     $destination_keys = array_keys($migration->getDestinationPlugin()->getIds());
     $indexed_ids = $migration->getIdMap()
       ->lookupDestinationIds($source_id_values);
@@ -194,7 +206,11 @@ class MigrationManager implements MigrationManagerInterface {
    * {@inheritdoc}
    */
   public function getMigration($migration_id) {
-    return $this->migrationPluginManager->createInstance($migration_id);
+    if (empty($this->migrations[$migration_id])) {
+      $this->migrations[$migration_id] = $this->migrationPluginManager->createInstance($migration_id);
+    }
+
+    return $this->migrations[$migration_id];
   }
 
   /**
@@ -246,19 +262,20 @@ class MigrationManager implements MigrationManagerInterface {
    * {@inheritdoc}
    */
   public function getEntityByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field) {
-    $entity = NULL;
-    $items = $this->entityTypeManager
+    $items = $this->getEntitiesByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field);
+    return reset($items);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getEntitiesByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field) {
+    return $this->entityTypeManager
       ->getStorage($entity_type)
       ->loadByProperties([
         'field_newsroom_id' => $newsroom_id,
         $bundle_field => $bundle,
       ]);
-
-    if ($item = reset($items)) {
-      $entity = $item;
-    }
-
-    return $entity;
   }
 
 }

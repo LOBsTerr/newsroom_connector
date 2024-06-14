@@ -16,7 +16,7 @@ class NewsroomTopicLanguageDeriver extends BaseNewsroomLanguageDeriver {
   protected function getDerivativeValues(array $base_plugin_definition, LanguageInterface $language, $language_code) {
     $language_id = $language->getId();
 
-    $base_plugin_definition['source']['item_selector'] = '//channel/item[string-length(title[@lang="' . $language_code . '"]) > 0]';
+    $base_plugin_definition['source']['item_selector'] = '//channel/item[infsonewsroom:definedBy="User" and string-length(title[@lang="' . $language_code . '"]) > 0]';
 
     // Name.
     $base_plugin_definition['source']['fields'][] = [

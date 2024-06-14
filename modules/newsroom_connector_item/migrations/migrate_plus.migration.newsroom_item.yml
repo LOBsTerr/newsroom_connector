@@ -11,7 +11,7 @@ source:
   urls:
     - 'https://ec.europa.eu/newsroom/dae/feed/full/new'
 
-  item_selector: '//channel/item'
+  item_selector: '//channel/item[count(title[@lang="EN"]) > 0]'
 
   ids:
     item_id:
