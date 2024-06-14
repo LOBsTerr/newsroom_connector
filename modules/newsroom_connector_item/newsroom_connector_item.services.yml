@@ -5,6 +5,12 @@ services:
       - { name: event_subscriber }
     arguments: ['@event_dispatcher', '@newsroom_connector.migration_manager']
 
+  newsroom_connector_item.newsroom_item_preprocess:
+    class: Drupal\newsroom_connector_item\EventSubscriber\MigrationItemPreprocess
+    tags:
+      - { name: event_subscriber }
+    arguments: [ '@event_dispatcher']
+
   newsroom_connector_item.newsroom_migrate_subscriber:
     class: Drupal\newsroom_connector_item\EventSubscriber\NewsroomItemMigrateSubscriber
     tags:
