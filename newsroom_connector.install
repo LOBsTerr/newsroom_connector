@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Update hooks.
+ */
+
+use Drupal\Core\Config\ExtensionInstallStorage;
+use Drupal\Core\Config\InstallStorage;
+use Drupal\Core\Database\Database;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Clean up empty mappings.
+ */
+function newsroom_connector_update_9001(&$sandbox) {
+  $plugins = \Drupal::service('newsroom_connector.plugin.manager.newsroom_processor')->getDefinitions();
+  /** @var \Drupal\newsroom_connector\MigrationManager $migration_manager */
+  $migration_manager = \Drupal::service('newsroom_connector.migration_manager');
+  /** @var \Drupal\Core\Database\Connection $database */
+  $database = \Drupal::service('database');
+  foreach ($plugins as $plugin) {
+    $migrations = $plugin['migrations'] ?? [];
+
+    foreach ($migrations as $migration_id) {
+      $tables = [];
+
+      // Get mapping table for given migration.
+      $migration = $migration_manager->getMigration($migration_id);
+      if (empty($migration)) {
+        continue;
+      }
+      $tables[] = $migration->getIdMap()->mapTableName();
+
+      // Get mapping tables also for translation migration.
+      $translation_migration_ids = $migration_manager->getTranslationMigrationIds($migration_id);
+      foreach ($translation_migration_ids as $translation_migration_id) {
+        $translation_migration = $migration_manager->getMigration($translation_migration_id);
+        if (empty($translation_migration)) {
+          continue;
+        }
+
+        $tables[] = $translation_migration->getIdMap()->mapTableName();
+      }
+
+      foreach ($tables as $table) {
+        $database->delete($table)
+          ->condition('destid1', NULL, 'IS NULL')
+          ->execute();
+      }
+    }
+  }
+
+}

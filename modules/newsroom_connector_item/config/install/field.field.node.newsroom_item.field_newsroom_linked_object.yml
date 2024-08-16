@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
+  config:
+    - field.storage.node.field_newsroom_linked_object
+    - node.type.newsroom_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    newsroom_basic_html: newsroom_basic_html
+id: node.newsroom_item.field_newsroom_linked_object
+field_name: field_newsroom_linked_object
+entity_type: node
+bundle: newsroom_item
+label: 'Linked object'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

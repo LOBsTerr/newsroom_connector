@@ -1,0 +1,14 @@
+name: Newsroom Connector
+description: Newsroom connector
+package: Newsroom
+
+type: module
+core_version_requirement: ^9 || ^10 || ^11
+php: (>=8.0)
+
+dependencies:
+  - drupal:taxonomy
+  - drupal:migrate_plus
+  - drupal:migrate_tools
+
+configure: newsroom_connector.settings

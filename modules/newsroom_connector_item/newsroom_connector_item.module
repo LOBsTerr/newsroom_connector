@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Provides newsroom_connector_item functionality.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\migrate\MigrateMessage;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\newsroom_connector\MigrateExecutable;
+use Drupal\newsroom_connector_item\Plugin\newsroom\NewsroomItemNewsroomProcessor;
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function newsroom_connector_item_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['node']['newsroom_item']['display']['newsroom_action_buttons'] = [
+    'label' => t('Action buttons'),
+    'description' => t('Displays buttons to edit or to reimport newsroom item.'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function newsroom_connector_item_node_view(
+  array &$build,
+  EntityInterface $entity,
+  EntityViewDisplayInterface $display,
+  $view_mode
+) {
+
+  // Add edit / import buttons here, if user has rights and it is newsroom item.
+  if ($entity->bundle() == 'newsroom_item' && $display->getComponent('newsroom_action_buttons')) {
+    $current_user = \Drupal::currentUser();
+    if ($current_user->hasPermission('import newsroom content')) {
+      $newsroom_id = $entity->field_newsroom_id->value;
+      if (!empty($newsroom_id)) {
+        $universe_manager = \Drupal::service('newsroom_connector.universe_manager');
+        // Newsroom action buttons.
+        $items = [
+          Link::fromTextAndUrl('Edit', $universe_manager->getItemEditUrl($newsroom_id))->toRenderable(),
+          Link::fromTextAndUrl('Import', URL::fromRoute('newsroom_connector.import', [
+            'type' => 'item',
+            'newsroom_id' => $newsroom_id,
+          ]))->toRenderable(),
+        ];
+        $build['newsroom_action_buttons'] = [
+          '#theme' => 'item_list',
+          '#items' => $items,
+        ];
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function newsroom_connector_item_node_delete(EntityInterface $entity) {
+  if ($entity->bundle() == 'newsroom_item') {
+    // If newsroom item is deleted, we want to be clean up migrations.
+    /** @var \Drupal\newsroom_connector\MigrationManager $migration_manager */
+    $migration_manager = \Drupal::service('newsroom_connector.migration_manager');
+    $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM, $entity);
+
+    // If newsroom item is deleted, we don't want to keep media for it.
+    if ($media = $entity->field_newsroom_image->entity) {
+
+      // Clean up migrations.
+      $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM_IMAGE_MEDIA, $media);
+      if ($file = $media->field_media_image_newsroom->entity) {
+        $migration_manager->cleanUpMigrations(NewsroomItemNewsroomProcessor::MIGRATION_ITEM_IMAGE, $file);
+      }
+
+      $media->delete();
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function newsroom_connector_item_cron() {
+
+  // Run importers for deleted and unpublished items.
+  $migrations = [
+    'deleted_newsroom_items' => 'feed/deleted',
+    'unpublished_newsroom_items' => 'feed/unpublished',
+  ];
+
+  $base_url = \Drupal::service('newsroom_connector.universe_manager')->getBaseUrl();
+  $newsroom_migration_manager = \Drupal::service('newsroom_connector.migration_manager');
+  foreach ($migrations as $migration_id => $script) {
+    $migration = $newsroom_migration_manager->getMigration($migration_id);
+    if (!empty($migration)) {
+      $status = $migration->getStatus();
+      if ($status !== MigrationInterface::STATUS_IDLE) {
+        $migration->setStatus(MigrationInterface::STATUS_IDLE);
+      }
+      $source = $migration->getSourceConfiguration();
+      $source['urls'] = $base_url . $script;
+      $migration->set('source', $source);
+      $migration->getIdMap()->prepareUpdate();
+      $executable = new MigrateExecutable($migration, new MigrateMessage());
+      $executable->import();
+    }
+  }
+}

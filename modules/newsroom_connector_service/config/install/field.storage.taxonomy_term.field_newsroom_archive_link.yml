@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+      - newsroom_connector
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_newsroom_archive_link
+field_name: field_newsroom_archive_link
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

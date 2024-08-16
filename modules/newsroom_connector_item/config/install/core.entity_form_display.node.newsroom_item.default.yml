@@ -1,0 +1,370 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
+  config:
+    - field.field.node.newsroom_item.field_newsroom_body
+    - field.field.node.newsroom_item.field_newsroom_contact_info
+    - field.field.node.newsroom_item.field_newsroom_contact_text
+    - field.field.node.newsroom_item.field_newsroom_date
+    - field.field.node.newsroom_item.field_newsroom_docs_match_lang
+    - field.field.node.newsroom_item.field_newsroom_docsroom_ids
+    - field.field.node.newsroom_item.field_newsroom_documents
+    - field.field.node.newsroom_item.field_newsroom_hl_topics
+    - field.field.node.newsroom_item.field_newsroom_id
+    - field.field.node.newsroom_item.field_newsroom_image
+    - field.field.node.newsroom_item.field_newsroom_linked_object
+    - field.field.node.newsroom_item.field_newsroom_location
+    - field.field.node.newsroom_item.field_newsroom_main_link
+    - field.field.node.newsroom_item.field_newsroom_organiser
+    - field.field.node.newsroom_item.field_newsroom_parent_content
+    - field.field.node.newsroom_item.field_newsroom_pr_coordinator
+    - field.field.node.newsroom_item.field_newsroom_primary_topic
+    - field.field.node.newsroom_item.field_newsroom_project_acronym
+    - field.field.node.newsroom_item.field_newsroom_project_name
+    - field.field.node.newsroom_item.field_newsroom_project_website
+    - field.field.node.newsroom_item.field_newsroom_quote_box
+    - field.field.node.newsroom_item.field_newsroom_registration_link
+    - field.field.node.newsroom_item.field_newsroom_related_content
+    - field.field.node.newsroom_item.field_newsroom_see_also
+    - field.field.node.newsroom_item.field_newsroom_speaker
+    - field.field.node.newsroom_item.field_newsroom_author
+    - field.field.node.newsroom_item.field_newsroom_teaser
+    - field.field.node.newsroom_item.field_newsroom_topics
+    - field.field.node.newsroom_item.field_newsroom_type
+    - field.field.node.newsroom_item.field_newsroom_venue
+    - field.field.node.newsroom_item.field_newsroom_is_machine_trans
+    - node.type.newsroom_item
+  module:
+    - datetime_range
+    - link
+    - path
+    - text
+id: node.newsroom_item.default
+targetEntityType: node
+bundle: newsroom_item
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_newsroom_body:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_newsroom_contact_info:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_contact_text:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_date:
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_newsroom_docs_match_lang:
+    type: boolean_checkbox
+    weight: 38
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: { }
+  field_newsroom_docsroom_ids:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_newsroom_documents:
+    weight: 20
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_hl_topics:
+    weight: 18
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_id:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_image:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_linked_object:
+    weight: 36
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_newsroom_location:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_main_link:
+    weight: 15
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_organiser:
+    weight: 30
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_parent_content:
+    weight: 23
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_pr_coordinator:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_primary_topic:
+    weight: 19
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_project_acronym:
+    weight: 24
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_project_name:
+    weight: 25
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_project_website:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_quote_box:
+    weight: 35
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_newsroom_registration_link:
+    weight: 32
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_related_content:
+    weight: 22
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_see_also:
+    weight: 13
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_newsroom_speaker:
+    weight: 31
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_author:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: { }
+    type: string_textfield
+    region: content
+  field_newsroom_teaser:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_newsroom_topics:
+    weight: 17
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_type:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_newsroom_venue:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_newsroom_is_machine_trans:
+    type: boolean_checkbox
+    weight: 37
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: { }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,49 @@
+id: newsroom_country_translations
+label: Newsroom country translations
+migration_group: newsroom
+deriver: 'Drupal\newsroom_connector_country\Plugin\migrate\NewsroomCountryLanguageDeriver'
+migration_tags:
+  - newsroom_country
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: newsroom_simple_xml
+  urls: 'https://ec.europa.eu/newsroom/dae/feed/topics'
+
+  item_selector: '//channel/item[infsonewsroom:definedBy="System" and infsonewsroom:topicType="Country"]'
+
+  ids:
+    topic_id:
+      type: integer
+
+  fields:
+    -
+      name: topic_id
+      label: 'Topic ID'
+      selector: 'infsonewsroom:topicId/text()'
+
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_country
+
+  tid:
+    plugin: migration_lookup
+    source: topic_id
+    migration: newsroom_country
+    no_stub: true
+
+  content_translation_source:
+    plugin: default_value
+    default_value: 'en'
+
+destination:
+  plugin: entity:taxonomy_term
+  translations: true
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_country

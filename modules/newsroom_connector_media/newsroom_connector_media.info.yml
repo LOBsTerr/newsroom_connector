@@ -1,0 +1,11 @@
+name: Newsroom Connector Media
+description: Newsroom media provides media configuration.
+package: Newsroom
+
+type: module
+core_version_requirement: ^9 || ^10 || ^11
+php: (>=8.0)
+
+dependencies:
+  - drupal:file
+  - drupal:media

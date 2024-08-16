@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
+  config:
+    - field.storage.node.field_newsroom_primary_topic
+    - node.type.newsroom_item
+    - taxonomy.vocabulary.newsroom_topic
+_core:
+  default_config_hash: '-SECCuKZs-LDEZZ0DrLszGxn9l9qfHyFYTu0i5kjTLw'
+id: node.newsroom_item.field_newsroom_primary_topic
+field_name: field_newsroom_primary_topic
+entity_type: node
+bundle: newsroom_item
+label: 'Primary topic'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      newsroom_topic: newsroom_topic
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

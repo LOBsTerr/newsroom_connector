@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+      - newsroom_connector
+  config:
+    - field.storage.taxonomy_term.field_newsroom_service_image
+    - media.type.newsroom_image
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_service_image
+field_name: field_newsroom_service_image
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: Logo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      newsroom_image: newsroom_image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

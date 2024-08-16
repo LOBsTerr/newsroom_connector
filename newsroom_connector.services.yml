@@ -1,0 +1,13 @@
+services:
+
+  newsroom_connector.universe_manager:
+    arguments: ['@config.factory']
+    class: Drupal\newsroom_connector\UniverseManager
+
+  newsroom_connector.migration_manager:
+    arguments: [ '@plugin.manager.migration', '@language_manager', '@entity_type.manager', '@event_dispatcher']
+    class: Drupal\newsroom_connector\MigrationManager
+
+  newsroom_connector.plugin.manager.newsroom_processor:
+    class: Drupal\newsroom_connector\Plugin\NewsroomProcessorManager
+    parent: default_plugin_manager

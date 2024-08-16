@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Newsroom connector hooks.
+ */
+
+/**
+ * Implements hook_cron().
+ */
+function newsroom_connector_cron() {
+  // Run all importers with activated cron settings.
+  /** @var \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager $processor_manager */
+  $processor_manager = Drupal::service('newsroom_connector.plugin.manager.newsroom_processor');
+  $plugins = $processor_manager->getDefinitions();
+  /** @var \Drupal\newsroom_connector\UniverseManager $universe_manager */
+  $universe_manager = Drupal::service('newsroom_connector.universe_manager');
+  foreach ($plugins as $plugin_id => $plugin) {
+    $cron_import = $universe_manager->getValue("cron_import_{$plugin_id}");
+    if (!empty($cron_import)) {
+      $processor = $processor_manager->createInstance($plugin_id);
+      $processor->import(NULL, TRUE);
+    }
+  }
+}
