@@ -1,0 +1,173 @@
+<?php
+
+/**
+ * @file
+ * Update hooks.
+ */
+
+use Drupal\Core\Config\ExtensionInstallStorage;
+use Drupal\Core\Config\InstallStorage;
+use Drupal\Core\Database\Database;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Increase the size of text fields.
+ */
+function newsroom_connector_item_update_9001(&$sandbox) {
+
+  if ($schema = Database::getConnection()->schema()) {
+    $length = 500;
+    $fields = [
+      'field_newsroom_project_name',
+      'field_newsroom_contact_info',
+      'field_newsroom_contact_text',
+      'field_newsroom_location',
+      'field_newsroom_organiser',
+      'field_newsroom_pr_coordinator',
+      'field_newsroom_speaker',
+      'field_newsroom_venue',
+    ];
+    $table_prefixes = [
+      'node',
+      'node_revision',
+    ];
+    $config_factory = \Drupal::configFactory();
+    foreach ($fields as $field_name) {
+      foreach ($table_prefixes as $table_prefix) {
+        $schema->changeField(
+          "{$table_prefix}__{$field_name}",
+          "{$field_name}_value",
+          "{$field_name}_value",
+          [
+            'type' => 'varchar',
+            'length' => $length,
+            'default' => '',
+          ]
+        );
+      }
+
+      $config = $config_factory->getEditable('field.storage.node.' . $field_name);
+      $settings = $config->get('settings');
+      $settings['max_length'] = $length;
+      $config->set('settings', $settings);
+      $config->save();
+    }
+  }
+}
+
+/**
+ * Add author field.
+ */
+function newsroom_connector_item_update_9002(&$sandbox) {
+  _newsroom_connector_item_install_field('field_newsroom_author');
+}
+
+/**
+ * Update fields definitions.
+ */
+function newsroom_connector_item_update_9003(&$sandbox) {
+  $keyvalue = \Drupal::service('keyvalue');
+  $length = 500;
+
+  $fields = [
+    'field_newsroom_alt_text' => 'media',
+    'field_newsroom_caption' => 'media',
+    'field_newsroom_copyright' => 'media',
+    'field_newsroom_contact_info' => 'node',
+    'field_newsroom_contact_text' => 'node',
+    'field_newsroom_location' => 'node',
+    'field_newsroom_organiser' => 'node',
+    'field_newsroom_pr_coordinator' => 'node',
+    'field_newsroom_project_name' => 'node',
+    'field_newsroom_speaker' => 'node',
+    'field_newsroom_venue' => 'node',
+  ];
+  foreach ($fields as $field => $entity_type) {
+    $value_name = "{$entity_type}.field_schema_data.{$field}";
+    $value = $keyvalue->get('entity.storage_schema.sql')->get($value_name);
+
+    $field_name = "{$entity_type}__{$field}";
+    $field_revision_name = "{$entity_type}_revision__{$field}";
+    $value[$field_name]['fields']["{$field}_value"]['length'] = $length;
+    $value[$field_revision_name]['fields']["{$field}_value"]['length'] = $length;
+    $keyvalue->get('entity.storage_schema.sql')->set($value_name, $value);
+
+    $field_definitions = $keyvalue->get('entity.definitions.installed')
+      ->get("{$entity_type}.field_storage_definitions");
+    $field_definitions[$field]->setSetting('max_length', $length);
+    $keyvalue->get('entity.definitions.installed')
+      ->set("{$entity_type}.field_storage_definitions", $field_definitions);
+
+  }
+}
+
+/**
+ * Add is machine translated field.
+ */
+function newsroom_connector_item_update_9004(&$sandbox) {
+  _newsroom_connector_item_install_field('field_newsroom_is_machine_trans');
+}
+
+/**
+ * Make documents field translatable.
+ */
+function newsroom_connector_item_update_9005(&$sandbox) {
+  $module = 'entity_data';
+  if (!\Drupal::moduleHandler()->moduleExists($module)) {
+    \Drupal::service('module_installer')->install([$module]);
+  }
+  $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'newsroom_item');
+  $field_config = $fields['field_newsroom_documents']->getConfig('newsroom_item');
+  $field_config
+    ->setTranslatable(TRUE)
+    ->save();
+}
+
+/**
+ * Add documents match language field.
+ */
+function newsroom_connector_item_update_9006(&$sandbox) {
+  _newsroom_connector_item_install_field('field_newsroom_docs_match_lang');
+}
+
+/**
+ * Install field from module config files.
+ *
+ * @param string $field_name
+ *   Name of the field.
+ */
+function _newsroom_connector_item_install_field($field_name) {
+  $entity_type = 'node';
+  $bundle = 'newsroom_item';
+
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $install_storage = new ExtensionInstallStorage(
+    \Drupal::service('config.storage'),
+    InstallStorage::CONFIG_INSTALL_DIRECTORY,
+    InstallStorage::DEFAULT_COLLECTION,
+    TRUE,
+    NULL
+  );
+  $field_storage_config = $install_storage->read("field.storage.{$entity_type}.{$field_name}");
+
+  FieldStorageConfig::create($field_storage_config)->save();
+
+  $field_config = $install_storage->read("field.field.{$entity_type}.{$bundle}.{$field_name}");
+  FieldConfig::create($field_config)->save();
+
+  $displays = [
+    'entity_form_display',
+    'entity_view_display',
+  ];
+
+  foreach ($displays as $display_id) {
+    $display_config = $install_storage->read("core.{$display_id}.{$entity_type}.{$bundle}.default");
+
+    $display = $entity_type_manager
+      ->getStorage($display_id)
+      ->load("{$entity_type}.{$bundle}.default")
+      ->setComponent($field_name, $display_config['content'][$field_name]);
+    $display->save();
+  }
+}

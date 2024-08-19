@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - newsroom_connector
+  enforced:
+    module:
+      - newsroom_connector_topic
+      - newsroom_connector
+name: 'Newsroom topic'
+vid: newsroom_topic
+description: 'Newsroom topics'
+hierarchy: 0
+weight: 0

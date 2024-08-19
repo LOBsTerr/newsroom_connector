@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+      - newsroom_connector
+  config:
+    - field.storage.taxonomy_term.field_newsroom_can_subscribe
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_can_subscribe
+field_name: field_newsroom_can_subscribe
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Can subscribe?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Can subsribe'
+  off_label: 'Cannot subsribe'
+field_type: boolean

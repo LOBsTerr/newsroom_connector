@@ -1,0 +1,69 @@
+id: newsroom_topic
+label: Newsroom topic
+migration_group: newsroom
+migration_tags:
+  - newsroom_topic
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: newsroom_simple_xml
+  urls: 'https://ec.europa.eu/newsroom/dae/feed/topics'
+
+  item_selector: '//channel/item[infsonewsroom:definedBy="User" and string-length(title[@lang="EN"]) > 0]'
+
+  ids:
+    topic_id:
+      type: integer
+
+  fields:
+    -
+      name: topic_id
+      label: 'Topic ID'
+      selector: 'infsonewsroom:topicId/text()'
+    -
+      name: topic_name
+      label: Name
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: parent_id
+      label: Parent
+      selector: 'infsonewsroom:parentTopicId/text()'
+    -
+      name: topic_type
+      label: 'Topic type'
+      selector: 'infsonewsroom:topicType/text()'
+
+process:
+
+  vid:
+    plugin: default_value
+    default_value: newsroom_topic
+
+  field_newsroom_topic_type:
+    plugin: get
+    source: topic_type
+
+  name:
+    plugin: get
+    source: topic_name
+
+  parent:
+     -
+      plugin: skip_on_empty
+      method: process
+      source: parent_id
+     -
+      plugin: migration_lookup
+      no_stub: true
+      migration: newsroom_topic
+
+  field_newsroom_id: topic_id
+
+destination:
+  plugin: entity:taxonomy_term
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_topic

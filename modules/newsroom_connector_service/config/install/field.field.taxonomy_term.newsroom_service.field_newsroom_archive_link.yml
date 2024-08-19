@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+      - newsroom_connector
+  config:
+    - field.storage.taxonomy_term.field_newsroom_archive_link
+    - taxonomy.vocabulary.newsroom_service
+  module:
+    - link
+id: taxonomy_term.newsroom_service.field_newsroom_archive_link
+field_name: field_newsroom_archive_link
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Archive link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

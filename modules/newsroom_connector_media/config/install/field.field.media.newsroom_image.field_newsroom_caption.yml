@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_media
+      - newsroom_connector
+  config:
+    - field.storage.media.field_newsroom_caption
+    - media.type.newsroom_image
+id: media.newsroom_image.field_newsroom_caption
+field_name: field_newsroom_caption
+entity_type: media
+bundle: newsroom_image
+label: Caption
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

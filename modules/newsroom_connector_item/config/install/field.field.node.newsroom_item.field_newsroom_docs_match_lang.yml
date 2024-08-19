@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsroom_docs_match_lang
+    - node.type.newsroom_item
+id: node.newsroom_item.field_newsroom_docs_match_lang
+field_name: field_newsroom_docs_match_lang
+entity_type: node
+bundle: newsroom_item
+label: 'Documents match language'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Documents match language'
+  off_label: 'Documents don''t match language'
+field_type: boolean

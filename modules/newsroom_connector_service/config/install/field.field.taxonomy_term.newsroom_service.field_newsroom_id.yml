@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+      - newsroom_connector
+  config:
+    - field.storage.taxonomy_term.field_newsroom_id
+    - taxonomy.vocabulary.newsroom_service
+id: taxonomy_term.newsroom_service.field_newsroom_id
+field_name: field_newsroom_id
+entity_type: taxonomy_term
+bundle: newsroom_service
+label: 'Newsroom ID'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

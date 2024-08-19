@@ -1,0 +1,21 @@
+name: Newsroom Connector Item
+description: Provides Newsroom Item content type and importer.
+package: Newsroom
+
+type: module
+core_version_requirement: ^9 || ^10 || ^11
+php: (>=8.0)
+
+dependencies:
+  - drupal:datetime_range
+  - drupal:entity_data
+  - drupal:link
+  - drupal:media
+  - drupal:node
+  - allowed_formats:allowed_formats
+  - geofield:geofield
+  - newsroom_connector:newsroom_connector_media
+  - newsroom_connector:newsroom_connector_topic
+  - newsroom_connector:newsroom_connector_type
+
+configure: admin/content/newsroom

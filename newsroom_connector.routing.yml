@@ -1,0 +1,66 @@
+# Settings form.
+newsroom_connector.settings:
+  path: '/admin/content/newsroom'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\SettingsForm'
+    _title: 'Newsroom Connector'
+  requirements:
+    _permission: 'administer newsroom settings'
+
+# Import single item.
+newsroom_connector.import:
+  path: '/newsroom-import/{type}/{newsroom_id}'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::import'
+  requirements:
+    # Allow full access to import to item based on newsroom id.
+    _access: 'TRUE'
+
+# Redirect to drupal entity based on give Newsroom ID.
+newsroom_connector.redirect:
+  path: '/newsroom-redirect/{type}/{newsroom_id}'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::redirectItem'
+  requirements:
+    # Allow full access to redirect to item based on newsroom id.
+    _access: 'TRUE'
+
+# BC the old format of redirect.
+newsroom_connector.item_redirect:
+  path: '/news-redirect/{newsroom_id}'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::newsRedirect'
+  requirements:
+    # Allow full access to redirect to item based on newsroom id.
+    _access: 'TRUE'
+
+# List of available importers.
+newsroom_connector.importers:
+  path: '/admin/content/newsroom/importers'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::importers'
+    _title: 'Importers'
+  requirements:
+    _permission: 'import newsroom content'
+  options:
+    _admin_route: TRUE
+
+# Import form for different entities.
+newsroom_connector.import_form:
+  path: '/admin/content/newsroom/importers/{plugin_id}'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\ImportForm'
+    _title: 'Import'
+  requirements:
+    _permission: 'import newsroom content'
+  options:
+    _admin_route: TRUE
+
+# Clean mappings records.
+newsroom_connector.clean_mappings:
+  path: '/admin/content/newsroom/importers/{plugin_id}/clean-mappings'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\CleanMigrationMappingsForm'
+    _title: 'Clean migration mappings'
+  requirements:
+    _permission: 'administer newsroom settings'

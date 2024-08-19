@@ -1,0 +1,13 @@
+name: Newsroom Connector Topic
+description: Provides Newsroom Topic vocabulary and importer.
+package: Newsroom
+
+type: module
+core_version_requirement: ^9 || ^10 || ^11
+php: (>=8.0)
+
+dependencies:
+  - newsroom_connector:newsroom_connector
+  - drupal:taxonomy
+
+configure: admin/newsroom_connector

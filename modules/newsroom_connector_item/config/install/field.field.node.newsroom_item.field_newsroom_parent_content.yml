@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
+  config:
+    - field.storage.node.field_newsroom_parent_content
+    - node.type.newsroom_item
+id: node.newsroom_item.field_newsroom_parent_content
+field_name: field_newsroom_parent_content
+entity_type: node
+bundle: newsroom_item
+label: 'Parent content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      newsroom_item: newsroom_item
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,95 @@
+id: newsroom_item_image_media
+label: Newsroom item media images.
+migration_group: newsroom
+migration_tags:
+  - newsroom_item
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: newsroom_simple_xml
+  urls: 'https://ec.europa.eu/newsroom/dae/feed/full/new'
+
+  # We need only not empty items.
+  item_selector: '//channel/item[enclosure[@nrdoctype="image" and string-length(@url) > 0]]'
+
+  ids:
+    item_id:
+      type: integer
+
+  fields:
+    -
+      name: item_id
+      label: 'Item ID'
+      selector: 'infsonewsroom:BasicId/text()'
+    -
+      name: title
+      label: Title
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: item_name
+      label: Name
+      selector: 'infsonewsroom:PicTitle[@lang="EN"]/text()'
+    -
+      name: image
+      label: 'Image'
+      selector: 'enclosure[@nrdoctype="image" and @lang="EN"]/@url'
+    -
+      name: image_alt
+      label: 'Image alt text'
+      selector: 'infsonewsroom:PicAlt[@lang="EN"]/text()'
+    -
+      name: image_copyright
+      label: 'Image copyright'
+      selector: 'infsonewsroom:PicCopyright[@lang="EN"]/text()'
+    -
+      name: image_caption
+      label: 'Image caption'
+      selector: 'infsonewsroom:PicCaption[@lang="EN"]/text()'
+
+destination:
+  plugin: 'entity:media'
+
+process:
+
+  bundle:
+    plugin: default_value
+    default_value: newsroom_image
+
+  name: item_name
+
+  'field_media_image_newsroom/target_id':
+    -
+      plugin: skip_on_empty
+      source: image
+      method: process
+    -
+      plugin: migration_lookup
+      migration: newsroom_item_image
+      source: item_id
+      no_stub: true
+
+  'field_media_image_newsroom/title': item_name
+
+  'field_media_image_newsroom/alt': image_alt
+
+  field_newsroom_alt_text:
+    plugin: get
+    source: image_alt
+
+  field_newsroom_caption:
+    plugin: get
+    source: image_caption
+
+  field_newsroom_copyright:
+    plugin: get
+    source: image_copyright
+
+  status:
+    plugin: default_value
+    default_value: 1
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item

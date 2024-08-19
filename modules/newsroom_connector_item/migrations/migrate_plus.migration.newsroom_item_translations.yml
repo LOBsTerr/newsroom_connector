@@ -1,0 +1,48 @@
+id: newsroom_item_translations
+label: Newsroom item translations.
+migration_group: newsroom
+deriver: 'Drupal\newsroom_connector_item\Plugin\migrate\NewsroomItemLanguageDeriver'
+migration_tags:
+  - newsroom_item
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: newsroom_simple_xml
+  urls: 'https://ec.europa.eu/newsroom/dae/feed/full/new'
+
+  item_selector: '//channel/item'
+
+  ids:
+    item_id:
+      type: integer
+
+  fields:
+    -
+      name: item_id
+      label: 'Item ID'
+      selector: 'infsonewsroom:BasicId/text()'
+
+destination:
+  plugin: 'entity:node'
+  translations: true
+
+process:
+  type:
+    plugin: default_value
+    default_value: newsroom_item
+
+  nid:
+    plugin: migration_lookup
+    source: item_id
+    migration: newsroom_item
+    no_stub: true
+
+  content_translation_source:
+    plugin: default_value
+    default_value: 'en'
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_item

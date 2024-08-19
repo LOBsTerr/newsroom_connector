@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:infsonewsroom="http://ec.europa.eu/newsroom/full-rss.dtd">
+    <channel>
+        <title>Newsletters</title>
+        <link>http://ec.europa.eu/newsroom/scic/rss-service.cfm</link>
+        <description>Newsletters issues list</description>
+        <language>ALL</language>
+        <copyright>European Commission</copyright>
+        <managingEditor>cnect-editor@ec.europa.eu</managingEditor>
+        <webMaster>cnect-editor@ec.europa.eu</webMaster>
+        <ttl>30</ttl>
+        <item nrid="issue-401">
+            <title lang="EN">Scic S3 Newsletter update - 17/07/2015</title>
+            <link lang="EN">
+                http://ec.europa.eu/newsroom/scic/newsletter-specific-archive-issue.cfm?newsletter_service_id=142&amp;newsletter_issue_id=401
+            </link>
+            <description lang="EN">Issue released at 17/07/15 for the newsletter "Scic S3 Newsletter"</description>
+            <infsonewsroom:BasicSvId>142</infsonewsroom:BasicSvId>
+            <pubDate>17-07-2015</pubDate>
+            <infsonewsroom:BasicIssueId>401</infsonewsroom:BasicIssueId>
+            <infsonewsroom:BasicSvSubject lang="EN">Scic S3 Newsletter update - 17/07/2015
+            </infsonewsroom:BasicSvSubject>
+        </item>
+        <item nrid="issue-249">
+            <title lang="EN">Protecting your data update - 10/11/2014</title>
+            <link lang="EN">
+                http://ec.europa.eu/newsroom/scic/newsletter-specific-archive-issue.cfm?newsletter_service_id=142&amp;newsletter_issue_id=249
+            </link>
+            <description lang="EN">Issue released at 10/11/14 for the newsletter "Scic S3 Newsletter"</description>
+            <infsonewsroom:BasicSvId>142</infsonewsroom:BasicSvId>
+            <pubDate>10-11-2014</pubDate>
+            <infsonewsroom:BasicIssueId>249</infsonewsroom:BasicIssueId>
+            <infsonewsroom:BasicSvSubject lang="EN">Protecting your data update - 10/11/2014
+            </infsonewsroom:BasicSvSubject>
+
+            <infsonewsroom:BasicSvItemId>18712</infsonewsroom:BasicSvItemId>
+            <infsonewsroom:BasicSvItemId>18694</infsonewsroom:BasicSvItemId>
+            <infsonewsroom:BasicSvItemId>18707</infsonewsroom:BasicSvItemId>
+            <infsonewsroom:BasicSvItemId>18690</infsonewsroom:BasicSvItemId>
+            <infsonewsroom:BasicSvItemId>18708</infsonewsroom:BasicSvItemId>
+            <infsonewsroom:BasicSvItemId>18697</infsonewsroom:BasicSvItemId>
+            <infsonewsroom:BasicSvItemId>18713</infsonewsroom:BasicSvItemId>
+
+        </item>
+
+        <item nrid="issue-198">
+            <title lang="EN">MP – how much do you know?</title>
+            <link lang="EN">
+                http://ec.europa.eu/newsroom/scic/newsletter-specific-archive-issue.cfm?newsletter_service_id=142&amp;newsletter_issue_id=198
+            </link>
+            <description lang="EN">Issue released at 18/07/14 for the newsletter "Scic S3 Newsletter"</description>
+            <infsonewsroom:BasicSvId>142</infsonewsroom:BasicSvId>
+            <pubDate>18-07-2014</pubDate>
+            <infsonewsroom:BasicIssueId>198</infsonewsroom:BasicIssueId>
+            <infsonewsroom:BasicSvSubject lang="EN">MP – how much do you know?</infsonewsroom:BasicSvSubject>
+
+            <infsonewsroom:BasicSvItemId>17286</infsonewsroom:BasicSvItemId>
+
+            <infsonewsroom:BasicSvItemId>17347</infsonewsroom:BasicSvItemId>
+
+            <infsonewsroom:BasicSvItemId>17358</infsonewsroom:BasicSvItemId>
+
+            <infsonewsroom:BasicSvItemId>17363</infsonewsroom:BasicSvItemId>
+
+            <infsonewsroom:BasicSvItemId>17364</infsonewsroom:BasicSvItemId>
+
+            <infsonewsroom:BasicSvItemId>17365</infsonewsroom:BasicSvItemId>
+
+            <infsonewsroom:BasicSvItemId>17400</infsonewsroom:BasicSvItemId>
+
+        </item>
+
+    </channel>
+</rss> 

@@ -1,0 +1,402 @@
+id: newsroom_item
+label: Newsroom item
+migration_group: newsroom
+migration_tags:
+  - newsroom_item
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: newsroom_simple_xml
+  urls:
+    - 'https://ec.europa.eu/newsroom/dae/feed/full/new'
+
+  item_selector: '//channel/item[count(title[@lang="EN"]) > 0]'
+
+  ids:
+    item_id:
+      type: integer
+
+  fields:
+    -
+      name: item_id
+      label: 'Item ID'
+      selector: 'infsonewsroom:BasicId/text()'
+    -
+      name: title
+      label: Title
+      selector: 'title[@lang="EN"]/text()'
+    -
+      name: body
+      label: 'Body'
+      selector: 'infsonewsroom:FullContent[@lang="EN"]/text()'
+    -
+      name: teaser
+      label: 'Teaser'
+      selector: 'infsonewsroom:BasicTeaser[@lang="EN"]/text()'
+    -
+      name: start_date
+      label: 'Start date'
+      selector: 'infsonewsroom:BasicDate/text()'
+    -
+      name: end_date
+      label: 'End date'
+      selector: 'infsonewsroom:BasictoDate/text()'
+    -
+      name: image
+      label: 'Image'
+      selector: 'enclosure[@nrdoctype="image"]/@url'
+    -
+      name: type_id
+      label: 'Type'
+      selector: 'infsonewsroom:NewsType/@id'
+    -
+      name: see_also_text
+      label: 'See also - text'
+      selector: 'infsonewsroom:ContextOtherLinkText[@lang="EN"]/text()'
+    -
+      name: see_also_url
+      label: 'See also - URL'
+      selector: 'infsonewsroom:ContextOtherLinkUrl[@lang="EN"]/text()'
+    -
+      name: main_link
+      label: 'Main link'
+      selector: 'infsonewsroom:BasicUrl[@lang="EN"]/text()'
+    -
+      name: related_documents_url
+      label: 'Related documents - URL'
+      selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@url'
+    -
+      name: related_documents_title
+      label: 'Related documents - Title'
+      selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@title'
+    -
+      name: related_documents_machine_translation
+      label: 'Related documents - machine translation'
+      selector: 'enclosure[@nrdoctype="document" and @lang="EN" and not(@external_app="DocsRoom")]/@machineTranslation'
+    -
+      name: topics
+      label: 'Topics'
+      selector: 'category[not(@domain="Newsletter")]/@infsonewsroom:TopicId'
+    -
+      name: primary_topic
+      label: 'Primary topic'
+      selector: 'category[@infsonewsroom:TopicPrimary="1" and not(@domain="Newsletter")]/@infsonewsroom:TopicId'
+    -
+      name: highlighted_topics
+      label: 'Highlighted topic'
+      selector: 'category[@infsonewsroom:TopicHighlight="1" and not(@domain="Newsletter")]/@infsonewsroom:TopicId'
+    -
+      name: related_content
+      label: 'Related content'
+      selector: 'infsonewsroom:slave/@id'
+    -
+      name: parent_content
+      label: 'Parent content'
+      selector: 'infsonewsroom:master/@id'
+    -
+      name: project_acronym
+      label: 'Project acronym'
+      selector: 'infsonewsroom:ContextProjectAcronym[@lang="EN"]/text()'
+    -
+      name: project_name
+      label: 'Project name'
+      selector: 'infsonewsroom:ContextProjectName[@lang="EN"]/text()'
+    -
+      name: project_website_url
+      label: 'Project website - URL'
+      selector: 'infsonewsroom:ContextProjectURL[@lang="EN"]/text()'
+    -
+      name: project_website_title
+      label: 'Project website - title'
+      selector: 'infsonewsroom:ContextProjectURLDisplay[@lang="EN"]/text()'
+    -
+      name: project_coordinator
+      label: 'Project coordinator'
+      selector: 'infsonewsroom:ContextProjectCoordinator[@lang="EN"]/text()'
+    -
+      name: location
+      label: 'Location WKT'
+      selector: 'infsonewsroom:ContextWellknowntext/text()'
+    -
+      name: venue
+      label: 'Venue'
+      selector: 'infsonewsroom:ContextVenue[@lang="EN"]/text()'
+    -
+      name: organiser
+      label: 'Organiser'
+      selector: 'infsonewsroom:ContextOrganiser[@lang="EN"]/text()'
+    -
+      name: author
+      label: 'Author'
+      selector: 'infsonewsroom:ContextAuthor[@lang="EN"]/text()'
+    -
+      name: speaker
+      label: 'Speaker'
+      selector: 'infsonewsroom:ContextSpeaker[@lang="EN"]/text()'
+    -
+      name: registration_link_url
+      label: 'Registration link - URL'
+      selector: 'infsonewsroom:ContextRegistrationLink[@lang="EN"]/text()'
+    -
+      name: registration_link_text
+      label: 'Registration link - Text'
+      selector: 'infsonewsroom:ContextRegistrationLinkText[@lang="EN"]/text()'
+    -
+      name: contact_text
+      label: 'Contact text'
+      selector: 'infsonewsroom:ContextContactText[@lang="EN"]/text()'
+    -
+      name: contact_info
+      label: 'Contact info'
+      selector: 'infsonewsroom:ContextContactEmail[@lang="EN"]/text()'
+    -
+      name: linked_object
+      label: 'Linked object'
+      selector: 'infsonewsroom:FullLinkedObject[@lang="EN"]/text()'
+    -
+      name: quote_box
+      label: 'Quote box'
+      selector: 'infsonewsroom:FullQuoteBox[@lang="EN"]/text()'
+    -
+      name: docsroom_ids
+      label: 'Docsroom documents IDs'
+      selector: 'enclosure[@external_app="DocsRoom"]/@external_id'
+    -
+      name: promote_to_homepage
+      label: 'Promote to homepage'
+      selector: 'infsonewsroom:pubHighlight/text()'
+    -
+      name: published_date
+      label: 'Published date'
+      selector: 'pubDate/text()'
+    -
+      name: is_machine_translated
+      label: 'Is machine translated'
+      selector: 'infsonewsroom:MachineTranslation[@lang="EN"]/text()'
+    -
+      name: documents_match_language
+      label: 'Documents match language'
+      selector: 'infsonewsroom:docMatchLanguage/text()'
+
+process:
+
+  type:
+    plugin: default_value
+    default_value: newsroom_item
+
+  title:
+    plugin: get
+    source: title
+
+  'field_newsroom_body/value':
+    plugin: get
+    source: body
+
+  'field_newsroom_body/format':
+    plugin: default_value
+    default_value: newsroom_basic_html
+
+  field_newsroom_teaser:
+    plugin: get
+    source: teaser
+
+  # RFC 2822 - Example: Thu, 21 Dec 2000 16:01:07 +0200 (php 'r' format or 'D, j M Y H:i:s O')
+  'field_newsroom_date/value':
+    source: start_date
+    plugin: format_date
+    from_format: 'D, j M Y H:i:s O'
+    to_format: 'Y-m-d'
+    settings:
+      validate_format: false
+
+  # RFC 2822 - Example: Thu, 21 Dec 2000 16:01:07 +0200 (php 'r' format or 'D, j M Y H:i:s O')
+  'field_newsroom_date/end_value':
+    source: end_date
+    plugin: format_date
+    from_format: 'D, j M Y H:i:s O'
+    to_format: 'Y-m-d'
+    settings:
+      validate_format: false
+
+  'field_newsroom_image/target_id':
+    plugin: migration_lookup
+    migration: newsroom_item_image_media
+    source: item_id
+    no_stub: true
+
+  'field_newsroom_type/target_id':
+    plugin: migration_lookup
+    migration: newsroom_type
+    source: type_id
+    no_stub: true
+
+  # url is validated if it is not valid we set uri and title to NULL.
+  'field_newsroom_see_also/uri':
+    plugin: get
+    source: see_also_url
+
+  'field_newsroom_see_also/title':
+    plugin: get
+    source: see_also_text
+
+  # url is validated if it is not valid we set uri to NULL.
+  'field_newsroom_main_link':
+    plugin: get
+    source: main_link
+
+  # source documents is formed in newsroom_connector_item_migrate_newsroom_item_prepare_row.
+  'field_newsroom_documents':
+    plugin: sub_process
+    source: documents
+    process:
+      title: 'title'
+      uri: 'url'
+
+  field_newsroom_id:
+    plugin: get
+    source: item_id
+
+  'field_newsroom_date/title':
+    plugin: get
+    source: see_also_text
+
+  'field_newsroom_primary_topic/target_id':
+    plugin: migration_lookup
+    migration: newsroom_topic
+    source: primary_topic
+    no_stub: true
+
+  'field_newsroom_hl_topics':
+    plugin: migration_lookup
+    migration: newsroom_topic
+    source: highlighted_topics
+    no_stub: true
+
+  'field_newsroom_topics':
+    plugin: migration_lookup
+    migration: newsroom_topic
+    source: topics
+    no_stub: true
+
+  'field_newsroom_related_content':
+    plugin: migration_lookup
+    migration: newsroom_item
+    source: related_content
+    no_stub: true
+
+  'field_newsroom_parent_content/target_id':
+    plugin: migration_lookup
+    migration: newsroom_item
+    source: parent_content
+    no_stub: true
+
+  field_newsroom_project_acronym:
+    plugin: get
+    source: project_acronym
+
+  field_newsroom_project_name:
+    plugin: get
+    source: project_name
+
+  # url is validated if it is not valid we set uri and title to NULL.
+  'field_newsroom_project_website/uri':
+    plugin: get
+    source: project_website_url
+
+  'field_newsroom_project_website/title':
+    plugin: get
+    source: project_website_title
+
+  field_newsroom_pr_coordinator:
+    plugin: get
+    source: project_coordinator
+
+  field_newsroom_location:
+    plugin: get
+    source: location
+
+  field_newsroom_venue:
+    plugin: get
+    source: venue
+
+  field_newsroom_organiser:
+    plugin: get
+    source: organiser
+
+  field_newsroom_author:
+    plugin: get
+    source: author
+
+  field_newsroom_speaker:
+    plugin: get
+    source: speaker
+
+  # url is validated if it is not valid we set uri to NULL.
+  'field_newsroom_registration_link/uri':
+    plugin: get
+    source: registration_link_url
+
+  'field_newsroom_registration_link/title':
+    plugin: get
+    source: registration_link_text
+
+  field_newsroom_contact_info:
+    plugin: get
+    source: contact_info
+
+  field_newsroom_contact_text:
+    plugin: get
+    source: contact_text
+
+  'field_newsroom_linked_object/value':
+    plugin: get
+    source: linked_object
+
+  'field_newsroom_linked_object/format':
+    plugin: default_value
+    default_value: newsroom_basic_html
+
+  'field_newsroom_quote_box/value':
+    plugin: get
+    source: quote_box
+
+  'field_newsroom_quote_box/format':
+    plugin: default_value
+    default_value: newsroom_basic_html
+
+  field_newsroom_docsroom_ids:
+    plugin: get
+    source: docsroom_ids
+
+  langcode:
+    plugin: default_value
+    default_value: 'en'
+
+  promote:
+    plugin: get
+    source: promote_to_homepage
+
+  created:
+    plugin: get
+    source: published_date
+
+  field_newsroom_is_machine_trans:
+    plugin: get
+    source: is_machine_translated
+
+  field_newsroom_docs_match_lang:
+    plugin: get
+    source: documents_match_language
+
+  status:
+    plugin: default_value
+    default_value: 1
+
+destination:
+  plugin: entity:node
+
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item

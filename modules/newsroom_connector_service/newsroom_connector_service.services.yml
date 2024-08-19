@@ -1,0 +1,6 @@
+services:
+  newsroom_connector_service.migration_image_sync:
+    class: Drupal\newsroom_connector_service\EventSubscriber\MigrationImageSync
+    tags:
+      - { name: event_subscriber }
+    arguments: ['@event_dispatcher', '@newsroom_connector.migration_manager']

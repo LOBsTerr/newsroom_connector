@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_item
+      - newsroom_connector
+  config:
+    - node.type.newsroom_item
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: node.newsroom_item
+target_entity_type_id: node
+target_bundle: newsroom_item
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - newsroom_connector_service
+      - newsroom_connector
+name: 'Newsroom Service'
+vid: newsroom_service
+description: 'Newsroom services'
+weight: 0

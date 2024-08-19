@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Provides newsroom_connector_type functionality.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\newsroom_connector_type\Plugin\newsroom\NewsroomTypeNewsroomProcessor;
+
+/**
+ * Implements hook_entity_delete().
+ */
+function newsroom_connector_type_taxonomy_term_delete(EntityInterface $entity) {
+  if ($entity->bundle() == 'newsroom_type') {
+    // Clean up migrations.
+    \Drupal::service('newsroom_connector.migration_manager')->cleanUpMigrations(NewsroomTypeNewsroomProcessor::MIGRATION_TYPE, $entity);
+  }
+}
