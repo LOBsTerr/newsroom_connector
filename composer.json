@@ -1,8 +1,8 @@
 {
-  "name": "lobsterr/newsroom_connector",
+  "name": "openeuropa/newsroom_connector",
   "type": "drupal-module",
   "description": "Newsroom connector.",
-  "homepage": "https://github.com/LOBsTerr/newsroom_connector",
+  "homepage": "https://git.fpfis.tech.ec.europa.eu/openeuropa/newsroom_connector",
   "authors": [
     {
       "name": "Nikolay Lobachev",
@@ -11,8 +11,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/LOBsTerr/newsroom_connector/issues",
-    "source": "https://github.com/LOBsTerr/newsroom_connector"
+    "issues": "https://git.fpfis.tech.ec.europa.eu/openeuropa/newsroom_connector/issues",
+    "source": "https://git.fpfis.tech.ec.europa.eu/openeuropa/newsroom_connector"
   },
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
