@@ -18,10 +18,10 @@
   "minimum-stability": "dev",
   "require": {
     "drupal/core": "^9.5 || ^10 || ^11",
-    "drupal/allowed_formats": "^2.0",
+    "drupal/allowed_formats": "^3.0",
     "drupal/entity_data": "^1.0",
     "drupal/migrate_plus": "^6.0",
     "drupal/migrate_tools": "^6.0",
-    "drupal/geofield": "^1.5"
+    "drupal/geofield": "^1.6"
   }
 }
