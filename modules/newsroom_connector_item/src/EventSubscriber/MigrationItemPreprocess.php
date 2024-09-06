@@ -109,18 +109,18 @@ class MigrationItemPreprocess implements EventSubscriberInterface {
       if (empty($picture_title)) {
         // Set item title as picture title if it's empty.
         $picture_title = $row->getSourceProperty('title');
-        // We limit the length to the length of DB field.
-        $row->setSourceProperty('image_alt', substr($picture_title, 0, 500));
         $row->setSourceProperty('item_name', $picture_title);
       }
 
       $image_alt = $row->getSourceProperty('image_alt');
-      if (empty($image_alt)) {
+      if (!empty($image_alt)) {
+        $picture_title = $image_alt;
+      }
+      // We limit the length to the length of DB field.
+      if (!empty($picture_title)) {
         $row->setSourceProperty('image_alt', substr($picture_title, 0, 500));
       }
-      $row->setSourceProperty('image_alt', substr($picture_title, 0, 500));
     }
-
   }
 
   /**
