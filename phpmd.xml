@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ruleset name="Toolkit PHPMD rule set"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>Toolkit PHP Mess Detector ruleset</description>
+
+    <!--
+    Futurium custom rules configuration.
+    @see https://phpmd.org/rules/index.html
+    -->
+    <rule ref="rulesets/cleancode.xml" >
+      <exclude name="StaticAccess" />
+      <exclude name="IfStatementAssignment" />
+      <exclude name="ElseExpression" />
+      <exclude name="BooleanArgumentFlag" />
+      <exclude name="MissingImport" />
+    </rule>
+    <rule ref="rulesets/design.xml" >
+      <exclude name="CouplingBetweenObjects" />
+    </rule>
+    <rule ref="rulesets/naming.xml">
+      <exclude name="LongClassName" />
+      <exclude name="LongVariable" />
+    </rule>
+    <rule ref="rulesets/unusedcode.xml" >
+      <exclude name="UnusedFormalParameter" />
+    </rule>
+</ruleset>
