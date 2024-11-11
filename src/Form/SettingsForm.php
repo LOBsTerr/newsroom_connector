@@ -206,7 +206,7 @@ class SettingsForm extends ConfigFormBase {
       ->set('docsroom_url', $values['docsroom_url']);
 
     $plugins = $this->newsroomProcessorPluginManager->getDefinitions();
-    foreach ($plugins as $plugin_id => $plugin) {
+    foreach (array_keys($plugins) as $plugin_id) {
       $cron_import_setting_name = $this->getCronImortSettingName($plugin_id);
       $settings->set($cron_import_setting_name, $values[$cron_import_setting_name]);
     }
