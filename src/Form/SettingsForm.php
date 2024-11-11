@@ -6,10 +6,10 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\ClientInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\newsroom_connector\UniverseManager;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class Settings Form.
@@ -226,8 +226,6 @@ class SettingsForm extends ConfigFormBase {
     if (!$this->validateUniverseId($base_url, $universe_id)) {
       $form_state->setErrorByName('universe_id', $this->t('Wrong newsroom universe ID.'));
     }
-
-    // @TODO Add validation for subsite.
   }
 
   /**

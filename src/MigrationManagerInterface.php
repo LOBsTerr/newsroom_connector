@@ -107,4 +107,5 @@ interface MigrationManagerInterface {
    *   Source id.
    */
   public function deleteMappingsBySourceId($migration_id, $source_id);
+
 }

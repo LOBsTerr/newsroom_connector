@@ -147,7 +147,7 @@ class NewsroomConnectorController extends ControllerBase {
       '#rows' => $data,
       '#header' => [
         'Name',
-        'Clean mappings'
+        'Clean mappings',
       ],
       '#empty' => $empty_message,
     ];

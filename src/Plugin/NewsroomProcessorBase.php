@@ -9,8 +9,8 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\newsroom_connector\MigrateExecutable;
 use Drupal\newsroom_connector\MigrateBatchExecutable;
+use Drupal\newsroom_connector\MigrateExecutable;
 use Drupal\newsroom_connector\MigrationManagerInterface;
 use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -71,7 +71,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     UniverseManagerInterface $universe_manager,
     MigrationManagerInterface $migration_manager,
     Request $request,
-    LanguageManagerInterface $language_manager
+    LanguageManagerInterface $language_manager,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->universeManager = $universe_manager;
@@ -143,7 +143,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $params[$definition['import_segment']] = $newsroom_id;
     }
 
-    // @TODO move it to a separate class.
     if ($this->getPluginId() == 'newsroom_item') {
       // To use a new version of RSS.
       $config = $this->universeManager->getConfig();
