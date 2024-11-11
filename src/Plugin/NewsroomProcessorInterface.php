@@ -16,8 +16,10 @@ interface NewsroomProcessorInterface extends PluginInspectionInterface, Containe
    *
    * @param string $newsroom_id
    *   Newsroom ID.
+   * @param string $language
+   *   Language.
    */
-  public function redirect($newsroom_id);
+  public function redirect($newsroom_id, $language = 'en');
 
   /**
    * Run import.
