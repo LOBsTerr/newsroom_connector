@@ -1,15 +1,15 @@
 parameters:
   level: '1'
   paths:
-    - builds/openeuropa/newsroom_connector
+    - src
   excludePaths:
     - config
     - resources
     - dev
     - .cache
-    - builds/openeuropa/newsroom_connector/src/Plugin/migrate_plus/data_parser/SimpleXml.php
-    - builds/openeuropa/newsroom_connector/src/MigrateBatchExecutable.php
-    - builds/openeuropa/newsroom_connector/src/MigrateExecutable.php
+    - src/Plugin/migrate_plus/data_parser/SimpleXml.php
+    - src/MigrateBatchExecutable.php
+    - src/MigrateExecutable.php
   ignoreErrors:
     - '#^Unsafe usage of new static#'
     - '#Caught class .*Exception not found.#'
