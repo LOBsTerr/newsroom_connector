@@ -1,5 +1,7 @@
 parameters:
   level: '1'
+  path:
+    - builds/openeuropa/newsroom_connector
   excludePaths:
     - config
     - resources
