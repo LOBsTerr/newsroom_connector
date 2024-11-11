@@ -137,7 +137,7 @@ class MigrateBatchExecutable extends MigrateBatchExecutableBase {
     // Prepare the migration executable.
     $message = new MigrateMessage();
     /** @var \Drupal\migrate\Plugin\MigrationInterface $migration */
-    $migration = \Drupal::getContainer()->get('plugin.manager.migration')->createInstance($migration_id, $options['configuration'] ?? []);
+    $migration = \Drupal::service('plugin.manager.migration')->createInstance($migration_id, $options['configuration'] ?? []);
     unset($options['configuration']);
 
     // Each batch run we need to reinitialize the counter for the migration.

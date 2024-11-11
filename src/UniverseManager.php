@@ -20,6 +20,13 @@ class UniverseManager implements UniverseManagerInterface {
   protected $config;
 
   /**
+   * Newsroom settings.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $settings;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(ConfigFactoryInterface $configFactory) {

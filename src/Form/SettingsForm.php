@@ -5,10 +5,12 @@ namespace Drupal\newsroom_connector\Form;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
 use Drupal\newsroom_connector\UniverseManager;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -40,6 +42,13 @@ class SettingsForm extends ConfigFormBase {
   protected $universeManager;
 
   /**
+   * A logger instance.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
+
+  /**
    * Settings form.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -50,8 +59,16 @@ class SettingsForm extends ConfigFormBase {
    *   Universe manager.
    * @param \Drupal\newsroom_connector\Plugin\NewsroomProcessorManager $processor_plugin_manager
    *   Processor plugin manager service.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   A logger instance.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, ClientInterface $http_client, UniverseManager $universe_manager, NewsroomProcessorManager $processor_plugin_manager) {
+  public function __construct(
+    ConfigFactoryInterface $config_factory,
+    ClientInterface $http_client,
+    UniverseManager $universe_manager,
+    NewsroomProcessorManager $processor_plugin_manager,
+    LoggerInterface $logger,
+  ) {
     parent::__construct($config_factory);
     $this->httpClient = $http_client;
     $this->universeManager = $universe_manager;
@@ -66,7 +83,8 @@ class SettingsForm extends ConfigFormBase {
       $container->get('config.factory'),
       $container->get('http_client'),
       $container->get('newsroom_connector.universe_manager'),
-      $container->get('newsroom_connector.plugin.manager.newsroom_processor')
+      $container->get('newsroom_connector.plugin.manager.newsroom_processor'),
+      $container->get('logger.channel.newsroom_connector'),
     );
   }
 
@@ -248,7 +266,7 @@ class SettingsForm extends ConfigFormBase {
       $result = $response->getStatusCode() == 200;
     }
     catch (RequestException $exception) {
-      watchdog_exception('newsroom_connector', $exception);
+      Error::logException($this->logger, $exception);
     }
 
     return $result;
