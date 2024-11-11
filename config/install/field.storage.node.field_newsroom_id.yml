@@ -4,8 +4,7 @@ dependencies:
   enforced:
     module:
       - newsroom_connector
-  module:
-    - node
+      - node
 id: node.field_newsroom_id
 field_name: field_newsroom_id
 entity_type: node

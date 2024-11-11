@@ -7,9 +7,9 @@ dependencies:
   module:
     - text
   enforced:
-      module:
-        - newsroom_connector_country
-        - newsroom_connector
+    module:
+      - newsroom_connector_country
+      - newsroom_connector
 id: taxonomy_term.newsroom_country.default
 targetEntityType: taxonomy_term
 bundle: newsroom_country

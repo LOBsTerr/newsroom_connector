@@ -49,11 +49,11 @@ process:
     source: topic_name
 
   parent:
-     -
+    -
       plugin: skip_on_empty
       method: process
       source: parent_id
-     -
+    -
       plugin: migration_lookup
       no_stub: true
       migration: newsroom_topic
