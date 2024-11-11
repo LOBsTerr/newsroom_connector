@@ -6,4 +6,4 @@ debug: false
 dependencies:
   enforced:
     module:
-    - newsroom_connector
+      - newsroom_connector
