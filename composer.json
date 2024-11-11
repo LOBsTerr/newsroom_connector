@@ -12,8 +12,7 @@
     ],
     "support": {
         "issues": "https://git.fpfis.tech.ec.europa.eu/openeuropa/newsroom_connector/issues",
-        "source": "https://git.fpfis.tech.ec.europa.eu/openeuropa/newsroom_connector",
-
+        "source": "https://git.fpfis.tech.ec.europa.eu/openeuropa/newsroom_connector"
     },
     "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
