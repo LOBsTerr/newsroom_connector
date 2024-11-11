@@ -1,0 +1,42 @@
+drupal:
+  root: "web"
+  base_url: ${env.DRUPAL_BASE_URL}
+  virtual_host: ${env.VIRTUAL_HOST}
+  site:
+    profile: "minimal"
+    name: "Entity Activity Tracker"
+    generate_db_url: false
+  account:
+    name: ${env.DRUPAL_ACCOUNT_USERNAME}
+    password: ${env.DRUPAL_ACCOUNT_PASSWORD}
+    mail: '${env.DRUPAL_EMAIL}'
+  post_install:
+    - { task: exec, command: "./vendor/bin/drush cache:rebuild --root=$(pwd)/!root" }
+  additional_settings: |
+    $databases['sparql_default']['default'] = [
+      'prefix' => '',
+      'host' => getenv('DRUPAL_SPARQL_HOSTNAME'),
+      'port' => getenv('DRUPAL_SPARQL_PORT'),
+      'namespace' => 'Drupal\\sparql_entity_storage\\Driver\\Database\\sparql',
+      'driver' => 'sparql',
+    ];
+
+symlink_project:
+  ignore:
+   - .cache
+   - .idea
+   - vendor
+   - .editorconfig
+   - .eslintrc.json
+   - .git
+   - .gitattributes
+   - .gitignore
+   - .prettierignore
+   - docker-compose.yml
+   - phpcs.xml
+   - phpmd.xml
+   - phpstan.neon
+   - phpunit.xml.dist
+   - runner.yml.dist
+   - web
+   - node_modules
