@@ -73,6 +73,7 @@ class SettingsForm extends ConfigFormBase {
     $this->httpClient = $http_client;
     $this->universeManager = $universe_manager;
     $this->newsroomProcessorPluginManager = $processor_plugin_manager;
+    $this->logger = $logger;
   }
 
   /**
