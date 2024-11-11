@@ -12,6 +12,5 @@ parameters:
     - src/MigrateExecutable.php
   ignoreErrors:
     - '#^Unsafe usage of new static#'
-    - '#Caught class .*Exception not found.#'
   drupal:
     drupal_root: '%currentWorkingDirectory%/web'
