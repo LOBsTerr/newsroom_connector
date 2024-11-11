@@ -95,7 +95,7 @@ class MigrationManager implements MigrationManagerInterface {
 
     // Run cleanup for translations' migrations.
     $translation_migrations = $this->getTranslationMigrationIds($migration_id);
-    foreach ($translation_migrations as $language_id => $translation_migration) {
+    foreach ($translation_migrations as $translation_migration) {
       $this->deleteDestinationBySourceId($translation_migration, $source_id);
     }
   }

@@ -4,18 +4,19 @@ namespace Drupal\newsroom_connector\Plugin;
 
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\Core\DependencyInjection\DependencySerializationTrait;
+use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\newsroom_connector\MigrateExecutable;
 use Drupal\newsroom_connector\MigrateBatchExecutable;
+use Drupal\newsroom_connector\MigrateExecutable;
 use Drupal\newsroom_connector\MigrationManagerInterface;
 use Drupal\newsroom_connector\UniverseManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Base class for Newsroom processor plugins.
@@ -54,6 +55,13 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
   protected $request;
 
   /**
+   * The language manager.
+   *
+   * @var \Drupal\Core\Language\LanguageManagerInterface
+   */
+  protected $languageManager;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(
@@ -62,12 +70,14 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
     $plugin_definition,
     UniverseManagerInterface $universe_manager,
     MigrationManagerInterface $migration_manager,
-    Request $request
+    Request $request,
+    LanguageManagerInterface $language_manager,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->universeManager = $universe_manager;
     $this->migrationManager = $migration_manager;
     $this->request = $request;
+    $this->languageManager = $language_manager;
   }
 
   /**
@@ -80,19 +90,28 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $plugin_definition,
       $container->get('newsroom_connector.universe_manager'),
       $container->get('newsroom_connector.migration_manager'),
-      $container->get('request_stack')->getCurrentRequest()
+      $container->get('request_stack')->getCurrentRequest(),
+      $container->get('language_manager')
     );
   }
 
   /**
    * {@inheritdoc}
    */
-  public function redirect($newsroom_id) {
+  public function redirect($newsroom_id, $language_id = 'en') {
     $entity = $this->getEntityByNewsroomId($newsroom_id);
     if (!empty($entity)) {
+      $language = $this->languageManager->getLanguage($language_id);
+      if (empty($language) || !$entity->hasTranslation($language_id)) {
+        $language = $this->languageManager->getDefaultLanguage();
+      }
+
       $query_parameters = $this->request->query->all();
+      $options = [];
+      $options['query'] = $query_parameters;
+      $options['language'] = $language;
       $entity_url = $entity->toUrl();
-      $entity_url->setOptions(['query' => $query_parameters]);
+      $entity_url->setOptions($options);
       return new RedirectResponse($entity_url->toString());
     }
     else {
@@ -124,7 +143,6 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
       $params[$definition['import_segment']] = $newsroom_id;
     }
 
-    // @TODO move it to a separate class.
     if ($this->getPluginId() == 'newsroom_item') {
       // To use a new version of RSS.
       $config = $this->universeManager->getConfig();

@@ -11,3 +11,7 @@ services:
   newsroom_connector.plugin.manager.newsroom_processor:
     class: Drupal\newsroom_connector\Plugin\NewsroomProcessorManager
     parent: default_plugin_manager
+
+  logger.channel.newsroom_connector:
+    parent: logger.channel_base
+    arguments: [ 'newsroom_connector' ]

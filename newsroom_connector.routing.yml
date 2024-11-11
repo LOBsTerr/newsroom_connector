@@ -27,9 +27,10 @@ newsroom_connector.redirect:
 
 # BC the old format of redirect.
 newsroom_connector.item_redirect:
-  path: '/news-redirect/{newsroom_id}'
+  path: '/news-redirect/{newsroom_id}/{language_id}'
   defaults:
     _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::newsRedirect'
+    language_id: 'en'
   requirements:
     # Allow full access to redirect to item based on newsroom id.
     _access: 'TRUE'

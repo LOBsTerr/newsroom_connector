@@ -83,12 +83,14 @@ class NewsroomConnectorController extends ControllerBase {
    *
    * @param int $newsroom_id
    *   Original newsroom id.
+   * @param string $language_id
+   *   Language id .
    *
    * @return mixed
    *   Response object.
    */
-  public function newsRedirect($newsroom_id) {
-    return $this->redirectItem('item', $newsroom_id);
+  public function newsRedirect($newsroom_id, $language_id = 'en') {
+    return $this->redirectItem('item', $newsroom_id, $language_id);
   }
 
   /**
@@ -98,15 +100,17 @@ class NewsroomConnectorController extends ControllerBase {
    *   Type of the content.
    * @param int $newsroom_id
    *   Original newsroom id.
+   * @param string $language_id
+   *   Language id.
    *
    * @return mixed
    *   Response object.
    */
-  public function redirectItem($type, $newsroom_id) {
+  public function redirectItem($type, $newsroom_id, $language_id = 'en') {
     $plugin_id = "newsroom_$type";
     $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
     if ($plugin) {
-      return $plugin->redirect($newsroom_id);
+      return $plugin->redirect($newsroom_id, $language_id);
     }
     else {
       throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
@@ -143,7 +147,7 @@ class NewsroomConnectorController extends ControllerBase {
       '#rows' => $data,
       '#header' => [
         'Name',
-        'Clean mappings'
+        'Clean mappings',
       ],
       '#empty' => $empty_message,
     ];

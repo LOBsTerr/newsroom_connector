@@ -21,7 +21,7 @@ class MigrateExecutable extends MigrateExecutableBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(MigrationInterface $migration, MigrateMessageInterface $message = NULL, array $options = []) {
+  public function __construct(MigrationInterface $migration, ?MigrateMessageInterface $message = NULL, array $options = []) {
     $this->debug = \Drupal::service('newsroom_connector.universe_manager')->getConfig()->get('debug');
     parent::__construct($migration, $message, $options);
   }

@@ -5,7 +5,6 @@ namespace Drupal\newsroom_connector\Form;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
 use Drupal\newsroom_connector\Plugin\NewsroomProcessorManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

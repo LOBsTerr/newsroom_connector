@@ -5,9 +5,9 @@ dependencies:
     - field.storage.taxonomy_term.field_newsroom_id
     - taxonomy.vocabulary.newsroom_country
   enforced:
-      module:
-        - newsroom_connector_country
-        - newsroom_connector
+    module:
+      - newsroom_connector_country
+      - newsroom_connector
 id: taxonomy_term.newsroom_country.field_newsroom_id
 field_name: field_newsroom_id
 entity_type: taxonomy_term

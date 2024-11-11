@@ -46,7 +46,7 @@ abstract class BaseNewsroomLanguageDeriver extends DeriverBase implements Contai
    */
   public static function create(
     ContainerInterface $container,
-    $base_plugin_id
+    $base_plugin_id,
   ) {
     return new static(
       $container->get('language_manager'),
