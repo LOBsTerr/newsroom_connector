@@ -1,5 +1,11 @@
 services:
 
+  newsroom_connector.api_check:
+    class: 'Drupal\newsroom_connector\Access\ApiKeyAccessCheck'
+    arguments: ['@config.factory']
+    tags:
+      - { name: 'access_check', applies_to: '_newsroom_api_key' }
+
   newsroom_connector.universe_manager:
     arguments: ['@config.factory']
     class: Drupal\newsroom_connector\UniverseManager

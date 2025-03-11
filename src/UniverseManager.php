@@ -13,13 +13,6 @@ use Drupal\Core\Url;
 class UniverseManager implements UniverseManagerInterface {
 
   /**
-   * Immutable configuration.
-   *
-   * @var \Drupal\Core\Config\ImmutableConfig
-   */
-  protected $config;
-
-  /**
    * Newsroom settings.
    *
    * @var \Drupal\Core\Config\ImmutableConfig

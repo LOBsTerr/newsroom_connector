@@ -59,11 +59,15 @@ class NewsroomConnectorController extends ControllerBase {
    *   Content type.
    * @param int $newsroom_id
    *   Original newsroom id.
+   * @param string $random_key
+   *   Random key.
+   * @param string $public_key
+   *   Public key.
    *
    * @return mixed
    *   Response object.
    */
-  public function import($type, $newsroom_id) {
+  public function import($type, $newsroom_id, $random_key, $public_key) {
     // Convert type to proper plugin id.
     $plugin_id = "newsroom_$type";
 

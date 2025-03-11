@@ -9,7 +9,7 @@ newsroom_connector.settings:
 
 # Import single item.
 newsroom_connector.import:
-  path: '/newsroom-import/{type}/{newsroom_id}'
+  path: '/newsroom-import/{type}/{newsroom_id}/random_key/public_key'
   defaults:
     _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::import'
   requirements:

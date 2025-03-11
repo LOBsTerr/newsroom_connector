@@ -151,17 +151,11 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('subsite'),
       '#description' => $this->t('The value you enter here will be used to filter the items belonging to this website.'),
     ];
-    $form['universe_settings']['general']['app'] = [
+    $form['universe_settings']['general']['api_key'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Application:'),
-      '#default_value' => $config->get('app'),
-      '#description' => $this->t('Application name.'),
-    ];
-    $form['universe_settings']['general']['app_key'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Application key:'),
-      '#default_value' => $config->get('app_key'),
-      '#description' => $this->t('Application key (hash sha256).'),
+      '#title' => $this->t('API key:'),
+      '#default_value' => $config->get('api_key'),
+      '#description' => $this->t('SHA256 hash.'),
     ];
     $form['universe_settings']['general']['docsroom_url'] = [
       '#type' => 'textfield',
@@ -219,8 +213,7 @@ class SettingsForm extends ConfigFormBase {
       ->set('debug', $values['debug'])
       ->set('import_disabled', $values['import_disabled'])
       ->set('base_url', $values['base_url'])
-      ->set('app', $values['app'])
-      ->set('app_key', $values['app_key'])
+      ->set('api_key', $values['api_key'])
       ->set('subsite', $values['subsite'])
       ->set('docsroom_url', $values['docsroom_url']);
 
