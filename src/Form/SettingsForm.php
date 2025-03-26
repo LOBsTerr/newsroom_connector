@@ -2,6 +2,7 @@
 
 namespace Drupal\newsroom_connector\Form;
 
+use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -49,6 +50,13 @@ class SettingsForm extends ConfigFormBase {
   protected $logger;
 
   /**
+   * The cache backend service.
+   *
+   * @var \Drupal\Core\Cache\CacheBackendInterface
+   */
+  protected $cacheBackend;
+
+  /**
    * Settings form.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -61,6 +69,8 @@ class SettingsForm extends ConfigFormBase {
    *   Processor plugin manager service.
    * @param \Psr\Log\LoggerInterface $logger
    *   A logger instance.
+   * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
+   *   The cache backend service.
    */
   public function __construct(
     ConfigFactoryInterface $config_factory,
@@ -68,12 +78,14 @@ class SettingsForm extends ConfigFormBase {
     UniverseManager $universe_manager,
     NewsroomProcessorManager $processor_plugin_manager,
     LoggerInterface $logger,
+    CacheBackendInterface $cache_backend,
   ) {
     parent::__construct($config_factory);
     $this->httpClient = $http_client;
     $this->universeManager = $universe_manager;
     $this->newsroomProcessorPluginManager = $processor_plugin_manager;
     $this->logger = $logger;
+    $this->cacheBackend = $cache_backend;
   }
 
   /**
@@ -86,6 +98,7 @@ class SettingsForm extends ConfigFormBase {
       $container->get('newsroom_connector.universe_manager'),
       $container->get('newsroom_connector.plugin.manager.newsroom_processor'),
       $container->get('logger.channel.newsroom_connector'),
+      $container->get('newsroom_connector.cache'),
     );
   }
 
@@ -157,11 +170,6 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('api_key'),
       '#description' => $this->t('SHA256 hash.'),
     ];
-    $form['universe_settings']['general']['docsroom_url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Newsroom Docsroom URL:'),
-      '#default_value' => $config->get('docsroom_url'),
-    ];
 
     $plugins = $this->newsroomProcessorPluginManager->getDefinitions();
 
@@ -186,6 +194,13 @@ class SettingsForm extends ConfigFormBase {
         ];
       }
     }
+
+    $form['actions']['clean_cache'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Clean cache'),
+      '#button_type' => 'primary',
+      '#submit' => ['::cleanCache'],
+    ];
 
     return $form;
   }
@@ -214,8 +229,7 @@ class SettingsForm extends ConfigFormBase {
       ->set('import_disabled', $values['import_disabled'])
       ->set('base_url', $values['base_url'])
       ->set('api_key', $values['api_key'])
-      ->set('subsite', $values['subsite'])
-      ->set('docsroom_url', $values['docsroom_url']);
+      ->set('subsite', $values['subsite']);
 
     $plugins = $this->newsroomProcessorPluginManager->getDefinitions();
     foreach (array_keys($plugins) as $plugin_id) {
@@ -281,6 +295,14 @@ class SettingsForm extends ConfigFormBase {
    */
   private function buildUrl($base_part, $universe_id, $paramters) {
     return "{$base_part}{$universe_id}/{$paramters}";
+  }
+
+  /**
+   * Submission handler to clean the cache.
+   */
+  public function cleanCache() {
+    $this->cacheBackend->deleteAll();
+    $this->messenger()->addMessage($this->t('Cache has been cleaned.'));
   }
 
 }

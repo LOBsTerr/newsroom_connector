@@ -1,9 +1,8 @@
 <?php
 
-namespace Drupal\group\Access;
+namespace Drupal\newsroom_connector\Access;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\group\Entity\GroupInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Routing\Access\AccessInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -43,41 +42,46 @@ class ApiKeyAccessCheck implements AccessInterface {
    *   The access result.
    */
   public function access(Route $route, RouteMatchInterface $route_match, AccountInterface $account) {
-    $permission = $route->getRequirement('_newsroom_api_key');
-
-    // Don't interfere if no permission was specified.
-    if ($permission === NULL) {
+    if ($route->getRequirement('_newsroom_api_key') === NULL) {
       return AccessResult::neutral();
     }
 
-    // Don't interfere if no group was specified.
+    // Allow admins to perform any actions.
+    if (in_array('administrator', $account->getRoles())) {
+      return AccessResult::allowed();
+    }
+
     $parameters = $route_match->getParameters();
-    if (!$parameters->has('random_key') || !$parameters->has('public_key')) {
+    if (!$parameters->has('random_key') ||
+      !$parameters->has('public_key') ||
+      !$parameters->has('newsroom_id')
+    ) {
       return AccessResult::forbidden();
     }
 
     // Don't interfere if the group isn't a real group.
     $random_key = $parameters->get('random_key');
-    if (!empty($random_key)) {
+    if (empty($random_key)) {
       return AccessResult::forbidden();
     }
 
     $public_key = $parameters->get('public_key');
-    if (!empty($public_key)) {
+    if (empty($public_key)) {
       return AccessResult::forbidden();
     }
 
     $api_key = $this->settings->get('api_key');
-    if (!empty($api_key)) {
+    if (empty($api_key)) {
       return AccessResult::forbidden();
     }
 
     $newsroom_id = $parameters->get('newsroom_id');
-    if (!empty($newsroom_id)) {
+    if (empty($newsroom_id)) {
       return AccessResult::forbidden();
     }
 
-    if (hash('sha256', lowercase($api_key + $newsroom_id + $random_key)) === $public_key) {
+    $hash = hash('sha256', mb_strtolower("{$api_key}{$newsroom_id}{$random_key}"));
+    if ($hash === $public_key) {
       return AccessResult::allowed();
     }
 

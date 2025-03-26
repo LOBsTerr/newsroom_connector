@@ -70,6 +70,9 @@ function newsroom_connector_item_node_view(
  */
 function newsroom_connector_item_node_delete(EntityInterface $entity) {
   if ($entity->bundle() == 'newsroom_item') {
+    // Clean cache.
+    \Drupal::service('newsroom_connector.cache')->delete($entity->field_newsroom_id->value, 'node', 'newsroom_item', 'type');
+
     // If newsroom item is deleted, we want to be clean up migrations.
     /** @var \Drupal\newsroom_connector\MigrationManager $migration_manager */
     $migration_manager = \Drupal::service('newsroom_connector.migration_manager');

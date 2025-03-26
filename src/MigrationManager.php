@@ -2,6 +2,7 @@
 
 namespace Drupal\newsroom_connector;
 
+use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
@@ -14,7 +15,7 @@ use Drupal\migrate_plus\Event\MigrateEvents as MigratePlusEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class Migration Manager.
+ * Migration Manager.
  *
  * @package Drupal\newsroom_connector
  */
@@ -49,6 +50,13 @@ class MigrationManager implements MigrationManagerInterface {
   protected $dispatcher;
 
   /**
+   * The cache backend service.
+   *
+   * @var \Drupal\Core\Cache\CacheBackendInterface
+   */
+  protected $cacheBackend;
+
+  /**
    * Migratinos plugins.
    *
    * @var array
@@ -63,11 +71,13 @@ class MigrationManager implements MigrationManagerInterface {
     LanguageManagerInterface $languageManager,
     EntityTypeManagerInterface $entity_type_manager,
     EventDispatcherInterface $dispatcher,
+    CacheBackendInterface $cache_backend,
   ) {
     $this->migrationPluginManager = $migrationPluginManager;
     $this->languageManager = $languageManager;
     $this->entityTypeManager = $entity_type_manager;
     $this->dispatcher = $dispatcher;
+    $this->cacheBackend = $cache_backend;
   }
 
   /**
@@ -262,8 +272,21 @@ class MigrationManager implements MigrationManagerInterface {
    * {@inheritdoc}
    */
   public function getEntityByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field) {
-    $items = $this->getEntitiesByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field);
-    return reset($items);
+    $cid = "newsroom_entity:$newsroom_id:$entity_type:$bundle:$bundle_field";
+
+    $data_cached = $this->cacheBackend->get($cid);
+
+    if (!$data_cached) {
+      $items = $this->getEntitiesByNewsroomId($newsroom_id, $entity_type, $bundle, $bundle_field);
+      $item = reset($items);
+
+      $this->cacheBackend->set($cid, $item);
+    }
+    else {
+      $item = $data_cached->data;
+    }
+
+    return $item;
   }
 
   /**
