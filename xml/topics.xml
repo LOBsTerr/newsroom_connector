@@ -1,0 +1,57 @@
+<rss version="2.0"
+     xmlns:infsonewsroom="https://ec.europa.eu/newsroom/full-rss.dtd">
+  <channel>
+    <title>Digital Strategy</title>
+    <link>https://ec.europa.eu/newsroom/dae/feed/topics</link>
+    <description>Latest info on topics of Digital Strategy</description>
+    <language>EN</language>
+    <copyright>European Commission</copyright>
+    <managingEditor>cnect-newsroom-log@ec.europa.eu (Newsroom Editor)</managingEditor>
+    <webMaster>cnect-newsroom-log@ec.europa.eu (Newsroom Editor)</webMaster>
+    <ttl>30</ttl>
+    <item nrid="topic-487">
+      <infsonewsroom:topicId>487</infsonewsroom:topicId>
+      <infsonewsroom:topicTypeId>560</infsonewsroom:topicTypeId>
+      <infsonewsroom:parentTopicId>2189</infsonewsroom:parentTopicId>
+      <infsonewsroom:definedBy>User</infsonewsroom:definedBy>
+      <infsonewsroom:serviceId>1</infsonewsroom:serviceId>
+      <infsonewsroom:topicType>Subchapter</infsonewsroom:topicType>
+      <title  lang="EN">.eu</title>
+      <link lang="EN">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="EN"></description>
+      <title  lang="DE">.eu</title>
+      <link lang="DE">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="DE"></description>
+      <title  lang="FR">.eu</title>
+      <link lang="FR">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="FR"></description>
+      <title  lang="PL">.eu</title>
+      <link lang="PL">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="PL"></description>
+      <title  lang="ES">.eu</title>
+      <link lang="ES">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="ES"></description>
+      <title  lang="IT">.eu</title>
+      <link lang="IT">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="IT"></description>
+      <title  lang="CS">.eu</title>
+      <link lang="CS">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="CS"></description>
+      <title  lang="NL">.eu</title>
+      <link lang="NL">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="NL"></description>
+      <title  lang="SV">.eu</title>
+      <link lang="SV">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="SV"></description>
+      <title  lang="EL">.eu</title>
+      <link lang="EL">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="EL"></description>
+      <title  lang="HU">.eu</title>
+      <link lang="HU">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="HU"></description>
+      <title  lang="RO">.eu</title>
+      <link lang="RO">https://ec.europa.eu/newsroom/dae/topics/487/edit</link>
+      <description lang="RO"></description>
+    </item>
+  </channel>
+</rss>

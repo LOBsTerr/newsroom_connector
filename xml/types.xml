@@ -1,419 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
-     xmlns:infsonewsroom="http://urltodetermine">
-    <channel>
-        <title>Interpretation - item types</title>
-        <link>http://ec.europa.eu/newsroom/scic/cf/scic/rss-item-type.cfm</link>
-        <description>Latest info on item types of Interpretation</description>
-        <language>en-gb</language>
-        <copyright>European Commission</copyright>
-        <managingEditor>cnect-editor@ec.europa.eu</managingEditor>
-        <webMaster>cnect-editor@ec.europa.eu</webMaster>
-        <ttl>30</ttl>
 
-        <item nrid="type-951">
 
-            <title lang="EN">Events Update</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=951&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">&#xc9;v&#xe8;nements update</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=951&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Fri, 05 Feb 2016 16:14:40 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=951</guid>
-            <infsonewsroom:BasicTypeId>951</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent></infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>2</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Event</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-948">
-
-            <title lang="EN">Event announcements</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=948&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Annonces d&apos;&#xe9;v&#xe8;nements</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=948&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Fri, 28 Aug 2015 11:29:52 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=948</guid>
-            <infsonewsroom:BasicTypeId>948</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>951</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>2</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Event</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-861">
-
-            <title lang="EN">Meeting</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=861&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">R&#xe9;union</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=861&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Wed, 26 Aug 2015 10:02:01 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=861</guid>
-            <infsonewsroom:BasicTypeId>861</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>951</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>2</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Event</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-952">
-
-            <title lang="EN">Library items</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=952&amp;lang=EN</link>
-            <description lang="EN">
-
-            </description>
-
-            <title lang="FR">Library items</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=952&amp;lang=FR</link>
-            <description lang="FR">
-
-            </description>
-
-
-            <pubDate>Wed, 26 Aug 2015 10:06:05 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=952</guid>
-            <infsonewsroom:BasicTypeId>952</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent></infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>4</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Library</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-862">
-
-            <title lang="EN">Library</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=862&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Librairie</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=862&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 09:03:28 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=862</guid>
-            <infsonewsroom:BasicTypeId>862</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>952</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>4</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Library</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-949">
-
-            <title lang="EN">Videos</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=949&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Vid&#xe9;os</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=949&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Wed, 26 Aug 2015 10:06:39 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=949</guid>
-            <infsonewsroom:BasicTypeId>949</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>952</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>4</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Library</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-950">
-
-            <title lang="EN">News</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=950&amp;lang=EN</link>
-            <description lang="EN">
-
-            </description>
-
-            <title lang="FR">News</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=950&amp;lang=FR</link>
-            <description lang="FR">
-
-            </description>
-
-
-            <pubDate>Wed, 26 Aug 2015 10:10:43 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=950</guid>
-            <infsonewsroom:BasicTypeId>950</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent></infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-947">
-
-            <title lang="EN">Appointments</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=947&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Nominations</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=947&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:59:04 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=947</guid>
-            <infsonewsroom:BasicTypeId>947</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-941">
-
-            <title lang="EN">Breaking news</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=941&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Actualit&#xe9;s importantes</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=941&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:59:09 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=941</guid>
-            <infsonewsroom:BasicTypeId>941</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-945">
-
-            <title lang="EN">Comings &amp; Goings</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=945&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Mouvements du personnel</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=945&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:59:13 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=945</guid>
-            <infsonewsroom:BasicTypeId>945</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-860">
-
-            <title lang="EN">General news</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=860&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Actualit&#xe9;s g&#xe9;n&#xe9;rales</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=860&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Wed, 26 Aug 2015 10:08:21 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=860</guid>
-            <infsonewsroom:BasicTypeId>860</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-944">
-
-            <title lang="EN">In Memoriam</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=944&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">In Memoriam</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=944&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:59:26 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=944</guid>
-            <infsonewsroom:BasicTypeId>944</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-946">
-
-            <title lang="EN">Retirement</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=946&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Retraites</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=946&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:59:30 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=946</guid>
-            <infsonewsroom:BasicTypeId>946</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-939">
-
-            <title lang="EN">Service Notice</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=939&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Avis de service</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=939&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:59:40 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=939</guid>
-            <infsonewsroom:BasicTypeId>939</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-943">
-
-            <title lang="EN">Trends in interpretation</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=943&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Tendances en interpr&#xe9;tation</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=943&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:59:44 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=943</guid>
-            <infsonewsroom:BasicTypeId>943</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent>950</infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>1</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>News</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-942">
-
-            <title lang="EN">SCIC Relay</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=942&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">SCIC Relais</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=942&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:52:25 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=942</guid>
-            <infsonewsroom:BasicTypeId>942</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent></infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>7</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Interview</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-864">
-
-            <title lang="EN">Speech</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=864&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Discours</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=864&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-
-            <pubDate>Thu, 20 Aug 2015 08:48:01 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=864</guid>
-            <infsonewsroom:BasicTypeId>864</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent></infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>6</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Speech</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-        <item nrid="type-863">
-
-            <title lang="EN">Survey</title>
-            <link lang="EN">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=863&amp;lang=EN</link>
-            <description lang="EN"></description>
-
-            <title lang="FR">Sondage</title>
-            <link lang="FR">http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=863&amp;lang=FR</link>
-            <description lang="FR"></description>
-
-            <pubDate>Thu, 20 Aug 2015 08:47:57 GMT</pubDate>
-            <guid>http://ec.europa.eu/newsroom/scic/scic/item-display-type.cfm?type_id=863</guid>
-            <infsonewsroom:BasicTypeId>863</infsonewsroom:BasicTypeId>
-            <infsonewsroom:BasicTypeParent></infsonewsroom:BasicTypeParent>
-            <infsonewsroom:BasicMetaTypeId>3</infsonewsroom:BasicMetaTypeId>
-            <infsonewsroom:BasicMetaTypeName>Funding opportunity</infsonewsroom:BasicMetaTypeName>
-            <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
-            <infsonewsroom:BasicTypeGroup></infsonewsroom:BasicTypeGroup>
-            <infsonewsroom:BasicTypeGroupId></infsonewsroom:BasicTypeGroupId>
-        </item>
-
-    </channel>
+<rss version="2.0"
+     xmlns:infsonewsroom="https://ec.europa.eu/newsroom/full-rss.dtd">
+  <channel>
+    <title>Digital Strategy - Item Types</title>
+    <link>https://ec.europa.eu/newsroom/dae/feed/item-types</link>
+    <description>Latest info on item types of Digital Strategy</description>
+    <language>EN</language>
+    <copyright>European Commission</copyright>
+    <managingEditor>cnect-newsroom-log@ec.europa.eu (Newsroom Editor)</managingEditor>
+    <webMaster>cnect-newsroom-log@ec.europa.eu (Newsroom Editor)</webMaster>
+    <ttl>30</ttl>
+    <item nrid="type-520">
+      <title lang="BG">Консултация</title>
+      <link lang="BG">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="BG"></description>
+      <title lang="DA">Høring</title>
+      <link lang="DA">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="DA"></description>
+      <title lang="EL">Διαβούλευση</title>
+      <link lang="EL">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="EL"></description>
+      <title lang="ET">Konsulteerimine</title>
+      <link lang="ET">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="ET"></description>
+      <title lang="FI">Kuuleminen</title>
+      <link lang="FI">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="FI"></description>
+      <title lang="HR">Savjetovanje</title>
+      <link lang="HR">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="HR"></description>
+      <title lang="HU">Konzultáció</title>
+      <link lang="HU">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="HU"></description>
+      <title lang="LT">Konsultacijos</title>
+      <link lang="LT">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="LT"></description>
+      <title lang="CS">Konzultace</title>
+      <link lang="CS">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="CS"></description>
+      <title lang="DE">Konsultation</title>
+      <link lang="DE">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="DE"></description>
+      <title lang="EN">Consultation</title>
+      <link lang="EN">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="EN"></description>
+      <title lang="ES">Consulta</title>
+      <link lang="ES">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="ES"></description>
+      <title lang="FR">Consultation</title>
+      <link lang="FR">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="FR"></description>
+      <title lang="IT">Consultazione</title>
+      <link lang="IT">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="IT"></description>
+      <title lang="PL">Konsultacje</title>
+      <link lang="PL">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="PL"></description>
+      <title lang="LV">Apspriešanās</title>
+      <link lang="LV">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="LV"></description>
+      <title lang="MT">Konsultazzjoni</title>
+      <link lang="MT">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="MT"></description>
+      <title lang="NL">Raadpleging</title>
+      <link lang="NL">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="NL"></description>
+      <title lang="PT">Consulta</title>
+      <link lang="PT">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="PT"></description>
+      <title lang="RO">Consultare</title>
+      <link lang="RO">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="RO"></description>
+      <title lang="SK">Konzultácie</title>
+      <link lang="SK">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="SK"></description>
+      <title lang="SL">Posvetovanje</title>
+      <link lang="SL">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="SL"></description>
+      <title lang="SV">Samråd</title>
+      <link lang="SV">https://ec.europa.eu/newsroom/dae/item-type/520</link>
+      <description lang="SV"></description>
+      <pubDate>Thu, 12 Jul 2012 11:33:19 +0200</pubDate>
+      <guid>https://ec.europa.eu/newsroom/dae/item-type/520</guid>
+      <infsonewsroom:BasicTypeId>520</infsonewsroom:BasicTypeId>
+      <infsonewsroom:BasicTypeParent>0</infsonewsroom:BasicTypeParent>
+      <infsonewsroom:BasicMetaTypeId>3</infsonewsroom:BasicMetaTypeId>
+      <infsonewsroom:BasicMetaTypeName>Funding opportunity</infsonewsroom:BasicMetaTypeName>
+      <infsonewsroom:BasicTypeStatus>Valid</infsonewsroom:BasicTypeStatus>
+    </item>
+  </channel>
 </rss>
