@@ -46,6 +46,23 @@ class ApiKeyAccessCheck implements AccessInterface {
       return AccessResult::neutral();
     }
 
+    $api_key = $this->settings->get('api_key');
+    $route_name = $route_match->getRouteName();
+
+    if (empty($api_key)) {
+      // Allow delete and unpublish action only if API key is set.
+      if (in_array($route_name, [
+        'newsroom_connector.delete',
+        'newsroom_connector.unpublish',
+      ])) {
+        return AccessResult::forbidden();
+      }
+      else {
+        // If API key is not set allow all requests.
+        return AccessResult::allowed();
+      }
+    }
+
     // Allow admins to perform any actions.
     if (in_array('administrator', $account->getRoles())) {
       return AccessResult::allowed();
@@ -67,11 +84,6 @@ class ApiKeyAccessCheck implements AccessInterface {
 
     $public_key = $parameters->get('public_key');
     if (empty($public_key)) {
-      return AccessResult::forbidden();
-    }
-
-    $api_key = $this->settings->get('api_key');
-    if (empty($api_key)) {
       return AccessResult::forbidden();
     }
 

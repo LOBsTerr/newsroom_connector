@@ -2,11 +2,11 @@
 
 namespace Drupal\newsroom_connector_item\EventSubscriber;
 
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\migrate\Row;
 use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -39,7 +39,7 @@ class MigrationItemPreprocess implements EventSubscriberInterface {
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_channel_factory
    *   The logger channel factory.
    */
-  public function __construct(EventDispatcherInterface $dispatcher, LoggerInterface $logger_channel_factory) {
+  public function __construct(EventDispatcherInterface $dispatcher, LoggerChannelFactoryInterface $logger_channel_factory) {
     $this->dispatcher = $dispatcher;
     $this->logger = $logger_channel_factory->get('newsroom');
   }
