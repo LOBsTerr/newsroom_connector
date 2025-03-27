@@ -9,12 +9,35 @@ newsroom_connector.settings:
 
 # Import single item.
 newsroom_connector.import:
-  path: '/newsroom-import/{type}/{newsroom_id}'
+  path: '/newsroom-import/{type}/{newsroom_id}/{random_key}/{public_key}'
   defaults:
     _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::import'
+    random_key: ''
+    public_key: ''
   requirements:
     # Allow full access to import to item based on newsroom id.
-    _access: 'TRUE'
+    _newsroom_api_key: TRUE
+
+# Import single item.
+newsroom_connector.delete:
+  path: '/newsroom-delete/item/{newsroom_id}/{random_key}/{public_key}'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::delete'
+    random_key: ''
+    public_key: ''
+  requirements:
+    # Allow full access to import to item based on newsroom id.
+    _newsroom_api_key: TRUE
+
+newsroom_connector.unpublish:
+  path: '/newsroom-unpublish/item/{newsroom_id}/{random_key}/{public_key}'
+  defaults:
+    _controller: 'Drupal\newsroom_connector\Controller\NewsroomConnectorController::unpublish'
+    random_key: ''
+    public_key: ''
+  requirements:
+    # Allow full access to import to item based on newsroom id.
+    _newsroom_api_key: TRUE
 
 # Redirect to drupal entity based on give Newsroom ID.
 newsroom_connector.redirect:

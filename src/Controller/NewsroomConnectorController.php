@@ -79,6 +79,79 @@ class NewsroomConnectorController extends ControllerBase {
   }
 
   /**
+   * Delete item.
+   *
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   *
+   * @return mixed
+   *   Response object.
+   */
+  public function delete($newsroom_id) {
+    $plugin_id = 'newsroom_item';
+
+    $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
+    if ($plugin) {
+      $plugin->delete($newsroom_id);
+
+      $this->messenger()->addMessage($this->t('The newsroom item has been deleted.'));
+      return $this->redirect('<front>');
+    }
+    else {
+      throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
+    }
+  }
+
+  /**
+   * Unpublish item.
+   *
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   *
+   * @return mixed
+   *   Response object.
+   */
+  public function unpublish($newsroom_id) {
+    $plugin_id = 'newsroom_item';
+
+    $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
+    if ($plugin) {
+      $plugin->unpublish($newsroom_id);
+      $this->messenger()->addMessage($this->t('The newsroom item has been unpublished.'));
+      return $plugin->redirect($newsroom_id);
+    }
+    else {
+      throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
+    }
+  }
+
+  /**
+   * Reimport item.
+   *
+   * @param string $type
+   *   Content type.
+   * @param int $newsroom_id
+   *   Original newsroom id.
+   *
+   * @return mixed
+   *   Response object.
+   */
+  public function reimport($type, $newsroom_id) {
+    // Convert type to proper plugin id.
+    $plugin_id = "newsroom_$type";
+
+    $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
+    if ($plugin) {
+      $plugin->import($newsroom_id, FALSE);
+
+      return $plugin->redirect($newsroom_id);
+    }
+    else {
+      throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
+    }
+  }
+
+  /**
    * Redirect item by original newsroom id.
    *
    * @param int $newsroom_id

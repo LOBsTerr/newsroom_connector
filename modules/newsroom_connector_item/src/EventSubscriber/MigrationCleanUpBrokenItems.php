@@ -43,6 +43,8 @@ class MigrationCleanUpBrokenItems implements EventSubscriberInterface {
    *   The event dispatcher.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
+   * @param \Drupal\newsroom_connector\MigrationManager $migration_manager
+   *   Migration manager.
    */
   public function __construct(
     EventDispatcherInterface $dispatcher,
