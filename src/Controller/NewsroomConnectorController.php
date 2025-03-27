@@ -94,7 +94,7 @@ class NewsroomConnectorController extends ControllerBase {
     if ($plugin) {
       $plugin->delete($newsroom_id);
 
-      $this->messenger()->addMessage(t('The newsroom item has been deleted.'));
+      $this->messenger()->addMessage($this->t('The newsroom item has been deleted.'));
       return $this->redirect('<front>');
     }
     else {
@@ -105,8 +105,6 @@ class NewsroomConnectorController extends ControllerBase {
   /**
    * Unpublish item.
    *
-   * @param string $type
-   *   Content type.
    * @param int $newsroom_id
    *   Original newsroom id.
    *
@@ -119,15 +117,13 @@ class NewsroomConnectorController extends ControllerBase {
     $plugin = $this->newsroomProcessorPluginManager->createInstance($plugin_id);
     if ($plugin) {
       $plugin->unpublish($newsroom_id);
-      $this->messenger()->addMessage(t('The newsroom item has been unpublished.'));
+      $this->messenger()->addMessage($this->t('The newsroom item has been unpublished.'));
       return $plugin->redirect($newsroom_id);
     }
     else {
       throw new PluginNotFoundException($plugin_id, 'Unable to find the plugin');
     }
   }
-
-
 
   /**
    * Reimport item.

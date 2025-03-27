@@ -37,7 +37,7 @@ function newsroom_connector_item_node_view(
   array &$build,
   EntityInterface $entity,
   EntityViewDisplayInterface $display,
-  $view_mode
+  $view_mode,
 ) {
 
   // Add edit / import buttons here, if user has rights and it is newsroom item.

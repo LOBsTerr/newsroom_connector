@@ -40,7 +40,13 @@ class UnpublishNewsroomItem extends DestinationBase implements ContainerFactoryP
    * @param \Drupal\newsroom_connector\MigrationManager $migration_manager
    *   Migration manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, MigrationManager $migration_manager) {
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    MigrationInterface $migration,
+    MigrationManager $migration_manager,
+  ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
 
     $this->migrationManager = $migration_manager;
@@ -49,7 +55,7 @@ class UnpublishNewsroomItem extends DestinationBase implements ContainerFactoryP
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration = NULL) {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition, ?MigrationInterface $migration = NULL) {
     return new static(
       $configuration,
       $plugin_id,
@@ -70,7 +76,7 @@ class UnpublishNewsroomItem extends DestinationBase implements ContainerFactoryP
   /**
    * {@inheritdoc}
    */
-  public function fields(MigrationInterface $migration = NULL) {
+  public function fields(?MigrationInterface $migration = NULL) {
     return [];
   }
 

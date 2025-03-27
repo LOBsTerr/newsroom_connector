@@ -142,7 +142,7 @@ class NewsroomItemNewsroomProcessor extends NewsroomProcessorBase {
 
       $newsroom_basic_ids = $xml->xpath('//infsonewsroom:BasicId');
       foreach ($newsroom_basic_ids as $newsroom_basic_id) {
-        $newsroom_ids[] = (string)$newsroom_basic_id;
+        $newsroom_ids[] = (string) $newsroom_basic_id;
       }
 
       $this->cacheBackend->set($cid, $newsroom_ids, time() + 3600);
@@ -169,4 +169,5 @@ class NewsroomItemNewsroomProcessor extends NewsroomProcessorBase {
       }
     }
   }
+
 }
