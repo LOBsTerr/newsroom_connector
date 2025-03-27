@@ -1,11 +1,17 @@
 services:
 
+  newsroom_connector.api_check:
+    class: 'Drupal\newsroom_connector\Access\ApiKeyAccessCheck'
+    arguments: ['@config.factory']
+    tags:
+      - { name: 'access_check', applies_to: '_newsroom_api_key' }
+
   newsroom_connector.universe_manager:
     arguments: ['@config.factory']
     class: Drupal\newsroom_connector\UniverseManager
 
   newsroom_connector.migration_manager:
-    arguments: [ '@plugin.manager.migration', '@language_manager', '@entity_type.manager', '@event_dispatcher']
+    arguments: [ '@plugin.manager.migration', '@language_manager', '@entity_type.manager', '@event_dispatcher', '@newsroom_connector.cache']
     class: Drupal\newsroom_connector\MigrationManager
 
   newsroom_connector.plugin.manager.newsroom_processor:
@@ -15,3 +21,10 @@ services:
   logger.channel.newsroom_connector:
     parent: logger.channel_base
     arguments: [ 'newsroom_connector' ]
+
+  newsroom_connector.cache:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: [ newsroom ]

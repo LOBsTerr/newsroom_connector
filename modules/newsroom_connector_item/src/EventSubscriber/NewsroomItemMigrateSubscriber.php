@@ -74,13 +74,11 @@ class NewsroomItemMigrateSubscriber implements EventSubscriberInterface {
       if (!empty($related_documents_urls)) {
         if (is_array($related_documents_urls)) {
           foreach ($related_documents_urls as $key => $item) {
-            // @TODO: Get rid off  "True" value when it is updated in the feed.
-            $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls[$key], 'node', $related_documents_machine_translations[$key] == 1 || $related_documents_machine_translations[$key] == 'True' ? 1 : 0);
+            $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls[$key], 'node', $related_documents_machine_translations[$key]);
           }
         }
         else {
-          // @TODO: Get rid off  "True" value when it is updated in the feed.
-          $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls, 'node', $related_documents_machine_translations == 1 || $related_documents_machine_translations == 'True' ? 1 : 0);
+          $this->entityData->set('newsroom_connector_item', $nid, $related_documents_urls, 'node', $related_documents_machine_translations);
         }
       }
     }

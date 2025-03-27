@@ -128,7 +128,7 @@ abstract class NewsroomProcessorBase extends PluginBase implements NewsroomProce
    * @return \Drupal\Core\Entity\EntityInterface|null
    *   Entity associated with newsroom id.
    */
-  private function getEntityByNewsroomId($newsroom_id) {
+  protected function getEntityByNewsroomId($newsroom_id) {
     $definition = $this->getPluginDefinition();
     return $this->migrationManager->getEntityByNewsroomId($newsroom_id, $definition['entity_type'], $definition['bundle'], $definition['bundle_field']);
   }

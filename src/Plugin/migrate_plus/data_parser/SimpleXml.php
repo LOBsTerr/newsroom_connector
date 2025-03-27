@@ -47,7 +47,7 @@ class SimpleXml extends DataParserPluginBase {
 
     // We cache result of fetch operation to accelerate batch operations.
     $cid = 'newsroom_http_plugin' . crc32($url);
-    $cache_backend = \Drupal::service('cache.default');
+    $cache_backend = \Drupal::service('newsroom_connector.cache');
     $data_cached = $cache_backend->get($cid);
 
     if (!$data_cached) {
