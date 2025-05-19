@@ -88,3 +88,14 @@ newsroom_connector.clean_mappings:
     _title: 'Clean migration mappings'
   requirements:
     _permission: 'administer newsroom settings'
+
+# Clean cache.
+newsroom_connector.cache_form:
+  path: '/admin/content/newsroom/clean-cache'
+  defaults:
+    _form: 'Drupal\newsroom_connector\Form\CacheForm'
+    _title: 'Newsroom connector : Clean cache'
+  requirements:
+    _permission: 'clean cache'
+  options:
+    _admin_route: TRUE

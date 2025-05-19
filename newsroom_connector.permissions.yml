@@ -1,7 +1,11 @@
-'administer newsroom settings':
+administer newsroom settings:
   title: Administer newsroom settings
   description: Allow users to administer newsroom settings
 
-'import newsroom content':
+import newsroom content:
   title: Import newsroom content
   description: Allow users to import newsroom content
+
+clean cache:
+  title: Clean cache
+  description: Clean newsroom specific cache

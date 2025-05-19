@@ -4,3 +4,10 @@ newsroom_connector.admin_config:
   title: 'Newsroom connector'
   weight: 10
   description: 'Newsroom connector configuration.'
+
+newsroom_connector.clean_cache:
+  route_name: newsroom_connector.cache_form
+  parent: system.admin_content
+  title: 'Newsroom connector : Clean cache'
+  weight: 20
+  description: 'Newsroom connector clean cache.'

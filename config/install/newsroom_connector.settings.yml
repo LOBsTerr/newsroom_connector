@@ -2,7 +2,7 @@ universe_id: ''
 base_url: 'https://ec.europa.eu/newsroom/'
 debug: false
 import_disabled: false
-api_key: false
+api_key: ''
 subsite: ''
 
 dependencies:
